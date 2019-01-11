@@ -24,5 +24,3 @@ For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for TFS synchronizatio
 * Windows: [SpecSync.MTM.1.4.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.MTM.1.4.0.zip)
 * OSX/Linux: [SpecSync.Mono.1.4.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Mono.1.4.0.zip)
 
-
-
