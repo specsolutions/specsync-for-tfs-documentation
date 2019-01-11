@@ -10,3 +10,5 @@ More information about the motivation and goals of the project can be found in a
 
 This documentation contains the necessary information to configure and use SpecSync. If you are new to SpecSync, we recommend starting with the [Getting Started Guide](getting-started/).
 
+If you have used SpecSync v1.\* before, we recommend reviewing the [Migrating from SpecSync v1](important-concepts/migrating-from-specsync-v1.md) guide.
+
