@@ -1,4 +1,2 @@
 # Important Concepts
 
-
-
