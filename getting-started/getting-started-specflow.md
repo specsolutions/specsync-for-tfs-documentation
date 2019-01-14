@@ -6,7 +6,7 @@ SpecSync is a synchronization tool that can be invoked from the command line. Fo
 
 ## Preparation
 
-For setting up SpecSync for TFS, you need a SpecFlow project and a TFS \(Azure DevOps\) project. For the supported TFS versions, please check the [Compatibility](../compatibility.md) list.
+For setting up SpecSync for Azure DevOps, you need a SpecFlow project and a TFS \(Azure DevOps\) project. For the supported TFS versions, please check the [Compatibility](../compatibility.md) list.
 
 In our guide, we will use a calculator example \(MyCalculator\) that uses SpecFlow v2.3 with MsTest. The SpecFlow project is called `MyCalculator.Specs`. The sample project can be downloaded from [GitHub](https://github.com/gasparnagy/specsync-basic-calculator-specflow).
 
@@ -14,7 +14,7 @@ For a synchronization target we use an Azure DevOps project: `https://specsyncde
 
 ## Installation
 
-The SpecSync for TFS synchronization tool can be installed by adding the [`SpecSync.AzureDevOps`](https://www.nuget.org/packages/SpecSync.AzureDevOps) package from NuGet.org:
+The SpecSync for Azure DevOps synchronization tool can be installed by adding the [`SpecSync.AzureDevOps`](https://www.nuget.org/packages/SpecSync.AzureDevOps) package from NuGet.org:
 
 ```text
 PM> Install-Package SpecSync.AzureDevOps

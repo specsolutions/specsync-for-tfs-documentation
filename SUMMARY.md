@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction to SpecSync for TFS](README.md)
+* [Introduction to SpecSync for Azure DevOps](README.md)
 * [Getting started](getting-started/README.md)
   * [Getting started using SpecFlow](getting-started/getting-started-specflow.md)
   * [Getting started using Cucumber or other Gherkin-based BDD tool](getting-started/getting-started-cucumber.md)

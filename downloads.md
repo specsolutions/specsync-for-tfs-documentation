@@ -2,7 +2,7 @@
 
 For .NET projects using SpecFlow, SpecSync for Azure DevOps can be installed from NuGet: [SpecSync.AzureDevOps](https://www.nuget.org/packages/SpecSync.AzureDevOps/).
 
-For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for TFS synchronization tool can be downloaded for Windows, OSX or Linux-based systems. Find the download links below.
+For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for Azure DevOps synchronization tool can be downloaded for Windows, OSX or Linux-based systems. Find the download links below.
 
 ## v1.6.0
 

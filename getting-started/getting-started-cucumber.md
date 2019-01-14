@@ -12,7 +12,7 @@ In this guide we will use Cucumber.js as an example, but the steps can also be a
 
 ## Preparation
 
-For setting up SpecSync for TFS, you need a Cucumber project and a TFS \(Azure DevOps\) project. For the supported TFS versions, please check the [Compatibility](../compatibility.md) list.
+For setting up SpecSync for Azure DevOps, you need a Cucumber project and a TFS \(Azure DevOps\) project. For the supported TFS versions, please check the [Compatibility](../compatibility.md) list.
 
 In our guide, we will use a calculator example \(my\_calculator\) that uses Cucumber.js v5.1. The sample project can be downloaded from [GitHub](https://github.com/gasparnagy/specsync-basic-calculator-cucumber-js).
 

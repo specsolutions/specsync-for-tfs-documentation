@@ -2,7 +2,7 @@
 
 ## Supported TFS systems <a id="supported-tfs-systems"></a>
 
-SpecSync for TFS might work with other TFS installations as well, but it has been tested with the following configurations:
+SpecSync for Azure DevOps might work with other TFS installations as well, but it has been tested with the following configurations:
 
 * Azure DevOps \(Visual Studio Team Services, VSTS, VSO\)
 * Team Foundation Server 2017

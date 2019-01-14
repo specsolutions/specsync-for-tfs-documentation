@@ -1,4 +1,4 @@
-# Introduction to SpecSync for TFS
+# Introduction to SpecSync for Azure DevOps
 
 Many teams being currently in a transformation process towards using agile and BDD have to face the problem that the new specification artefacts and reports have to be integrated into the existing tool chain. Many of such teams use Microsoft TFS \(Team Foundation Server / Visual Studio Team Services / Azure DevOps\). As the manual test activities \(especially exploratory testing\) and traceability also play an important role in agile testing and BDD, TFS might have its place in the BDD tool chain. In some circumstances, TFS can also run automated test cases as part of the build/deployment pipeline or in an ad-hoc fashion. These tests can even be executed in dedicated virtual environments so that automated acceptance testing can become more stable and predictable.
 

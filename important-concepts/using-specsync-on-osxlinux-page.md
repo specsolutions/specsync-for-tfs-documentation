@@ -2,7 +2,7 @@
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. The synchronization tool works on Windows, OSX and Linux. \(The OSX and Linux support has been introduced in v1.4.\)
 
-In order to use the SpecSync for TFS command line tool on OSX or Linux, there are two options.
+In order to use the SpecSync for Azure DevOps command line tool on OSX or Linux, there are two options.
 
 ## 1. Using SpecSync command line tool as a native binary \(on Linux only\)
 
