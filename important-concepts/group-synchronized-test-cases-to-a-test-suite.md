@@ -5,7 +5,22 @@ To be able to easily find these synchronized test cases in Azure DevOps, they ca
 1. Create a "Static suite" \(e.g. "BDD Scenarios"\) in Azure DevOps. \(For that you have to navigate to "Test plans" and create and select a test plan first.\)
 2. Specify the name of the test suite in the `remote/testSuite/name` entry of the `specsync.json` file. \(Alternatively you can specify the ID of the suite in `remote/testSuite/id`. The suite names are not unique in Azure DevOps!\)
 
-   ![Configure test suite](../.gitbook/assets/getting-started-specflow-configure-test-suite.png)
+   ```
+   {
+     "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+   
+     // See configuration options and samples at http://speclink.me/specsyncconfig.
+     // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
+   
+     "remote": {
+       "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
+       "user": "52yny4a......................................ycsetda",
+       "testSuite": {
+         "name": "BDD Scenarios"
+       }
+     }
+   }
+   ```
 
 3. Make sure that the project compiles and the tests pass.
 4. Run the synchronization again:

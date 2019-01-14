@@ -48,7 +48,21 @@ Before the first synchronization we have to review and change a few settings in 
 3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
 4. Set the value of the `local/featureFileSource/type` setting to `folder` and the `local/featureFileSource/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
 
-![The \`specsync.json\` after basic configuration has been set](../.gitbook/assets/getting-started-cucumber-basic-config.png)
+The \`specsync.json\` after basic configuration has been set
+
+```
+{
+  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+
+  // See configuration options and samples at http://speclink.me/specsyncconfig.
+  // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
+
+  "remote": {
+    "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
+    "user": "52yny........................................ycsetda"
+  }
+}
+```
 
 ## First synchronization
 
@@ -138,7 +152,22 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 1. Create a "Static suite" \(e.g. "BDD Scenarios"\) in Azure DevOps. \(For that you have to navigate to "Test plans" and create and select a test plan first.\)
 2. Specify the name of the test suite in the `remote/testSuite/name` entry of the `specsync.json` file. \(Alternatively you can specify the ID of the suite in `remote/testSuite/id`. The suite names are not unique in Azure DevOps!\)
 
-   ![Configure test suite](../.gitbook/assets/getting-started-specflow-configure-test-suite.png)
+   ```
+   {
+     "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+   
+     // See configuration options and samples at http://speclink.me/specsyncconfig.
+     // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
+   
+     "remote": {
+       "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
+       "user": "52yny4a......................................ycsetda",
+       "testSuite": {
+         "name": "BDD Scenarios"
+       }
+     }
+   }
+   ```
 
 3. Make sure that the project compiles and the tests pass.
 4. Run the synchronization again:
