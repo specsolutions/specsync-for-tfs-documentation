@@ -6,7 +6,7 @@ Depending on the configuration or the installation of the Azure DevOps server, t
 
 Typical valid Azure DevOps project URLs:
 
-* `http://myserver:8080/tfs/project-name` -- on premises Azure DevOps installation (Azure DevOps Server / Team Foundation Server)
+* `http://myserver:8080/tfs/project-name` -- on premises Azure DevOps installation \(Azure DevOps Server / Team Foundation Server\)
 * `https://myserver/tfs/project-name` -- on premises Azure DevOps installation with HTTPS
 * `http://myserver:8080/tfs/DefaultCollection/project-name` -- on premises Azure DevOps installation with a project collection
 * `http://myserver:8080/tfs/project%20name` -- space in the project name \(`project name`\)

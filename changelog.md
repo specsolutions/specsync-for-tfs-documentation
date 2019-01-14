@@ -88,7 +88,7 @@
 * Fix compatibility issue for running synchronized test cases using the TFS lab environment.
 * Add application icon
 
-## v1.1.6 - 2016/08/11 <a id="v1-1-0"></a>
+## v1.1.6 - 2016/08/11  <a id="v1-1-0"></a>
 
 * Fix authorization problem with VSTS for Alternate authentication credentials and Personal access tokens
 * Set test case tags to the tags of the scenario
@@ -101,7 +101,7 @@
 * More robust error handling
 * Two-way synchronization \(beta\)
 
-## v1.0.1 - 2016/03/17 <a id="v1-0-1"></a>
+## v1.0.1 - 2016/03/17  <a id="v1-0-1"></a>
 
 * Only display the exception messages by default, you can use the `--verbose` option to get the stack trace.
 * The tool returns with non-zero exit code if there was an error.
@@ -111,7 +111,7 @@
 * Allow more authentication options \(sign-in prompts, domain account\)
 * Tested with TFS 2013.
 
-## v1.0.0 - 2016/02/24 <a id="v1-0-0"></a>
+## v1.0.0 - 2016/02/24  <a id="v1-0-0"></a>
 
 Initial version used in the demo video in the [intro post](http://speclink.me/spsintro).
 

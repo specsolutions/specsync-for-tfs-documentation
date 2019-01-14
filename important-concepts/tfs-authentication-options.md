@@ -38,7 +38,7 @@ And also in the command line prompt:
 
 \(From shell scripts on Windows you have to use `%%` to avoid resolving the variable by the script itself.\)
 
-## Personal access tokens <a id="vsts-personal-access-tokens"></a>
+## Personal access tokens  <a id="vsts-personal-access-tokens"></a>
 
 The recommended way to access your Azure DevOps project for synchronization is to use [personal access tokens](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). PAT is like a combination of a user name and a password that are valid for a certain time only and can have restricted access to your Azure DevOps resources.
 
@@ -72,7 +72,7 @@ Or on the command line prompt:
 
 `path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "52yny...........................nycsetda"`
 
-## Alternate authentication credentials <a id="vsts-alternate-authentication-credentials"></a>
+## Alternate authentication credentials  <a id="vsts-alternate-authentication-credentials"></a>
 
 A slightly less secure alternative of personal access tokens is to use alternate authentication credentials with Azure DevOps. With this option, you can provide a username/password pair that can be used for password-based authentication.
 
@@ -106,7 +106,7 @@ Or on the command line prompt:
 
 \(If you don't specify the `--password` option, the tool will prompt you for entering the password.\)
 
-## Microsoft account sign-in prompt <a id="vsts-visual-studio-sign-in-prompt"></a>
+## Microsoft account sign-in prompt  <a id="vsts-visual-studio-sign-in-prompt"></a>
 
 For interactive sessions you can also provide your Azure DevOps credentials using the Microsoft account sign-in prompt \(similar to what you get when providing your credentials for Visual Studio\).
 
@@ -124,7 +124,7 @@ To authenticate using the sign-in prompt, you should _not_ specify the user.
 
 In the popup window you have to provide the user name \(email\) and the password you usually use for accessing Azure DevOps with the browser.
 
-## Domain user name and password <a id="tfs-domain-user-name-and-password"></a>
+## Domain user name and password  <a id="tfs-domain-user-name-and-password"></a>
 
 For installed Team Foundation Servers, you can use your domain user name \(`MYDOMAIN\myuser` format\) and password for the synchronization.
 
@@ -148,7 +148,7 @@ Or on the command line prompt:
 
 \(If you don't specify the `--password` option, the tool will prompt you for entering the password.\)
 
-## Windows sign-in prompt <a id="tfs-windows-sign-in-prompt"></a>
+## Windows sign-in prompt  <a id="tfs-windows-sign-in-prompt"></a>
 
 For installed Team Foundation Servers, if you don't specify the user, you will be asked to provide your credentials in an interactive sign-in prompt.
 

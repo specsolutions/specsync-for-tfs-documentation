@@ -69,8 +69,7 @@ There are a couple of things you can note here.
 ## Verify feature file and commit changes
 
 1. Open one of the feature files from the SpecFlow project in Visual Studio. SpecSync modified the file and added a few tags.
-
-* Each scenario and scenario outline has been tagged with a `@tc:...` tag making the link between the scenario and the created test case.
+2. Each scenario and scenario outline has been tagged with a `@tc:...` tag making the link between the scenario and the created test case.
 
 ```text
 @tc:12294
