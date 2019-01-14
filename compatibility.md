@@ -20,6 +20,7 @@ When synchronizing scenarios to non-automated test cases \(default\), SpecSync c
 
 For synchronizing automated test cases, currently the following SpecFlow versions are supported.
 
+* SpecFlow v2.4
 * SpecFlow v2.3
 * SpecFlow v2.2.1 \(with SpecSync v1.4.1\)
 

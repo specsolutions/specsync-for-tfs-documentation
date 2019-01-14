@@ -50,7 +50,7 @@ Before the first synchronization we have to review and change a few settings in 
 
 The \`specsync.json\` after basic configuration has been set
 
-```
+```text
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
@@ -152,13 +152,13 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 1. Create a "Static suite" \(e.g. "BDD Scenarios"\) in Azure DevOps. \(For that you have to navigate to "Test plans" and create and select a test plan first.\)
 2. Specify the name of the test suite in the `remote/testSuite/name` entry of the `specsync.json` file. \(Alternatively you can specify the ID of the suite in `remote/testSuite/id`. The suite names are not unique in Azure DevOps!\)
 
-   ```
+   ```text
    {
      "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
-   
+
      // See configuration options and samples at http://speclink.me/specsyncconfig.
      // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
-   
+
      "remote": {
        "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
        "user": "52yny4a......................................ycsetda",
