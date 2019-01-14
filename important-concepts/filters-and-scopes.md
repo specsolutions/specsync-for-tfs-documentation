@@ -36,7 +36,7 @@ You can also limit the scope by particular scenario tags. E.g. for only synchron
 To synchronize only a subset of the scenarios within the local scope, a filter tag expression can be specified as a command line option. \(See [Usage](../usage.md) for details.\) For example to only synchronize the scenarios related to a particular user story \(tagged with `@story:123`\), the following option can be used.
 
 ```text
-path-to-specsync-package\tools\SpecSync4TFS.exe push --tagFilter "@story:123"
+path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push --tagFilter "@story:123"
 ```
 
 ## Setting remote scope for `pull`

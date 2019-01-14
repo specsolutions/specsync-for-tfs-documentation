@@ -14,15 +14,15 @@ For a synchronization target we use an Azure DevOps project: `https://specsyncde
 
 ## Installation
 
-The SpecSync for TFS synchronization tool can be installed by adding the [`SpecSync.TFS`](https://www.nuget.org/packages/SpecSync.TFS) package from NuGet.org:
+The SpecSync for TFS synchronization tool can be installed by adding the [`SpecSync.AzureDevOps`](https://www.nuget.org/packages/SpecSync.AzureDevOps) package from NuGet.org:
 
 ```text
-PM> Install-Package SpecSync.TFS
+PM> Install-Package SpecSync.AzureDevOps
 ```
 
-The package contains the synchronization command line tool \(`tools\SpecSync4TFS.exe`\) and some documentation files \(`docs` folder\).
+The package contains the synchronization command line tool \(`tools\SpecSync4AzureDevOps.exe`\) and some documentation files \(`docs` folder\).
 
-It also adds a `specsync4tfs.cmd` script file to the project for calling the SpecSync command line tool conveniently. SpecSync can also be used without the script file, but in this case you have to provide the full path of `SpecSync4TFS.exe` downloaded into the NuGet packages folder.
+It also adds a `specsync4azuredevops.cmd` script file to the project for calling the SpecSync command line tool conveniently. SpecSync can also be used without the script file, but in this case you have to provide the full path of `SpecSync4AzureDevOps.exe` downloaded into the NuGet packages folder.
 
 ## Basic configuration
 
@@ -41,7 +41,7 @@ The NuGet package has added a configuration file \(`specsync.json`\) to your pro
    * all tests pass,
    * the modified files are checked in to source control.
 3. Open a command line prompt and navigate to the SpecFlow project folder \(`MyCalculator.Specs`\)
-4. Call `specsync4tfs.cmd push` to invoke the synchronization.
+4. Call `specsync4azuredevops.cmd push` to invoke the synchronization.
 5. If you haven't specified any credentials in the configuration file, an authentication dialog will popup, where you have to specify your credentials for accessing the TFS project.
 
 As a result, the scenarios from the project will be linked to newly created TFS test cases, and you will see a result like this.
@@ -103,7 +103,7 @@ Now let's make a change in one of the scenarios and synchronize the changes to t
 3. Run the synchronization again:
 
    ```text
-   specsync4tfs.cmd push
+   specsync4azuredevops.cmd push
    ```
 
 The result shows that the test case for the scenario has been updated, but the other test cases have remained unchanged \(_up-to-date_\).
@@ -129,7 +129,7 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 4. Run the synchronization again:
 
    ```text
-   specsync4tfs.cmd push
+   specsync4azuredevops.cmd push
    ```
 
 The synchronization will proceed with the result similar to this.
@@ -157,10 +157,10 @@ In order to make the test case "Automated", there are a few restrictions that yo
 
 If these restrictions are acceptable in your context then the following steps can be used to enable synchronizing automated test cases.
 
-1. Install the SpecSync SpecFlow plugin to your project as a NuGet package. For example for SpecFlow `v2.3.*`, install [`SpecSync.TFS.SpecFlow.2-3`](https://www.nuget.org/packages/SpecSync.TFS.SpecFlow.2-3).
+1. Install the SpecSync SpecFlow plugin to your project as a NuGet package. For example for SpecFlow `v2.3.*`, install [`SpecSync.AzureDevOps.SpecFlow.2-3`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.2-3).
 
    ```text
-   PM> Install-Package SpecSync.TFS.SpecFlow.2-3
+   PM> Install-Package SpecSync.AzureDevOps.SpecFlow.2-3
    ```
 
 2. Enable synchronizing automated test cases by setting the `synchronization/automation/enabled` setting to `true` in the `specsync.json` file. \(You can enable this only for selected scenarios. See [automation configuration](../configuration/configuration-synchronization/configuration-synchronization-automation.md) for details.\) ![Configure synchronizing automated test cases](../.gitbook/assets/getting-started-specflow-configure-automation.png)
@@ -169,7 +169,7 @@ If these restrictions are acceptable in your context then the following steps ca
 5. Run the synchronization again:
 
    ```text
-   specsync4tfs.cmd push
+   specsync4azuredevops.cmd push
    ```
 
 As a result of the synchronization, the test cases are marked as "Automated" and the test methods are associated with the test cases.

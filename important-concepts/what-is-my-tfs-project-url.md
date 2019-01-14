@@ -60,10 +60,10 @@ SpecSync accepts both formats.
 
 ## Spaces in project names
 
-Some TFS project name has spaces. For the proper represenation of the TFS project URL, the spaces have to be replaced by `%20`. So the project URL of the project `SpecSync4TFS Demo` should be:
+Some TFS project name has spaces. For the proper represenation of the TFS project URL, the spaces have to be replaced by `%20`. So the project URL of the project `SpecSync4AzureDevOps Demo` should be:
 
 ```text
-https://specsyncdemo.visualstudio.com/SpecSync4TFS%20Demo
+https://specsyncdemo.visualstudio.com/SpecSync4AzureDevOps%20Demo
 ```
 
 The same representation has to be used for spaces in project collection names too.

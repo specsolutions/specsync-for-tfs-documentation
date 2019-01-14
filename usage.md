@@ -1,11 +1,11 @@
 # Usage
 
-The SpecSync [install package](installation.md) contains a command line tool \(`SpecSync4TFS.exe`\) inside the `tools` folder. All synchronization operations can be performed by invoking this tool from the local environment or [from the CI build process](important-concepts/synchronizing-test-cases-from-build.md). \(For .NET projects, the package adds a `specsync4tfs.cmd` script file to the project for calling the SpecSync command line tool conveniently.\)
+The SpecSync [install package](installation.md) contains a command line tool \(`SpecSync4AzureDevOps.exe`\) inside the `tools` folder. All synchronization operations can be performed by invoking this tool from the local environment or [from the CI build process](important-concepts/synchronizing-test-cases-from-build.md). \(For .NET projects, the package adds a `specsync4azuredevops.cmd` script file to the project for calling the SpecSync command line tool conveniently.\)
 
 The synchronization tool provides different commands. For synchronizing the scenarios to TFS, the `push` command can be used. The configuration options have to be provided in a [json configuration file](configuration/), called `specsync.json` by default. It is recommended to invoke the command line tool from the project folder, otherwise the path of the configuration file has to be specified explicitly.
 
 ```text
-path-to-specsync-package\tools\SpecSync4TFS.exe push
+path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
 ```
 
 For a detailed setup instructions, please check the [Getting started](getting-started/) guide. For a complete list of configuration options check the [Configuration](configuration/) documentation.
@@ -38,24 +38,24 @@ The following command line options are available for all synchronization command
 Synchronize local changes to TFS \(`specsync.json` config file is in the current folder\):
 
 ```text
-path-to-specsync-package\tools\SpecSync4TFS.exe push
+path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
 ```
 
 Get help about command line options for `push` command:
 
 ```text
-path-to-specsync-package\tools\SpecSync4TFS.exe help push
+path-to-specsync-package\tools\SpecSync4AzureDevOps.exe help push
 ```
 
 Synchronize local changes to TFS with custom config file:
 
 ```text
-path-to-specsync-package\tools\SpecSync4TFS.exe push MyProject.Specs\specsync-group-a.json
+path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push MyProject.Specs\specsync-group-a.json
 ```
 
 Synchronize local changes to TFS on build server:
 
 ```text
-path-to-specsync-package\tools\SpecSync4TFS.exe push --buildServerMode
+path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push --buildServerMode
 ```
 

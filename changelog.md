@@ -5,10 +5,10 @@
 ### Breaking changes
 
 * The NuGet package has been renamed and split:
-  * `SpecSync.TFS` - contains the synchronization tool
-  * `SpecSync.TFS.SpecFlow.2-3`, `SpecSync.TFS.SpecFlow.2-4`, etc. - contains the SpecFlow plugin required to [synchronized automated test cases](important-concepts/synchronizing-automated-test-cases.md) for a particular SpecFlow version \(eg. v2.3, v2.4\).
-  * `SpecSync.MTM` - obsolete package, will load SpecSync.TFS, SpecSync.TFS.SpecFlowPlugin has to be added manually if necessary
-* The synchronization tool has been renamed from `SpecSync4MTM` to `SpecSync4TFS`
+  * `SpecSync.AzureDevOps` - contains the synchronization tool
+  * `SpecSync.AzureDevOps.SpecFlow.2-3`, `SpecSync.AzureDevOps.SpecFlow.2-4`, etc. - contains the SpecFlow plugin required to [synchronized automated test cases](important-concepts/synchronizing-automated-test-cases.md) for a particular SpecFlow version \(eg. v2.3, v2.4\).
+  * `SpecSync.MTM` - obsolete package, will load SpecSync.AzureDevOps, SpecSync.AzureDevOps.SpecFlowPlugin has to be added manually if necessary
+* The synchronization tool has been renamed from `SpecSync4MTM` to `SpecSync4AzureDevOps`
 * The configuration of the synchronization has been moved to a configuration file \(although a few options can be overridden from the command line\). By default the config file should be named as `specsync.json`. See configuration options and samples at [Configuration](configuration/). You can also check the `specsync-sample.json` file in the `docs` folder of the NuGet package.
 * The two-way synchronization has been reworked to be able to support a more stable development process. The synchronization has been split into two independent actions: _push_ and _pull_. The new process should follow a pull-merge/resolve-verify-push model. See [Two-way synchronization](important-concepts/two-way-synchronization.md) for details.
 * Tag filtering has been split to _tag filter_ and _tags scope_. Tag filter has to be specified on the command line \(`--tagFilter`\), while tag scope has to be specified in the config file \(`local/tags`\). See [Filters and scopes](important-concepts/filters-and-scopes.md) for details.

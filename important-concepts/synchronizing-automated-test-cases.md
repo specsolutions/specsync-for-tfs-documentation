@@ -19,10 +19,10 @@ In order to make the test case "Automated", there are a few restrictions that yo
 
 If these restrictions are acceptable in your context then the following steps can be used to enable synchronizing automated test cases.
 
-1. Install the SpecSync SpecFlow plugin to your project as a NuGet package. For example for SpecFlow `v2.3.*`, install [`SpecSync.TFS.SpecFlow.2-3`](https://www.nuget.org/packages/SpecSync.TFS.SpecFlow.2-3).
+1. Install the SpecSync SpecFlow plugin to your project as a NuGet package. For example for SpecFlow `v2.3.*`, install [`SpecSync.AzureDevOps.SpecFlow.2-3`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.2-3).
 
    ```text
-   PM> Install-Package SpecSync.TFS.SpecFlow.2-3
+   PM> Install-Package SpecSync.AzureDevOps.SpecFlow.2-3
    ```
 
 2. Enable synchronizing automated test cases by setting the `synchronization/automation/enabled` setting to `true` in the `specsync.json` file. \(You can enable this only for selected scenarios. See [automation configuration](../configuration/configuration-synchronization/configuration-synchronization-automation.md) for details.\) ![Configure synchronizing automated test cases](../.gitbook/assets/getting-started-specflow-configure-automation.png)
@@ -31,7 +31,7 @@ If these restrictions are acceptable in your context then the following steps ca
 5. Run the synchronization again:
 
    ```text
-   specsync4tfs.cmd push
+   specsync4azuredevops.cmd push
    ```
 
 As a result of the synchronization, the test cases are marked as "Automated" and the test methods are associated with the test cases.

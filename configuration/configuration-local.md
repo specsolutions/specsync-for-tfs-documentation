@@ -64,7 +64,7 @@ The list file has to be specified in the config file:
 You can invoke the syncronization as usual:
 
 ```text
-path-to-specsync-package/tools/SpecSync4TFS.exe push
+path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push
 ```
 
 ## Example: Synchronize feature files from a sub-folder
@@ -100,7 +100,7 @@ For this, the feature file source has to be configured to `folder` and the requi
 You can invoke the syncronization as usual:
 
 ```text
-path-to-specsync-package/tools/SpecSync4TFS.exe push
+path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push
 ```
 
 ## Example: Synchronize feature files from a dynamic folder list
@@ -126,19 +126,19 @@ After that we can generate the file list and invoke the synchronization. Let's s
 On Windows \(CMD\):
 
 ```text
-dir /s /b features\group_a\*.feature | path-to-specsync-package\tools\SpecSync4TFS.exe push
+dir /s /b features\group_a\*.feature | path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
 ```
 
 On Windows \(PowerShell\):
 
 ```text
-gci -Path .\features\group_a -r *.Feature | % FullName | path-to-specsync-package\tools\SpecSync4TFS.exe push
+gci -Path .\features\group_a -r *.Feature | % FullName | path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
 ```
 
 On OSX and Linux:
 
 ```text
-find features/group_a/ -name *.feature | path-to-specsync-package/tools/SpecSync4TFS.exe push
+find features/group_a/ -name *.feature | path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push
 ```
 
 _\[Back to the_ [_Configuration guide_](./)_\]_

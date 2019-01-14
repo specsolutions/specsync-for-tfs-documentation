@@ -4,13 +4,13 @@ For a detailed installation instructions, please check the [Getting started](get
 
 ## For .NET \(SpecFlow\) projects
 
-For .NET \(SpecFlow\) projects, SpecSync can be installed via NuGet. The synchronization tool can be installed by adding the [`SpecSync.TFS`](https://www.nuget.org/packages/SpecSync.TFS) package from NuGet.org.
+For .NET \(SpecFlow\) projects, SpecSync can be installed via NuGet. The synchronization tool can be installed by adding the [`SpecSync.AzureDevOps`](https://www.nuget.org/packages/SpecSync.AzureDevOps) package from NuGet.org.
 
 ```text
-PM> Install-Package SpecSync.TFS
+PM> Install-Package SpecSync.AzureDevOps
 ```
 
-For synchronizing automated test cases, an SpecFlow plugin has to be installed additionally. The name of the package depends on the SpecFlow version you use, e.g. for SpecFlow v2.3 the [`SpecSync.TFS.SpecFlow.2-3`](https://www.nuget.org/packages/SpecSync.TFS.SpecFlow.2-3) package has to be used. See more details in [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md).
+For synchronizing automated test cases, an SpecFlow plugin has to be installed additionally. The name of the package depends on the SpecFlow version you use, e.g. for SpecFlow v2.3 the [`SpecSync.AzureDevOps.SpecFlow.2-3`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.2-3) package has to be used. See more details in [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md).
 
 ## For any platforms \(e.g. for Cucumber\)
 

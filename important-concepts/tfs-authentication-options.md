@@ -34,7 +34,7 @@ The the environment variables can be used in the [configuration file](../configu
 
 And also in the command line prompt:
 
-`path-to-specsync-package/tools/SpecSync4TFS.exe push --user "%%VSO_USER%%" --password "%%VSO_PWD%%"`
+`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "%%VSO_USER%%" --password "%%VSO_PWD%%"`
 
 \(From shell scripts on Windows you have to use `%%` to avoid resolving the variable by the script itself.\)
 
@@ -70,7 +70,7 @@ The personal access token can be configured in the [configuration file](../confi
 
 Or on the command line prompt:
 
-`path-to-specsync-package/tools/SpecSync4TFS.exe push --user "52yny...........................nycsetda"`
+`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "52yny...........................nycsetda"`
 
 ## Alternate authentication credentials <a id="vsts-alternate-authentication-credentials"></a>
 
@@ -102,7 +102,7 @@ The alternate authentication credentials can be configured in the [configuration
 
 Or on the command line prompt:
 
-`path-to-specsync-package/tools/SpecSync4TFS.exe push --user myalternateusername --password myalternatepassword`
+`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user myalternateusername --password myalternatepassword`
 
 \(If you don't specify the `--password` option, the tool will prompt you for entering the password.\)
 
@@ -144,7 +144,7 @@ The domain user name and password can be configured in the [configuration file](
 
 Or on the command line prompt:
 
-`path-to-specsync-package/tools/SpecSync4TFS.exe push --user mydomainpassword --password mydomainpassword`
+`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user mydomainpassword --password mydomainpassword`
 
 \(If you don't specify the `--password` option, the tool will prompt you for entering the password.\)
 

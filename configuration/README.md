@@ -20,10 +20,10 @@ The following example shows a minimal configuration file.
 
 ```text
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4fts-config-latest.json",
+  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
   "remote": {
-    "tfsProjectUrl": "https://gasparnagy.visualstudio.com/SpecSync4TFS%20Demo",
+    "tfsProjectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
   }
 }
 ```

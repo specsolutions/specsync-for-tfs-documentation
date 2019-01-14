@@ -34,7 +34,7 @@ Once this configuration has been done, the general workflow could be:
 2. Pull test case changes from TFS:
 
    ```text
-   path-to-specsync-package\tools\SpecSync4TFS.exe pull
+   path-to-specsync-package\tools\SpecSync4AzureDevOps.exe pull
    ```
 
 3. During the pull operation SpecSync might ask you to help resolving conflicting changes.
@@ -42,7 +42,7 @@ Once this configuration has been done, the general workflow could be:
 5. Push back to TFS \(we recommend this step even if there were no fixes required, because this way SpecSync can register the current state of the scenarios in TFS\)
 
    ```text
-   path-to-specsync-package\tools\SpecSync4TFS.exe push
+   path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
    ```
 
 6. Check in \(commit and push\) your changes to source control

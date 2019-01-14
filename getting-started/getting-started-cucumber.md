@@ -22,7 +22,7 @@ For a synchronization target we use an Azure DevOps project: `https://specsyncde
 
 Download SpecSync from the [downloads page](../downloads.md) and unzip it to a folder on your system.
 
-The package contains the synchronization command line tool \(`tools/SpecSync4TFS.exe`\) and some documentation files \(`docs` folder\).
+The package contains the synchronization command line tool \(`tools/SpecSync4AzureDevOps.exe`\) and some documentation files \(`docs` folder\).
 
 ## Basic configuration
 
@@ -30,7 +30,7 @@ Create a configuration file \(`specsync.json`\) to your project root, based on t
 
 ```text
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4fts-config-latest.json",
+  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
   // See configuration options and samples at http://speclink.me/specsyncconfig.
   // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
@@ -57,7 +57,7 @@ Before the first synchronization we have to review and change a few settings in 
    * all tests pass,
    * the modified files are checked in to source control.
 3. Open a command line prompt and navigate to the project root folder
-4. Call `path-to-specsync-package/SpecSync4TFS.exe push` to invoke the synchronization. See [Using SpecSync on OSX/Linux](../important-concepts/using-specsync-on-osxlinux-page.md) page for more details on how to invoke the synchronization tool on different platforms.
+4. Call `path-to-specsync-package/SpecSync4AzureDevOps.exe push` to invoke the synchronization. See [Using SpecSync on OSX/Linux](../important-concepts/using-specsync-on-osxlinux-page.md) page for more details on how to invoke the synchronization tool on different platforms.
 5. If you haven't specified any credentials in the configuration file, an authentication dialog will popup, where you have to specify your credentials for accessing the TFS project.
 
 As a result, the scenarios from the project will be linked to newly created TFS test cases, and you will see a result like this.
@@ -119,7 +119,7 @@ Now let's make a change in one of the scenarios and synchronize the changes to t
 3. Run the synchronization again:
 
    ```text
-   path-to-specsync-package/SpecSync4TFS.exe push
+   path-to-specsync-package/SpecSync4AzureDevOps.exe push
    ```
 
 The result shows that the test case for the scenario has been updated, but the other test cases have remained unchanged \(_up-to-date_\).
@@ -145,7 +145,7 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 4. Run the synchronization again:
 
    ```text
-   path-to-specsync-package/SpecSync4TFS.exe push
+   path-to-specsync-package/SpecSync4AzureDevOps.exe push
    ```
 
 The synchronization will proceed with the result similar to this.

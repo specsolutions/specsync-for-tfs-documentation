@@ -11,7 +11,7 @@ To be able to easily find these synchronized test cases in TFS, they can be adde
 4. Run the synchronization again:
 
    ```text
-   path-to-specsync-package\tools\SpecSync4TFS.exe push
+   path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
    ```
 
 As a result, SpecSync adds the synchronized test cases to the test suite.

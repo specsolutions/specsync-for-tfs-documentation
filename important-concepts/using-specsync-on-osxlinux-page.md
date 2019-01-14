@@ -28,15 +28,15 @@ For this option, you have to
    }
    ```
 
-4. Mark `SpecSync4TFS` as executable: `chmod +x $SPECSYNC_DIR/SpecSync4TFS`
+4. Mark `SpecSync4AzureDevOps` as executable: `chmod +x $SPECSYNC_DIR/SpecSync4AzureDevOps`
 5. Copy the file `libMonoPosixHelper.so` from the SpecSync folder to the project folder \(this is a temporary limitation\): `cp $SPECSYNC_DIR/libMonoPosixHelper.so .`
-6. From the project folder, invoke `SpecSync4TFS` to synchronize feature files. E.g. if you have used the `stdIn` setting, the list of feature files can be provided with pipping the commands:
+6. From the project folder, invoke `SpecSync4AzureDevOps` to synchronize feature files. E.g. if you have used the `stdIn` setting, the list of feature files can be provided with pipping the commands:
 
    ```text
-   find Features/ -name *.feature | $SPECSYNC_DIR/SpecSync4TFS push
+   find Features/ -name *.feature | $SPECSYNC_DIR/SpecSync4AzureDevOps push
    ```
 
-A sample script performing steps 5-6 can also be found in the zip file: `specsync4tfs_sample.sh`, similar to the following.
+A sample script performing steps 5-6 can also be found in the zip file: `specsync4azuredevops_sample.sh`, similar to the following.
 
 ```text
 #!/bin/bash
@@ -46,7 +46,7 @@ echo Copy libMonoPosixHelper.so to the current folder
 cp $SPECSYNC_DIR/libMonoPosixHelper.so .
 
 echo Synchronize feature files within "Features" folder
-find Features/ -name *.feature | $SPECSYNC_DIR/SpecSync4TFS push
+find Features/ -name *.feature | $SPECSYNC_DIR/SpecSync4AzureDevOps push
 
 echo Delete libMonoPosixHelper.so from the current folder
 rm -f libMonoPosixHelper.so
@@ -76,10 +76,10 @@ For this option, you have to
    }
    ```
 
-4. From the project folder, invoke `$SPECSYNC_DIR/Assemblies/SpecSync4TFS.exe` to synchronize feature files. E.g. if you have used the `stdIn` setting, the list of feature files can be provided with pipping the commands:
+4. From the project folder, invoke `$SPECSYNC_DIR/Assemblies/SpecSync4AzureDevOps.exe` to synchronize feature files. E.g. if you have used the `stdIn` setting, the list of feature files can be provided with pipping the commands:
 
    ```text
-   find Features/ -name *.feature | $SPECSYNC_DIR/Assemblies/SpecSync4TFS.exe push
+   find Features/ -name *.feature | $SPECSYNC_DIR/Assemblies/SpecSync4AzureDevOps.exe push
    ```
 
 A sample script performing step 4 can be similar to the following.
@@ -89,6 +89,6 @@ A sample script performing step 4 can be similar to the following.
 SPECSYNC_DIR=$HOME/SpecSync.Mono
 
 echo Synchronize feature files within "Features" folder
-find Features/ -name *.feature | mono $SPECSYNC_DIR/Assemblies/SpecSync4TFS.exe push
+find Features/ -name *.feature | mono $SPECSYNC_DIR/Assemblies/SpecSync4AzureDevOps.exe push
 ```
 
