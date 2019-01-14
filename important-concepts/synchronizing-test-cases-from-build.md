@@ -10,7 +10,7 @@ For [authentication](tfs-authentication-options.md), it is recommended to create
 {
   ...
  "remote": {
-    "tfsProjectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
     "user": "%SYNC_USER%",
     "password": "%SYNC_PWD%"
   },

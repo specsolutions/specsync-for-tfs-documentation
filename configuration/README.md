@@ -23,7 +23,7 @@ The following example shows a minimal configuration file.
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
   "remote": {
-    "tfsProjectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
+    "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
   }
 }
 ```

@@ -24,7 +24,7 @@ The the environment variables can be used in the [configuration file](../configu
 {
   ...
  "remote": {
-    "tfsProjectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
     "user": "%VSO_USER%",
     "password": "%VSO_PWD%"
   },
@@ -61,7 +61,7 @@ The personal access token can be configured in the [configuration file](../confi
 {
   ...
  "remote": {
-    "tfsProjectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
     "user": "52yny...........................nycsetda"
   },
   ...
@@ -92,7 +92,7 @@ The alternate authentication credentials can be configured in the [configuration
 {
   ...
  "remote": {
-    "tfsProjectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
     "user": "myalternateusername",
     "password": "myalternatepassword"
   },
@@ -116,7 +116,7 @@ To authenticate using the sign-in prompt, you should _not_ specify the user.
 {
   ...
  "remote": {
-    "tfsProjectUrl": "https://dev.azure.com/myorganization/MyProject"
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject"
   },
   ...
 }
@@ -134,7 +134,7 @@ The domain user name and password can be configured in the [configuration file](
 {
   ...
  "remote": {
-    "tfsProjectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
     "user": "MYDOMAIN\myuser",
     "password": "mydomainpassword"
   },
@@ -156,7 +156,7 @@ For installed Team Foundation Servers, if you don't specify the user, you will b
 {
   ...
  "remote": {
-    "tfsProjectUrl": "http://mytfs:8080/tfs/DefaultCollection/MyProject"
+    "projectUrl": "http://mytfs:8080/tfs/DefaultCollection/MyProject"
   },
   ...
 }

@@ -29,7 +29,7 @@ It also adds a `specsync4azuredevops.cmd` script file to the project for calling
 The NuGet package has added a configuration file \(`specsync.json`\) to your project that contains all SpecSync related settings. Before the first synchronization we have to review and change a few settings in this file.
 
 1. Open the `specsync.json` file in Visual Studio from your project folder.
-2. Set the value of the `remote/tfsProjectUrl` setting to the **project URL** of your TFS project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my TFS project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
+2. Set the value of the `remote/projectUrl` setting to the **project URL** of your TFS project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my TFS project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
 3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [TFS authentication options](../important-concepts/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
 
 ![The \`specsync.json\` after basic configuration has been set](../.gitbook/assets/getting-started-specflow-basic-config.png)

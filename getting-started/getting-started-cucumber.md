@@ -36,7 +36,7 @@ Create a configuration file \(`specsync.json`\) to your project root, based on t
   // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
 
   "remote": {
-    "tfsProjectUrl": "<specify your TFS project ULR>"
+    "projectUrl": "<specify your TFS project ULR>"
   }
 }
 ```
@@ -44,7 +44,7 @@ Create a configuration file \(`specsync.json`\) to your project root, based on t
 Before the first synchronization we have to review and change a few settings in this file. For this example we will synchronize all feature files within the `test/features` folder. For synchronizing only a specific set of feature files, please check the [`local` Configuration](../configuration/configuration-local.md) documentation.
 
 1. Open the `specsync.json` file in your IDE \(e.g. Visual Studio Code\) from your project folder.
-2. Set the value of the `remote/tfsProjectUrl` setting to the **project URL** of your TFS project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my TFS project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
+2. Set the value of the `remote/projectUrl` setting to the **project URL** of your TFS project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my TFS project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
 3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [TFS authentication options](../important-concepts/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
 4. Set the value of the `local/featureFileSource/type` setting to `folder` and the `local/featureFileSource/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
 
