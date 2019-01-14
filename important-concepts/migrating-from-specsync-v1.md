@@ -10,6 +10,8 @@ If you have used SpecSync via NuGet, you have to replace the NuGet package refer
 
 The core package \(`SpecSync.MTM`\) has been renamed to `SpecSync.AzureDevOps` and it no longer contains the SpecFlow plugin needed for synchronizing automated test cases.
 
+*Note: In the beta versions of SpecSync v2, a package name `SpecSync.TFS` has been used, but that has been deprecated in favor of `SpecSync.AzureDevOps`.*
+
 If you use SpecSync with SpecFlow and have used synchronizing automated test cases before, you have to add an additional NuGet package. The necessary NuGet package depends on the SpecFlow version you use. For example for SpecFlow v2.3.\*, you have to use the [`SpecSync.AzureDevOps.SpecFlow.2-3`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.2-3) package. Read more about this in [Synchronizing automated test cases](synchronizing-automated-test-cases.md).
 
 ## Capture your synchronization settings in a config file
