@@ -41,7 +41,7 @@ The following example shows the available options within this section.
 * `branchTag` -- Supports synchronization of scenarios on a feature branch.
   * `branchTag/enabled` -- Enables the customization. \(Default: `false`\)
   * `branchTag/prefix` -- The tag prefix to be used for linking scenarios that are updated on a branch. E.g. the prefix `tc.mybranch` will generate tags, like `@tc.mybranch:1234`.
-* `fieldDefaults` -- Enables setting default values to test case fields. Useful for custom TFS process templates.
+* `fieldDefaults` -- Enables setting default values to test case fields. Useful for custom Azure DevOps process templates.
   * `fieldDefaults/enabled` -- Enables the customization. \(Default: `false`\)
   * `fieldDefaults/defaultValues` -- A list of key-value pair, where the key is the canonical name of the field to be updated \(e.g. `System.Description`\) and the value is the default value to be used when the test case is created. 
 * `ignoreTestCaseSteps` -- Can ignore \(leave unchanged\) test case steps with a specific prefix.

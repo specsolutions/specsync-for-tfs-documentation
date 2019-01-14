@@ -1,6 +1,6 @@
-# TFS authentication options
+# Azure DevOps authentication options
 
-SpecSync supports several authentication options for the [supported TFS systems](../compatibility.md#supported-tfs-systems). This section provides a summary of how the different authentication options have to be configured:
+SpecSync supports several authentication options for the [supported Azure DevOps systems](../compatibility.md#supported-tfs-systems). This section provides a summary of how the different authentication options have to be configured:
 
 For Azure DevOps \(Visual Studio Team Services, VSTS\)
 
@@ -40,13 +40,13 @@ And also in the command line prompt:
 
 ## Personal access tokens <a id="vsts-personal-access-tokens"></a>
 
-The recommended way to access your Azure DevOps project for synchronization is to use [personal access tokens](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). PAT is like a combination of a user name and a password that are valid for a certain time only and can have restricted access to your TFS resources.
+The recommended way to access your Azure DevOps project for synchronization is to use [personal access tokens](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). PAT is like a combination of a user name and a password that are valid for a certain time only and can have restricted access to your Azure DevOps resources.
 
-For on premises Team Foundation Server, PAT can only be used if the connection to the TFS server is using `https`.
+For on premises Team Foundation Server, PAT can only be used if the connection to the Azure DevOps server is using `https`.
 
 To create a personal access token, you have to follow the following steps:
 
-1. Navigate to your TFS server \(e.g. [https://myaccount.visualstudio.com](https://myaccount.visualstudio.com)\) with a browser.
+1. Navigate to your Azure DevOps server \(e.g. [https://myaccount.visualstudio.com](https://myaccount.visualstudio.com)\) with a browser.
 2. On the upper right corner, click on your name and select "Security".
 3. Switch to the "Personal access tokens" tab inside the "Security" group.
 4. Click on "New Token" to create a new personal access token for synchronization.
@@ -78,7 +78,7 @@ A slightly less secure alternative of personal access tokens is to use alternate
 
 To enable alternate authentication credentials, you have to follow the following steps:
 
-1. Navigate to your TFS server \(e.g. [https://myaccount.visualstudio.com](https://myaccount.visualstudio.com)\) with a browser.
+1. Navigate to your Azure DevOps server \(e.g. [https://myaccount.visualstudio.com](https://myaccount.visualstudio.com)\) with a browser.
 2. On the upper right corner, click on your name and select "Security".
 3. Switch to the "Alternate credentials" tab inside the "Security" group.
 4. Check the "Enable alternate authentication credentials" checkbox and specify a \(secondary\) user name and password.

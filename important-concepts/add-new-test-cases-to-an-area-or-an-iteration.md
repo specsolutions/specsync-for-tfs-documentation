@@ -1,6 +1,6 @@
 # Add new test cases to an Area or an Iteration
 
-The `Area` field can be used in TFS to assign the test case to a team or to a project functionality group. The `Iteration` field can be used to assign the test case to a Sprint or project iteration.
+The `Area` field can be used in Azure DevOps to assign the test case to a team or to a project functionality group. The `Iteration` field can be used to assign the test case to a Sprint or project iteration.
 
 The `Area` and the `Iteration` fields can be modified manually, independently from the scenario synchronization \(SpecSync will not override these fields\). When the test case is initially created by SpecSync, by default it leaves these fields unset, so they will be initialized to the project default \(usually to the root area and iteration\).
 

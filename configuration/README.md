@@ -52,7 +52,7 @@ The following configuration sections can be used. Click to the name of the secti
 
 * [`toolSettings`](configuration-toolsettings.md) -- settings for the synchronization tool
 * [`local`](configuration-local.md) -- settings for the local repository \(file system\) containing the feature files
-* [`remote`](configuration-remote.md) -- Settings for accessing the test cases on the remote TFS server
+* [`remote`](configuration-remote.md) -- Settings for accessing the test cases on the remote Azure DevOps server
 * [`synchronization`](configuration-synchronization/) -- synchronization settings
 * [`specFlow`](configuration-specflow.md) -- settings related to synchronizing SpecFlow projects
 * [`customizations`](configuration-customizations.md) -- configure customizations

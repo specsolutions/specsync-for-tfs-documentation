@@ -4,6 +4,7 @@
 
 ### Breaking changes
 
+* The product has been renamed to SpecSync for Azure DevOps to be conform with the updated product name of Microsoft TFS/VSTS
 * The NuGet package has been renamed and split:
   * `SpecSync.AzureDevOps` - contains the synchronization tool
   * `SpecSync.AzureDevOps.SpecFlow.2-3`, `SpecSync.AzureDevOps.SpecFlow.2-4`, etc. - contains the SpecFlow plugin required to [synchronized automated test cases](important-concepts/synchronizing-automated-test-cases.md) for a particular SpecFlow version \(eg. v2.3, v2.4\).

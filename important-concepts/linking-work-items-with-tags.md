@@ -1,10 +1,10 @@
 # Linking work items using tags
 
-SpecSync can synchronize the scenarios with TFS test cases. In order to be able to use these test cases in TFS, you might want to link them to other work items. For example, if the scenario is describing the behavior of the user story \#123, you make a link between the test case synchronized from the scenario and the story. This gives you a better traceability and allows you to create requirement- or query-based test suites in TFS. For example you can create a test suite that contains all test cases \(scenarios\) that are related to user story \#123.
+SpecSync can synchronize the scenarios with Azure DevOps test cases. In order to be able to use these test cases in Azure DevOps, you might want to link them to other work items. For example, if the scenario is describing the behavior of the user story \#123, you make a link between the test case synchronized from the scenario and the story. This gives you a better traceability and allows you to create requirement- or query-based test suites in Azure DevOps. For example you can create a test suite that contains all test cases \(scenarios\) that are related to user story \#123.
 
 Although you can establish these links manually, once SpecSync has created the test cases from the scenarios, it is an error-prone manual process. A better way to do this is to mark the relation of the scenarios to other work items via tags and let SpecSync create the necessary links between the work items.
 
-For that you need to mark the scenarios with tags, like `@story:123`, and specify the tag prefix \(in this case `story`\) in the SpecSync [configuration file](../configuration/). The links can be configured in the [`synchronization/links` section](https://github.com/specsolutions/specsync-for-tfs-documentation/tree/d6f47aa02bc0a49443bb765adcc0145655743ed8/configuration-synchronization-links.md) of the configuration.
+For that you need to mark the scenarios with tags, like `@story:123`, and specify the tag prefix \(in this case `story`\) in the SpecSync [configuration file](../configuration/). The links can be configured in the [`synchronization/links` section](../configuration/configuration-synchronization/configuration-synchronization-links.md) of the configuration.
 
 ```text
 {
@@ -22,7 +22,7 @@ For that you need to mark the scenarios with tags, like `@story:123`, and specif
 }
 ```
 
-This will synchronize the scenario with the TFS test case and establish a link between the test case and the user story \#123 work item.
+This will synchronize the scenario with the Azure DevOps test case and establish a link between the test case and the user story \#123 work item.
 
 ## Work item tags
 

@@ -1,23 +1,23 @@
-# What is my TFS project URL
+# What is my Azure DevOps project URL
 
-In order to configure the remote TFS server for synchronizing the scenarios to, the TFS project URL has to be configured in the [`remote` Configuration](../configuration/configuration-remote.md).
+In order to configure the remote Azure DevOps server for synchronizing the scenarios to, the Azure DevOps project URL has to be configured in the [`remote` Configuration](../configuration/configuration-remote.md).
 
-Depending on the configuration or the installation of the TFS server, the TFS project URL might look different.
+Depending on the configuration or the installation of the Azure DevOps server, the Azure DevOps project URL might look different.
 
-Typical valid TFS project URLs:
+Typical valid Azure DevOps project URLs:
 
-* `http://myserver:8080/tfs/project-name` -- on premises TFS installation
-* `https://myserver/tfs/project-name` -- on premises TFS installation with HTTPS
-* `http://myserver:8080/tfs/DefaultCollection/project-name` -- on premises TFS installation with a project collection
+* `http://myserver:8080/tfs/project-name` -- on premises Azure DevOps installation (Azure DevOps Server / Team Foundation Server)
+* `https://myserver/tfs/project-name` -- on premises Azure DevOps installation with HTTPS
+* `http://myserver:8080/tfs/DefaultCollection/project-name` -- on premises Azure DevOps installation with a project collection
 * `http://myserver:8080/tfs/project%20name` -- space in the project name \(`project name`\)
 * `https://myorganization.visualstudio.com/MyProject` -- Azure DevOps project created earlier
 * `https://dev.azure.com/myorganization/MyProject` -- Azure DevOps project created recently
 
 ## Multi-team projects
 
-The confusion about the TFS project URL is partly due to the fact that the TFS "project dashboard" that is the usual starting point of using TFS in the browser is not necessarily a "TFS project". Many organizations use TFS teams and multi-team TFS projects.
+The confusion about the Azure DevOps project URL is partly due to the fact that the Azure DevOps "project dashboard" that is the usual starting point of using Azure DevOps in the browser is not necessarily a "Azure DevOps project". Many organizations use Azure DevOps teams and multi-team Azure DevOps projects.
 
-TFS teams have their own dashboard and the majority of the project members \(who only belong to one team within the project\) use the team dashboard as a TFS project root. The team dashboard URL usually looks like this:
+Azure DevOps teams have their own dashboard and the majority of the project members \(who only belong to one team within the project\) use the team dashboard as a Azure DevOps project root. The team dashboard URL usually looks like this:
 
 ```text
 http://myserver:8080/tfs/project-name/team-name
@@ -44,7 +44,7 @@ For multi-team projects the team members might not have access to all work items
 
 ## Project collections
 
-TFS groups the projects into project collections, but the majority of the companies use a single project collection. In earlier versions of TFS, the project collection name was mandatory in the URL, so a typical project URL looked like this:
+Azure DevOps groups the projects into project collections, but the majority of the companies use a single project collection. In earlier versions of Azure DevOps, the project collection name was mandatory in the URL, so a typical project URL looked like this:
 
 ```text
 http://myserver:8080/tfs/DefaultCollection/project-name
@@ -60,7 +60,7 @@ SpecSync accepts both formats.
 
 ## Spaces in project names
 
-Some TFS project name has spaces. For the proper represenation of the TFS project URL, the spaces have to be replaced by `%20`. So the project URL of the project `SpecSync4AzureDevOps Demo` should be:
+Some Azure DevOps project name has spaces. For the proper represenation of the Azure DevOps project URL, the spaces have to be replaced by `%20`. So the project URL of the project `SpecSync4AzureDevOps Demo` should be:
 
 ```text
 https://specsyncdemo.visualstudio.com/SpecSync4AzureDevOps%20Demo

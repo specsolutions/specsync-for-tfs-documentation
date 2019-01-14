@@ -1,10 +1,11 @@
 # Compatibility
 
-## Supported TFS systems <a id="supported-tfs-systems"></a>
+## Supported Azure DevOps systems <a id="supported-tfs-systems"></a>
 
-SpecSync for Azure DevOps might work with other TFS installations as well, but it has been tested with the following configurations:
+SpecSync for Azure DevOps might work with other Azure DevOps or TFS installations as well, but it has been tested with the following configurations:
 
-* Azure DevOps \(Visual Studio Team Services, VSTS, VSO\)
+* Azure DevOps Services \(Visual Studio Team Services, VSTS, VSO\)
+* Azure DevOps Server 2019
 * Team Foundation Server 2017
 * Team Foundation Server 2015 Update 3
 * Team Foundation Server 2013 Update 1 \(up to SpecSync v1.3\)
@@ -30,7 +31,7 @@ If you need to use SpecSync \(for synchronizing automated test cases\) with a Sp
 
 When synchronizing scenarios to non-automated test cases \(default\), SpecSync can be used with any test runner supported by SpecFlow.
 
-For synchronizing automated test cases, SpecFlow has to be used with MsTest. This is a limitation of the TFS test case execution infrastructure that SpecSync cannot influence.
+For synchronizing automated test cases, SpecFlow has to be used with MsTest. This is a limitation of the Azure DevOps test case execution infrastructure that SpecSync cannot influence.
 
 See more details in [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md).
 

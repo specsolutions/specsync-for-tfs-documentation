@@ -1,6 +1,6 @@
 # Filters and scopes
 
-SpecSync synchronizes scenarios from feature files to TFS test cases when using the `push` command. For that you have to specify which feature files and which scenarios within the feature files should be considered by SpecSync. This is the **synchronization scope**.
+SpecSync synchronizes scenarios from feature files to Azure DevOps test cases when using the `push` command. For that you have to specify which feature files and which scenarios within the feature files should be considered by SpecSync. This is the **synchronization scope**.
 
 Similarly to this, when using the `pull` command \(for [two-way synchronization](two-way-synchronization.md)\), you have to specify the the scope of the test cases that should be considered.
 

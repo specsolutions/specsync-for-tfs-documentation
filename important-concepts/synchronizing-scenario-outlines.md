@@ -18,7 +18,7 @@ Examples:
 
 This scenario outline represents three executable tests, one for each row of the `Examples` table.
 
-In TFS, parametrized test cases can be created for the similar problems. A test case automatically becomes parametrized, once you use a parameter \(e.g. `@myparam`\) in the test case steps. The parameter values can be specified in a separate table, similarly to scenario outlines: one row in the parameter values table represents one test, called iteration.
+In Azure DevOps, parametrized test cases can be created for the similar problems. A test case automatically becomes parametrized, once you use a parameter \(e.g. `@myparam`\) in the test case steps. The parameter values can be specified in a separate table, similarly to scenario outlines: one row in the parameter values table represents one test, called iteration.
 
 SpecSync synchronizes scenario outlines automatically to parametrized test cases. Once the scenario outline above is synchronized, it produces a test case like this.
 

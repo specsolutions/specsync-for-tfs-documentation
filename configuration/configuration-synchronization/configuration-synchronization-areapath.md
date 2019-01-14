@@ -2,7 +2,7 @@
 
 This configuration section contains settings to configure how the test case _area path_ field should be updated.
 
-Read more about the setting the _area path_ and _iteration path_ fields in the [Add new test cases to an Area or an Iteration](https://github.com/specsolutions/specsync-for-tfs-documentation/tree/d6f47aa02bc0a49443bb765adcc0145655743ed8/configuration/add-new-test-cases-to-an-area-or-an-iteration.md) concept description.
+Read more about the setting the _area path_ and _iteration path_ fields in the [Add new test cases to an Area or an Iteration](../../important-concepts/add-new-test-cases-to-an-area-or-an-iteration.md) concept description.
 
 The following example shows the available options within this sub-section.
 

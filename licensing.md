@@ -22,7 +22,7 @@ The location of the license file \(absolute or relative to the project folder\) 
 
 * Two-way synchronization \(using the `pull` command\). See [Two-way synchronization](important-concepts/two-way-synchronization.md) for details.
 * Branch-tag support -- supports synchronization of scenarios on a feature branch.
-* Field default value support -- enables setting default values to test case fields. Useful for custom TFS process templates.
+* Field default value support -- enables setting default values to test case fields. Useful for custom Azure DevOps process templates.
 * Custom field update support -- enables updating test case fields that are normally not changed by SpecSync.
 * Test case step ignore -- can ignore \(leave unchanged\) test case steps with a specific prefix.
 

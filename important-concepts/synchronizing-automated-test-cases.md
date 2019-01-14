@@ -1,12 +1,12 @@
 # Synchronizing automated test cases
 
-The TFS Test Cases can have associated automation, so that they can be executed as a part of the TFS build, release or by executing a test plan.
+The Azure DevOps Test Cases can have associated automation, so that they can be executed as a part of the Azure DevOps pipeline build, release or by executing a test plan.
 
 Please note that tests can be executed from build and release even without associating automation to test cases, e.g. by running all tests from an assembly. The difference is that if the tests are not executed through the test cases, these executions will not be trackable from the test cases.
 
-TFS Test Case automation currently supports MsTest-base automation only. This means that with SpecSync, this feature can only be used with SpecFlow projects using MsTest unit test runner.
+Azure DevOps Test Case automation currently supports MsTest-base automation only. This means that with SpecSync, this feature can only be used with SpecFlow projects using MsTest unit test runner.
 
-For all other cases \(e.g. for Cucumber projects or xUnit-based SpecFlow projects\), SpecSync can synchronize the scenarios to **non-automated test cases**. The synchronized non-automated test cases can be managed, linked and structured in TFS. You can run them manually as well. It is also possible to upload test result for these tests using the TFS API.
+For all other cases \(e.g. for Cucumber projects or xUnit-based SpecFlow projects\), SpecSync can synchronize the scenarios to **non-automated test cases**. The synchronized non-automated test cases can be managed, linked and structured in Azure DevOps. You can run them manually as well. It is also possible to upload test result for these tests using the Azure DevOps API.
 
 ## Setting up synchronization of automated test cases for SpecFlow
 
@@ -36,11 +36,11 @@ If these restrictions are acceptable in your context then the following steps ca
 
 As a result of the synchronization, the test cases are marked as "Automated" and the test methods are associated with the test cases.
 
-![Test case in TFS with associated automation](../.gitbook/assets/getting-started-specflow-associated-automation.png)
+![Test case in Azure DevOps with associated automation](../.gitbook/assets/getting-started-specflow-associated-automation.png)
 
-## Filter out wrapper methods in TFS build
+## Filter out wrapper methods in Azure DevOps pipeline build
 
-When the tests are run in TFS build from assembly \(so not through the test cases\), the generated wrapper methods have the be filtered out as well. This can be achieved by entering the `TestCategory!=SpecSyncWrapper` expression as "Test Filter criteria".
+When the tests are run in Azure DevOps build from assembly \(so not through the test cases\), the generated wrapper methods have the be filtered out as well. This can be achieved by entering the `TestCategory!=SpecSyncWrapper` expression as "Test Filter criteria".
 
-![Filter out scenario outline wrapper test methods in TFS build](../.gitbook/assets/automation-filter-wrapper-in-build.png)
+![Filter out scenario outline wrapper test methods in Azure DevOps build](../.gitbook/assets/automation-filter-wrapper-in-build.png)
 
