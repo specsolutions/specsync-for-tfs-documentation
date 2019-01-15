@@ -6,7 +6,7 @@ Read more about the test case format options in the [Configuring the format of t
 
 The following example shows the available options within this sub-section.
 
-```text
+```javascript
 {
   ...
   "synchronization": {

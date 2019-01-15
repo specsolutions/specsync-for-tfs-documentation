@@ -28,7 +28,7 @@ The package contains the synchronization command line tool \(`tools/SpecSync4Azu
 
 Create a configuration file \(`specsync.json`\) to your project root, based on the `docs/specsync-empty.json` file. The empty file can also be downloaded from [http://schemas.specsolutions.eu/specsync-empty.json](http://schemas.specsolutions.eu/specsync-empty.json).
 
-```text
+```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
@@ -50,7 +50,7 @@ Before the first synchronization we have to review and change a few settings in 
 
 The \`specsync.json\` after basic configuration has been set
 
-```text
+```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
@@ -152,7 +152,7 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 1. Create a "Static suite" \(e.g. "BDD Scenarios"\) in Azure DevOps. \(For that you have to navigate to "Test plans" and create and select a test plan first.\)
 2. Specify the name of the test suite in the `remote/testSuite/name` entry of the `specsync.json` file. \(Alternatively you can specify the ID of the suite in `remote/testSuite/id`. The suite names are not unique in Azure DevOps!\)
 
-   ```text
+   ```javascript
    {
      "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 

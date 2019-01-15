@@ -4,7 +4,7 @@ This configuration section contains settings for the synchronization tool.
 
 The following example shows the available options within this section.
 
-```text
+```javascript
 {
   ...
   "toolSettings": {

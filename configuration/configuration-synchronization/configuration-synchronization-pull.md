@@ -8,7 +8,7 @@ _Note: The two-way synchronization is an_ [_Enterprise feature_](../../licensing
 
 The following example shows the available options within this sub-section.
 
-```text
+```javascript
 {
   ...
   "synchronization": {

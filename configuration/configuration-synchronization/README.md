@@ -4,7 +4,7 @@ This configuration section contains synchronization settings.
 
 The following example shows the available options within this section.
 
-```text
+```javascript
 {
   ...
   "synchronization": {

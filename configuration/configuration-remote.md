@@ -4,10 +4,10 @@ This configuration section contains settings for accessing the test cases on the
 
 The following example shows the available options within this section.
 
-```text
+```javascript
 {
   ...
- "remote": {
+  "remote": {
     "projectUrl": "https://dev.azure.com/myorganization/MyProject",
     "user": "myuser",
     "password": "%MYPWD%",

@@ -4,7 +4,7 @@ This configuration section contains settings to configure how the test case _sta
 
 The following example shows the available options within this sub-section.
 
-```text
+```javascript
 {
   ...
   "synchronization": {

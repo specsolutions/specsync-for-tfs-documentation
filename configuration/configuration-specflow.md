@@ -4,11 +4,11 @@ This configuration section contains settings related to synchronizing SpecFlow p
 
 The following example shows the available options within this section.
 
-```text
+```javascript
 {
   ...
   "specFlow": {
-    "specFlowGeneratorFolder": "packages\\SpecFlow.2.3.0\\tools",
+    "specFlowGeneratorFolder": "..\\packages\\SpecFlow.2.3.0\\tools",
     "scenarioOutlineAutomationWrappers": "iterateThroughExamples",
     "wrapperMethodPrefix": "_SpecSyncWrapper_",
     "wrapperMethodCategory": "SpecSyncWrapper"

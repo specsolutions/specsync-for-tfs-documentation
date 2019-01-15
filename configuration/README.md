@@ -18,7 +18,7 @@ The `specsync.json` configuration file is a standard JSON file, but it also allo
 
 The following example shows a minimal configuration file.
 
-```text
+```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
@@ -34,7 +34,7 @@ A detailed sample configuration file that contains nearly all settings can be fo
 
 The settings in the configuration file are grouped into different configuration sections. Each configuration section is a JSON object following the syntax:
 
-```text
+```javascript
 {  // start of the file
   ...
   "section1": {

@@ -6,7 +6,7 @@ Read more about synchronizing automated test cases in the [Synchronizing automat
 
 The following example shows the available options within this sub-section.
 
-```text
+```javascript
 {
   ...
   "synchronization": {

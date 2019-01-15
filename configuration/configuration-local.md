@@ -4,7 +4,7 @@ This configuration section contains settings for the local repository \(file sys
 
 The following example shows the available options within this section.
 
-```text
+```javascript
 {
   ...
   "local": {
@@ -48,7 +48,7 @@ All paths in this file can be relative to the folder of the config file. On Wind
 
 The list file has to be specified in the config file:
 
-```text
+```javascript
 {
   ...
   "local": {
@@ -84,7 +84,7 @@ In this example SpecSync is configured to synchronize all feature files within `
 
 For this, the feature file source has to be configured to `folder` and the required folder path has to be specified in the `folder` setting:
 
-```text
+```javascript
 {
   ...
   "local": {
@@ -109,7 +109,7 @@ In this example we will synchronize the same feature files as in the previous ex
 
 First, let's set the config file to:
 
-```text
+```javascript
 {
   ...
   "local": {

@@ -6,7 +6,7 @@ Read more about synchronizing test case links in the [Linking work items using t
 
 The following example shows how this sub-section can be used to specify a single link type.
 
-```text
+```javascript
 {
   ...
   "synchronization": {

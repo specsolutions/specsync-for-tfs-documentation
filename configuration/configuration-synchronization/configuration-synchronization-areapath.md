@@ -6,7 +6,7 @@ Read more about the setting the _area path_ and _iteration path_ fields in the [
 
 The following example shows the available options within this sub-section.
 
-```text
+```javascript
 {
   ...
   "synchronization": {

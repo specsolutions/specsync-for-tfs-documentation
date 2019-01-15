@@ -6,7 +6,7 @@ _Note: The customizations described here are_ [_Enterprise features_](../licensi
 
 The following example shows the available options within this section.
 
-```text
+```javascript
 {
   ...
  "customizations": {

@@ -32,9 +32,9 @@ The NuGet package has added a configuration file \(`specsync.json`\) to your pro
 2. Set the value of the `remote/projectUrl` setting to the **project URL** of your Azure DevOps project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
 3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
 
-The \`specsync.json\` after basic configuration has been set
+The `specsync.json` after basic configuration has been set
 
-```text
+```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
@@ -136,7 +136,7 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 1. Create a "Static suite" \(e.g. "BDD Scenarios"\) in Azure DevOps. \(For that you have to navigate to "Test plans" and create and select a test plan first.\)
 2. Specify the name of the test suite in the `remote/testSuite/name` entry of the `specsync.json` file. \(Alternatively you can specify the ID of the suite in `remote/testSuite/id`. The suite names are not unique in Azure DevOps!\)
 
-   ```text
+   ```javascript
    {
      "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
@@ -191,9 +191,18 @@ If these restrictions are acceptable in your context then the following steps ca
    PM> Install-Package SpecSync.AzureDevOps.SpecFlow.2-3
    ```
 
-2. Enable synchronizing automated test cases by setting the `synchronization/automation/enabled` setting to `true` in the `specsync.json` file. \(You can enable this only for selected scenarios. See [automation configuration](../configuration/configuration-synchronization/configuration-synchronization-automation.md) for details.\) ![Configure synchronizing automated test cases](../.gitbook/assets/getting-started-specflow-configure-automation.png)
-3. Regenerate feature files by invoking "Regenerate Feature Files" from the context menu of the SpecFlow project node in the "Solution Explorer" window. This step is not necessary if you use [MsBuild generation for SpecFlow](https://specflow.org/documentation/Generate-Tests-from-MsBuild/). ![Regenerate feature files](../.gitbook/assets/getting-started-specflow-regenerate-feature-files.png)
-4. Compile the project. For each Scenario Outline, there will be an additional wrapper test generated that will be used by the automated test case. Running these tests locally is unnecessary, therefore it is recommended to filter them out from local execution. This can be done for example by entering the `-Trait:SpecSyncWrapper` filter criteria to the search box of the "Test Explorer" window. \(See more in [SpecFlow configuration](../configuration/configuration-specflow.md).\) ![Filtering out wrapper tests from local execution](../.gitbook/assets/getting-started-specflow-filter-out-wrapper.png)
+2. Enable synchronizing automated test cases by setting the `synchronization/automation/enabled` setting to `true` in the `specsync.json` file. \(You can enable this only for selected scenarios. See [automation configuration](../configuration/configuration-synchronization/configuration-synchronization-automation.md) for details.\) 
+
+   ![Configure synchronizing automated test cases](../.gitbook/assets/getting-started-specflow-configure-automation.png)
+
+3. Regenerate feature files by invoking "Regenerate Feature Files" from the context menu of the SpecFlow project node in the "Solution Explorer" window. This step is not necessary if you use [MsBuild generation for SpecFlow](https://specflow.org/documentation/Generate-Tests-from-MsBuild/). 
+
+   ![Regenerate feature files](../.gitbook/assets/getting-started-specflow-regenerate-feature-files.png)
+
+4. Compile the project. For each Scenario Outline, there will be an additional wrapper test generated that will be used by the automated test case. Running these tests locally is unnecessary, therefore it is recommended to filter them out from local execution. This can be done for example by entering the `-Trait:SpecSyncWrapper` filter criteria to the search box of the "Test Explorer" window. \(See more in [SpecFlow configuration](../configuration/configuration-specflow.md).\) 
+
+   ![Filtering out wrapper tests from local execution](../.gitbook/assets/getting-started-specflow-filter-out-wrapper.png)
+
 5. Run the synchronization again:
 
    ```text
