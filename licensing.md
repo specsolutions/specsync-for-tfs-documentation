@@ -26,3 +26,9 @@ The location of the license file \(absolute or relative to the project folder\) 
 * Custom field update support -- enables updating test case fields that are normally not changed by SpecSync.
 * Test case step ignore -- can ignore \(leave unchanged\) test case steps with a specific prefix.
 
+### EULA
+
+The End User License Agreement can be downloaded [here](https://www.specsolutions.eu/media/specsync/EULA-SpecSync.pdf).
+
+
+
