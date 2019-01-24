@@ -32,7 +32,7 @@ If you need to use SpecSync \(for synchronizing automated test cases\) with a Sp
 
 When synchronizing scenarios to non-automated test cases \(default\), SpecSync can be used with any test runner supported by SpecFlow.
 
-For synchronizing automated test cases, SpecFlow has to be used with MsTest. This is a limitation of the Azure DevOps test case execution infrastructure that SpecSync cannot influence.
+For synchronizing automated test cases, SpecFlow has to be used with MsTest V1. This is a limitation of the Azure DevOps test case execution infrastructure that SpecSync cannot influence.
 
 See more details in [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md).
 

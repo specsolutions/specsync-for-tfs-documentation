@@ -4,7 +4,7 @@ The Azure DevOps Test Cases can have associated automation, so that they can be 
 
 Please note that tests can be executed from build and release even without associating automation to test cases, e.g. by running all tests from an assembly. The difference is that if the tests are not executed through the test cases, these executions will not be trackable from the test cases.
 
-Azure DevOps Test Case automation currently supports MsTest-base automation only. This means that with SpecSync, this feature can only be used with SpecFlow projects using MsTest unit test runner.
+[Azure DevOps Test Case automation currently supports MsTest-base \(V1\) automation only.](https://docs.microsoft.com/en-us/azure/devops/test/associate-automated-test-with-test-case?view=vsts) This means that with SpecSync, this feature can only be used with SpecFlow projects using MsTest unit test runner.
 
 For all other cases \(e.g. for Cucumber projects or xUnit-based SpecFlow projects\), SpecSync can synchronize the scenarios to **non-automated test cases**. The synchronized non-automated test cases can be managed, linked and structured in Azure DevOps. You can run them manually as well. It is also possible to upload test result for these tests using the Azure DevOps API.
 
