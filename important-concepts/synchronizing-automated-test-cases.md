@@ -1,5 +1,7 @@
 # Synchronizing automated test cases
 
+_Note: We have received questions about what an automated test case means. It is important to highlight that you can have and run automated scenarios in Azure DevOps without synchronizing them as automated test cases too. In fact this is how most teams use their scenarios: they configure a build step in Azure DevOps that runs all scenarios from the compiled test assembly. Automated test cases are only required if you want to run the test cases through test suites, but Azure DevOps supports this only for MsTest test methods \(see details of the restrictions below\)._
+
 The Azure DevOps Test Cases can have associated automation, so that they can be executed as a part of the Azure DevOps pipeline build, release or by executing a test plan.
 
 Please note that tests can be executed from build and release even without associating automation to test cases, e.g. by running all tests from an assembly. The difference is that if the tests are not executed through the test cases, these executions will not be trackable from the test cases.
