@@ -33,6 +33,7 @@
   * [Configuring the format of the synchronized test cases](important-concepts/configuring-the-format-of-the-synchronized-test-cases.md)
   * [Filters and scopes](important-concepts/filters-and-scopes.md)
   * [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md)
+  * [Synchronizing automated test cases \(SpecSync v2.0\)](important-concepts/synchronizing-automated-test-cases-specsync-v2.0.md)
   * [Synchronizing test cases from build](important-concepts/synchronizing-test-cases-from-build.md)
   * [Two-way synchronization](important-concepts/two-way-synchronization.md)
   * [Using SpecSync with SpecFlow+](important-concepts/using-specsync-with-specflow-plus.md)
