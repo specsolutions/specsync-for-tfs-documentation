@@ -1,10 +1,111 @@
 # Synchronizing automated test cases
 
-_Note: We have received questions about what an automated test case means. It is important to highlight that you can have and run automated scenarios in Azure DevOps without synchronizing them as automated test cases too. In fact this is how most teams use their scenarios: they configure a build step in Azure DevOps that runs all scenarios from the compiled test assembly. Automated test cases are only required if you want to run the test cases through test suites, but Azure DevOps supports this only for MsTest test methods \(see details of the restrictions below\)._
+_**Important: This article describes the behavior of SpecSync for Azure DevOps v2.1 or later. This version introduced major improvements for automated test cases. For the v2.0 behavior, please check this article.**_ 
 
-The Azure DevOps Test Cases can have associated automation, so that they can be executed as a part of the Azure DevOps pipeline build, release or by executing a test plan.
+The test cases synchronized by SpecSync can also track test executions and test results through the "Test Run" infrastructure of Azure DevOps. This might be useful to create a "Living Documentation" -- a description of the expected system behavior that can also indicate whether the solution currently fulfills these expectations or not. Tracking the test results for the test cases is optional.
 
-Please note that tests can be executed from build and release even without associating automation to test cases, e.g. by running all tests from an assembly. The difference is that if the tests are not executed through the test cases, these executions will not be trackable from the test cases.
+The test results in Azure DevOps are always registered to a _Test Point_. A Test Point is an association of a _Test Case_, a _Test Suite_ contains the Test Case and a _Test Configuration_ that is associated to the Test Suite.
+
+Besides tracking the test results the test cases can also be marked as "Automated", although test results can also be registered to a non-automated test case as well.
+
+SpecSync supports two main test execution strategies for tracking test case results:
+
+* **Assembly based execution** -- the scenarios are executed from the test assembly locally or in a build/release pipeline and the test results are published to the linked test cases by invoking the SpecSync `publish-test-results` command.
+* **Test Suite based execution** -- the automated test cases are executed by Azure DevOps using a Visual Studio Test \(VSTest\) task in a build or release pipeline that is configured to select tests using a Test Plan.
+
+Currently these strategies work only with SpecFlow projects. For non-SpecFlow projects \(e.g. Cucumber projects\), SpecSync can synchronize the scenarios to **non-automated test cases**. The synchronized non-automated test cases can be managed, linked and structured in Azure DevOps. We plan to support the Assembly based execution strategy for non-SpecFlow projects as well, please [contact us](https://www.specsolutions.eu/contact/) if you would like to use this feature.
+
+## Assembly based execution strategy
+
+The assembly-based execution strategy is the most generally applicable strategy and it requires the least changes in a usual continuous integration \(CI\) process.
+
+The core concept of the Assembly based execution strategy is that the scenarios are executed using the compiled test assembly like usual, and the execution results are published by SpecSync in a way that the individual test results will be connected to the Test Case work items synchronized from the scenarios.
+
+### Step 0: Configure SpecSync
+
+In order to publish test results to a test case in Azure DevOps, the test case has to be included to a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
+
+```javascript
+{
+  ...
+  "remote": {
+    ...
+    "testSuite": {
+      "name": "BDD Scenarios"
+    }
+  },
+  ...
+}
+```
+
+Although for this strategy it is not required, you can synchronize the test cases as automated test cases to indicate their execution type. In this case, you need to specify `assemblyBasedExecution` as `testExecutionStrategy` in the [`synchronization/automation`](../configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file.
+
+```javascript
+{
+  ...
+  "synchronization": {
+    ...
+    "automation": {
+      "enabled": true,
+      "testExecutionStrategy": "assemblyBasedExecution"
+    },
+    ...
+  },
+  ...
+}
+```
+
+### Step 1: Synchronize the scenarios to make sure the test cases are up-to-date
+
+To be able to publish the test results to the appropriate test cases it is recommended to perform a synchronization before executing the tests and publishing the results using the SpecSync `push` command. See [Usage](../usage.md) for details.
+
+### Step 2: Execute scenarios from test assembly
+
+The scenarios can be executed locally, using the `vstest.console` or the `dotnet test` commands, or in an Azure DevOps build/release pipeline using the Visual Studio Test \(VSTest\) task. In either case, the test execution has to be configured in a way that it saves the test results into a TRX file.
+
+The following examples show how this can be achieved.
+
+```bash
+vstest.console bin\Debug\MyTestAssembly.dll  /logger:trx;LogFileName=testresult.trx
+```
+
+```bash
+dotnet test --logger trx;logfilename=testresult.trx
+```
+
+![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%281%29.png)
+
+{% hint style="info" %}
+The TRX files you specify will be saved to a `TestResults` folder. So using the configuration above, the TRX file will be saved to `TestResults\testresult.trx`.
+{% endhint %}
+
+### Step 3: Publish test results using SpecSync
+
+The test results saved into the TRX file can be published by SpecSync using the `publish-test-results` command. The command will match the individual test results to the test cases linked to the scenarios, but the matching can only work if the scenarios have been synchronized recently and if the test cases are also synchronized to a Test Suite \(see Step 1\). 
+
+The publish-test-results command has to be provided with the following settings
+
+* Path of the TRX file generated by the test execution in Step 2
+* The Azure DevOps Test Configuration to associate the test results with. 
+
+You can find the available Test Configurations in the "Test Plans / Configuration" section of the Azure DevOps project page, but if you specify a wrong test configuration value, SpecSync will also list the available options.
+
+The TRX file and the Test Configuration can be specified either in the configuration file \([`publishTestResults`](../configuration/publishtestresults.md) section\) or as a command line argument, as the following example shows.
+
+```bash
+path-to-specsync-package\tools\SpecSync4AzureDevOps.exe publish-test-results 
+  --testConfiguration "Windows 10" --testResultFile TestResults\testresult.trx
+```
+
+As a result of the `publish-test-results` command a new Test Run will be registered and the test results will be associated to the test cases as you can see when you open the Test Suite in Azure DevOps.
+
+![Test Cases with results in a Test Suite](../.gitbook/assets/image.png)
+
+## Suite based execution strategy
+
+## Suite based execution strategy with Scenario Outline wrappers
+
+
 
 [Azure DevOps Test Case automation currently supports MsTest-base \(V1\) automation only.](https://docs.microsoft.com/en-us/azure/devops/test/associate-automated-test-with-test-case?view=vsts) This means that with SpecSync, this feature can only be used with SpecFlow projects using MsTest unit test runner.
 

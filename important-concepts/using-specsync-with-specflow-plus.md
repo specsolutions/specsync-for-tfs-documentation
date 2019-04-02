@@ -6,6 +6,8 @@ SpecSync can synchronize scenarios from projects that use SpecFlow+. SpecFlow+ i
 
 SpecFlow+ Runner \(formerly known as "SpecRun"\) is a test runner specialized to execute SpecFlow scenarios. Azure DevOps cannot run SpecFlow+ Runner test methods through test cases, but SpecSync can be used to synchronize non-automated test cases even if you use this test runner. \(For automated test cases, MsTest has to be used. See [Synchronizing automated test cases](synchronizing-automated-test-cases.md) for more details.\)
 
+_**Update \(31st Jan 2019\): The automated test case execution support has been improved in Azure DevOps therefore the limitation of only supporting MsTest v1 has been removed! With this change, we will be able to support automated test cases with SpecFlow+ Runner again. We are going to provide and updated plan soon.**_
+
 _Note: In earlier versions of SpecFlow+ Runner there was an option to generate an additional set of test method using another test runner \(like MsTest\). With that SpecSync was able to generate the necessary test methods to associate with the automated Azure DevOps test case. This feature has been removed from SpecFlow+ Runner due to the new plugin handling infrastructure of SpecFlow, so this option not available anymore. If you need a custom solution to be able to use SpecSync with SpecFlow+ Runner to generate automated test cases, please contact support at specsync@specsolutions.eu._
 
 ## Integration with SpecFlow+ Excel

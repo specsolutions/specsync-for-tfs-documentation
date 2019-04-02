@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.1.0-pre20190131b \(SpecFlow v3 plugin only\)
+
+### New features
+
+* Support for SpecFlow v3 \(3.0.161-beta\), both .Net Framework and .Net Core
+* Support synchronizing automated test cases with SpecFlow unit test providers: MsTest, xUnit, NUnit, SpecFlow+ Runner
+
 ## v2.0.0
 
 ### Breaking changes

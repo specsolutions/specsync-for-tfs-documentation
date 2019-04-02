@@ -20,8 +20,6 @@ Please check the following concept descriptions.
 
 {% page-ref page="synchronizing-automated-test-cases.md" %}
 
-{% page-ref page="synchronizing-automated-test-cases-legacy.md" %}
-
 {% page-ref page="synchronizing-test-cases-from-build.md" %}
 
 {% page-ref page="two-way-synchronization.md" %}

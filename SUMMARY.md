@@ -20,6 +20,7 @@
     * [iterationPath](configuration/configuration-synchronization/configuration-synchronization-iterationpath.md)
     * [links](configuration/configuration-synchronization/configuration-synchronization-links.md)
     * [format](configuration/configuration-synchronization/configuration-synchronization-format.md)
+  * [publishTestResults](configuration/publishtestresults.md)
   * [specFlow](configuration/configuration-specflow.md)
   * [customizations](configuration/configuration-customizations.md)
 * [Important Concepts](important-concepts/README.md)
