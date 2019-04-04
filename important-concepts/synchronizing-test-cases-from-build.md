@@ -20,3 +20,7 @@ For [authentication](tfs-authentication-options.md), it is recommended to create
 
 ![Invoke synchronization from a build task](../.gitbook/assets/build-invoke-synchronization-from-build-task.png)
 
+{% hint style="info" %}
+For information on how to configure the build executing automated test cases, please check the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article. 
+{% endhint %}
+

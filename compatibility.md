@@ -6,6 +6,7 @@ SpecSync for Azure DevOps might work with other Azure DevOps or TFS installation
 
 * Azure DevOps Services \(Visual Studio Team Services, VSTS, VSO\)
 * Azure DevOps Server 2019
+* Team Foundation Server 2018
 * Team Foundation Server 2017
 * Team Foundation Server 2015 Update 3
 * Team Foundation Server 2013 Update 1 \(up to SpecSync v1.3\)
@@ -16,26 +17,22 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 
 ## Supported SpecFlow versions  <a id="supported-specflow-versions"></a>
 
-When synchronizing scenarios to non-automated test cases \(default\), SpecSync can be used with any SpecFlow versions.
+When synchronizing scenarios to non-automated test cases \(default\) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any SpecFlow versions.
 
-For synchronizing automated test cases, currently the following SpecFlow versions are supported.
+For synchronizing automated test cases with the "Suite based execution strategy", currently the following SpecFlow versions are supported.
 
-* SpecFlow v3.0 \(with SpecSync v2.1.0 prerelease\)
+* SpecFlow v3.0 \(with SpecSync v2.1\)
 * SpecFlow v2.4
 * SpecFlow v2.3
 * SpecFlow v2.2.1 \(with SpecSync v1.4.1\)
 
 See more details in [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md).
 
-If you need to use SpecSync \(for synchronizing automated test cases\) with a SpecFlow version not listed here, please contact support \(specsync@specsolutions.eu\).
-
 ## Supported SpecFlow unit test runners
 
-When synchronizing scenarios to non-automated test cases \(default\), SpecSync can be used with any test runner supported by SpecFlow.
+When synchronizing scenarios to non-automated test cases \(default\) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any test runner supported by SpecFlow.
 
-_**Update \(31st Jan 2019\): The automated test case execution support has been improved in Azure DevOps therefore the limitation of only supporting MsTest v1 has been removed! In SpecSync currently this new feature can be used with our new**_ [_**SpecFlow v3 plugin**_](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-0)_**. We are going to update the other SpecFlow plugins as well and also update the documentation soon.**_
-
-For synchronizing automated test cases, SpecFlow has to be used with MsTest V1. This is a limitation of the Azure DevOps test case execution infrastructure that SpecSync cannot influence.
+For synchronizing automated test cases with the "Suite based execution strategy", SpecSync supports MsTest V1 & V2, NUnit and xUnit on Azure DevOps and MsTest V1 on TFS2018 or earlier.
 
 See more details in [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md).
 

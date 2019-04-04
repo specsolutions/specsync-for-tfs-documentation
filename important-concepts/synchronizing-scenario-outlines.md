@@ -26,5 +26,5 @@ SpecSync synchronizes scenario outlines automatically to parametrized test cases
 
 ## Associating automation for a scenario outline test case \(for SpecFlow\)
 
-For synchronizing automated test cases from Scenario Outline, the test case has to be associated with a single test method \(normally SpecFlow generates one method for each example within the Scenario Outline\). This can be done using the SpecFlow plugin provided by SpecSync. See more about this at [Synchronizing automated test cases](synchronizing-automated-test-cases.md).
+For synchronizing automated test cases from Scenario Outline, the test case has to be associated with a single test method \(normally SpecFlow generates one method for each example within the Scenario Outline\). For SpecFlow unit test providers that do not generate a single method, like MsTest, this can be done using the SpecFlow plugin provided by SpecSync. See more about this at [Synchronizing automated test cases](synchronizing-automated-test-cases.md).
 
