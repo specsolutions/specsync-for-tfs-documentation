@@ -1,11 +1,32 @@
 # Changelog
 
-## v2.1.0-pre20190131b \(SpecFlow v3 plugin only\)
+## v2.1.0
+
+### Breaking changes
+
+* When synchronizing automated test cases, a test execution strategy has to be configured in the [synchronization/automation](configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file. To read more about test execution strategies see the [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md) article.
 
 ### New features
 
-* Support for SpecFlow v3 \(3.0.161-beta\), both .Net Framework and .Net Core
-* Support synchronizing automated test cases with SpecFlow unit test providers: MsTest, xUnit, NUnit, SpecFlow+ Runner
+* Support for SpecFlow v3 both .Net Framework and .Net Core
+* New test execution strategy for automated test cases: Assembly based execution
+  * Supports all test runners \(MsTest, xUnit, NUnit, SpecFlow+ Runner\)
+  * Supports both .NET and .NET Core
+  * Available for TFS 2017 or newer
+  * See more in the [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md) article
+* Updated "Test Suite Based execution strategy": now supports MsTest, xUnit and NUnit in Azure DevOps \(for MsTest, Scenario Outline wrapper and SpecSync SpecFlow plugin is needed.
+  * See more in the [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md) article
+* Allow overriding base folder using the `--baseFolder` console option
+* Allow specifying Test Plan ID to be able to improve Test Suite loading time
+* Automatically create Test Suite if does not exists
+
+### Bug Fixes:
+
+* Fix displaying load project source in console
+* Fix: Invalid "\_MsTest" suffix might be added to the automated test class name
+* Better error reporting for project load error
+* Fix project URL error message
+* Fix changing link type
 
 ## v2.0.0
 
