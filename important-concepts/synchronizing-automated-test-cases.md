@@ -113,7 +113,7 @@ Because of this there are a few limitations that have to be considered when plan
 
 1. The used Azure DevOps infrastructure cannot be used for local execution, therefore the test results can only be published from Azure DevOps build/release pipeline.
 2. The used Azure DevOps infrastructure supports only MsTest V1 test frameworks in TFS 2018 or earlier. The support for other test frameworks has been introduced to Azure DevOps recently.
-3. The used Azure DevOps infrastructure does not support associating multiple test methods for a parametrized \(data-driven\) Test Case. SpecFlow generates multiple test methods for Scenario Outline when MsTest or SpecFlow+ Runner is used as a unit test provider, therefore to be able to associate a single test method for the test cases, SpecSync provides a SpecFlow Plugin, that generates Scenario Outline wrapper methods to be used by this Azure DevOps execution infrastructure. See section Suite based execution strategy with Scenario Outline wrappers for more details about this. For xUnit and NUnit this limitation does not apply.
+3. The used Azure DevOps infrastructure does not support associating multiple test methods for a parametrized \(data-driven\) Test Case. SpecFlow generates multiple test methods for Scenario Outline when MsTest or SpecFlow+ Runner is used as a unit test provider, therefore to be able to associate a single test method for the test cases, SpecSync provides a SpecFlow Plugin, that generates Scenario Outline wrapper methods to be used by this Azure DevOps execution infrastructure. See section Suite based execution strategy with Scenario Outline wrappers for more details about this. For xUnit limitation does not apply. For NUnit the Scenario Outline wrappers have to be generated until Azure DevOps fully supports data-driven NUnit test execution.
 
 The core concept of the Test Suite based execution strategy is that the scenarios are synchronized by SpecSync as automated test cases in a Test Suite and executed as part of a build/release pipeline.
 
@@ -183,12 +183,12 @@ As a result of the synchronization step, the test cases are marked as "Automated
 ![Test case in Azure DevOps with associated automation](../.gitbook/assets/getting-started-specflow-associated-automation.png)
 
 {% hint style="info" %}
-The steps described in this section will cause test failures for Scenario Outlines when MsTest or SpecFlow+ Runner is used as a unit test provider, as for these providers an additional wrapper method has to be generated. See section Suite based execution strategy with Scenario Outline wrappers for the details about the additional steps required.
+The steps described in this section will cause test failures for Scenario Outlines when MsTest, NUnit or SpecFlow+ Runner is used as a unit test provider, as for these providers an additional wrapper method has to be generated. See section Suite based execution strategy with Scenario Outline wrappers for the details about the additional steps required.
 {% endhint %}
 
 ## Suite based execution with Scenario Outline wrappers strategy
 
-The Suite based execution with Scenario Outline wrappers strategy follows the same concept as the Suite based execution strategy but it contains the additional configuration steps required for SpecFlow projects using MsTest unit test provider. \(With SpecFlow+ Runner, currently only the Assembly based execution strategy is available.\)
+The Suite based execution with Scenario Outline wrappers strategy follows the same concept as the Suite based execution strategy but it contains the additional configuration steps required for SpecFlow projects using MsTest or NUnit unit test provider. \(With SpecFlow+ Runner, currently only the Assembly based execution strategy is available.\)
 
 For the unit test providers that generate multiple test methods for the Scenario Outlines, SpecSync can generate a special wrapper method, that wraps the execution of the individual Scenario Outline examples and can be associated with the automated test case.
 
