@@ -1,6 +1,18 @@
 # Changelog
 
-## v2.1.0
+## v2.1.2 - 2019/04/08
+
+### Bug Fixes
+
+* Fix "Error during generation" error when linking new scenarios
+
+## v2.1.1 - 2019/04/04
+
+### Bug Fixes
+
+* Fix generation with SpecFlow.Tools.MsBuild.Generation for SpecFlow 2.4
+
+## v2.1.0 - 2019/04/02
 
 ### Breaking changes
 
@@ -20,7 +32,7 @@
 * Allow specifying Test Plan ID to be able to improve Test Suite loading time
 * Automatically create Test Suite if does not exists
 
-### Bug Fixes:
+### Bug Fixes
 
 * Fix displaying load project source in console
 * Fix: Invalid "\_MsTest" suffix might be added to the automated test class name
@@ -28,7 +40,7 @@
 * Fix project URL error message
 * Fix changing link type
 
-## v2.0.0
+## v2.0.0 - 2019/01/14
 
 ### Breaking changes
 
