@@ -4,9 +4,9 @@ _**Important: This article describes the behavior of SpecSync for Azure DevOps v
 
 The test cases synchronized by SpecSync can also track test executions and test results through the "Test Run" infrastructure of Azure DevOps. This might be useful to create a "Living Documentation" -- a description of the expected system behavior that can also indicate whether the solution currently fulfills these expectations or not. Tracking the test results for the test cases is optional.
 
-The test results in Azure DevOps are always registered to a _Test Point_. A Test Point is an association of a _Test Case_, a _Test Suite_ contains the Test Case and a _Test Configuration_ that is associated to the Test Suite.
+The test results in Azure DevOps are always registered to a _Test Point_. A Test Point is an association of a _Test Case_, a _Test Suite_ containing the Test Case and a _Test Configuration_ associated to the Test Suite.
 
-Besides tracking the test results the test cases can also be marked as "Automated", although test results can also be registered to a non-automated test case as well.
+Besides tracking the test results, the test cases can be marked as "Automated", although test results can also be registered to a non-automated test case as well.
 
 SpecSync supports two main test execution strategies for tracking test case results:
 
@@ -19,7 +19,7 @@ Currently these strategies work only with SpecFlow projects. For non-SpecFlow pr
 
 The assembly-based execution strategy is the most generally applicable strategy and it requires the least changes in a usual continuous integration \(CI\) process.
 
-The core concept of the Assembly based execution strategy is that the scenarios are executed using the compiled test assembly like usual, and the execution results are published by SpecSync in a way that the individual test results will be connected to the Test Case work items synchronized from the scenarios.
+The core concept of the Assembly based execution strategy is that the scenarios are executed on the basis of the compiled test assembly as usual, and the execution results are published by SpecSync in a way that the individual test results will be connected to the Test Case work items synchronized from the scenarios.
 
 ### Step 0: Configure SpecSync
 
@@ -113,13 +113,13 @@ Because of this there are a few limitations that have to be considered when plan
 
 1. The used Azure DevOps infrastructure cannot be used for local execution, therefore the test results can only be published from Azure DevOps build/release pipeline.
 2. The used Azure DevOps infrastructure supports only MsTest V1 test frameworks in TFS 2018 or earlier. The support for other test frameworks has been introduced to Azure DevOps recently.
-3. The used Azure DevOps infrastructure does not support associating multiple test methods for a parametrized \(data-driven\) Test Case. SpecFlow generates multiple test methods for Scenario Outline when MsTest or SpecFlow+ Runner is used as a unit test provider, therefore to be able to associate a single test method for the test cases, SpecSync provides a SpecFlow Plugin, that generates Scenario Outline wrapper methods to be used by this Azure DevOps execution infrastructure. See section Suite based execution strategy with Scenario Outline wrappers for more details about this. For xUnit limitation does not apply. For NUnit the Scenario Outline wrappers have to be generated until Azure DevOps fully supports data-driven NUnit test execution.
+3. The used Azure DevOps infrastructure does not support associating multiple test methods for a parametrized \(data-driven\) Test Case. SpecFlow generates multiple test methods for Scenario Outline when MsTest or SpecFlow+ Runner is used as a unit test provider, therefore to be able to associate a single test method for the test cases, SpecSync provides a SpecFlow Plugin that generates Scenario Outline wrapper methods to be used by this Azure DevOps execution infrastructure. See section Suite based execution strategy with Scenario Outline wrappers for more details about this. To xUnit, limitation does not apply. To NUnit, the Scenario Outline wrappers have to be generated until Azure DevOps fully supports data-driven NUnit test execution.
 
 The core concept of the Test Suite based execution strategy is that the scenarios are synchronized by SpecSync as automated test cases in a Test Suite and executed as part of a build/release pipeline.
 
 ### Step 0: Configure SpecSync <a id="suitebasedexecution-step0"></a>
 
-In order to publish test results to a test case in Azure DevOps, the test case has to be included to a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
+In order to publish test results to a test case in Azure DevOps, the test case has to be included in a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
 
 ```javascript
 {
@@ -134,7 +134,7 @@ In order to publish test results to a test case in Azure DevOps, the test case h
 }
 ```
 
-This strategy requires to synchronize the scenarios to **automated test cases**. To be able to configure this, you need to
+This strategy requires the synchronization of the scenarios to **automated test cases**. To be able to configure this, you need to
 
 * set `enabled` to `true`
 * specify `testSuiteBasedExecution` as `testExecutionStrategy`
@@ -158,11 +158,11 @@ in the [`synchronization/automation`](../configuration/configuration-synchroniza
 
 ### Step 1: Synchronize the scenarios to make sure the test cases are up-to-date
 
-To be able run the automated test cases they have to be up-to-date with the automation code. To achieve this, it is recommended to perform a synchronization before executing the tests using the SpecSync `push` command. See [Synchronizing test cases from build](synchronizing-test-cases-from-build.md) for details.
+In order to be able run the automated test cases, they have to be up-to-date with the automation code. To achieve this, it is recommended to perform a synchronization before executing the tests using the SpecSync `push` command. See [Synchronizing test cases from build](synchronizing-test-cases-from-build.md) for details.
 
 ### Step 2: Execute scenarios from Test Suite 
 
-To be able to execute the scenarios from Test Suite a Visual Studio Test \(VSTest\) task has to be added to the Azure DevOps build/release pipeline, that is configured as:
+In order to be able to execute the scenarios from Test Suite, a Visual Studio Test \(VSTest\) task has to be added to the Azure DevOps build/release pipeline, which is configured as:
 
 * Select "Test Plan" in the "Select tests using" setting
 * Select the Test Plan and the Test Suite that was configured for SpecSync synchronization
@@ -171,10 +171,10 @@ To be able to execute the scenarios from Test Suite a Visual Studio Test \(VSTes
 ![A VSTest task configured to execute synchronized test cases](../.gitbook/assets/image.png)
 
 {% hint style="warning" %}
-Due to a bug in the VSTest task in Azure DevOps, if the name of the compiled assembly contains the automated scenarios does not contain the word "test" \(e.g. when called as MyProject.Specs.dll\), the execution will fail with "No test assemblies found". This can be fixed by changing back the task to Assembly based, fix the "Source Filter" setting and switch it back to Test Plan based. See related [issue](https://github.com/Microsoft/azure-pipelines-tasks/issues/10006) on GitHub. 
+Due to a bug in the VSTest task in Azure DevOps, if the name of the compiled assembly containing the automated scenarios does not contain the word "test" \(e.g. when called as MyProject.Specs.dll\), the execution will fail with "No test assemblies found". This can be fixed by changing back the task to Assembly based, fix the "Source Filter" setting and switch it back to Test Plan based. See related [issue](https://github.com/Microsoft/azure-pipelines-tasks/issues/10006) on GitHub. 
 {% endhint %}
 
-During the execution of the build or release the scenarios will be executed and their results will be registered to the linked Test Cases as you can see when you open the Test Suite in Azure DevOps.
+During the execution of the build or release, the scenarios will be executed and their results will be registered to the linked Test Cases as you can see when you open the Test Suite in Azure DevOps.
 
 ![Test Cases with results in a Test Suite](../.gitbook/assets/image%20%281%29.png)
 
@@ -183,14 +183,14 @@ As a result of the synchronization step, the test cases are marked as "Automated
 ![Test case in Azure DevOps with associated automation](../.gitbook/assets/getting-started-specflow-associated-automation.png)
 
 {% hint style="info" %}
-The steps described in this section will cause test failures for Scenario Outlines when MsTest, NUnit or SpecFlow+ Runner is used as a unit test provider, as for these providers an additional wrapper method has to be generated. See section Suite based execution strategy with Scenario Outline wrappers for the details about the additional steps required.
+The steps described in this section will cause test failures to Scenario Outlines when either MsTest or NUnit or SpecFlow+ Runner is used as a unit test provider, as for these providers an additional wrapper method has to be generated. See section Suite based execution strategy with Scenario Outline wrappers for the details about the additional steps required.
 {% endhint %}
 
 ## Suite based execution with Scenario Outline wrappers strategy
 
-The Suite based execution with Scenario Outline wrappers strategy follows the same concept as the Suite based execution strategy but it contains the additional configuration steps required for SpecFlow projects using MsTest or NUnit unit test provider. \(With SpecFlow+ Runner, currently only the Assembly based execution strategy is available.\)
+The Suite based execution with Scenario Outline wrappers strategy follows the same concept as the Suite based execution strategy, however, it contains the additional configuration steps required for SpecFlow projects using MsTest or NUnit unit test provider. \(With SpecFlow+ Runner, currently only the Assembly based execution strategy is available.\)
 
-For the unit test providers that generate multiple test methods for the Scenario Outlines, SpecSync can generate a special wrapper method, that wraps the execution of the individual Scenario Outline examples and can be associated with the automated test case.
+For the unit test providers that generate multiple test methods for the Scenario Outlines, SpecSync can generate a special wrapper method, which wraps the execution of the individual Scenario Outline examples and can be associated with the automated test case.
 
 {% hint style="info" %}
 While the generated wrapper method provides a sufficient solution for the test case execution, it causes a slight inconvenience, because it will be also shown in the test runners used locally and when there is an assembly based test execution included in the build or release pipeline. Therefore for these unit test providers we recommend considering the Assembly based execution strategy as described above, because that does not have this limitation.
