@@ -15,6 +15,10 @@ SpecSync supports two main test execution strategies for tracking test case resu
 
 Currently these strategies work only with SpecFlow projects. For non-SpecFlow projects \(e.g. Cucumber projects\), SpecSync can synchronize the scenarios to **non-automated test cases**. The synchronized non-automated test cases can be managed, linked and structured in Azure DevOps. We plan to support the Assembly based execution strategy for non-SpecFlow projects as well, please [contact us](https://www.specsolutions.eu/contact/) if you would like to use this feature.
 
+For an overview of the compatibility of the different execution strategies, please check the following PDF document.
+
+{% file src="../.gitbook/assets/specsync-syncautomatedtestcases-compatibility.pdf" caption="Execution Strategy Compatibility Overview" %}
+
 ## Assembly based execution strategy
 
 The assembly-based execution strategy is the most generally applicable strategy and it requires the least changes in a usual continuous integration \(CI\) process.

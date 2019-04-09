@@ -24,6 +24,8 @@ Please check the following concept descriptions.
 
 {% page-ref page="two-way-synchronization.md" %}
 
+{% page-ref page="support-synchronizing-scenarios-from-a-branch.md" %}
+
 {% page-ref page="using-specsync-with-specflow-plus.md" %}
 
 {% page-ref page="using-specsync-with-cucumber.md" %}
