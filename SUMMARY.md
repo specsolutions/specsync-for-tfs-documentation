@@ -36,6 +36,7 @@
   * [Synchronizing automated test cases \(SpecSync v2.0\)](important-concepts/synchronizing-automated-test-cases-specsync-v2.0.md)
   * [Synchronizing test cases from build](important-concepts/synchronizing-test-cases-from-build.md)
   * [Two-way synchronization](important-concepts/two-way-synchronization.md)
+  * [Support synchronizing scenarios from a branch](important-concepts/support-synchronizing-scenarios-from-a-branch.md)
   * [Using SpecSync with SpecFlow+](important-concepts/using-specsync-with-specflow-plus.md)
   * [Using SpecSync with Cucumber](important-concepts/using-specsync-with-cucumber.md)
   * [Using SpecSync on OSX/Linux](important-concepts/using-specsync-on-osxlinux-page.md)
