@@ -6,31 +6,26 @@ For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for Azure DevOps synch
 
 ## v2.1
 
-* Windows: [SpecSync.AzureDevOps.2.1.2.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.1.2.zip)
-* OSX/Linux: [SpecSync.AzureDevOps.Mono.2.1.2.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.1.2.zip)
+* Windows: [SpecSync.AzureDevOps.2.1.3.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.1.3.zip)
+* OSX/Linux: [SpecSync.AzureDevOps.Mono.2.1.3.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.1.3.zip)
 
-## v2.0.0
+## v2.0
 
 * Windows: [SpecSync.AzureDevOps.2.0.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.0.0.zip)
 * OSX/Linux: [SpecSync.AzureDevOps.Mono.2.0.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.0.0.zip)
 
-## v1.6.0
+## v1.6
 
 * Windows: [SpecSync.MTM.1.6.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.MTM.1.6.0.zip)
 * OSX/Linux: [SpecSync.Mono.1.6.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Mono.1.6.0.zip)
 
-## v1.5.0
+## v1.5
 
 * Windows: [SpecSync.MTM.1.5.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.MTM.1.5.0.zip)
 * OSX/Linux: [SpecSync.Mono.1.5.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Mono.1.5.0.zip)
 
-## v1.4.1
+## v1.4
 
 * Windows: [SpecSync.MTM.1.4.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.MTM.1.4.1.zip)
 * OSX/Linux: [SpecSync.Mono.1.4.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Mono.1.4.1.zip)
-
-## v1.4.0
-
-* Windows: [SpecSync.MTM.1.4.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.MTM.1.4.0.zip)
-* OSX/Linux: [SpecSync.Mono.1.4.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Mono.1.4.0.zip)
 

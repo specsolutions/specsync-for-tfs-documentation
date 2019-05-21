@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.3 - 2019/05/08
+
+### Bug Fixes
+
+* Fix: Publish test results fails for TFS2018
+
 ## v2.1.2 - 2019/04/08
 
 ### Bug Fixes
