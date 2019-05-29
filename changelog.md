@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.4 - 2019/05/29
+
+### Bug Fixes
+
+* Fix: Publish tests does not find SpecFlow+ Runner test results without feature name in the test definition name
+* Fix: Publish tests reports the test as "Not Executed" when there are skipped test targets in a SpecFlow+ Runner test result
+* Fix: Collect all test result for scenarios executed with SpecFlow+ Runner using multiple test targets
+* Fix: Include example name for the test result error, stack trace and comment fields created for scenario outlines
+* Show license expiration date and remaining time warning
+
 ## v2.1.3 - 2019/05/08
 
 ### Bug Fixes
