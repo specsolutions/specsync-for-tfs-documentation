@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.5 - 2019/06/14
+
+### Bug Fixes
+
+* Fix: Error when synchronizing SpecFlow V3 projects that use specflow.json config file
+
 ## v2.1.4 - 2019/05/29
 
 ### Bug Fixes
