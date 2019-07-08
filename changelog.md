@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.1.6 - 2019/07/08
+
+### Bug Fixes
+
+* Fix: `specsync4azuredevops.cmd` does not tolerate spaces in project path
+* Fix: default feature file language is not picked up from SpecFlow config
+
 ## v2.1.5 - 2019/06/14
 
 ### Bug Fixes

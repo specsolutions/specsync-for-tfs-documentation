@@ -13,7 +13,9 @@ The following example shows the available options within this section.
       "filePath": "MyProject.Specs\\MyProject.Specs.csproj"
     },
 
-    "tags": "@done and not (@ignored or @planned)"
+    "tags": "@done and not (@ignored or @planned)",
+    
+    "defaultFeatureLanguage": "en-US"
   },
   ...
 }
@@ -30,6 +32,7 @@ The following example shows the available options within this section.
   * `featureFileSource/filePath` -- The path of the feature file source file. Can contain an absolute or a relative path to the config file folder. It may contain environment variables in `...%MYENV%...` form.
   * `featureFileSource/folder` -- The folder to search the feature files in when `type` was set to `folder`. Can contain an absolute or a relative path to the config file folder. It may contain environment variables in `...%MYENV%...` form. \(Default: _\[load feature files from the folder of the config file\]_\)
 * `tags` -- A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be included in synchronization \(e.g. `not @ignore` or `@done and not (@ignored or @planned)`\). See [Filters and scopes](../important-concepts/filters-and-scopes.md) for details. \(Default: _\[all scenarios included\]_\)
+* `defaultFeatureLanguage` -- The default feature file language, e.g. `de-AT`. \(Default: _\[get from SpecFlow config or use `en-US`\]_\)
 
 ## Example: Synchronize specific feature files
 
