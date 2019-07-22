@@ -75,7 +75,7 @@ vstest.console bin\Debug\MyTestAssembly.dll  /logger:trx;LogFileName=testresult.
 dotnet test --logger trx;logfilename=testresult.trx
 ```
 
-![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%282%29.png)
+![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%283%29.png)
 
 {% hint style="info" %}
 The TRX files you specify will be saved to a `TestResults` folder. So using the configuration above, the TRX file will be saved to `TestResults\testresult.trx`.
