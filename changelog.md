@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.7 - 2019/08/12
+
+### Bug Fixes
+
+* Fix: execution on Linux using the dependency-bundled executable fails with assembly load error
+
 ## v2.1.6 - 2019/07/08
 
 ### Bug Fixes

@@ -6,8 +6,8 @@ For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for Azure DevOps synch
 
 ## v2.1
 
-* Windows: [SpecSync.AzureDevOps.2.1.5.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.1.5.zip)
-* OSX/Linux: [SpecSync.AzureDevOps.Mono.2.1.5.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.1.4.zip)
+* Windows: [SpecSync.AzureDevOps.2.1.7.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.1.7.zip)
+* OSX/Linux: [SpecSync.AzureDevOps.Mono.2.1.7.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.1.7.zip)
 
 ## v2.0
 
