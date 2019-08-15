@@ -34,30 +34,34 @@ The following example shows the available options within this section.
 * `tags` -- A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be included in synchronization \(e.g. `not @ignore` or `@done and not (@ignored or @planned)`\). See [Filters and scopes](../important-concepts/filters-and-scopes.md) for details. \(Default: _\[all scenarios included\]_\)
 * `defaultFeatureLanguage` -- The default feature file language, e.g. `de-AT`. \(Default: _\[get from SpecFlow config or use `en-US`\]_\)
 
-## Example: Synchronize specific feature files
+## Example: Synchronize feature files of a SpecFlow project
 
-The following example synchronizes a specific set of feature files.
-
-We need a text file with the list of feature files to be synchronized, let's call it `specsync-features.txt`. Save it in the project root folder, where the `specsync.json` configuration file is located.
-
-```text
-features/addition.feature
-features/special/complex_addition.feature
-# this line is ignored
-features/multiplication.feature
-```
-
-All paths in this file can be relative to the folder of the config file. On Windows platform the `\` character has to be used instead of the `/`.
-
-The list file has to be specified in the config file:
+The SpecFlow project can be detected in the folder of the configuration file usually, in this case **no additional configuration is required**. \(SpecSync tries to find a `.csproj` file in the folder.\) In case there are multiple .NET project in the folder or the configuration file is not stored in the project root, you should configure SpecSync as below:
 
 ```javascript
 {
   ...
   "local": {
     "featureFileSource": {
-      "type": "listFile",
-      "filePath": "specsync-features.txt"
+      "type": "projectFile",
+      "filePath": "MyProject\\MyProjectFile.csproj"
+    }
+  },
+  ...
+}
+```
+
+## Example: Synchronize feature files from the `features` folder
+
+For Cucumber-based projects, it is common to store the feature files in a folder called `features`. In order to synchronize the feature files with this setup, the feature file source has to be configured to `folder` and the required folder path has to be specified in the `folder` setting:
+
+```javascript
+{
+  ...
+  "local": {
+    "featureFileSource": {
+      "type": "folder",
+      "folder": "features"
     }
   },
   ...
@@ -94,6 +98,42 @@ For this, the feature file source has to be configured to `folder` and the requi
     "featureFileSource": {
       "type": "folder",
       "folder": "features/group_a"
+    }
+  },
+  ...
+}
+```
+
+You can invoke the syncronization as usual:
+
+```text
+path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push
+```
+
+## Example: Synchronize specific feature files
+
+The following example synchronizes a specific set of feature files.
+
+We need a text file with the list of feature files to be synchronized, let's call it `specsync-features.txt`. Save it in the project root folder, where the `specsync.json` configuration file is located.
+
+```text
+features/addition.feature
+features/special/complex_addition.feature
+# this line is ignored
+features/multiplication.feature
+```
+
+All paths in this file can be relative to the folder of the config file. On Windows platform the `\` character has to be used instead of the `/`.
+
+The list file has to be specified in the config file:
+
+```javascript
+{
+  ...
+  "local": {
+    "featureFileSource": {
+      "type": "listFile",
+      "filePath": "specsync-features.txt"
     }
   },
   ...
