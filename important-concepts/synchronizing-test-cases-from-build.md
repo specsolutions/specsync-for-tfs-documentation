@@ -6,7 +6,7 @@ Keeping the test cases in sync with the scenarios is important, therefore automa
 
 The SpecSync commands can be added to an Azure DevOps build or release pipeline as a [Command line task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/command-line?view=azure-devops&tabs=yaml). This works for both in Classic or YAML pipelines.
 
-In the SpecSync command line task you need to invoke the SpecSync4AzureDevOps.exe executable with the necessary command line parameters usually from the folder of your SpecFlow project. For invoking the executable you can use the path of the restored NuGet package or the specsync4azuredevops.cmd script. \(See more at [Usage](../usage.md).\)
+In the SpecSync command line task you need to invoke the `SpecSync4AzureDevOps.exe` executable with the necessary command line parameters usually from the folder of your SpecFlow project. For invoking the executable you can use the path of the restored NuGet package or the `specsync4azuredevops.cmd` script. \(See more at [Usage](../usage.md).\)
 
 See the following sections for details about the recommended authentication options and for the usual settings for `push` and `publish-test-results` commands.
 
