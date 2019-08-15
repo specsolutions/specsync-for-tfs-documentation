@@ -26,7 +26,11 @@ For this option, you have to
    ```
 
 {% hint style="warning" %}
-In versions prior to 2.1.8, the native library libMonoPosixHelper.so has to be copied to the project folder for the time of the synchronization. With the recent versions this step is not required anymore.
+In versions prior to v2.1.8, the native library libMonoPosixHelper.so has to be copied to the project folder for the time of the synchronization. With the recent versions this step is not required anymore.
+{% endhint %}
+
+{% hint style="warning" %}
+Due to a bug, the native binary execution of SpecSync does not work in versions between v2.1.4 and v2.1.7. Please make sure you update to v2.1.8 or newer.
 {% endhint %}
 
 ### `Dockerfile` for native binary execution
