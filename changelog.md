@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.8 - 2019/08/15
+
+### Bug Fixes
+
+* Fix: execution on Linux using the dependency-bundled executable fails with TypeInitializationException
+
+### Improvements:
+
+* Native library `libMonoPosixHelper.so` does not need to be copied to the project folder for native Linux execution
+
 ## v2.1.7 - 2019/08/12
 
 ### Bug Fixes
