@@ -43,6 +43,10 @@ RUN bash -c "chmod +x /specsync/SpecSync.Mono/SpecSync4AzureDevOps"
 #   /specsync/SpecSync.Mono/SpecSync4AzureDevOps push
 ```
 
+{% hint style="info" %}
+To reduce the Docker image size, you can delete the `SpecSync.Mono/Assemblies` folder with all its contents from the image when using native image execution \(only the `SpecSync4AzureDevOps` executable is needed\).
+{% endhint %}
+
 ## 2. Using SpecSync command line tool with Mono
 
 If the system has Mono installed, SpecSync can also be invoked through Mono. To install Mono runtime, visit [http://www.mono-project.com/docs/getting-started/install/](http://www.mono-project.com/docs/getting-started/install/).
@@ -71,4 +75,8 @@ RUN mkdir /specsync && unzip /specsync.zip -d /specsync
 # Invoke synchronization in this image using
 #   mono /specsync/SpecSync.Mono/Assemblies/SpecSync4AzureDevOps.exe push
 ```
+
+{% hint style="info" %}
+To reduce the Docker image size, you can delete the `SpecSync.Mono/SpecSync4AzureDevOps` file from the image when using Mono execution \(only the `SpecSync.Mono/Assemblies` folder is needed\).
+{% endhint %}
 
