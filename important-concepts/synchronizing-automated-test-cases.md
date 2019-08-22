@@ -115,7 +115,7 @@ Because of this there are a few limitations that have to be considered when plan
 
 1. The used Azure DevOps infrastructure cannot be used for local execution, therefore the test results can only be published from Azure DevOps build/release pipeline.
 2. The used Azure DevOps infrastructure supports only MsTest V1 test frameworks in TFS 2018 or earlier. The support for other test frameworks has been introduced to Azure DevOps recently.
-3. The used Azure DevOps infrastructure does not support associating multiple test methods for a parametrized \(data-driven\) Test Case. SpecFlow generates multiple test methods for Scenario Outline when MsTest or SpecFlow+ Runner is used as a unit test provider, therefore to be able to associate a single test method for the test cases, SpecSync provides a SpecFlow Plugin that generates Scenario Outline wrapper methods to be used by this Azure DevOps execution infrastructure. See section Suite based execution strategy with Scenario Outline wrappers for more details about this. To xUnit, limitation does not apply. To NUnit, the Scenario Outline wrappers have to be generated until Azure DevOps fully supports data-driven NUnit test execution.
+3. The used Azure DevOps infrastructure does not support associating multiple test methods for a parametrized \(data-driven\) Test Case. SpecFlow generates multiple test methods for Scenario Outline when MsTest or SpecFlow+ Runner is used as a unit test provider, therefore to be able to associate a single test method for the test cases, SpecSync provides a SpecFlow Plugin that generates Scenario Outline wrapper methods to be used by this Azure DevOps execution infrastructure. See section [Test Suite based execution strategy with Scenario Outline wrappers](synchronizing-automated-test-cases.md#test-suite-based-execution-with-scenario-outline-wrappers-strategy) for more details about this. To xUnit, limitation does not apply. To NUnit, the Scenario Outline wrappers have to be generated until Azure DevOps fully supports data-driven NUnit test execution.
 
 The core concept of the Test Suite based execution strategy is that the scenarios are synchronized by SpecSync as automated test cases in a Test Suite and executed as part of a build/release pipeline.
 
@@ -188,9 +188,9 @@ As a result of the synchronization step, the test cases are marked as "Automated
 The steps described in this section will cause test failures to Scenario Outlines when either MsTest or NUnit or SpecFlow+ Runner is used as a unit test provider, as for these providers an additional wrapper method has to be generated. See section Suite based execution strategy with Scenario Outline wrappers for the details about the additional steps required.
 {% endhint %}
 
-## Suite based execution with Scenario Outline wrappers strategy
+## Test Suite based execution with Scenario Outline wrappers strategy
 
-The Suite based execution with Scenario Outline wrappers strategy follows the same concept as the Suite based execution strategy, however, it contains the additional configuration steps required for SpecFlow projects using MsTest or NUnit unit test provider. \(With SpecFlow+ Runner, currently only the Assembly based execution strategy is available.\)
+The Suite based execution with Scenario Outline wrappers strategy follows the same concept as the Suite based execution strategy, however, it contains the additional configuration steps required for SpecFlow projects using MsTest or NUnit unit test provider. \(With SpecFlow+ Runner, currently only the Assembly based execution strategy is available.\) For projects using legacy MsTest V1 provider, you can also consider the "Use TestCase Data" mode \(see [below](synchronizing-automated-test-cases.md#use-testcase-data-for-scenario-outline-examples-for-legacy-mstest-v1-projects)\).
 
 For the unit test providers that generate multiple test methods for the Scenario Outlines, SpecSync can generate a special wrapper method, which wraps the execution of the individual Scenario Outline examples and can be associated with the automated test case.
 
@@ -242,4 +242,27 @@ For each Scenario Outline, there will be an additional wrapper test generated th
 When the tests are run in Azure DevOps build from assembly \(so not through the test cases\), the generated wrapper methods have the be filtered out as well. This can be achieved by entering the `TestCategory!=SpecSyncWrapper` expression as "Test Filter criteria".
 
 ![Filter out scenario outline wrapper test methods in Azure DevOps build](../.gitbook/assets/automation-filter-wrapper-in-build.png)
+
+## Use TestCase Data for Scenario Outline examples for legacy MsTest V1 projects
+
+{% hint style="warning" %}
+Note: this option is only available for legacy MsTest V1 based projects that use SpecFlow v2.3 or v2.4.
+
+The legacy MsTest \(V1\) framework can be configured by adding a reference to the "Microsoft.VisualStudio.QualityTools.UnitTestFramework" assembly to your project. The MsTest-related NuGet packages \(MSTest.TestFramework, MSTest.TestAdapter\) cannot be used!
+{% endhint %}
+
+{% hint style="info" %}
+This option was the default for SpecSync v1.\*.
+{% endhint %}
+
+The "Use TestCase Data" mode connects to the TFS TestCase during execution of Scenario Outlines to retrieve the examples. In this setup, the generated Scenario Outline Wrapper is not executable locally.
+
+In order to configure SpecSync to use this option, you need to do the following steps:
+
+1. Make sure your project uses MsTest V1 \(has a reference to the "Microsoft.VisualStudio.QualityTools.UnitTestFramework" assembly and does not use MsTest through NuGet\). Using this option with MsTest V2 will lead to an error, like _"The unit test adapter failed to connect to the data source or to read the data. \[...\] Unable to find the requested .Net Framework Data Provider. It may not be installed."_
+2. Make sure your project uses SpecFlow v2.3 or v2.4
+3. Setup SpecSync and the SpecSync SpecFlow plugin according to the [Test Suite based execution with Scenario Outline wrappers strategy](synchronizing-automated-test-cases.md#test-suite-based-execution-with-scenario-outline-wrappers-strategy) section.
+4. Set specflow/scenarioOutlineAutomationWrappers in the configuration file to useTestCaseData.
+5. Add a Test Settings file \(.testsettings\) to your project \(without any special configuration\) or a [Run Settings](https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017#mstest-run-settings) file with `ForcedLegacyMode` set to `true`. You can download a sample Test Setting file from [here](https://www.specsolutions.eu/media/specsync/TestSuiteBasedRun.testsettings).
+6. In the VsTest task of the build pipeline, browse the added Test or Run Settings file at the "Settings file" setting.
 

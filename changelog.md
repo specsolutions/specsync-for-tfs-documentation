@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.9 - 2019/08/22
+
+### Bug Fixes
+
+* Fix: useTestCaseData value for setting specFlow/scenarioOutlineAutomationWrappers causes "Invalid Test Case ID" error
+* Fix: Incorrect detection of PAT when specified as %foo% in config file
+* Fix: Incorrect display of user name when specified as %foo% and asks for password
+
 ## v2.1.8 - 2019/08/15
 
 ### Bug Fixes

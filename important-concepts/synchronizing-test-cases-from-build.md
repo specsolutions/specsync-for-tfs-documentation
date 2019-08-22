@@ -29,6 +29,10 @@ An example configuration setting in the SpecSync configuration file that uses th
 }
 ```
 
+{% hint style="info" %}
+Note: Secret variables can only be used from the configuration file if they are mapped to an environment variable first \(only available for YAML pipelines\). Please check [Azure DevoOps documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables) for details. For using secret variables in Classic pipelines, we recommend overriding the user setting from command line as shown below.
+{% endhint %}
+
 The same setting can also be alternatively specified as a command line option:
 
 ```bash
@@ -36,7 +40,7 @@ specsync4azuredevops.cmd push --buildServerMode --user "$(SPECSYNC_PAT)"
 ```
 
 {% hint style="info" %}
-_Note: Secret variables can only be used using the `$(variable)` form, they will not be substituted using the %variable% form._
+_Note: Secret variables can only be used using the `$(variable)` form, they will not be substituted using the %variable% form._ 
 {% endhint %}
 
 ### Performing synchronization \(push\) from build or release pipeline
