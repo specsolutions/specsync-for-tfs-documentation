@@ -17,6 +17,8 @@ Currently these strategies work only with SpecFlow projects. For non-SpecFlow pr
 
 For an overview of the compatibility of the different execution strategies, please check the following PDF document: [Test Case Execution Strategy Compatibility](http://speclink.me/specsyncexecstcomp)
 
+![Test Case Execution Strategy Compatibility \(download it as PDF from the link above\)](../.gitbook/assets/image%20%286%29.png)
+
 ## Assembly based execution strategy
 
 The assembly-based execution strategy is the most generally applicable strategy and it requires the least changes in a usual continuous integration \(CI\) process.
@@ -75,7 +77,7 @@ vstest.console bin\Debug\MyTestAssembly.dll  /logger:trx;LogFileName=testresult.
 dotnet test --logger trx;logfilename=testresult.trx
 ```
 
-![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%283%29.png)
+![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%285%29.png)
 
 {% hint style="info" %}
 The TRX files you specify will be saved to a `TestResults` folder. So using the configuration above, the TRX file will be saved to `TestResults\testresult.trx`.
