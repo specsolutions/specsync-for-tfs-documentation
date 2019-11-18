@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.1.10 - 2019/11/01
+
+### Improvements
+
+* Security protocol can be configured for HTTPS \(e.g. to avoid using TLS 1.0\). To override the default configuration set the `remote/securityProtocol` setting in the configuration file to one of the following values: `Ssl3`, `Tls`, `Tls11`, `Tls12`
+* Support for SpecFlow v3.1 \(via NuGet package [`SpecSync.AzureDevOps.SpecFlow.3-1`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-1)\). 
+
+### Bug Fixes
+
+* Fix: Test result remains in "In Progress" state when publishing test results
+
 ## v2.1.9 - 2019/08/22
 
 ### Bug Fixes
