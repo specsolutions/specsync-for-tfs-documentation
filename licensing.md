@@ -25,6 +25,7 @@ The location of the license file \(absolute or relative to the project folder\) 
 * Field default value support -- enables setting default values to test case fields. Useful for custom Azure DevOps process templates.
 * Custom field update support -- enables updating test case fields that are normally not changed by SpecSync.
 * Test case step ignore -- can ignore \(leave unchanged\) test case steps with a specific prefix.
+* Integrations with 3rd party commercial products, like SpecFlow+
 
 ### EULA
 
