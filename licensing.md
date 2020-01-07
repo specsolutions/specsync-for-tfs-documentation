@@ -27,13 +27,13 @@ The location of the license file \(absolute or relative to the project folder\) 
 * Test case step ignore -- can ignore \(leave unchanged\) test case steps with a specific prefix.
 * Integrations with 3rd party commercial products, like SpecFlow+
 
-## Enterprise Support
+## Enterprise support
 
-The Service Level Agreement \(SLA\) for the support services for SpecSync for AzureDevOps Enterprise license holders can be downloaded from [here](https://www.specsolutions.eu/media/specsync/SpecSync-Enterprise-Support-SLA.pdf).
+The Service Level Agreement \(SLA\) for the support services for SpecSync for Azure DevOps Enterprise license holders can be downloaded from [here](https://www.specsolutions.eu/media/specsync/SpecSync-Enterprise-Support-SLA.pdf).
 
 ## EULA
 
 The End User License Agreement can be downloaded [here](https://www.specsolutions.eu/media/specsync/EULA-SpecSync.pdf).
 
-
+SpecSync for Azure DevOps uses 3rd party software libraries, please find their licenses at [http://speclink.me/specsync3rdpartylic](http://speclink.me/specsync3rdpartylic).
 
