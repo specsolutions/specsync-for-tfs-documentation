@@ -33,7 +33,7 @@ The following example shows the available options within this sub-section. This 
       {
         "tagPrefix": "pbi",
         "targetWorkItemType": "ProductBacklogItem",
-        "relationship": "Child",
+        "relationship": "Parent",
         "mode": "createIfMissing"
       },
       {
@@ -54,7 +54,7 @@ For each link type configuration the following settings can be used.
 
 * `tagPrefix` -- A tag prefix for specifying the relation for the scenario. E.g. specify `pbi` for linking product backlog items using a tag, like `@pbi:1234`. \(Mandatory.\)
 * `targetWorkItemType` -- The type of the Azure DevOps work item the link refers to. \(Default: _\[Can link to any work item type\]_\)
-* `relationship` -- Specify the relationship for the created link. \(Default: `Tests` relationship is established\)
+* `relationship` -- Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. \(Default: `Tests` relationship is established\)
 * `mode` -- Specifies how the links are updated. Available options: `createIfMissing`. \(Default: `createIfMissing`\)
   * `createIfMissing` -- SpecSync only creates links but never removes them, even if the tag has been removed from the scenario. 
 

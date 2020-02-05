@@ -63,7 +63,7 @@ _Note: SpecSync does not check the type of the referred work item. Specifying_ `
 
 ## Link types
 
-SpecSync creates a "Tests" link type between the test cases and the other work items by default. If you want to establish another kind of relationship \(e.g. Child\), you can specify the link type in the `relationship` setting.
+SpecSync creates a "Tests" link type between the test cases and the other work items by default. If you want to establish another kind of relationship \(e.g. Parent\), you can specify the link type in the `relationship` setting. The specified relationship defines how the linked work item is related to the test case, e.g. specifying `Parent` means that the linked work item will be the parent of the test case work item.
 
 ```text
 {
@@ -73,7 +73,7 @@ SpecSync creates a "Tests" link type between the test cases and the other work i
     "links": [
       {
         "tagPrefix": "story",
-        "relationship": "Child"
+        "relationship": "Parent"
       }
     ],
     ...
