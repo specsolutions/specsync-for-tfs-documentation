@@ -17,7 +17,7 @@ Currently these strategies work only with SpecFlow projects. For non-SpecFlow pr
 
 For an overview of the compatibility of the different execution strategies, please check the following PDF document: [Test Case Execution Strategy Compatibility](http://speclink.me/specsyncexecstcomp)
 
-![Test Case Execution Strategy Compatibility \(download it as PDF from the link above\)](../.gitbook/assets/image%20%286%29.png)
+![Test Case Execution Strategy Compatibility \(download it as PDF from the link above\)](../.gitbook/assets/image%20%287%29.png)
 
 ## Assembly based execution strategy
 
@@ -77,7 +77,7 @@ vstest.console bin\Debug\MyTestAssembly.dll  /logger:trx;LogFileName=testresult.
 dotnet test --logger trx;logfilename=testresult.trx
 ```
 
-![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%285%29.png)
+![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%286%29.png)
 
 {% hint style="info" %}
 The TRX files you specify will be saved to a `TestResults` folder. So using the configuration above, the TRX file will be saved to `TestResults\testresult.trx`.
@@ -200,7 +200,7 @@ For the unit test providers that generate multiple test methods for the Scenario
 While the generated wrapper method provides a sufficient solution for the test case execution, it causes a slight inconvenience, because it will be also shown in the test runners used locally and when there is an assembly based test execution included in the build or release pipeline. Therefore for these unit test providers we recommend considering the Assembly based execution strategy as described above, because that does not have this limitation.
 {% endhint %}
 
-In order to configure SpecSync to generate the wrapper methods, the following steps have to be done in addition to the configuration steps described in Step 0 of the Test Suite based execution strategy.
+In order to configure SpecSync to generate the wrapper methods, the following steps have to be done in addition to the configuration steps described in [Step 0](synchronizing-automated-test-cases.md#suitebasedexecution-step0) of the [Test Suite based execution strategy](synchronizing-automated-test-cases.md#test-suite-based-execution-strategy).
 
 ### Step 0.1: Configure strategy
 
@@ -229,9 +229,9 @@ Install the SpecSync SpecFlow plugin to your project as a NuGet package. For exa
 PM> Install-Package SpecSync.AzureDevOps.SpecFlow.2-4
 ```
 
-Regenerate feature files by invoking "Regenerate Feature Files" from the context menu of the SpecFlow project node in the "Solution Explorer" window. This step is not necessary if you use [MsBuild generation for SpecFlow](https://specflow.org/documentation/Generate-Tests-from-MsBuild/). 
-
-![Regenerate feature files](../.gitbook/assets/getting-started-specflow-regenerate-feature-files.png)
+{% hint style="warning" %}
+If you use **SpecFlow v2** and the feature file code-behind files are not generated using the SpecFlow.Tools.MsBuild.Generation NuGet package, you need to force re-generating the code-behind files after installing the SpecSync.AzureDevOps.SpecFlow package. This can be done by invoking "Regenerate Feature Files" from the context menu of the SpecFlow project node in the "Solution Explorer" window in Visual Studio.
+{% endhint %}
 
 ### Filter out wrapper methods in local test execution
 
