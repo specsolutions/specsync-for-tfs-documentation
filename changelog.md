@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.1.11 - 2020/02/23
+
+### Improvements
+
+* Improved test case result comment when publishing test results of scenario outlines
+
+### Bug Fixes
+
+* Fix: DataTable headers missing when scenario is pulled
+* Fix: DataTable is not pulled properly when `syncDataTableAsText` formatting option is enabled
+* Fix: DocString is not pulled properly
+* 3rd party open-source licenses \(`third-party-licenses.txt`\) added to the package. The information is also available from the [Licensing](licensing.md) page. 
+
 ## v2.1.10 - 2019/11/01
 
 ### Improvements
