@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.12 - 2020/04/03
+
+### Bug Fixes
+
+* Fix: Publishing xUnit test results cannot find tests with VsTest v16.5.0 or higher
+* Fix: Publishing NUnit test results cannot find tests
+* Fix: version command should return with exit code 0
+
 ## v2.1.11 - 2020/02/23
 
 ### Improvements

@@ -6,13 +6,15 @@ For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for Azure DevOps synch
 
 ## v2.2 \(pre-release, alpha stage\)
 
-* Windows: [SpecSync.AzureDevOps.2.2.0-pre20200223.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.2.0-pre20200223.zip)
-* OSX/Linux: [SpecSync.AzureDevOps.Mono.2.2.0-pre20200223.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.2.0-pre20200223.zip)
+The v2.2 release introduces SpecSync as a portable .NET Core tool, so re recommend using that on OSX/Linux. 
+
+* Windows: [SpecSync.AzureDevOps.Console.2.2.0-pre20200403.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.2.2.0-pre20200403.zip)
+* Linux: [SpecSync.AzureDevOps.2.2.0-pre20200309-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.2.0-pre20200309-linux-x64.zip)
 
 ## v2.1
 
-* Windows: [SpecSync.AzureDevOps.2.1.11.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.1.11.zip)
-* OSX/Linux: [SpecSync.AzureDevOps.Mono.2.1.11.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.1.11.zip)
+* Windows: [SpecSync.AzureDevOps.2.1.11.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.1.12.zip)
+* OSX/Linux: [SpecSync.AzureDevOps.Mono.2.1.11.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Mono.2.1.12.zip)
 
 ## v2.0
 
