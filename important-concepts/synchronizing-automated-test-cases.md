@@ -17,7 +17,7 @@ Currently these strategies work only with SpecFlow projects. For non-SpecFlow pr
 
 For an overview of the compatibility of the different execution strategies, please check the following PDF document: [Test Case Execution Strategy Compatibility](http://speclink.me/specsyncexecstcomp)
 
-![Test Case Execution Strategy Compatibility \(download it as PDF from the link above\)](../.gitbook/assets/image%20%288%29.png)
+![Test Case Execution Strategy Compatibility \(download it as PDF from the link above\)](../.gitbook/assets/image%20%286%29.png)
 
 ## Assembly based execution strategy
 
@@ -77,7 +77,7 @@ vstest.console bin\Debug\MyTestAssembly.dll  /logger:trx;LogFileName=testresult.
 dotnet test --logger trx;logfilename=testresult.trx
 ```
 
-![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%287%29.png)
+![Configure TRX file in the &quot;Execution options&quot; section of the VSTest taks](../.gitbook/assets/image%20%285%29.png)
 
 {% hint style="info" %}
 The TRX files you specify will be saved to a `TestResults` folder. So using the configuration above, the TRX file will be saved to `TestResults\testresult.trx`.
@@ -107,7 +107,7 @@ path-to-specsync-package\tools\SpecSync4AzureDevOps.exe publish-test-results
 
 As a result of the `publish-test-results` command a new Test Run will be registered and the test results will be associated to the test cases as you can see when you open the Test Suite in Azure DevOps.
 
-![Test Cases with results in a Test Suite](../.gitbook/assets/image%20%282%29.png)
+![Test Cases with results in a Test Suite](../.gitbook/assets/image%20%281%29%20%281%29.png)
 
 ## Test Suite based execution strategy
 
@@ -180,7 +180,7 @@ Due to a bug in the VSTest task in Azure DevOps, if the name of the compiled ass
 
 During the execution of the build or release, the scenarios will be executed and their results will be registered to the linked Test Cases as you can see when you open the Test Suite in Azure DevOps.
 
-![Test Cases with results in a Test Suite](../.gitbook/assets/image%20%282%29.png)
+![Test Cases with results in a Test Suite](../.gitbook/assets/image%20%281%29%20%281%29.png)
 
 As a result of the synchronization step, the test cases are marked as "Automated" and the test methods are associated with the test cases.
 

@@ -71,7 +71,7 @@ To be able to publish the results even if the tests failed, make sure you set th
 
 The following Command Line Task content shows a usual setting.
 
-![A command line task configured for publishing test results with SpecSync](../.gitbook/assets/image%20%283%29.png)
+![A command line task configured for publishing test results with SpecSync](../.gitbook/assets/image%20%282%29.png)
 
 {% hint style="info" %}
 You can control the location and the name of the TRX file produced by the VSTest task by specifying the logger results in the "Other console options" setting, for example in order to save the TRX file into `..\TestResults\assembly-testresult.trx`as it was used in the example above, you need to specify:

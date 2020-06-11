@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.13 - 2020/06/11
+
+### Bug Fixes
+
+* Fix: Parameters are not displayed when test is manually executed using the web-based test runner of ADO \(Microsoft.VSTS.TCM.Parameters is not set\)
+
 ## v2.1.12 - 2020/04/03
 
 ### Bug Fixes
