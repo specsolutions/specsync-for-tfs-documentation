@@ -8,7 +8,7 @@ For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for Azure DevOps synch
 
 The v2.2 release introduces SpecSync as a portable .NET Core tool, so re recommend using that on OSX/Linux. 
 
-* Windows: [SpecSync.AzureDevOps.Console.2.2.0-pre20200619.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.2.2.0-pre20200619.zip)
+* Windows: [SpecSync.AzureDevOps.Console.2.2.0-pre20200721.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.2.2.0-pre20200721.zip)
 * Linux: [SpecSync.AzureDevOps.2.2.0-pre20200309-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.2.2.0-pre20200309-linux-x64.zip)
 
 ## v2.1
