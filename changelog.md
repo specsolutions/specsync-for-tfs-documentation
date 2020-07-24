@@ -1,5 +1,58 @@
 # Changelog
 
+## v3.0.0 - 2020/07/24
+
+_Note: The release was formerly planned as v2.2._
+
+### New features & improvements
+
+* .NET Core Support: SpecSync is provided as a .NET Core Tool, the .NET Framework executable is available as NuGet package: [SpecSync.AzureDevOps.Console](https://www.nuget.org/packages/SpecSync.AzureDevOps.Console)
+* Using new Azure DevOps API
+* Publishing test results to multiple Test Suites \(enterprise feature\)
+* Allow to specify log file
+* init command to setup SpecSync for a new project
+* Hierarchical SpecSync configuration files
+* List known remotes in user-specific configuration file
+* Attaching files to test run
+* Tag test cases of removed scenarios
+* Support for SpecFlow v3.3 with Test Suite based execution with Scenario Outline wrappers strategy, using NuGet package: [SpecSync.AzureDevOps.SpecFlow.3-3](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-3)
+* Map inconclusive test results for publishing
+* Specify target test suite for publishing on the command line
+* Tag expressions support tail wildcards
+* Map tags \(enterprise feature\)
+* Allow specifying test run and test result comments for publishing
+* Published test results are automatically connected to the AzureDevOps builds or the build reference can be specified explicitly
+* New supported test result formats \(besides TRX\): Cucumber Java \(XML\), Python Behave \(XML\), Cucumber Studio/Hiptest JSON, Python PyTest.BDD \(XML\), SpecFlow NUnit \(XML\)
+* Simplified licensing: scenario outlines count as one for synchronization limit
+* Improved authentication error handling
+
+### Breaking changes
+
+* synchronization/forceUpdate has been removed from configuration \(use --force command line option instead\)
+* Replace --buildServerMode with --disableLocalChanges on the command line and synchronization/enableLocalChanges with synchronization/disableLocalChanges in the config file
+* SpecFlow+ Excel support removed
+* Linux Mono support has been removed, but SpecSync v3 can be used on Linux and OSX using the .NET Core tool or the [downloadable](http://speclink.me/specsyncdonwloads) native binaries
+* The minimum .NET Framework version supported is 4.6.2 \(v4.5 is not supported\)
+* Setting 'useLegacyFeatureFileGenerator' has been deprecated
+
+### Bug Fixes
+
+* Fix: Maximum 1000 test results can be processed with a single call
+* Fix: --force does not fix Scenario Outline parameter binding
+* Fix: Using shared parameters cause sync error
+
+## v2.1.14 - 2020/07/24
+
+### Improvements
+
+* Support for SpecFlow v3.3 with Test Suite based execution with Scenario Outline wrappers strategy, using NuGet package: [SpecSync.AzureDevOps.SpecFlow.3-3](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-3)
+* Simplified licensing: scenario outlines count as one for synchronization limit
+
+### Bug Fixes
+
+* Fix: --force does not fix Scenario Outline parameter binding
+* Fix: Using shared parameters cause sync error
+
 ## v2.1.13 - 2020/06/11
 
 ### Bug Fixes
