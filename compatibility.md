@@ -8,7 +8,7 @@ SpecSync for Azure DevOps might work with other Azure DevOps or TFS installation
 * Azure DevOps Server 2019
 * Team Foundation Server 2018
 * Team Foundation Server 2017
-* Team Foundation Server 2015 Update 3
+* Team Foundation Server 2015 Update 3 \(up to SpecSync v2.1\)
 * Team Foundation Server 2013 Update 1 \(up to SpecSync v1.3\)
 
 ## Supported BDD Tools
@@ -21,6 +21,7 @@ When synchronizing scenarios to non-automated test cases \(default\) or automate
 
 For synchronizing automated test cases with the "Suite based execution strategy", currently the following SpecFlow versions are supported.
 
+* SpecFlow v3.3 \(from SpecSync v2.1.14\)
 * SpecFlow v3.1 \(from SpecSync v2.1.10\)
 * SpecFlow v3.0 \(from SpecSync v2.1\)
 * SpecFlow v2.4
