@@ -43,8 +43,7 @@ The following command line options are available for all synchronization command
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><code>[config-file-path]</code>
-      </td>
+      <td style="text-align:left">[config-file-path]</td>
       <td style="text-align:left">
         <p></p>
         <p>The path of the SpecSync configuration file, absolute path or relative
