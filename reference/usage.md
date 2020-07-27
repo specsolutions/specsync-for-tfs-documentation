@@ -1,4 +1,18 @@
-# Usage
+# Command line reference
+
+SpecSync functions are provided through the command line interface. To use the command line interface open a command window or bash shell and run SpecSync followed by a command and appropriate options. 
+
+Running SpecSync might require you to use different executable depending on the installation. 
+
+* `dotnet specsync [specsync-command] [specsync-options]` — when SpecSync is installed as a platform independent .NET Core tool \(recommended\)
+* `SpecSync4AzureDevOps.exe [specsync-command] [specsync-options]` — when you use the .NET Framework interface through the SpecSync.AzureDevOps.Console NuGet package on Windows
+* `SpecSync4AzureDevOps [specsync-command] [specsync-options]` — when you use the native binaries for Linux or MacOS
+
+The available commands and the options are the same for all usage, please check the TODO page for further information about usage options. In the command line reference we generally use the .NET Core tool usage syntax. 
+
+{% hint style="warning" %}
+The documentation is currently being updated. Please check it again soon...
+{% endhint %}
 
 The SpecSync [install package](../installation.md) contains a command line tool \(`SpecSync4AzureDevOps.exe`\) inside the `tools` folder. All synchronization operations can be performed by invoking this tool from the local environment or [from the CI build process](../important-concepts/synchronizing-test-cases-from-build.md). \(For .NET projects, the package adds a `specsync4azuredevops.cmd` script file to the project for calling the SpecSync command line tool conveniently.\)
 

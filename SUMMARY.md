@@ -45,6 +45,5 @@
 
 ## Reference
 
-* [Usage](reference/usage.md)
-* [Command line reference](reference/xxxcommand-line-reference.md)
+* [Command line reference](reference/usage.md)
 
