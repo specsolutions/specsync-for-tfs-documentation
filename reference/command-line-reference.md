@@ -14,6 +14,14 @@ Running SpecSync might require you to use different executable depending on the 
 
 The available commands and the options are the same for all usage, please check the [Installation & Usage](../installation.md) page for further information about usage options. In the command line reference we generally use the .NET Core tool usage syntax. 
 
+### Examples
+
+Invoking the following command displays SpecSync version.
+
+```text
+dotnet specsync version
+```
+
 {% hint style="info" %}
 _SpecSync collects anonymous error diagnostics and statistics. Neither user nor machine names, nor Azure DevOps URLs, nor test case & test suite names nor IDs are collected! This can be disabled with the_ `--disableStats` _parameter._
 {% endhint %}
@@ -45,31 +53,29 @@ The following command line options are available for all synchronization command
 | `--diag` | If specified, diagnostic information will be added to the output. | false |
 | `--log` \[log-file\] | If specified, the output will also be saved to a log file. | no log file is written |
 
+## Examples
+
+Display SpecSync version:
+
+```text
+dotnet specsync version
+```
+
+Get help about command line options for `push` command:
+
+```text
+dotnet specsync help push
+```
+
+Synchronize local changes to Azure DevOps and save execution log to a file `log.txt`:
+
+```
+dotnet specsync push --log log.txt
+```
+
 {% hint style="warning" %}
 The documentation is currently being updated. Please check it again soon...
 {% endhint %}
-
-The SpecSync [install package](../installation.md) contains a command line tool \(`SpecSync4AzureDevOps.exe`\) inside the `tools` folder. All synchronization operations can be performed by invoking this tool from the local environment or [from the CI build process](../important-concepts/synchronizing-test-cases-from-build.md). \(For .NET projects, the package adds a `specsync4azuredevops.cmd` script file to the project for calling the SpecSync command line tool conveniently.\)
-
-The synchronization tool provides different commands. For synchronizing the scenarios to Azure DevOps, the `push` command can be used. The configuration options have to be provided in a [json configuration file](configuration/), called `specsync.json` by default. It is recommended to invoke the command line tool from the project folder, otherwise the path of the configuration file has to be specified explicitly.
-
-```text
-path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
-```
-
-For a detailed setup instructions, please check the [Getting started](../getting-started/) guide. For a complete list of configuration options check the [Configuration](configuration/) documentation.
-
-_Note: SpecSync collects anonymous error diagnostics and statistics. Neither user nor machine names, nor Azure DevOps URLs, nor test case & test suite names nor IDs are collected! This can be disabled with the_ `--disableStats` _parameter._
-
-## Available SpecSync commands
-
-* `push` -- Pushes changes of the scenarios on the local repository to the Azure DevOps server. This by default includes linking of new scenarios to new test cases \(link\) and updating test cases of linked scenarios \(update\).
-* `pull` -- Pulls changes from Azure DevOps server to the local repository. This by default includes creation of new scenarios from unlinked test cases \(create\) and changing scenarios of linked test cases \(change\). See [Two-way synchronization](../important-concepts/two-way-synchronization.md) for details.
-* `publish-test-results` -- Publish local test results to Azure DevOps server. See more details about the command in the "Assembly based execution strategy" section of the  [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md) article.
-* `help` -- Displays more information on a specific command.
-* `version` -- Displays version information.
-
-## 
 
 ## Synchronization command line options \(for push and pull\)
 
