@@ -33,53 +33,17 @@ _SpecSync collects anonymous error diagnostics and statistics. Neither user nor 
 
 The following command line options are available for all synchronization commands.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Option</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">[config-file-path]</td>
-      <td style="text-align:left">
-        <p></p>
-        <p>The path of the SpecSync configuration file, absolute path or relative
-          to the current folder, e.g. <code>MyProject.Specs\specsync.json</code>.</p>
-      </td>
-      <td style="text-align:left">use <code>specsync.json</code> from the current folder</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <p></p>
-        <p><code>--user</code> [user-name]</p>
-      </td>
-      <td style="text-align:left">
-        <p></p>
-        <p>The Azure DevOps user name or <a href="https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts">personal access token</a> (PAT).
-          Overrides <code>remote/user</code> setting of the configuration file. See
-          <a
-          href="../important-concepts/tfs-authentication-options.md">Azure DevOps authentication options</a>for details.</p>
-      </td>
-      <td style="text-align:left">
-        <p></p>
-        <p>use from config file or interactive prompt</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-* `[config-file-path]` — The path of the SpecSync configuration file, absolute path or relative to the current folder, e.g. `MyProject.Specs\specsync.json`. \(Default: use `specsync.json` from the current folder\) 
-* `--user [user-name]` — The Azure DevOps user name or [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). Overrides `remote/user` setting of the configuration file. See [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md) for details. \(Default: use from config file or interactive prompt\)
-* `--password [password]` — The password for the Azure DevOps user. Overrides `remote/password` setting of the configuration file. See [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md) for details. \(Default: use from config file or interactive prompt\)
-* `--license [license-file-path]` — The path to the license file; can be relative to the project folder. Overrides `toolSettings/licensePath` setting of the configuration file. See [Licensing](../licensing.md) for details. \(Default: use from config file or `specsync.lic`\)
-* `--baseFolder` — The base folder where SpecSync searches for project, feature and license files by default. \(Default: \[folder of the configuration file\]\)
-* `--disableStats` — If specified, SpecSync will not collect anonymous error diagnostics and statistics. Overrides `toolSettings/disableStats` setting of the configuration file. \(Default: false\)
-* `-v`, `--verbose` — If specified, error messages and trace information will be displayed more in detail. Overrides `toolSettings/outputLevel` setting of the configuration file. \(Default: false\)
-* `--diag` — If specified, diagnostic information will be added to the output. \(Default: false\)
-* `--log [log-file]` — If specified, the output will also be saved to a log file. \(Default: no log file is written\)
+| Option | Description | Default |
+| :--- | :--- | :--- |
+| \[config‑file‑path\] | The path of the SpecSync configuration file, absolute path or relative to the current folder, e.g. `MyProject.Specs\specsync.json`. | use `specsync.json` from the current folder |
+| `--user` \[user‑name\] | The Azure DevOps user name or [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). Overrides `remote/user` setting of the configuration file. See [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md) for details. | use from config file or interactive prompt |
+| `--password` \[password\] | The password for the Azure DevOps user. Overrides `remote/password` setting of the configuration file. See [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md) for details. | use from config file or interactive prompt |
+| `--license` \[license‑file‑path\] | The path to the license file; can be relative to the project folder. Overrides `toolSettings/licensePath` setting of the configuration file. See [Licensing](../licensing.md) for details. \(Default: use from config file or `specsync.lic`\) | use from config file or `specsync.lic` |
+| `--baseFolder` | The base folder where SpecSync searches for project, feature and license files by default. | folder of the configuration file |
+| `--disableStats` | If specified, SpecSync will not collect anonymous error diagnostics and statistics. Overrides `toolSettings/disableStats` setting of the configuration file. | false |
+| `-v`, `--verbose` | If specified, error messages and trace information will be displayed more in detail. Overrides `toolSettings/outputLevel` setting of the configuration file. | false |
+| `--diag` | If specified, diagnostic information will be added to the output. | false |
+| `--log` \[log-file\] | If specified, the output will also be saved to a log file. | no log file is written |
 
 {% hint style="warning" %}
 The documentation is currently being updated. Please check it again soon...
