@@ -1,3 +1,7 @@
+---
+description: Contains information about the SpecSync command line tool usage syntax
+---
+
 # Command line reference
 
 SpecSync functions are provided through the command line tool. To use the command line tool open a command window or bash shell and run SpecSync followed by a command and appropriate options. The options and further configuration have to be specified in a [SpecSync configuration file](configuration/) \(by default `specsync.json`\). The SpecSync command line tool is normally invoked from the folder where the configuration file of the project is saved.
@@ -9,6 +13,8 @@ Running SpecSync might require you to use different executable depending on the 
 * `SpecSync4AzureDevOps [specsync-command] [specsync-options]` — when you use the native binaries for Linux or MacOS
 
 The available commands and the options are the same for all usage, please check the [Installation & Usage](../installation.md) page for further information about usage options. In the command line reference we generally use the .NET Core tool usage syntax. 
+
+## Commands
 
 {% hint style="warning" %}
 The documentation is currently being updated. Please check it again soon...
