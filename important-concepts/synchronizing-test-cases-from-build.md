@@ -6,7 +6,7 @@ Keeping the test cases in sync with the scenarios is important, therefore automa
 
 The SpecSync commands can be added to an Azure DevOps build or release pipeline as a [Command line task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/command-line?view=azure-devops&tabs=yaml). This works for both in Classic or YAML pipelines.
 
-In the SpecSync command line task you need to invoke the `SpecSync4AzureDevOps.exe` executable with the necessary command line parameters usually from the folder of your SpecFlow project. For invoking the executable you can use the path of the restored NuGet package or the `specsync4azuredevops.cmd` script. \(See more at [Usage](../usage.md).\)
+In the SpecSync command line task you need to invoke the `SpecSync4AzureDevOps.exe` executable with the necessary command line parameters usually from the folder of your SpecFlow project. For invoking the executable you can use the path of the restored NuGet package or the `specsync4azuredevops.cmd` script. \(See more at [Usage](../reference/usage.md).\)
 
 See the following sections for details about the recommended authentication options and for the usual settings for `push` and `publish-test-results` commands.
 
@@ -45,7 +45,7 @@ _Note: Secret variables can only be used using the `$(variable)` form, they will
 
 ### Performing synchronization \(push\) from build or release pipeline
 
-Creating the initial link between scenarios and test cases requires a small change in the feature file \(to include the test case tags\). Such changes cannot be done in an automated process, because the changes cannot be committed to the source control. To handle this, SpecSync provides a `--buildServerMode` switch \(see [Usage](../usage.md) for more details\). If this switch is provided, SpecSync will not synchronize new scenarios, but only updates the ones that are already linked to test cases.
+Creating the initial link between scenarios and test cases requires a small change in the feature file \(to include the test case tags\). Such changes cannot be done in an automated process, because the changes cannot be committed to the source control. To handle this, SpecSync provides a `--buildServerMode` switch \(see [Usage](../reference/usage.md) for more details\). If this switch is provided, SpecSync will not synchronize new scenarios, but only updates the ones that are already linked to test cases.
 
 {% hint style="success" %}
 It is recommended to add the SpecSync push command after the build and before executing the automated tests. This way you can ensure that the test cases are updated even if some of the test \(especially integration tests\) fail.

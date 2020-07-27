@@ -17,7 +17,7 @@ For synchronizing automated test cases using the "Test Suite based execution" st
 The [`SpecSync.AzureDevOps`](https://www.nuget.org/packages/SpecSync.AzureDevOps) NuGet package contains the synchronization tool, but it also contains some supporting files to get started with SpecSync easier. Unfortunately when using NuGet for SDK-Style .NET Projects \(e.g. .NET Core\), the NuGet infrastructure does not allow including editable content files in the target project, so these helper files are not added to the project by default. You can add these files manually from the project from the `content` folder of the NuGet package.
 
 * `specsync.json` -- this is a default configuration file. Alternatively you can also create a new JSON file based on the the samples shown in the [Configuration ](configuration/)page of the documentation.
-* specsync4azuredevops.cmd -- this file makes it easier to execute the synchronization tool. Alternatively you can also invoke the `SpecSync4AzureDevOps.exe` directly from the NuGet packages folder. \(See more details in the [Usage](usage.md) page.\)
+* specsync4azuredevops.cmd -- this file makes it easier to execute the synchronization tool. Alternatively you can also invoke the `SpecSync4AzureDevOps.exe` directly from the NuGet packages folder. \(See more details in the [Usage](reference/usage.md) page.\)
 
 ## For any platforms \(e.g. for Cucumber\)
 

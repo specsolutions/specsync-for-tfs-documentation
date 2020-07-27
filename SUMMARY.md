@@ -6,7 +6,6 @@
   * [Getting started using Cucumber or other Gherkin-based BDD tool](getting-started/getting-started-cucumber.md)
 * [Compatibility](compatibility.md)
 * [Installation](installation.md)
-* [Usage](usage.md)
 * [Licensing](licensing.md)
 * [Configuration](configuration/README.md)
   * [toolSettings](configuration/configuration-toolsettings.md)
@@ -43,4 +42,9 @@
   * [Migrating from SpecSync v1](important-concepts/migrating-from-specsync-v1.md)
 * [Changelog](changelog.md)
 * [Downloads](downloads.md)
+
+## Reference
+
+* [Usage](reference/usage.md)
+* [Command line reference](reference/xxxcommand-line-reference.md)
 

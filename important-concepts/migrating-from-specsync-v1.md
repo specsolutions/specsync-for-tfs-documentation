@@ -18,7 +18,7 @@ If you use SpecSync with SpecFlow and have used synchronizing automated test cas
 
 With SpecSync v1 all the configuration had to be specified as command line options but as the number of different configuration options grew, this became inconvenient. In v2 we have introduced a JSON configuration file to keep the configuration settings clean and organized. The configuration file \(called `specsync.json` by default\) has a JSON schema, therefore most of the IDE editors \(e.g. Visual Studio or Visual Studio Code\) offers auto-completion and validation for it, so that changing the configuration settings becomes easy. The JSON schema provides a short summary of each element that you can see if you hover your mouse over the setting, but there is also a complete reference of the different setting with examples in the [Configuration](../configuration/) reference.
 
-Some of the settings can still be overridden from command line \(e.g. password or force update\). You can find a complete list of these in the [Usage](../usage.md) reference.
+Some of the settings can still be overridden from command line \(e.g. password or force update\). You can find a complete list of these in the [Usage](../reference/usage.md) reference.
 
 When upgrading from v1, you have to create a `specsync.json` file \(based on an [empty](http://schemas.specsolutions.eu/specsync-empty.json) or a [detailed](http://schemas.specsolutions.eu/specsync-sample.json) sample\), and migrate your synchronization settings to it. Most of the settings have the same name, but we have renamed some of the settings for better clarity. If you get into trouble with finding the right setting in the new configuration file format, please contact us at specsync@specsolutions.eu.
 
@@ -32,7 +32,7 @@ Since the settings have moved from command line options to the configuration fil
 
 Be aware that the command line tool has been renamed to `SpecSycn4TFS.exe`.
 
-In addition to renaming, the tool supports multiple synchronization commands. For synchronizing scenarios to test cases, the `push` command has to be used. See full list of commands and options in the [Usage](../usage.md) reference.
+In addition to renaming, the tool supports multiple synchronization commands. For synchronizing scenarios to test cases, the `push` command has to be used. See full list of commands and options in the [Usage](../reference/usage.md) reference.
 
 The usual way of invoking the synchronization is now as simple as this:
 
