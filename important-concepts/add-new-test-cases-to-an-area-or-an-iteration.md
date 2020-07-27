@@ -4,7 +4,7 @@ The `Area` field can be used in Azure DevOps to assign the test case to a team o
 
 The `Area` and the `Iteration` fields can be modified manually, independently from the scenario synchronization \(SpecSync will not override these fields\). When the test case is initially created by SpecSync, by default it leaves these fields unset, so they will be initialized to the project default \(usually to the root area and iteration\).
 
-The [`synchronization/areaPath`](../configuration/configuration-synchronization/configuration-synchronization-areapath.md) and the [`synchronization/iterationPath`](../configuration/configuration-synchronization/configuration-synchronization-iterationpath.md) settings in the [configuration file](../configuration/) can be used to change the default behavior and set the `Area` and the `Iteration` fields to a specific value for the initial test case creation.
+The [`synchronization/areaPath`](../reference/configuration/configuration-synchronization/configuration-synchronization-areapath.md) and the [`synchronization/iterationPath`](../reference/configuration/configuration-synchronization/configuration-synchronization-iterationpath.md) settings in the [configuration file](../reference/configuration/) can be used to change the default behavior and set the `Area` and the `Iteration` fields to a specific value for the initial test case creation.
 
 ```text
 {

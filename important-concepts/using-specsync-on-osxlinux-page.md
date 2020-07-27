@@ -2,7 +2,7 @@
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. The synchronization tool works on Windows, OSX and Linux.
 
-Regardless of the execution platform, the synchronization settings have to be specified in a configuration file \(`specsync.json`\). Typically the [`remote`](../configuration/configuration-remote.md) and [`local`](../configuration/configuration-local.md) configuration sections have to be specified. Please check the  Please check the [Getting started using Cucumber or other Gherkin-based BDD tool](../getting-started/getting-started-cucumber.md) or the [Configuration](../configuration/) pages for details.
+Regardless of the execution platform, the synchronization settings have to be specified in a configuration file \(`specsync.json`\). Typically the [`remote`](../reference/configuration/configuration-remote.md) and [`local`](../reference/configuration/configuration-local.md) configuration sections have to be specified. Please check the  Please check the [Getting started using Cucumber or other Gherkin-based BDD tool](../getting-started/getting-started-cucumber.md) or the [Configuration](../reference/configuration/) pages for details.
 
 In order to use the SpecSync for Azure DevOps command line tool on OSX or Linux, there are two options: you can run it as a native Linux binary or using Mono.
 

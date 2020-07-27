@@ -12,7 +12,7 @@ _Note: The two-way synchronization is an_ [_Enterprise feature_](../licensing.md
 
 ## Two-way synchronization workflow
 
-In order to be able to use two-way synchronization, it has to be enabled in the SpecSync [configuration file](../configuration/) in the [`synchronization/pull` section](../configuration/configuration-synchronization/configuration-synchronization-pull.md):
+In order to be able to use two-way synchronization, it has to be enabled in the SpecSync [configuration file](../reference/configuration/) in the [`synchronization/pull` section](../reference/configuration/configuration-synchronization/configuration-synchronization-pull.md):
 
 ```text
 {
@@ -53,7 +53,7 @@ _Note: SpecSync cannot ensure that the updated feature files are committed to th
 
 By default, the pull command only loads the changes of the test cases that have been linked to a scenario already \(i.e. have been synchronized with SpecSync push once\).
 
-You can enable creating new scenarios during pull using the [`synchronization/pull/enableCreatingScenariosForNewTestCases` configuration setting](../configuration/configuration-synchronization/configuration-synchronization-pull.md):
+You can enable creating new scenarios during pull using the [`synchronization/pull/enableCreatingScenariosForNewTestCases` configuration setting](../reference/configuration/configuration-synchronization/configuration-synchronization-pull.md):
 
 ```text
 {

@@ -10,7 +10,7 @@ So scope is a permanent configuration setting, filter is a temporary setting tha
 
 ## Setting local scope for `push`
 
-The set of feature files and scenarios to be considered for the `push` command can be specified in the [`local` Configuration](../configuration/configuration-local.md).
+The set of feature files and scenarios to be considered for the `push` command can be specified in the [`local` Configuration](../reference/configuration/configuration-local.md).
 
 You can choose about which feature files should be considered
 

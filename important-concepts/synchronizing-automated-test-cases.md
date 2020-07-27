@@ -27,7 +27,7 @@ The core concept of the Assembly based execution strategy is that the scenarios 
 
 ### Step 0: Configure SpecSync
 
-In order to publish test results to a test case in Azure DevOps, the test case has to be included to a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
+In order to publish test results to a test case in Azure DevOps, the test case has to be included to a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../reference/configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
 
 ```javascript
 {
@@ -42,7 +42,7 @@ In order to publish test results to a test case in Azure DevOps, the test case h
 }
 ```
 
-Although for this strategy it is not required, you can synchronize the test cases as automated test cases to indicate their execution type. In this case, you need to specify `assemblyBasedExecution` as `testExecutionStrategy` in the [`synchronization/automation`](../configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file.
+Although for this strategy it is not required, you can synchronize the test cases as automated test cases to indicate their execution type. In this case, you need to specify `assemblyBasedExecution` as `testExecutionStrategy` in the [`synchronization/automation`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file.
 
 ```javascript
 {
@@ -98,7 +98,7 @@ The publish-test-results command has to be provided with the following settings
 
 You can find the available Test Configurations in the "Test Plans / Configuration" section of the Azure DevOps project page, but if you specify a wrong test configuration value, SpecSync will also list the available options.
 
-The TRX file and the Test Configuration can be specified either in the configuration file \([`publishTestResults`](../configuration/publishtestresults.md) section\) or as a command line argument, as the following example shows.
+The TRX file and the Test Configuration can be specified either in the configuration file \([`publishTestResults`](../reference/configuration/publishtestresults.md) section\) or as a command line argument, as the following example shows.
 
 ```bash
 path-to-specsync-package\tools\SpecSync4AzureDevOps.exe publish-test-results 
@@ -123,7 +123,7 @@ The core concept of the Test Suite based execution strategy is that the scenario
 
 ### Step 0: Configure SpecSync <a id="suitebasedexecution-step0"></a>
 
-In order to publish test results to a test case in Azure DevOps, the test case has to be included in a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
+In order to publish test results to a test case in Azure DevOps, the test case has to be included in a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../reference/configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
 
 ```javascript
 {
@@ -143,7 +143,7 @@ This strategy requires the synchronization of the scenarios to **automated test 
 * set `enabled` to `true`
 * specify `testSuiteBasedExecution` as `testExecutionStrategy`
 
-in the [`synchronization/automation`](../configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file.
+in the [`synchronization/automation`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file.
 
 ```javascript
 {
@@ -204,7 +204,7 @@ In order to configure SpecSync to generate the wrapper methods, the following st
 
 ### Step 0.1: Configure strategy
 
-Specify `testSuiteBasedExecutionWithScenarioOutlineWrappers` as `testExecutionStrategy`in the [`synchronization/automation`](../configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file.
+Specify `testSuiteBasedExecutionWithScenarioOutlineWrappers` as `testExecutionStrategy`in the [`synchronization/automation`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file.
 
 ```javascript
 {
@@ -235,7 +235,7 @@ If you use **SpecFlow v2** and the feature file code-behind files are not genera
 
 ### Filter out wrapper methods in local test execution
 
-For each Scenario Outline, there will be an additional wrapper test generated that will be used by the automated test case. Running these tests locally is unnecessary, therefore it is recommended to filter them out from local execution. This can be done for example by entering the `-Trait:SpecSyncWrapper` filter criteria to the search box of the "Test Explorer" window. \(See more in [SpecFlow configuration](../configuration/configuration-specflow.md).\) 
+For each Scenario Outline, there will be an additional wrapper test generated that will be used by the automated test case. Running these tests locally is unnecessary, therefore it is recommended to filter them out from local execution. This can be done for example by entering the `-Trait:SpecSyncWrapper` filter criteria to the search box of the "Test Explorer" window. \(See more in [SpecFlow configuration](../reference/configuration/configuration-specflow.md).\) 
 
 ![Filtering out wrapper tests from local execution](../.gitbook/assets/getting-started-specflow-filter-out-wrapper.png)
 

@@ -1,6 +1,6 @@
 # Command line reference
 
-SpecSync functions are provided through the command line interface. To use the command line interface open a command window or bash shell and run SpecSync followed by a command and appropriate options. 
+SpecSync functions are provided through the command line tool. To use the command line tool open a command window or bash shell and run SpecSync followed by a command and appropriate options. The options and further configuration have to be specified in a [SpecSync configuration file](configuration/) \(by default `specsync.json`\). The SpecSync command line tool is normally invoked from the folder where the configuration file of the project is saved.
 
 Running SpecSync might require you to use different executable depending on the installation. 
 
@@ -16,13 +16,13 @@ The documentation is currently being updated. Please check it again soon...
 
 The SpecSync [install package](../installation.md) contains a command line tool \(`SpecSync4AzureDevOps.exe`\) inside the `tools` folder. All synchronization operations can be performed by invoking this tool from the local environment or [from the CI build process](../important-concepts/synchronizing-test-cases-from-build.md). \(For .NET projects, the package adds a `specsync4azuredevops.cmd` script file to the project for calling the SpecSync command line tool conveniently.\)
 
-The synchronization tool provides different commands. For synchronizing the scenarios to Azure DevOps, the `push` command can be used. The configuration options have to be provided in a [json configuration file](../configuration/), called `specsync.json` by default. It is recommended to invoke the command line tool from the project folder, otherwise the path of the configuration file has to be specified explicitly.
+The synchronization tool provides different commands. For synchronizing the scenarios to Azure DevOps, the `push` command can be used. The configuration options have to be provided in a [json configuration file](configuration/), called `specsync.json` by default. It is recommended to invoke the command line tool from the project folder, otherwise the path of the configuration file has to be specified explicitly.
 
 ```text
 path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
 ```
 
-For a detailed setup instructions, please check the [Getting started](../getting-started/) guide. For a complete list of configuration options check the [Configuration](../configuration/) documentation.
+For a detailed setup instructions, please check the [Getting started](../getting-started/) guide. For a complete list of configuration options check the [Configuration](configuration/) documentation.
 
 _Note: SpecSync collects anonymous error diagnostics and statistics. Neither user nor machine names, nor Azure DevOps URLs, nor test case & test suite names nor IDs are collected! This can be disabled with the_ `--disableStats` _parameter._
 

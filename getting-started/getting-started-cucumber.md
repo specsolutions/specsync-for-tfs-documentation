@@ -12,7 +12,7 @@ In this guide we will use Cucumber.js as an example, but the steps can also be a
 
 ## Preparation
 
-For setting up SpecSync for Azure DevOps, you need a Cucumber project and a Azure DevOps project. For the supported Azure DevOps versions, please check the [Compatibility](../compatibility.md) list.
+For setting up SpecSync for Azure DevOps, you need a Cucumber project and a Azure DevOps project. For the supported Azure DevOps versions, please check the [Compatibility](../reference/compatibility.md) list.
 
 In our guide, we will use a calculator example \(my\_calculator\) that uses Cucumber.js v5.1. The sample project can be downloaded from [GitHub](https://github.com/gasparnagy/specsync-basic-calculator-cucumber-js).
 
@@ -41,7 +41,7 @@ Create a configuration file \(`specsync.json`\) to your project root, based on t
 }
 ```
 
-Before the first synchronization we have to review and change a few settings in this file. For this example we will synchronize all feature files within the `test/features` folder. For synchronizing only a specific set of feature files, please check the [`local` Configuration](../configuration/configuration-local.md) documentation.
+Before the first synchronization we have to review and change a few settings in this file. For this example we will synchronize all feature files within the `test/features` folder. For synchronizing only a specific set of feature files, please check the [`local` Configuration](../reference/configuration/configuration-local.md) documentation.
 
 1. Open the `specsync.json` file in your IDE \(e.g. Visual Studio Code\) from your project folder.
 2. Set the value of the `remote/projectUrl` setting to the **project URL** of your Azure DevOps project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
@@ -92,9 +92,9 @@ You should see something like this.
 
 There are a couple of things you can note here.
 
-* The name of the scenario has been synchronized as the title of the test case. \(The "Scenario:" prefix can be omitted by changing the [synchronization format configurations](../configuration/configuration-synchronization/configuration-synchronization-format.md).\)
+* The name of the scenario has been synchronized as the title of the test case. \(The "Scenario:" prefix can be omitted by changing the [synchronization format configurations](../reference/configuration/configuration-synchronization/configuration-synchronization-format.md).\)
 * The tags of the scenario have been synchronized as test case tags.
-* The steps of the scenario have been synchronized as test case steps. \(The _Then_ steps can also be synchronized into the _Expected result_ column of the test case step list and you can [change a couple of other formatting options](../configuration/configuration-synchronization/configuration-synchronization-format.md) as well.\)
+* The steps of the scenario have been synchronized as test case steps. \(The _Then_ steps can also be synchronized into the _Expected result_ column of the test case step list and you can [change a couple of other formatting options](../reference/configuration/configuration-synchronization/configuration-synchronization-format.md) as well.\)
 
 ## Verify feature file and commit changes
 
@@ -143,7 +143,7 @@ The result shows that the test case for the scenario has been updated, but the o
 
    ![Updated test case in Azure DevOps](../.gitbook/assets/getting-started-specflow-updated-test-case.png)
 
-_Note: For executing complex test cases, further verification and planning steps might be required after the test case has been changed. SpecSync can reset the test case state to a configured value \(e.g._ `Design`_\) in order to ensure that these steps are not forgotten. For more information on this, check the_ [_synchronization state configuration_](../configuration/configuration-synchronization/configuration-synchronization-state.md) _documentation._
+_Note: For executing complex test cases, further verification and planning steps might be required after the test case has been changed. SpecSync can reset the test case state to a configured value \(e.g._ `Design`_\) in order to ensure that these steps are not forgotten. For more information on this, check the_ [_synchronization state configuration_](../reference/configuration/configuration-synchronization/configuration-synchronization-state.md) _documentation._
 
 ## Group synchronized test cases to a test suite
 

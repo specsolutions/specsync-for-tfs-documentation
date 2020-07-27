@@ -10,5 +10,5 @@ The branch tag feature should be enabled on the feature branches in the main `sp
 
 When the branch-tag feature is enabled, SpecSync will link new scenarios with the branch-tag prefix. If it detects changes on existing linked scenarios \(that were linked before the branch\), instead of changing those, it creates a new test case and links it with the branch-tag prefix \(so these scenarios will have two test case tags on the branch\). Once the branch has been merged back, the branch-tag prefixes have to be removed or converted to normal tag prefixes.
 
-The branch tag feature can be configured in the [`customizations` section](../configuration/configuration-customizations.md) of the configuration file.
+The branch tag feature can be configured in the [`customizations` section](../reference/configuration/configuration-customizations.md) of the configuration file.
 

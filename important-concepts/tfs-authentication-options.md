@@ -1,6 +1,6 @@
 # Azure DevOps authentication options
 
-SpecSync supports several authentication options for the [supported Azure DevOps systems](../compatibility.md#supported-tfs-systems). This section provides a summary of how the different authentication options have to be configured:
+SpecSync supports several authentication options for the [supported Azure DevOps systems](../reference/compatibility.md#supported-tfs-systems). This section provides a summary of how the different authentication options have to be configured:
 
 For Azure DevOps \(Visual Studio Team Services, VSTS\)
 
@@ -14,11 +14,11 @@ For on premises Team Foundation Server
 * [Windows sign-in prompt](tfs-authentication-options.md#tfs-windows-sign-in-prompt)
 * [Personal access tokens](tfs-authentication-options.md#vsts-personal-access-tokens)
 
-The authentication credentials can be specified in the in the configuration file \(see [`remote` Configuration](../configuration/configuration-remote.md) for details\) or as command line options \(see [Usage](../reference/command-line-reference.md) for details\).
+The authentication credentials can be specified in the in the configuration file \(see [`remote` Configuration](../reference/configuration/configuration-remote.md) for details\) or as command line options \(see [Usage](../reference/command-line-reference.md) for details\).
 
 For all configuration options, you can use environment variables for specifying user name and password \(`%variable%` format\), to make the testing easier without checking-in passwords to the source control. Environment variables are also useful for specifying passwords for [invoking the synchronization from the CI build process](synchronizing-test-cases-from-build.md).
 
-The the environment variables can be used in the [configuration file](../configuration/configuration-remote.md):
+The the environment variables can be used in the [configuration file](../reference/configuration/configuration-remote.md):
 
 ```text
 {
@@ -55,7 +55,7 @@ To create a personal access token, you have to follow the following steps:
 
 Once you have created your token, you can use it as _user_ for the synchronization.
 
-The personal access token can be configured in the [configuration file](../configuration/configuration-remote.md):
+The personal access token can be configured in the [configuration file](../reference/configuration/configuration-remote.md):
 
 ```text
 {
@@ -86,7 +86,7 @@ To enable alternate authentication credentials, you have to follow the following
 
 Once you have enabled alternate authentication credentials, you can use the synchronization with the secondary user name and password. This user name and password is not the same as the user name \(email\) and password you specify to login to Azure DevOps with your browser!
 
-The alternate authentication credentials can be configured in the [configuration file](../configuration/configuration-remote.md):
+The alternate authentication credentials can be configured in the [configuration file](../reference/configuration/configuration-remote.md):
 
 ```text
 {
@@ -128,7 +128,7 @@ In the popup window you have to provide the user name \(email\) and the password
 
 For installed Team Foundation Servers, you can use your domain user name \(`MYDOMAIN\myuser` format\) and password for the synchronization.
 
-The domain user name and password can be configured in the [configuration file](../configuration/configuration-remote.md):
+The domain user name and password can be configured in the [configuration file](../reference/configuration/configuration-remote.md):
 
 ```text
 {

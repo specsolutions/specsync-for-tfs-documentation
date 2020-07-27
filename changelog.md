@@ -160,7 +160,7 @@ _Note: The release was formerly planned as v2.2._
 
 ### Breaking changes
 
-* When synchronizing automated test cases, a test execution strategy has to be configured in the [synchronization/automation](configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file. To read more about test execution strategies see the [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md) article.
+* When synchronizing automated test cases, a test execution strategy has to be configured in the [synchronization/automation](reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) section of the configuration file. To read more about test execution strategies see the [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md) article.
 
 ### New features
 
@@ -194,21 +194,21 @@ _Note: The release was formerly planned as v2.2._
   * `SpecSync.AzureDevOps.SpecFlow.2-3`, `SpecSync.AzureDevOps.SpecFlow.2-4`, etc. - contains the SpecFlow plugin required to [synchronized automated test cases](important-concepts/synchronizing-automated-test-cases.md) for a particular SpecFlow version \(eg. v2.3, v2.4\).
   * `SpecSync.MTM` - obsolete package, will load SpecSync.AzureDevOps, SpecSync.AzureDevOps.SpecFlowPlugin has to be added manually if necessary
 * The synchronization tool has been renamed from `SpecSync4MTM` to `SpecSync4AzureDevOps`
-* The configuration of the synchronization has been moved to a configuration file \(although a few options can be overridden from the command line\). By default the config file should be named as `specsync.json`. See configuration options and samples at [Configuration](configuration/). You can also check the `specsync-sample.json` file in the `docs` folder of the NuGet package.
+* The configuration of the synchronization has been moved to a configuration file \(although a few options can be overridden from the command line\). By default the config file should be named as `specsync.json`. See configuration options and samples at [Configuration](reference/configuration/). You can also check the `specsync-sample.json` file in the `docs` folder of the NuGet package.
 * The two-way synchronization has been reworked to be able to support a more stable development process. The synchronization has been split into two independent actions: _push_ and _pull_. The new process should follow a pull-merge/resolve-verify-push model. See [Two-way synchronization](important-concepts/two-way-synchronization.md) for details.
 * Tag filtering has been split to _tag filter_ and _tags scope_. Tag filter has to be specified on the command line \(`--tagFilter`\), while tag scope has to be specified in the config file \(`local/tags`\). See [Filters and scopes](important-concepts/filters-and-scopes.md) for details.
 * If a scenario was linked to a test case that does not exist, SpecSync reports this as an error \(in v1 it linked to a new scenario and replaced the wrong tag\)
 * The 'state' field of the test case is set to the value provided in configuration `synchronization/state/setValueOnChangeTo` not only when the test case changed \(v1\) but also when the test case is created.
-* The default way of generating test method wrappers has changed to `iterateThroughExamples`. See [`specFlow` configuration](configuration/configuration-specflow.md) for details.
+* The default way of generating test method wrappers has changed to `iterateThroughExamples`. See [`specFlow` configuration](reference/configuration/configuration-specflow.md) for details.
 
 ### New features
 
-* Support for specifying test case field default values and custom field updates. See [`customizations` configuration](configuration/configuration-customizations.md).
-* Support for skipping the `Scenario` or `Scenario Outline` prefixes in test case title. See [`synchronization` configuration](configuration/configuration-synchronization/).
-* Test case tag prefix name \(by default `tc`\) can be configured. See [`synchronization/format` configuration](configuration/configuration-synchronization/configuration-synchronization-format.md).
-* Support for ignoring test case steps with a specific prefix text. See [`customizations` configuration](configuration/configuration-customizations.md).
-* Support for synchronization of scenarios on a feature branch. See [`customizations` configuration](configuration/configuration-customizations.md).
-* Support for folder-based synchronization. See [`local` configuration](configuration/configuration-local.md).
+* Support for specifying test case field default values and custom field updates. See [`customizations` configuration](reference/configuration/configuration-customizations.md).
+* Support for skipping the `Scenario` or `Scenario Outline` prefixes in test case title. See [`synchronization` configuration](reference/configuration/configuration-synchronization/).
+* Test case tag prefix name \(by default `tc`\) can be configured. See [`synchronization/format` configuration](reference/configuration/configuration-synchronization/configuration-synchronization-format.md).
+* Support for ignoring test case steps with a specific prefix text. See [`customizations` configuration](reference/configuration/configuration-customizations.md).
+* Support for synchronization of scenarios on a feature branch. See [`customizations` configuration](reference/configuration/configuration-customizations.md).
+* Support for folder-based synchronization. See [`local` configuration](reference/configuration/configuration-local.md).
 * SpecSync can track format configuration changes and automatically re-sync scenarios without the `--force` option.
 * More readable sync trace output. 
 

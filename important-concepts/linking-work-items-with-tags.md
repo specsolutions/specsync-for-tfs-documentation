@@ -4,7 +4,7 @@ SpecSync can synchronize the scenarios with Azure DevOps test cases. In order to
 
 Although you can establish these links manually, once SpecSync has created the test cases from the scenarios, it is an error-prone manual process. A better way to do this is to mark the relation of the scenarios to other work items via tags and let SpecSync create the necessary links between the work items.
 
-For that you need to mark the scenarios with tags, like `@story:123`, and specify the tag prefix \(in this case `story`\) in the SpecSync [configuration file](../configuration/). The links can be configured in the [`synchronization/links` section](../configuration/configuration-synchronization/configuration-synchronization-links.md) of the configuration.
+For that you need to mark the scenarios with tags, like `@story:123`, and specify the tag prefix \(in this case `story`\) in the SpecSync [configuration file](../reference/configuration/). The links can be configured in the [`synchronization/links` section](../reference/configuration/configuration-synchronization/configuration-synchronization-links.md) of the configuration.
 
 ```text
 {
