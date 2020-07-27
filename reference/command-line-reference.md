@@ -55,7 +55,7 @@ The following command line options are available for all synchronization command
     <tr>
       <td style="text-align:left">
         <p></p>
-        <p>--user [user-name]</p>
+        <p><code>--user</code> [user-name]</p>
       </td>
       <td style="text-align:left">
         <p></p>
