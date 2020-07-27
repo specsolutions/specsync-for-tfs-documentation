@@ -84,7 +84,7 @@ SpecSync creates a "Tests" link type between the test cases and the other work i
 
 _Note: The link type name is case sensitive and might contain spaces._
 
-_Note: Currently changing the link type will not trigger the re-synchronization of the scenario. If the scenario has been synchronized already, you have to to force synchronization using the_ [`--force` _command line option_](../reference/usage.md)_._
+_Note: Currently changing the link type will not trigger the re-synchronization of the scenario. If the scenario has been synchronized already, you have to to force synchronization using the_ [`--force` _command line option_](../reference/command-line-reference.md)_._
 
 ## Limitations
 

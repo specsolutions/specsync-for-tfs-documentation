@@ -14,7 +14,7 @@ For on premises Team Foundation Server
 * [Windows sign-in prompt](tfs-authentication-options.md#tfs-windows-sign-in-prompt)
 * [Personal access tokens](tfs-authentication-options.md#vsts-personal-access-tokens)
 
-The authentication credentials can be specified in the in the configuration file \(see [`remote` Configuration](../configuration/configuration-remote.md) for details\) or as command line options \(see [Usage](../reference/usage.md) for details\).
+The authentication credentials can be specified in the in the configuration file \(see [`remote` Configuration](../configuration/configuration-remote.md) for details\) or as command line options \(see [Usage](../reference/command-line-reference.md) for details\).
 
 For all configuration options, you can use environment variables for specifying user name and password \(`%variable%` format\), to make the testing easier without checking-in passwords to the source control. Environment variables are also useful for specifying passwords for [invoking the synchronization from the CI build process](synchronizing-test-cases-from-build.md).
 

@@ -4,7 +4,7 @@ In the majority of the cases, the scenarios are changed in the feature files. Th
 
 In some special cases, it might be useful to be able to make small changes in the test cases synchronized from the scenarios directly in Azure DevOps. Synchronizing such changes back to the feature files is a complex process and it is only recommended if it's really required.
 
-SpecSync provides a feature for two-way synchronization using the [`pull` command](../reference/usage.md).
+SpecSync provides a feature for two-way synchronization using the [`pull` command](../reference/command-line-reference.md).
 
 In order to use the two-way synchronization feature efficiently, we recommend having a team agreement about whether the feature file or the Azure DevOps test case is the primary source of information at a time. For example, in the sprint planning preparation phase, the changes are made in the Azure DevOps test case, but once the sprint has been started, the changes are made in the feature file first.
 

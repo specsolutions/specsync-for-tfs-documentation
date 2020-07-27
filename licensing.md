@@ -6,7 +6,7 @@ Please send your questions or license inquiries to [specsync@specsolutions.eu](m
 
 The licenses are provided as a license file. SpecSync tries to find the license file in the project folder \(where the `specsync.json` configuration file is located\). Since the license files are project or enterprise specific, these can be safely checked in to the source control.
 
-The location of the license file \(absolute or relative to the project folder\) can also be specified with the `--license` option of the [synchronization tool](reference/usage.md) or in the `toolSettings/licensePath` setting of the [configuration file](configuration/configuration-toolsettings.md) if necessary.
+The location of the license file \(absolute or relative to the project folder\) can also be specified with the `--license` option of the [synchronization tool](reference/command-line-reference.md) or in the `toolSettings/licensePath` setting of the [configuration file](configuration/configuration-toolsettings.md) if necessary.
 
 ## Limitations of the Free Edition
 
