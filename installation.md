@@ -1,4 +1,4 @@
-# Installation
+# Installation & Usage
 
 For a detailed installation instructions, please check the [Getting started](getting-started/) guide.
 

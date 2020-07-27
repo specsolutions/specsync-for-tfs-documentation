@@ -5,7 +5,7 @@
   * [Getting started using SpecFlow](getting-started/getting-started-specflow.md)
   * [Getting started using Cucumber or other Gherkin-based BDD tool](getting-started/getting-started-cucumber.md)
 * [Compatibility](compatibility.md)
-* [Installation](installation.md)
+* [Installation & Usage](installation.md)
 * [Licensing](licensing.md)
 * [Configuration](configuration/README.md)
   * [toolSettings](configuration/configuration-toolsettings.md)
