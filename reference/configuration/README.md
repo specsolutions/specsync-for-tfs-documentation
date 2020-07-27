@@ -2,11 +2,11 @@
 
 This section contains a detailed reference of the SpecSync configuration options.
 
-For a detailed setup instructions, please check the [Getting started](../../getting-started/) guide. For a complete list of command line options of the synchronization tool check the [Usage](../command-line-reference.md) documentation.
+For a detailed setup instructions, please check the [Getting started](../../getting-started/) guide. For a complete list of command line options of the synchronization tool check the [Usage](../command-line-reference/) documentation.
 
 ## The `specsync.json` configuration file.
 
-SpecSync can be configured using a json configuration file, by default called `specsync.json`. This file contains all information required to perform the different synchronization tasks. Some settings of the configuration file can be also overridden from the command line options of the synchronization tool, these are listed in the [Usage](../command-line-reference.md) guide.
+SpecSync can be configured using a json configuration file, by default called `specsync.json`. This file contains all information required to perform the different synchronization tasks. Some settings of the configuration file can be also overridden from the command line options of the synchronization tool, these are listed in the [Usage](../command-line-reference/) guide.
 
 The `specsync.json` configuration file is a standard JSON file, but it also allows `//` style comments. There is a JSON schema available for the configuration file that contains the available configuration options and a short description.
 

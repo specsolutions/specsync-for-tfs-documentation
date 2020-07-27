@@ -29,7 +29,11 @@
 
 ## Reference
 
-* [Command line reference](reference/command-line-reference.md)
+* [Command line reference](reference/command-line-reference/README.md)
+  * [init](reference/command-line-reference/init-command.md)
+  * [push](reference/command-line-reference/push-command.md)
+  * [pull](reference/command-line-reference/pull-command.md)
+  * [publish-test-results](reference/command-line-reference/publish-test-results-command.md)
 * [Configuration](reference/configuration/README.md)
   * [toolSettings](reference/configuration/configuration-toolsettings.md)
   * [local](reference/configuration/configuration-local.md)

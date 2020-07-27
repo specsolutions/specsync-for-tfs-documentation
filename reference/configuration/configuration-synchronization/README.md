@@ -58,8 +58,8 @@ The following example shows the available options within this section.
 
 ## Settings
 
-* `enableLocalChanges` -- Enables changing feature files in the local repository. If set to false \(called _build server mode_\), only those changes will be performed that do not need any change in the local feature files. Linking new scenarios or pulling changes from test cases will be skipped. Can be overridden by the `--buildServerMode` [command line option](../../command-line-reference.md). See [Synchronizing test cases from build](../../../important-concepts/synchronizing-test-cases-from-build.md) for details. \(Default: `true`\)
-* `forceUpdate` -- If set to true, SpecSync update test cases even if there is no local change and the test case was not modified remotely. Can be overridden by the `--force` [command line option](../../command-line-reference.md). \(Default: `false`\)
+* `enableLocalChanges` -- Enables changing feature files in the local repository. If set to false \(called _build server mode_\), only those changes will be performed that do not need any change in the local feature files. Linking new scenarios or pulling changes from test cases will be skipped. Can be overridden by the `--buildServerMode` [command line option](../../command-line-reference/). See [Synchronizing test cases from build](../../../important-concepts/synchronizing-test-cases-from-build.md) for details. \(Default: `true`\)
+* `forceUpdate` -- If set to true, SpecSync update test cases even if there is no local change and the test case was not modified remotely. Can be overridden by the `--force` [command line option](../../command-line-reference/). \(Default: `false`\)
 * `testCaseTagPrefix` -- The tag prefix for specifying the test cases. E.g. specify `testcase` for referring to test cases using a tag, like `@testcase:1234`. \(Default: `tc`\)
 
 ## Sub-sections

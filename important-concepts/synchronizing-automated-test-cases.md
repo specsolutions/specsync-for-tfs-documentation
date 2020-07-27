@@ -61,7 +61,7 @@ Although for this strategy it is not required, you can synchronize the test case
 
 ### Step 1: Synchronize the scenarios to make sure the test cases are up-to-date
 
-To be able to publish the test results to the appropriate test cases it is recommended to perform a synchronization before executing the tests and publishing the results using the SpecSync `push` command. See [Usage](../reference/command-line-reference.md) and [Synchronizing test cases from build](synchronizing-test-cases-from-build.md) for details.
+To be able to publish the test results to the appropriate test cases it is recommended to perform a synchronization before executing the tests and publishing the results using the SpecSync `push` command. See [Usage](../reference/command-line-reference/) and [Synchronizing test cases from build](synchronizing-test-cases-from-build.md) for details.
 
 ### Step 2: Execute scenarios from test assembly
 
