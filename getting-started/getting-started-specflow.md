@@ -25,7 +25,7 @@ The package contains the synchronization command line tool \(`tools\SpecSync4Azu
 It also adds a `specsync4azuredevops.cmd` script file to the project for calling the SpecSync command line tool conveniently. SpecSync can also be used without the script file, but in this case you have to provide the full path of `SpecSync4AzureDevOps.exe` downloaded into the NuGet packages folder.
 
 {% hint style="warning" %}
-NuGet does not allow adding content files for **SDK-style .NET projects \(e.g. .NET Core\)**. For these projects you should either add these files manually from the `content` folder of the package or use the alternative methods described in the [Installation](../installation.md) page.
+NuGet does not allow adding content files for **SDK-style .NET projects \(e.g. .NET Core\)**. For these projects you should either add these files manually from the `content` folder of the package or use the alternative methods described in the [Installation](../installation/) page.
 {% endhint %}
 
 ## Basic configuration

@@ -12,7 +12,7 @@ Running SpecSync might require you to use different executable depending on the 
 * `SpecSync4AzureDevOps.exe <COMMAND> [options]` — when you use the .NET Framework interface through the SpecSync.AzureDevOps.Console NuGet package on Windows
 * `SpecSync4AzureDevOps <COMMAND> [options]` — when you use the native binaries for Linux or MacOS
 
-The available commands and the options are the same for all usage, please check the [Installation & Usage](../../installation.md) page for further information about usage options. In the command line reference we generally use the .NET Core tool usage syntax. 
+The available commands and the options are the same for all usage, please check the [Installation & Usage](../../installation/) page for further information about usage options. In the command line reference we generally use the .NET Core tool usage syntax. 
 
 ### Examples
 
