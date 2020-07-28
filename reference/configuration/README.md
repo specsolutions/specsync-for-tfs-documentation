@@ -1,3 +1,7 @@
+---
+description: for v3.0
+---
+
 # Configuration
 
 This section contains a detailed reference of the SpecSync configuration options.

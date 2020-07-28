@@ -5,6 +5,7 @@
   * [Getting started using SpecFlow](getting-started/getting-started-specflow.md)
   * [Getting started using Cucumber or other Gherkin-based BDD tool](getting-started/getting-started-cucumber.md)
 * [Installation & Usage](installation.md)
+* [Features](features.md)
 * [Licensing](licensing.md)
 * [Important Concepts](important-concepts/README.md)
   * [What is my Azure DevOps project URL](important-concepts/what-is-my-tfs-project-url.md)
@@ -50,4 +51,5 @@
   * [specFlow](reference/configuration/configuration-specflow.md)
   * [customizations](reference/configuration/configuration-customizations.md)
 * [Compatibility](reference/compatibility.md)
+* [Older versions](reference/older-versions.md)
 

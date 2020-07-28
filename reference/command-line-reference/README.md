@@ -1,8 +1,8 @@
-# Command line reference
+---
+description: for v3.0
+---
 
-{% hint style="warning" %}
-The documentation is currently being updated. Please check it again soon...
-{% endhint %}
+# Command line reference
 
 SpecSync functions are provided through the command line tool. To use the command line tool open a command window or bash shell and run SpecSync followed by a command and appropriate options. The options and further configuration have to be specified in a [SpecSync configuration file](../configuration/) \(by default `specsync.json`\). The SpecSync command line tool is normally invoked from the folder where the configuration file of the project is saved.
 
