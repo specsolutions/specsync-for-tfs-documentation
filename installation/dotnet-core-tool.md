@@ -14,7 +14,7 @@ SpecSync can be installed as .NET Core tool, even if the project does not use .N
 
 SpecSync should be installed as a _local_ .NET Core tool \(.NET Core tools can also be installed globally for the machine, but that is more suitable for general, non project specific tools\). By installing as local tool, you can use different SpecSync versions for different projects and the required SpecSync version is registered in the project repository. You can read more about .NET Core local tools on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
 
-### Step 1 - Initialize .NET Core local tool configuration \(if needed\)
+### Step 1: Initialize .NET Core local tool configuration \(if needed\)
 
 If you haven't used any .NET Core local tool in your project, you need to create the necessary configuration file. Otherwise this step can be skipped.
 
@@ -26,15 +26,15 @@ dotnet new tool-manifest
 
 This command creates a manifest file named `dotnet-tools.json` under the `.config` directory. This file should be added to source control so that all other members of the team can use the same tools.
 
-### Step 2 - Install SpecSync as a .NET Core local tool
+### Step 2: Install SpecSync as a .NET Core local tool
 
-Once the .NET local tool configuration is initialized SpecSync can be easily installed using the `dotnet tool install` command.
+Once the .NET local tool configuration is initialized SpecSync can be easily installed using the `dotnet tool install` command. This will download and install the latest version of SpecSync from NuGet.org.
 
 ```bash
 dotnet tool install SpecSync.AzureDevOps
 ```
 
-### Step 3 - Verify installation
+### Step 3: Verify installation
 
 SpecSync is ready to run using the `dotnet specsync` command. You can test the installation by checking the installed SpecSync version.
 
@@ -44,7 +44,7 @@ dotnet specsync version
 
 If the correct version number is displayed, you are ready to move on to setup and configure SpecSync for the first synchronization. Check the [Setup and Configure](setup-and-configure.md) page for the details.
 
-### Step 4 - Restore SpecSync for other people working with your project
+### Step 4: Restore SpecSync for other people working with your project
 
 To be able to use the .NET Core local tools you have installed by other members of the same project, they need to "restore" the installed tools. This can be performed using the `dotnet tool restore` command, that restores all .NET Core local tools of the project. See more information about this command on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
 

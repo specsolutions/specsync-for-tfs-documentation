@@ -4,18 +4,20 @@
 * [Getting started](getting-started/README.md)
   * [Getting started using SpecFlow](getting-started/getting-started-specflow.md)
   * [Getting started using Cucumber or other Gherkin-based BDD tool](getting-started/getting-started-cucumber.md)
-* [Installation & Usage](installation/README.md)
+* [Installation & Setup](installation/README.md)
   * [Install as .NET Core tool](installation/dotnet-core-tool.md)
   * [Install as .NET Console App](installation/dotnet-console.md)
   * [Install as native binaries for Linux or MacOS](installation/native-binaries.md)
   * [Setup and Configure](installation/setup-and-configure.md)
-* [Features](features.md)
+* [Features](features/README.md)
+  * [Hierarchical configuration files](features/hierarchical-configuration-files.md)
+  * [Excluding scenarios from synchronization](features/excluding-scenarios-from-synchronization.md)
+  * [Include synchronized Test Cases to a Test Suite](features/group-synchronized-test-cases-to-a-test-suite.md)
 * [Licensing](licensing.md)
 * [Important Concepts](important-concepts/README.md)
   * [What is my Azure DevOps project URL](important-concepts/what-is-my-tfs-project-url.md)
   * [Azure DevOps authentication options](important-concepts/tfs-authentication-options.md)
   * [Synchronizing Scenario Outlines](important-concepts/synchronizing-scenario-outlines.md)
-  * [Group synchronized test cases to a test suite](important-concepts/group-synchronized-test-cases-to-a-test-suite.md)
   * [Add new test cases to an Area or an Iteration](important-concepts/add-new-test-cases-to-an-area-or-an-iteration.md)
   * [Linking work items using tags](important-concepts/linking-work-items-with-tags.md)
   * [Configuring the format of the synchronized test cases](important-concepts/configuring-the-format-of-the-synchronized-test-cases.md)
@@ -56,4 +58,14 @@
   * [customizations](reference/configuration/configuration-customizations.md)
 * [Compatibility](reference/compatibility.md)
 * [Older versions](reference/older-versions.md)
+
+## Contact
+
+* [SpecSync Support](contact/specsync-support.md)
+* [Troubleshooting](contact/troubleshooting.md)
+* [FAQ](contact/faq.md)
+
+---
+
+* [Project Website](http://speclink.me/specsync)
 

@@ -8,7 +8,7 @@ Please check the following concept descriptions.
 
 {% page-ref page="synchronizing-scenario-outlines.md" %}
 
-{% page-ref page="group-synchronized-test-cases-to-a-test-suite.md" %}
+{% page-ref page="../features/group-synchronized-test-cases-to-a-test-suite.md" %}
 
 {% page-ref page="add-new-test-cases-to-an-area-or-an-iteration.md" %}
 

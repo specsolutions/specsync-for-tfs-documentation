@@ -4,6 +4,9 @@ SpecSync for Azure DevOps synchronizes the scenarios of a SpecFlow project with 
 
 The necessary steps are slightly different depending on whether you use SpecSync with SpecFlow \(.NET\) or with other Gherkin-based BDD tools, like Cucumber. Please follow the guide for your context.
 
-* [Getting started using SpecFlow](getting-started-specflow.md)
-* [Getting started using Cucumber or other Gherkin-based BDD tool](getting-started-cucumber.md)
+{% page-ref page="getting-started-specflow.md" %}
+
+{% page-ref page="getting-started-cucumber.md" %}
+
+For a complete reference for the installation and setup options, please check the [Installation & Setup](../installation/) page.
 

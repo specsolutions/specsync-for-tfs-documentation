@@ -70,7 +70,7 @@ You can enable creating new scenarios during pull using the [`synchronization/pu
 }
 ```
 
-This setting works together with the test suite synchronization and will only create scenarios from the specified test suite. See more about using test suites in [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md).
+This setting works together with the test suite synchronization and will only create scenarios from the specified test suite. See more about using test suites in [Group synchronized test cases to a test suite](../features/group-synchronized-test-cases-to-a-test-suite.md).
 
 As a result of the pull operation with this setting, SpecSync will create a new feature file for each new test case in the test suite. The feature files will be named based on the test case ID, e.g. `12345.feaure`. It is recommended to review and group these scenarios to other feature files. When moving the scenarios, make sure you also move the test case link tag \(e.g. `@tc:12345`\) together with the scenario to keep the link to the test case.
 

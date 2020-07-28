@@ -27,7 +27,7 @@ The core concept of the Assembly based execution strategy is that the scenarios 
 
 ### Step 0: Configure SpecSync
 
-In order to publish test results to a test case in Azure DevOps, the test case has to be included to a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../reference/configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
+In order to publish test results to a test case in Azure DevOps, the test case has to be included to a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../reference/configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](../features/group-synchronized-test-cases-to-a-test-suite.md) for details.
 
 ```javascript
 {
@@ -123,7 +123,7 @@ The core concept of the Test Suite based execution strategy is that the scenario
 
 ### Step 0: Configure SpecSync <a id="suitebasedexecution-step0"></a>
 
-In order to publish test results to a test case in Azure DevOps, the test case has to be included in a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../reference/configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](group-synchronized-test-cases-to-a-test-suite.md) for details.
+In order to publish test results to a test case in Azure DevOps, the test case has to be included in a Test Suite. This can be achieved by configuring the test suite name in the [`remote/testSuite`](../reference/configuration/configuration-remote.md) entry of the configuration file. See [Group synchronized test cases to a test suite](../features/group-synchronized-test-cases-to-a-test-suite.md) for details.
 
 ```javascript
 {
