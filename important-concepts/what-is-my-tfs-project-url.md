@@ -25,7 +25,7 @@ http://myserver:8080/tfs/project-name/team-name
 
 For SpecSync, the real project URL has to be specified, so for the example above, it would be `https://myserver:8080/tfs/project-name`.
 
-For multi-team projects the team members might not have access to all work items within the project but only under the _area path_ of their team. Because of this, the newly created test cases have to be saved under this area path, otherwise SpecSync will not be able to save the test case. For this the `synchronization/areaPath` configuration setting can be used \(see [Add new test cases to an Area or an Iteration](add-new-test-cases-to-an-area-or-an-iteration.md) for more details\).
+For multi-team projects the team members might not have access to all work items within the project but only under the _area path_ of their team. Because of this, the newly created test cases have to be saved under this area path, otherwise SpecSync will not be able to save the test case. For this the `synchronization/areaPath` configuration setting can be used \(see [Add new test cases to an Area or an Iteration](../features/push-features/add-new-test-cases-to-an-area-or-an-iteration.md) for more details\).
 
 ```text
 {

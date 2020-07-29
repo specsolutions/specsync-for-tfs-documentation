@@ -14,7 +14,7 @@ If you use SpecSync with SpecFlow, the Visual Studio projects configured with Sp
 For other BDD tools, like Cucumber, usually the `features` folder\(s\) are set as feature file sets.
 {% endhint %}
 
-Each feature file set will have its own SpecSync configuration file \(`specsync.json`\). For projects with multiple feature file sets, you can use [hierarchical configuration files](../features/hierarchical-configuration-files.md) as well.
+Each feature file set will have its own SpecSync configuration file \(`specsync.json`\). For projects with multiple feature file sets, you can use [hierarchical configuration files](../features/general-features/hierarchical-configuration-files.md) as well.
 
 It is up to you how you define your feature file sets. The following table contains a few usual setup variations.
 
@@ -56,7 +56,7 @@ specsync4azuredevops.cmd init
 {% endtab %}
 {% endtabs %}
 
-The init command will ask a few questions in order the setup the connection to the Azure DevOps project, like the project URL and the authentication details. If you are unsure about what is exactly your Azure DevOps project URL, please check the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) page. You can fine more information about the authentication options in the [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md) page.
+The init command will ask a few questions in order the setup the connection to the Azure DevOps project, like the project URL and the authentication details. If you are unsure about what is exactly your Azure DevOps project URL, please check the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) page. You can fine more information about the authentication options in the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md) page.
 
 {% hint style="success" %}
 It is recommended to let the init command test the authentication to the Azure DevOps project to make sure the connection is configured properly.
@@ -64,7 +64,7 @@ It is recommended to let the init command test the authentication to the Azure D
 
 ### Step 3: Review SpecSync features and extend configuration settings
 
-The init command configures the settings that are enough for the first synchronization. SpecSync comes with useful default values for all settings, but you can still review the [SpecSync features](../features/) and extend the [configuration ](../reference/configuration/)if you need to. It is recommended to think about whether you would like to [exclude any scenarios from the synchronization](../features/excluding-scenarios-from-synchronization.md) or consider [including all Azure DevOps Test Cases synchronized by SpecSync into a Test Suite](../features/group-synchronized-test-cases-to-a-test-suite.md).
+The init command configures the settings that are enough for the first synchronization. SpecSync comes with useful default values for all settings, but you can still review the [SpecSync features](../features/) and extend the [configuration ](../reference/configuration/)if you need to. It is recommended to think about whether you would like to [exclude any scenarios from the synchronization](../features/common-synchronization-features/excluding-scenarios-from-synchronization.md) or consider [including all Azure DevOps Test Cases synchronized by SpecSync into a Test Suite](../features/common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md).
 
 {% page-ref page="../features/" %}
 

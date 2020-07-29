@@ -24,7 +24,7 @@ When upgrading from v1, you have to create a `specsync.json` file \(based on an 
 
 ## Review revised two-way synchronization workflow
 
-If you have used two-way synchronization with v1 \(also called as "back-sync"\), you should check the new workflow in the [Two-way synchronization](two-way-synchronization.md) guide. In the new workflow, we have split the two synchronization ways into separate commands: push and pull.
+If you have used two-way synchronization with v1 \(also called as "back-sync"\), you should check the new workflow in the [Two-way synchronization](../features/pull-features/two-way-synchronization.md) guide. In the new workflow, we have split the two synchronization ways into separate commands: push and pull.
 
 ## Use new name and push/pull command when invoking the synchronization tool
 

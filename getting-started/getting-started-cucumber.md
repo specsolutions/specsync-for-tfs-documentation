@@ -45,7 +45,7 @@ Before the first synchronization we have to review and change a few settings in 
 
 1. Open the `specsync.json` file in your IDE \(e.g. Visual Studio Code\) from your project folder.
 2. Set the value of the `remote/projectUrl` setting to the **project URL** of your Azure DevOps project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
-3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [Azure DevOps authentication options](../important-concepts/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
+3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
 4. Set the value of the `local/featureFileSource/type` setting to `folder` and the `local/featureFileSource/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
 
 The \`specsync.json\` after basic configuration has been set

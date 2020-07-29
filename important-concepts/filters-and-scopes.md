@@ -2,7 +2,7 @@
 
 SpecSync synchronizes scenarios from feature files to Azure DevOps test cases when using the `push` command. For that you have to specify which feature files and which scenarios within the feature files should be considered by SpecSync. This is the **synchronization scope**.
 
-Similarly to this, when using the `pull` command \(for [two-way synchronization](two-way-synchronization.md)\), you have to specify the the scope of the test cases that should be considered.
+Similarly to this, when using the `pull` command \(for [two-way synchronization](../features/pull-features/two-way-synchronization.md)\), you have to specify the the scope of the test cases that should be considered.
 
 The **synchronization scope** defines the set of artifacts \(scenarios or test cases\) that are to be synchronized. In some cases though you don't want to synchronize the entire scope, but only a subset of them. For example while working on a particular story, you only want to synchronize the scenarios related to that story. This can be specified by the **synchronization filter**.
 
@@ -41,5 +41,5 @@ path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push --tagFilter "@story
 
 ## Setting remote scope for `pull`
 
-The remote scope for pull can be specified with a test suite. Read more about this in [Two-way synchronization](two-way-synchronization.md).
+The remote scope for pull can be specified with a test suite. Read more about this in [Two-way synchronization](../features/pull-features/two-way-synchronization.md).
 

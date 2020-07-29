@@ -19,7 +19,7 @@ Pulls remote changes from Azure DevOps using the configured settings in the `spe
 dotnet specsync pull
 ```
 
-Pulls remote changes using the specified [Personal Access Token \(PAT\)](../../important-concepts/tfs-authentication-options.md#vsts-personal-access-tokens) for authentication:
+Pulls remote changes using the specified [Personal Access Token \(PAT\)](../../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) for authentication:
 
 ```text
 dotnet specsync pull --user 52yny...........................nycsetda
@@ -30,4 +30,6 @@ Pulls remote changes related to the scenarios tagged with @ordering and @backend
 ```text
 dotnet specsync pull --tagFilter "@ordering and @backend"
 ```
+
+{% page-ref page="./" %}
 

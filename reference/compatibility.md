@@ -15,6 +15,21 @@ SpecSync for Azure DevOps might work with other Azure DevOps or TFS installation
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.
 
+## Supported Test Result Formats
+
+| BDD Tool | Runner | Extension | Format specifier |
+| :--- | :--- | :--- | :--- |
+| SpecFlow | MsTest | TRX | `trx` |
+| SpecFlow | NUnit | TRX | `trx` |
+| SpecFlow | xUnit | TRX | `trx` |
+| SpecFlow | SpecFlow+ Runner | TRX | `trx` |
+| SpecFlow | NUnit | XML | `specFlowNUnitXml` |
+| Python Behave |  | XML | `pythonBehaveXml` |
+| Cucumber Java | JUnit | XML | `cucumberJavaJUnitXml` |
+| Cucumber Studio \(Hiptest\) |  | JSON | `hiptestJson` |
+
+Other test result formats are added on request. Please [contact support](../contact/specsync-support.md).
+
 ## Supported SpecFlow versions  <a id="supported-specflow-versions"></a>
 
 When synchronizing scenarios to non-automated test cases \(default\) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any SpecFlow versions.

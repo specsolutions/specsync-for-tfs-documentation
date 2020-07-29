@@ -20,7 +20,7 @@ Pushes local changed to Azure DevOps using the configured settings in the `specs
 dotnet specsync push
 ```
 
-Pushes local changes using the specified [Personal Access Token \(PAT\)](../../important-concepts/tfs-authentication-options.md#vsts-personal-access-tokens) for authentication:
+Pushes local changes using the specified [Personal Access Token \(PAT\)](../../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) for authentication:
 
 ```text
 dotnet specsync push --user 52yny...........................nycsetda
@@ -31,4 +31,6 @@ Pushes local changes of the scenarios tagged with @ordering and @backend:
 ```text
 dotnet specsync push --tagFilter "@ordering and @backend"
 ```
+
+{% page-ref page="./" %}
 

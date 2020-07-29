@@ -20,9 +20,11 @@ The following example shows the available options within this sub-section.
 
 ## Settings
 
-* `setValueOnChangeTo` -- A state value \(e.g. `Design`\) to set test case state to when updating or creating a test case during synchronization. Useful for setting back `Ready` test cases to `Design` on change. \(Default: _\[don't change test case state\]_\)
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| `setValueOnChangeTo` | A state value \(e.g. `Design`\) to set test case state to when updating or creating a test case during synchronization. Useful for setting back `Ready` test cases to `Design` on change. | don't change test case state |
 
-_\[Back to the_ [`synchronization` _Configuration_](./)_\]_
+{% page-ref page="./" %}
 
-_\[Back to the_ [_Configuration guide_](../)_\]_
+{% page-ref page="../" %}
 

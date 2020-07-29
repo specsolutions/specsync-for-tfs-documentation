@@ -12,9 +12,9 @@ See the following sections for details about the recommended authentication opti
 
 ### Authentication settings to perform SpecSync commands from build or release pipeline
 
-For [authentication](tfs-authentication-options.md), it is recommended to create a special user account that has sufficient privileges \(modify test cases and test suites\). The user name and password for the special account can be specified to the build task as an environment variable. When specifying the user name and password \(both in the configuration file or as a command line option\), you can use environment variables in the `%variable%`  or `$(variable)` form. It is recommended to define these variables as secret variables \(see related [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables)\). Secret variables can only be used using the `$(variable)` form.
+For [authentication](../features/general-features/tfs-authentication-options.md), it is recommended to create a special user account that has sufficient privileges \(modify test cases and test suites\). The user name and password for the special account can be specified to the build task as an environment variable. When specifying the user name and password \(both in the configuration file or as a command line option\), you can use environment variables in the `%variable%`  or `$(variable)` form. It is recommended to define these variables as secret variables \(see related [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables)\). Secret variables can only be used using the `$(variable)` form.
 
-For authentication, the recommended way is to use [Personal Access Tokens \(PAT\)](tfs-authentication-options.md#vsts-personal-access-tokens) that has to be specified for SpecSync as "user".
+For authentication, the recommended way is to use [Personal Access Tokens \(PAT\)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) that has to be specified for SpecSync as "user".
 
 An example configuration setting in the SpecSync configuration file that uses the `SPECSYNC_PAT` environment variable:
 
@@ -36,7 +36,7 @@ Note: Secret variables can only be used from the configuration file if they are 
 The same setting can also be alternatively specified as a command line option:
 
 ```bash
-specsync4azuredevops.cmd push --buildServerMode --user "$(SPECSYNC_PAT)"
+specsync4azuredevops.cmd push --disableLocalChanges --user "$(SPECSYNC_PAT)"
 ```
 
 {% hint style="info" %}
@@ -45,7 +45,7 @@ _Note: Secret variables can only be used using the `$(variable)` form, they will
 
 ### Performing synchronization \(push\) from build or release pipeline
 
-Creating the initial link between scenarios and test cases requires a small change in the feature file \(to include the test case tags\). Such changes cannot be done in an automated process, because the changes cannot be committed to the source control. To handle this, SpecSync provides a `--buildServerMode` switch \(see [Usage](../reference/command-line-reference/) for more details\). If this switch is provided, SpecSync will not synchronize new scenarios, but only updates the ones that are already linked to test cases.
+Creating the initial link between scenarios and test cases requires a small change in the feature file \(to include the test case tags\). Such changes cannot be done in an automated process, because the changes cannot be committed to the source control. To handle this, SpecSync provides a `--disableLocalChanges` switch \(see [command line reference](../reference/command-line-reference/push-command.md) for more details\). If this switch is provided, SpecSync will not synchronize new scenarios, but only updates the ones that are already linked to test cases.
 
 {% hint style="success" %}
 It is recommended to add the SpecSync push command after the build and before executing the automated tests. This way you can ensure that the test cases are updated even if some of the test \(especially integration tests\) fail.

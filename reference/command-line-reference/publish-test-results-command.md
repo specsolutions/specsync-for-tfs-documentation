@@ -12,7 +12,7 @@ In addition the the options listed here, all [common command line options](./#co
 | :--- | :--- | :--- |
 | `--testConfiguration` &lt;CONFIGURATION&gt; | The Azure DevOps Test Configuration name or ID to publish the results for. For specifying an ID, use `#1234` format. | use from config file |
 | `--testResultFile` &lt;FILE‑PATH&gt; | The file path of the test result \(.trx, .xml or .json\) file to publish. | use from config file |
-| `--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish \(use '?' to list possible formats\). | use from config file or detect automatically |
+| `--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
 | `--testSuite` | A Test Suite name or ID to publish the test results to. For specifying an ID, use `#1234` format. \(e.g. `My Suite` or `#1234`\) | use from config file |
 | `--testPlanId` | The ID of the Test Plan to search the Test Suite in. \(e.g. `123`\) | all Test Plans are scanned through |
 | `--runName` | The name of the Test Run to be created. | get from test result file |
@@ -43,4 +43,8 @@ Pushes test results to a specific Test Suite, where the Test Cases related to th
 ```text
 dotnet specsync publish-test-result --testPlanId 345 --testSuite "Ordering Tests" --testResultFile result.trx --testConfiguration "Windows 10"
 ```
+
+{% page-ref page="./" %}
+
+{% page-ref page="../configuration/publishtestresults.md" %}
 

@@ -23,16 +23,87 @@ The following example shows the available options within this section.
 
 ## Settings
 
-* `featureFileSource` -- The feature file source configuration. \(Default: _\[Detect project file in the folder of the configuration file\]_\) 
-  * `featureFileSource/type` -- The type of the feature file source configuration. Available options: `projectFile`, `folder`, `listFile` and `stdIn`.
-    * `projectFile` -- Loads feature file list from a .NET C\# project file \(`.csproj`\). SpecSync detects the project file by extension in the folder of the configuration file by default, but the project file path can also be specified in the `local/featureFileSource/filePath` setting.
-    * `folder` -- Loads the feature files from a particular folder and its sub-folders. The folder can be specified in the `featureFileSource/folder` setting.
-    * `listFile` -- Loads the feature file list from a text file. Each line of the text file should contain the path of a feature file. Empty lines and lines start with `#` are ignored. The feature file path can be absolute or a relative path to the config file folder. See example below and [Getting started using Cucumber](../../getting-started/getting-started-cucumber.md) for more details.
-    * `stdIn` -- Loads the feature file list from the standard input stream. The content of the input stream are handled in the same was as the `listFile` option. See example below and [Getting started using Cucumber](../../getting-started/getting-started-cucumber.md) for more details. 
-  * `featureFileSource/filePath` -- The path of the feature file source file. Can contain an absolute or a relative path to the config file folder. It may contain environment variables in `...%MYENV%...` form.
-  * `featureFileSource/folder` -- The folder to search the feature files in when `type` was set to `folder`. Can contain an absolute or a relative path to the config file folder. It may contain environment variables in `...%MYENV%...` form. \(Default: _\[load feature files from the folder of the config file\]_\)
-* `tags` -- A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be included in synchronization \(e.g. `not @ignore` or `@done and not (@ignored or @planned)`\). See [Filters and scopes](../../important-concepts/filters-and-scopes.md) for details. \(Default: _\[all scenarios included\]_\)
-* `defaultFeatureLanguage` -- The default feature file language, e.g. `de-AT`. \(Default: _\[get from SpecFlow config or use `en-US`\]_\)
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Setting</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>featureFileSource</code>
+      </td>
+      <td style="text-align:left">The feature file source configuration.</td>
+      <td style="text-align:left">Detect project file in the folder of the configuration file</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>featureFileSource/type</code>
+      </td>
+      <td style="text-align:left">
+        <p>The type of the feature file source configuration. Available options: <code>projectFile</code>, <code>folder</code>, <code>listFile</code> and <code>stdIn</code>.</p>
+        <ul>
+          <li><code>projectFile</code> &#x2014; Loads feature file list from a .NET C#
+            project file (<code>.csproj</code>). SpecSync detects the project file
+            by extension in the folder of the configuration file by default, but the
+            project file path can also be specified in the <code>local/featureFileSource/filePath</code> setting.</li>
+          <li><code>folder</code> &#x2014; Loads the feature files from a particular
+            folder and its sub-folders. The folder can be specified in the <code>featureFileSource/folder</code> setting.</li>
+          <li><code>listFile</code> &#x2014; Loads the feature file list from a text
+            file. Each line of the text file should contain the path of a feature file.
+            Empty lines and lines start with <code>#</code> are ignored. The feature
+            file path can be absolute or a relative path to the config file folder.
+            See example below and <a href="../../getting-started/getting-started-cucumber.md">Getting started using Cucumber</a> for
+            more details.</li>
+          <li><code>stdIn</code> &#x2014; Loads the feature file list from the standard
+            input stream. The content of the input stream are handled in the same was
+            as the <code>listFile</code> option. See example below and <a href="../../getting-started/getting-started-cucumber.md">Getting started using Cucumber</a> for
+            more details.</li>
+        </ul>
+      </td>
+      <td style="text-align:left">
+        <p></p>
+        <p><code>projectFile</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>featureFileSource/filePath</code>
+      </td>
+      <td style="text-align:left">The path of the feature file source file. Can contain an absolute or a
+        relative path to the config file folder. It may contain environment variables
+        in <code>...%MYENV%...</code> form.</td>
+      <td style="text-align:left">mandatory for types <code>projectFile</code>, <code>folder</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>featureFileSource/folder</code>
+      </td>
+      <td style="text-align:left">The folder to search the feature files in when <code>type</code> was set
+        to <code>folder</code>. Can contain an absolute or a relative path to the
+        config file folder. It may contain environment variables in <code>...%MYENV%...</code> form.</td>
+      <td
+      style="text-align:left">load feature files from the folder of the config file</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>tags</code>
+      </td>
+      <td style="text-align:left">A <a href="http://speclink.me/tagexpressions">tag expression</a> of scenarios
+        that should be included in synchronization (e.g. <code>not @ignore</code> or <code>@done and not (@ignored or @planned)</code>).
+        See <a href="../../important-concepts/filters-and-scopes.md">Filters and scopes</a> for
+        details.</td>
+      <td style="text-align:left">all scenarios included</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>defaultFeatureLanguage</code>
+      </td>
+      <td style="text-align:left">The default feature file language, e.g. <code>de-AT</code>.</td>
+      <td style="text-align:left">get from SpecFlow config or use <code>en-US</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Example: Synchronize feature files of a SpecFlow project
 
@@ -184,5 +255,5 @@ On OSX and Linux:
 find features/group_a/ -name *.feature | path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push
 ```
 
-_\[Back to the_ [_Configuration guide_](./)_\]_
+{% page-ref page="./" %}
 

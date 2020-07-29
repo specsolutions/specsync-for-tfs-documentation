@@ -195,7 +195,7 @@ _Note: The release was formerly planned as v2.2._
   * `SpecSync.MTM` - obsolete package, will load SpecSync.AzureDevOps, SpecSync.AzureDevOps.SpecFlowPlugin has to be added manually if necessary
 * The synchronization tool has been renamed from `SpecSync4MTM` to `SpecSync4AzureDevOps`
 * The configuration of the synchronization has been moved to a configuration file \(although a few options can be overridden from the command line\). By default the config file should be named as `specsync.json`. See configuration options and samples at [Configuration](reference/configuration/). You can also check the `specsync-sample.json` file in the `docs` folder of the NuGet package.
-* The two-way synchronization has been reworked to be able to support a more stable development process. The synchronization has been split into two independent actions: _push_ and _pull_. The new process should follow a pull-merge/resolve-verify-push model. See [Two-way synchronization](important-concepts/two-way-synchronization.md) for details.
+* The two-way synchronization has been reworked to be able to support a more stable development process. The synchronization has been split into two independent actions: _push_ and _pull_. The new process should follow a pull-merge/resolve-verify-push model. See [Two-way synchronization](features/pull-features/two-way-synchronization.md) for details.
 * Tag filtering has been split to _tag filter_ and _tags scope_. Tag filter has to be specified on the command line \(`--tagFilter`\), while tag scope has to be specified in the config file \(`local/tags`\). See [Filters and scopes](important-concepts/filters-and-scopes.md) for details.
 * If a scenario was linked to a test case that does not exist, SpecSync reports this as an error \(in v1 it linked to a new scenario and replaced the wrong tag\)
 * The 'state' field of the test case is set to the value provided in configuration `synchronization/state/setValueOnChangeTo` not only when the test case changed \(v1\) but also when the test case is created.
@@ -243,7 +243,7 @@ _Note: The release was formerly planned as v2.2._
 * Allow executing the synchronzation from OSX and Linux systems. See page [Using SpecSync on OSX/Linux](http://speclink.me/specsyncosxlinux) for details.
 * Filter scenarios to be synchronized with [tag expressions](https://docs.cucumber.io/tag-expressions/) using the `--tags` option.
 * `--skipAutomation` supports [tag expressions](https://docs.cucumber.io/tag-expressions/).
-* Improved test case formatting options \(see [Configuring the format of the synchronized test cases](important-concepts/configuring-the-format-of-the-synchronized-test-cases.md)\)
+* Improved test case formatting options \(see [Configuring the format of the synchronized test cases](features/push-features/configuring-the-format-of-the-synchronized-test-cases.md)\)
   * Synchronize `Then` steps to the _expected results_ column of the test case steps by specifying the `--useExpectedResult` option.
   * Synchronize data tables as plain text by specifying the `--syncDataTableAsText` option.
   * Skip adding the _Background:_ prefix for background steps by specifying the `--doNotPrefixBackgroundSteps` option.
@@ -267,7 +267,7 @@ _Note: The release was formerly planned as v2.2._
 
 ## v1.2.0 - 2017/03/31
 
-* Support synchronizing '@us:123' style tags to links between the test case and other work items. The tag prefixes and the link type can be specified. See [Linking work items using tags](important-concepts/linking-work-items-with-tags.md) for details.
+* Support synchronizing '@us:123' style tags to links between the test case and other work items. The tag prefixes and the link type can be specified. See [Linking work items using tags](features/common-synchronization-features/linking-work-items-with-tags.md) for details.
 * Small fixes in Scenario Outline table handling
 * Fix compatibility issue for running synchronized test cases using the TFS lab environment.
 * Add application icon

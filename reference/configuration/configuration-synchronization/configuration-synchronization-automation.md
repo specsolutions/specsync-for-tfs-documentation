@@ -24,11 +24,15 @@ The following example shows the available options within this sub-section.
 
 ## Settings
 
-* `enabled` -- Specifies whether SpecSync should attempt to create automated test cases. \(Default: `false`\)
-* `skipForTags` -- A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be excluded from automation \(e.g. `@manual or @planned`\). \(Default: _\[all test cases synced as automated\]_\)
-* `testExecutionStrategy` -- Specifies the test execution strategy for the automated test cases. Check [Synchronizing automated test cases](../../../important-concepts/synchronizing-automated-test-cases.md) for details about the execution strategies. Available options: `assemblyBasedExecution`, `testSuiteBasedExecution`, `testSuiteBasedExecutionWithScenarioOutlineWrappers` and `none` \(Default: not set\)
 
-_\[Back to the_ [`synchronization` _Configuration_](./)_\]_
 
-_\[Back to the_ [_Configuration guide_](../)_\]_
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| `enabled` | Specifies whether SpecSync should attempt to create automated test cases. | `false` |
+| `skipForTags` | A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be excluded from automation \(e.g. `@manual or @planned`\). | no scenarios excluded |
+| `testExecutionStrategy` | Specifies the test execution strategy for the automated test cases. Check [Synchronizing automated test cases](../../../important-concepts/synchronizing-automated-test-cases.md) for details about the execution strategies. Available options: `assemblyBasedExecution`, `testSuiteBasedExecution`, `testSuiteBasedExecutionWithScenarioOutlineWrappers` and `none` | not set |
+
+{% page-ref page="./" %}
+
+{% page-ref page="../" %}
 

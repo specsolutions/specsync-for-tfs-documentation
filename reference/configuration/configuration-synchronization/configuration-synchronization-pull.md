@@ -2,7 +2,7 @@
 
 This configuration section contains settings to configure the pull behavior.
 
-Read more about the pull behavior in the [Two-way synchronization](../../../important-concepts/two-way-synchronization.md) concept description.
+Read more about the pull behavior in the [Two-way synchronization](../../../features/pull-features/two-way-synchronization.md) concept description.
 
 _Note: The two-way synchronization is an_ [_Enterprise feature_](../../../licensing.md)_._
 
@@ -25,10 +25,12 @@ The following example shows the available options within this sub-section.
 
 ## Settings
 
-* `enabled` -- Enables changing the scenarios in the local repository based on the remote test cases. \(Default: `false`\)
-* `enableCreatingScenariosForNewTestCases` -- Enables creating new scenarios from test cases that are not linked to any scenarios yet. \(Default: `false`\)
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| `enabled` | Enables changing the scenarios in the local repository based on the remote test cases. | `false` |
+| `enableCreatingScenariosForNewTestCases` | Enables creating new scenarios from test cases that are not linked to any scenarios yet. | `false` |
 
-_\[Back to the_ [`synchronization` _Configuration_](./)_\]_
+{% page-ref page="./" %}
 
-_\[Back to the_ [_Configuration guide_](../)_\]_
+{% page-ref page="../" %}
 

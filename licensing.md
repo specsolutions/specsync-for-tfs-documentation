@@ -20,8 +20,8 @@ The location of the license file \(absolute or relative to the project folder\) 
 
 ## Enterprise features
 
-* Two-way synchronization \(using the `pull` command\). See [Two-way synchronization](important-concepts/two-way-synchronization.md) for details.
-* Branch-tag support -- supports synchronization of scenarios on a feature branch. See [Support synchronizing scenarios from a branch](important-concepts/support-synchronizing-scenarios-from-a-branch.md) for details.
+* Two-way synchronization \(using the `pull` command\). See [Two-way synchronization](features/pull-features/two-way-synchronization.md) for details.
+* Branch-tag support -- supports synchronization of scenarios on a feature branch. See [Support synchronizing scenarios from a branch](features/push-features/support-synchronizing-scenarios-from-a-branch.md) for details.
 * Field default value support -- enables setting default values to test case fields. Useful for custom Azure DevOps process templates.
 * Custom field update support -- enables updating test case fields that are normally not changed by SpecSync.
 * Test case step ignore -- can ignore \(leave unchanged\) test case steps with a specific prefix.
