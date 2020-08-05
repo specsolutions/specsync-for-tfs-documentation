@@ -10,9 +10,11 @@ SpecSync sets both the Test Run and the Test Case automation status base on the 
 
 Cause: It can happen that some scenarios are excluded from the "automated" status using the [`synchronization/automation/skipForTags`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) configuration setting, but they were still included in the test result. 
 
-**Solution 1**: Try excluding the non-automated scenarios from the test execution
+**Solution 1:** Make sure that the Test Cases the test result belongs to have been successfully synchronized before publishing the test results with the same automation setting.
 
-**Solution 2**: Create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. \(You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.\)
+**Solution 2**: Try excluding the non-automated scenarios from the test execution
+
+**Solution 3**: Create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. \(You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.\)
 
 ### "VS30063: You are not authorized to access" error when using SpecSync with Personal Access Tokens \(PAT\)
 
