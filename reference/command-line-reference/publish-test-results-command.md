@@ -13,16 +13,16 @@ In addition the the options listed here, all [common command line options](./#co
 | `--testConfiguration` &lt;CONFIGURATION&gt; | The Azure DevOps Test Configuration name or ID to publish the results for. For specifying an ID, use `#1234` format. | use from config file |
 | `--testResultFile` &lt;FILE‑PATH&gt; | The file path of the test result \(.trx, .xml or .json\) file to publish. | use from config file |
 | `--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
-| `--testSuite` | A Test Suite name or ID to publish the test results to. For specifying an ID, use `#1234` format. \(e.g. `My Suite` or `#1234`\) | use from config file |
-| `--testPlanId` | The ID of the Test Plan to search the Test Suite in. \(e.g. `123`\) | all Test Plans are scanned through |
-| `--runName` | The name of the Test Run to be created. | get from test result file |
-| `--runComment` | The comment field of the Test Run to be created. | not specified |
-| `--testResultComment` | The comment added to the individual test results within the created test run. Useful if the individual test results are typically browsed not through the Test Run. | not specified |
-| `--buildId` | The build ID \(e.g. `345`\) of the build the test result was created for. | detect from current build |
-| `--buildNumber` | The build number \(e.g. `20200119.1`\) of the build the test result was created for. Should be specified when build ID is not known. | detect from current build |
-| `--buildFlavor` | The build flavor \(e.g. `Debug`\) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
-| `--buildPlatform` | he build flavor \(e.g. `x86`\) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
-| `--attachedFiles` | Semicolon separated list of file paths that should be attached to the test run additionally. \(e.g. `error1.png;error2.log`\) Wildcards are currently not supported. | only test result file attached |
+| `--testSuite` &lt;SUITE‑NAME‑OR‑ID&gt; | A Test Suite name or ID to publish the test results to. For specifying an ID, use `#1234` format. \(e.g. `My Suite` or `#1234`\) | use from config file |
+| `--testPlanId` &lt;PLAN‑ID&gt; | The ID of the Test Plan to search the Test Suite in. \(e.g. `123`\) | all Test Plans are scanned through |
+| `--runName` &lt;NAME&gt; | The name of the Test Run to be created. | get from test result file |
+| `--runComment` &lt;RUN‑COMMENT&gt; | The comment field of the Test Run to be created. | not specified |
+| `--testResultComment` &lt;RESULT‑COMMENT&gt; | The comment added to the individual test results within the created test run. Useful if the individual test results are typically browsed not through the Test Run. | not specified |
+| `--buildId` &lt;BUILD‑ID&gt; | The build ID \(e.g. `345`\) of the build the test result was created for. To prevent detecting build from build, it can be set to an empty value \(`--buildId ""`\). | detect from current build |
+| `--buildNumber` &lt;BUILD‑NUMBER&gt; | The build number \(e.g. `20200119.1`\) of the build the test result was created for. Should be specified when build ID is not known. | build ID is used |
+| `--buildFlavor` &lt;FLAVOR&gt; | The build flavor \(e.g. `Debug`\) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
+| `--buildPlatform` &lt;PLATFORM&gt; | he build flavor \(e.g. `x86`\) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
+| `--attachedFiles` &lt;FILE‑LIST&gt; | Semicolon separated list of file paths that should be attached to the test run additionally. \(e.g. `error1.png;error2.log`\) Wildcards are currently not supported. | only test result file attached |
 
 ## Examples
 
