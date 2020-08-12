@@ -85,6 +85,7 @@ The template value for `customFieldUpdates/updates` can contain the following pl
 * `{feature-file-name}` -- the file name of the feature file \(without folder\)
 * `{feature-file-folder}` -- the folder of the feature file, relative to the project root
 * `{feature-file-path}` -- the path \(folder and file name\) of the feature file, relative to the project root
+* `{br}` -- a new line
 
 ### ignoreTestCaseSteps
 
