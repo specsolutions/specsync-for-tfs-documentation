@@ -41,7 +41,7 @@ A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App 
 ```text
 @REM Executing SpecSync .NET Console App by forwarding all command line parameters
 @REM Note: the version number has to be updated after a SpecSync version upgrade
-%~dp0\..\packages\SpecSync.AzureDevOps.3.0.0\tools\SpecSync4AzureDevOps.exe %*
+%~dp0\..\packages\SpecSync.AzureDevOps.Console.3.0.0\tools\SpecSync4AzureDevOps.exe %*
 
 ```
 
@@ -50,7 +50,7 @@ A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App 
 ```text
 @REM Executing SpecSync .NET Console App by forwarding all command line parameters
 @REM Note: the version number has to be updated after a SpecSync version upgrade
-%HOMEPATH%\.nuget\packages\SpecSync.AzureDevOps\3.0.0\tools\SpecSync4AzureDevOps.exe %*
+%HOMEPATH%\.nuget\packages\SpecSync.AzureDevOps.Console\3.0.0\tools\SpecSync4AzureDevOps.exe %*
 
 ```
 
