@@ -14,6 +14,18 @@ Running SpecSync might require you to use different executable depending on the 
 
 The available commands and the options are the same for all usage, please check the [Installation & Usage](../../installation/) page for further information about usage options. In the command line reference we generally use the .NET Core tool usage syntax. 
 
+### Exit Codes
+
+The command line tool terminated with a specific exit code depending on the execution result.
+
+| Exit Code | Description |
+| :--- | :--- |
+| 0 | Completed |
+| 5 | Completed with warnings |
+| 10 | Failed with a synchronization error |
+| 90 | Failed with an unhandled error |
+| 100 | Failed with a configuration error |
+
 ### Examples
 
 Invoking the following command displays SpecSync version.
