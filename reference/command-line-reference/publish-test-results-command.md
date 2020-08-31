@@ -18,7 +18,7 @@ In addition the the options listed here, all [common command line options](./#co
 | `--runName` &lt;NAME&gt; | The name of the Test Run to be created. | get from test result file |
 | `--runComment` &lt;RUN‑COMMENT&gt; | The comment field of the Test Run to be created. | not specified |
 | `--testResultComment` &lt;RESULT‑COMMENT&gt; | The comment added to the individual test results within the created test run. Useful if the individual test results are typically browsed not through the Test Run. | not specified |
-| `--buildId` &lt;BUILD‑ID&gt; | The build ID \(e.g. `345`\) of the build the test result was created for. To prevent detecting build from build, it can be set to an empty value \(`--buildId ""`\). | detect from current build |
+| `--buildId` &lt;BUILD‑ID&gt; | The build ID \(e.g. `345`\) of the build the test result was created for. To prevent detecting build from build, it can be set to an empty value \(`--buildId " "`\). | detect from current build |
 | `--buildNumber` &lt;BUILD‑NUMBER&gt; | The build number \(e.g. `20200119.1`\) of the build the test result was created for. Should be specified when build ID is not known. | build ID is used |
 | `--buildFlavor` &lt;FLAVOR&gt; | The build flavor \(e.g. `Debug`\) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
 | `--buildPlatform` &lt;PLATFORM&gt; | he build flavor \(e.g. `x86`\) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
