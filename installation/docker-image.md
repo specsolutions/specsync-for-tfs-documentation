@@ -34,6 +34,10 @@ The push command requires the local feature set to be configured. Check the [Set
 
 The following tags are provided for the official SpecSync Docker images on Docker Hub. To see all available tags, please check [https://hub.docker.com/r/specsolutions/specsync/tags](https://hub.docker.com/r/specsolutions/specsync/tags).
 
+{% hint style="info" %}
+Currently all official SpecSync Docker images are Linux-based \(`linux/amd64`\).
+{% endhint %}
+
 {% hint style="warning" %}
 Docker caches images locally, therefore if you use a floating SpecSync image tag \(see below\), Docker might use an outdated version. You can ensure the latest version by invoking the `docker pull <IMAGE>:<TAG>` command.
 {% endhint %}
