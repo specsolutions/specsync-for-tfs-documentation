@@ -8,6 +8,7 @@
   * [Install as .NET Core tool](installation/dotnet-core-tool.md)
   * [Install as .NET Console App](installation/dotnet-console.md)
   * [Install as native binaries for Linux or MacOS](installation/native-binaries.md)
+  * [Install as Docker image](installation/docker-image.md)
   * [Setup and Configure](installation/setup-and-configure.md)
 * [Features](features/README.md)
   * [Push features](features/push-features/README.md)
@@ -48,6 +49,7 @@
   * [Using SpecSync with Cucumber](important-concepts/using-specsync-with-cucumber.md)
   * [Using SpecSync on OSX/Linux](important-concepts/using-specsync-on-osxlinux-page.md)
   * [Migrating from SpecSync v1](important-concepts/migrating-from-specsync-v1.md)
+  * [Using SpecSync inside a Docker container](important-concepts/using-specsync-inside-a-docker-container.md)
 * [Changelog](changelog.md)
 * [Downloads](downloads.md)
 

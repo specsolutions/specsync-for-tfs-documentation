@@ -8,10 +8,10 @@ For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for Azure DevOps synch
 
 The v3.0 release introduces SpecSync as a portable .NET Core tool, so re recommend using that on OSX/Linux. 
 
-* Windows: [SpecSync.AzureDevOps.Console.3.0.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.3.0.0.zip)
-* Linux: [SpecSync.AzureDevOps.3.0.0-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.0-linux-x64.zip)
-* OSX: [SpecSync.AzureDevOps.3.0.0-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.0-linux-x64.zip)
-* Any platfrom \(.NET Core SDK required\): [SpecSync.AzureDevOps.3.0.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.0.zip)
+* Windows: [SpecSync.AzureDevOps.Console.3.0.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.3.0.0.zip)
+* Linux: [SpecSync.AzureDevOps.3.0.1-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.0-linux-x64.zip)
+* OSX: [SpecSync.AzureDevOps.3.0.1-pre20200903-2-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.1-pre20200903-2-osx-x64.zip)
+* Any platfrom \(.NET Core SDK required\): [SpecSync.AzureDevOps.3.0.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.0.zip)
 
 ## v2.1
 

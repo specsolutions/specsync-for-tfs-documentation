@@ -1,5 +1,25 @@
 # Changelog
 
+## v3.0.1 - 2020/09/03
+
+### Improvements
+
+* Display Support Code: There is a 5-letter support code displayed in the synchronization output for licensed users. Please provide the support code for reporting incidents or license renewal.
+* **Publish official SpecSync Docker image**: There are pre-built official Docker images available at [https://hub.docker.com/r/specsolutions/specsync](https://hub.docker.com/r/specsolutions/specsync) that are ready-to-use for synchronizing scenarios or publishing test results. See [Install as Docker image](installation/docker-image.md) for details.
+* Improvement: detect unchanged Test Case steps and do not show them in Test Case history
+* Set "Run By" field on publish-test-results
+* Support SpecFlow v3.4 with Test Suite based execution with Scenario Outline wrappers strategy, using NuGet package: [SpecSync.AzureDevOps.SpecFlow.3-4](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-4)
+* .NET Core binaries are also distributed as [downloadable](downloads.md) zip package
+
+### Bug Fixes
+
+* Fix: Config file settings cannot be overridden from command line if they contain invalid path
+* Fix: Configuration error causes exit code 90 \(unhandled error\) instead of 100
+* Fix: SpecSync removes UTF-8 BOM header from the file on link
+* Fix: Gherkin Rule keyword is not supported \(no scenarios found in file\)
+* Fix: Invalid Build ID detected from build or release pipeline
+* Fix: Unnecessary whitespace at the bottom of DocString \(fix applies at the next scenario change unless you perform a push with `--force`\)
+
 ## v3.0.0 - 2020/07/24
 
 _Note: The release was formerly planned as v2.2._

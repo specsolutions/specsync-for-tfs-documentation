@@ -21,7 +21,6 @@ The command line tool terminated with a specific exit code depending on the exec
 | Exit Code | Description |
 | :--- | :--- |
 | 0 | Completed |
-| 5 | Completed with warnings |
 | 10 | Failed with a synchronization error |
 | 90 | Failed with an unhandled error |
 | 100 | Failed with a configuration error |
