@@ -14,30 +14,48 @@ For a synchronization target we use an Azure DevOps project: `https://specsyncde
 
 ## Installation
 
-The SpecSync for Azure DevOps synchronization tool can be installed by adding the [`SpecSync.AzureDevOps`](https://www.nuget.org/packages/SpecSync.AzureDevOps) package from NuGet.org:
+There are multiple installation options you can choose from depending on your operating system and the development platform \(see details at [Installation & Setup](../installation/) page\). In this guide we configure SpecSync for a .NET Core 3.1 project and will install SpecSync as a [local .NET Core Tool](../installation/dotnet-core-tool.md).
+
+If SpecSync is the first local .NET Core tool in your project, you have to initialize the .NET Core tool configuration first. For that open a command line prompt and go to your solution folder.
 
 ```text
-PM> Install-Package SpecSync.AzureDevOps
+dotnet new tool-manifest
 ```
 
-The package contains the synchronization command line tool \(`tools\SpecSync4AzureDevOps.exe`\) and some documentation files \(`docs` folder\).
+Once the configuration is initialized, you can install SpecSync. Change the current directory to your SpecFlow project folder \(`MyCalculator.Specs` in our case\) and install the SpecSync package:
 
-It also adds a `specsync4azuredevops.cmd` script file to the project for calling the SpecSync command line tool conveniently. SpecSync can also be used without the script file, but in this case you have to provide the full path of `SpecSync4AzureDevOps.exe` downloaded into the NuGet packages folder.
+```text
+cd MyCalculator.Specs
+dotnet tool install SpecSync.AzureDevOps 
+```
 
-{% hint style="warning" %}
-NuGet does not allow adding content files for **SDK-style .NET projects \(e.g. .NET Core\)**. For these projects you should either add these files manually from the `content` folder of the package or use the alternative methods described in the [Installation](../installation/) page.
+If the installation was successful, you can invoke SpecSync using the `dotnet specsync` command. For example the following command displays the version of SpecSync.
+
+```text
+dotnet specsync version
+```
+
+{% hint style="info" %}
+You can find more information about this installation option in the [Install as .NET Core tool](../installation/dotnet-core-tool.md) page.
 {% endhint %}
 
-## Basic configuration
+## Initialize configuration
 
-The NuGet package has added a configuration file \(`specsync.json`\) to your project that contains all SpecSync related settings. Before the first synchronization we have to review and change a few settings in this file.
+Initialize the SpecSync configuration in your local repository root by invoking the SpecSync init command. This command will create a SpecSync configuration file `specsync.json`.
 
-1. Open the `specsync.json` file in Visual Studio from your project folder.
-2. Set the value of the `remote/projectUrl` setting to the **project URL** of your Azure DevOps project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
-3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
+```text
+dotnet specsync init
+```
 
-The `specsync.json` after basic configuration has been set
+The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) and the [authentication credentials](../features/general-features/tfs-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from [http://schemas.specsolutions.eu/specsync-empty.json](http://schemas.specsolutions.eu/specsync-empty.json).
 
+## Review configuration
+
+The init command configured the connection details to your Azure DevOps project. This is enough to start the first synchronization. But before we move on with that, let's review the created configuration file.
+
+Open the `specsync.json` file in Visual Studio or another IDE from your project folder. The file should contain configuration settings similar to the ones below.
+
+{% code title="specsync.json" %}
 ```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
@@ -51,6 +69,7 @@ The `specsync.json` after basic configuration has been set
   }
 }
 ```
+{% endcode %}
 
 ## First synchronization
 
@@ -59,7 +78,12 @@ The `specsync.json` after basic configuration has been set
    * all tests pass,
    * the modified files are checked in to source control.
 3. Open a command line prompt and navigate to the SpecFlow project folder \(`MyCalculator.Specs`\)
-4. Call `specsync4azuredevops.cmd push` to invoke the synchronization.
+4. Invoke SpecSync push command:
+
+   ```text
+   dotnet specsync push
+   ```
+
 5. If you haven't specified any credentials in the configuration file, an authentication dialog will popup, where you have to specify your credentials for accessing the Azure DevOps project.
 
 As a result, the scenarios from the project will be linked to newly created Azure DevOps test cases, and you will see a result like this.
