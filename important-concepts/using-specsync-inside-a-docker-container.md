@@ -28,15 +28,32 @@ ARG LOCAl_DIR=/local
 WORKDIR ${LOCAl_DIR}
 ```
 
-The alternative would be to use the ADD or COPY command, but that essentially creates a copy of your project codebase at the time of building the image. The changes will be lost.
+The local folders can be mounted to the container when the container is created using the `-v <LOCAL-FOLDER>:<MOUNT-POINT>` argument of the `docker run` command. In the images created for SpecSync, the mounting point is usually the `/local` folder. For example:
 
+```bash
+docker run --rm -v C:\MyProject\src\features:/local myspecsyncimage push
+```
 
+The alternative would be to use the ADD or COPY command, but that essentially creates a copy of your project codebase _at the time of building the image_. The files copied into the container reduces the reusability of the created image.
 
+With `ADD`/`COPY`, the changes that SpecSync makes on the feature files would be lost, therefore the `--disableLocalChanges` option has to be used.
 
+In the majority of the cases, mounting the local files is a better option, although files that generally remain unchanged \(SpecSync license, configuration file\) might be added to the image using `ADD`/`COPY`.
 
 ### Set the working directory to the folder of the feature file set instead of the SpecSync tool folder
 
-TODO
+The default options of SpecSync assume that the current folder is the root of the feature file set \(SpecFlow project folder or `features` folder of a Cucumber project\). Typically the SpecSync configuration file \(specsync.json\) is located in that folder too. 
+
+Although it is possible to let SpecSync synchronize feature files from other folders as well or find the configuration elsewhere, it is easier if the current working directory is the folder of the feature file set.
+
+If the project folders are mounted to the image to a folder `/local`, the working folder should be the `/local` folder itself or one of its sub-folders.
+
+The following example sets the working folder to the project folder mounting point and sets the default entry point to the SpecSync executable from a different directory \(usually `/specsync`\).
+
+```bash
+WORKDIR /local
+ENTRYPOINT [ "/specsync/SpecSync4AzureDevOps" ]
+```
 
 ## Create a derived Docker image from the official SpecSync Docker image
 
@@ -47,7 +64,7 @@ The official SpecSync Docker images are based on the `ubuntu:latest` image and c
 * the `libssl1.1` and `ca-certificates` packages are installed using `apt-get` as these are needed to access the Azure DevOps cloud service.
 * the `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT` environment variable is set to `1` to avoid installing globalization dependencies of the Linux distribution \(ICU libs\). \(SpecSync messages are not localized.\)
 
-The official SpecSync Docker image contains the SpecSync binaries in the `/specsync` folder and expects the local repository to be mounted into the `/local` folder \(see [Mounting vs copying feature files to the container](using-specsync-inside-a-docker-container.md#mounting-vs-copying-feature-files-to-the-container)\). The [working folder](using-specsync-inside-a-docker-container.md#set-the-working-directory-to-the-folder-of-the-feature-file-set-instead-of-the-specsync-tool-folder) is set to the `/local` and the default entrypoint to `/specsync/SpecSync4AzureDevOps`.
+The official SpecSync Docker image contains the SpecSync binaries in the `/specsync` folder and expects the local repository to be mounted into the `/local` folder \(see [Mounting vs copying feature files to the container](using-specsync-inside-a-docker-container.md#mounting-vs-copying-feature-files-to-the-container)\). The [working folder](using-specsync-inside-a-docker-container.md#set-the-working-directory-to-the-folder-of-the-feature-file-set-instead-of-the-specsync-tool-folder) is set to the `/local` and the default entry point to `/specsync/SpecSync4AzureDevOps`.
 
 You can create derived images from the official SpecSync Docker image and customize it. For example you can
 

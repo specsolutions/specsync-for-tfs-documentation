@@ -1,12 +1,12 @@
-# Install as native binaries for Linux or MacOS
+# Install as native binaries for Linux or macOS
 
 {% hint style="info" %}
-This install method is available for Linux and MacOS machines. Other [installation options](./) available.
+This install method is available for Linux and macOS machines. Other [installation options](./) available.
 {% endhint %}
 
-In case installing the .NET Core framework is not possible, SpecSync can be downloaded as native binaries for Linux and MacOS. The native binaries are precompiled with all dependencies, so no special prerequisite is necessary for the execution. Because of the dependencies, the download package is larger, approximately 35 MB \(the SpecSync .NET Core Tool package is 5 MB\).
+In case installing the .NET Core framework is not possible, SpecSync can be downloaded as native binaries for Linux and macOS. The native binaries are precompiled with all dependencies, so no special prerequisite is necessary for the execution. Because of the dependencies, the download package is larger, approximately 35 MB \(the SpecSync .NET Core Tool package is 5 MB\).
 
-The precompiled binaries work with most Linux distributions and MacOS versions. If your system is not supported, please [contact support](../contact/specsync-support.md).
+The precompiled binaries work with most Linux distributions and macOS versions. If your system is not supported, please [contact support](../contact/specsync-support.md).
 
 ### Step 1: Download and extract files
 

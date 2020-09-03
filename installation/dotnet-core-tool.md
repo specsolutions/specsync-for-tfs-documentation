@@ -8,7 +8,7 @@ This install method is available for machines with .NET Core SDK 3.0 or higher i
 The Azure DevOps API that SpecSync uses currently does not support[ "Microsoft account sign-in prompt" authentication](../features/general-features/tfs-authentication-options.md#tfs-windows-sign-in-prompt) on .NET Core. The other authentication options, including the recommended [Personal Access Token \(PAT\)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) or password authentication is still supported.
 {% endhint %}
 
-The most convenient way to use SpecSync is to install it as a .NET Core tool. While .NET Core tools require .NET Core SDK to be installed, that can be installed to any platforms, including Linux and MacOS. It also supports execution in Docker containers. .NET Core SDK can be installed from the [.NET Core Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET Core SDK.
+The most convenient way to use SpecSync is to install it as a .NET Core tool. While .NET Core tools require .NET Core SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET Core SDK can be installed from the [.NET Core Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET Core SDK.
 
 SpecSync can be installed as .NET Core tool, even if the project does not use .NET \(e.g. uses Cucumber Java\) or if it uses a different version of .NET \(e.g. .NET Framework v4.7\).
 

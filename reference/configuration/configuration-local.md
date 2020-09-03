@@ -249,7 +249,7 @@ On Windows \(PowerShell\):
 gci -Path .\features\group_a -r *.Feature | % FullName | path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
 ```
 
-On OSX and Linux:
+On macOS and Linux:
 
 ```text
 find features/group_a/ -name *.feature | path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push
