@@ -216,7 +216,7 @@ So far we have shown how to keep the Azure DevOps Test Cases in sync with the sc
 
 To turn the Test Cases into a living documentation, you can also publish test results of the scenarios connected to the Test Cases and Test Suites. 
 
-The easiest way to do this is to execute the SpecFlow scenarios as you would do normally and use the publish-test-result command of SpecSync to publish these results to Azure DevOps. 
+The easiest way to do this is to execute the SpecFlow scenarios as you would do normally and use the [publish-test-result command](../reference/command-line-reference/publish-test-results-command.md) of SpecSync to publish these results to Azure DevOps. 
 
 {% hint style="info" %}
 To be able to publish test results to Azure DevOps, the Test Cases have to be added to a Test Suite. In this guide we have configured SpecSync to add them to a Test Suite called `BDD Scenarios` in an earlier step.
