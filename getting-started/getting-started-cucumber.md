@@ -4,9 +4,9 @@ This chapter goes through the setup and the synchronization steps for non-SpecFl
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow.
 
-If your scenarios are automated with a tool other than SpecFlow, SpecSync will synchronize them as non-automated Azure DevOps Test Cases, because currently Azure DevOps only supports specifying .NET automation for the test cases. The synchronized non-automated test cases can be managed, linked and structured in Azure DevOps. You can also run them manually.
+SpecSync can also be used to publish test results of various Cucumber projects including Cucumber Java, Behave and SpecFlow so that Azure DevOps can track the historical test executions and provide you with various reports. To be able to publish the test results, the [publish-test-result](../reference/command-line-reference/publish-test-results-command.md) command has to be used.
 
-The SpecSync synchronization tool can be executed as a command line tool from Windows, OSX and Linux-based systems. See [Using SpecSync on OSX/Linux](../important-concepts/using-specsync-on-osxlinux-page.md) page for details.
+The SpecSync synchronization tool can be executed as a command line tool from Windows, macOS and Linux-based systems. See [Installation & Setup](../installation/) and [Using SpecSync on macOS or Linux](../important-concepts/using-specsync-on-osxlinux-page.md) pages for details.
 
 In this guide we will use Cucumber.js as an example, but the steps can also be applied for other tools as well.
 
@@ -20,36 +20,34 @@ For a synchronization target we use an Azure DevOps project: `https://specsyncde
 
 ## Installation
 
-Download SpecSync from the [downloads page](../downloads.md) and unzip it to a folder on your system.
+Install SpecSync using one of the [available installation options](../installation/) on your operating system. In this guide we assume you have downloaded one of the native binaries and it to a folder on your system. 
 
-The package contains the synchronization command line tool \(`tools/SpecSync4AzureDevOps.exe`\) and some documentation files \(`docs` folder\).
+Set an environment variable `SPECSYNC_DIR` to the folder where the SpecSync executable \(`SpecSync4AzureDevOps`\) is extracted to \(depending on the package it might be the `tools` folder of the extracted zip file\).
+
+## Initialize configuration
+
+Initialize the SpecSync configuration in your local repository root by invoking the SpecSync init command. This command will create a SpecSync configuration file `specsync.json`.
+
+```text
+$SPECSYNC_DIR/SpecSync4AzureDevOps init
+```
+
+The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) and the [authentication credentials](../features/general-features/tfs-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from [http://schemas.specsolutions.eu/specsync-empty.json](http://schemas.specsolutions.eu/specsync-empty.json).
 
 ## Basic configuration
 
-Create a configuration file \(`specsync.json`\) to your project root, based on the `docs/specsync-empty.json` file. The empty file can also be downloaded from [http://schemas.specsolutions.eu/specsync-empty.json](http://schemas.specsolutions.eu/specsync-empty.json).
+The init command configured the connection details to your Azure DevOps project, but there are a few other things that has to be configured before the first synchronization.
 
-```javascript
-{
-  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
-
-  // See configuration options and samples at http://speclink.me/specsyncconfig.
-  // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
-
-  "remote": {
-    "projectUrl": "<specify your Azure DevOps project ULR>"
-  }
-}
-```
+In our sample application the feature files are located at the `test/features` folder. We need to specify this in the [local section](../reference/configuration/configuration-local.md) of the configuration file.
 
 Before the first synchronization we have to review and change a few settings in this file. For this example we will synchronize all feature files within the `test/features` folder. For synchronizing only a specific set of feature files, please check the [`local` Configuration](../reference/configuration/configuration-local.md) documentation.
 
 1. Open the `specsync.json` file in your IDE \(e.g. Visual Studio Code\) from your project folder.
-2. Set the value of the `remote/projectUrl` setting to the **project URL** of your Azure DevOps project. The project URL is usually in `https://server-name/project-name` or in `http://server-name:8080/tfs/project-name` form and it is not necessarily the URL of the dashboard you open normally. See [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) for more details.
-3. Optionally you can set your [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\) as user name \(`remote/user` setting\) or choose one of the other [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md). If you don't specify credentials here, SpecSync will show an interactive authentication prompt.
-4. Set the value of the `local/featureFileSource/type` setting to `folder` and the `local/featureFileSource/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
+2. Set the value of the `local/featureFileSource/type` setting to `folder` and the `local/featureFileSource/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
 
-The \`specsync.json\` after basic configuration has been set
+The `specsync.json` file after basic configuration has been set
 
+{% code title="specsync.json" %}
 ```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
@@ -60,27 +58,41 @@ The \`specsync.json\` after basic configuration has been set
   "remote": {
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
     "user": "52yny........................................ycsetda"
+  },
+  "local": {
+    "featureFileSource": {
+      "type": "folder",
+      "folder": "test/features"
+    }
   }
 }
 ```
+{% endcode %}
 
 ## First synchronization
 
-1. Make sure your project runs. 
+1. Make sure your project compiles and runs. 
 2. We recommend starting from a state where 
    * all tests pass,
    * the modified files are checked in to source control.
 3. Open a command line prompt and navigate to the project root folder
-4. Call `path-to-specsync-package/SpecSync4AzureDevOps.exe push` to invoke the synchronization. See [Using SpecSync on OSX/Linux](../important-concepts/using-specsync-on-osxlinux-page.md) page for more details on how to invoke the synchronization tool on different platforms.
+4. Invoke SpecSync push command:
+
+   ```text
+   $SPECSYNC_DIR/SpecSync4AzureDevOps push
+   ```
+
 5. If you haven't specified any credentials in the configuration file, an authentication dialog will popup, where you have to specify your credentials for accessing the Azure DevOps project.
 
 As a result, the scenarios from the project will be linked to newly created Azure DevOps test cases, and you will see a result like this.
 
 ![Result of the first synchronization](../.gitbook/assets/getting-started-cucumber-first-sync.png)
 
-_Note: Scenarios are synchronized to normal, Scenario Outlines to parametrized test cases._
+Scenarios are synchronized to normal, Scenario Outlines to parametrized Test Cases.
 
+{% hint style="info" %}
 _Useful hint for testing:_ Normally you cannot delete work items from Azure DevOps, so testing the initial linking is harder. If you have Visual Studio installed, there is a tool called `witadmin` available from the VS command prompt. With the `destroywi` command of this tool you can delete work items. See `witadmin help destroywi` for details, and use it carefully.
+{% endhint %}
 
 ## Check Test Case in Azure DevOps
 
@@ -107,7 +119,9 @@ There are a couple of things you can note here.
 Scenario: Add two positive numbers
 ```
 
-_Note: The feature files are changed only when synchronizing new scenarios \(linking\). To avoid file changes \(e.g. when running the synchronization from a build server\) the_ `--buildServerMode` _command line switch can be used. See_ [_Synchronizing test cases from build_](../important-concepts/synchronizing-test-cases-from-build.md) _for details._
+{% hint style="info" %}
+The feature files are changed only when synchronizing new scenarios \(linking\). To avoid file changes \(e.g. when running the synchronization from a build server\) the `--disableLocalChanges` command line switch can be used. See [Synchronizing test cases from build](../important-concepts/synchronizing-test-cases-from-build.md) for details.
+{% endhint %}
 
 Verify if the project still compiles and the tests pass \(they should, since we have only added tags\), and commit \(check-in\) your changes.
 
@@ -132,7 +146,7 @@ Now let's make a change in one of the scenarios and synchronize the changes to t
 3. Run the synchronization again:
 
    ```text
-   path-to-specsync-package/SpecSync4AzureDevOps.exe push
+   $SPECSYNC_DIR/SpecSync4AzureDevOps push
    ```
 
 The result shows that the test case for the scenario has been updated, but the other test cases have remained unchanged \(_up-to-date_\).
@@ -143,14 +157,16 @@ The result shows that the test case for the scenario has been updated, but the o
 
    ![Updated test case in Azure DevOps](../.gitbook/assets/getting-started-specflow-updated-test-case.png)
 
-_Note: For executing complex test cases, further verification and planning steps might be required after the test case has been changed. SpecSync can reset the test case state to a configured value \(e.g._ `Design`_\) in order to ensure that these steps are not forgotten. For more information on this, check the_ [_synchronization state configuration_](../reference/configuration/configuration-synchronization/configuration-synchronization-state.md) _documentation._
+{% hint style="info" %}
+For executing complex test cases, further verification and planning steps might be required after the test case has been changed. SpecSync can reset the test case state to a configured value \(e.g. `Design`\) in order to ensure that these steps are not forgotten. For more information on this, check the [synchronization state configuration](../reference/configuration/configuration-synchronization/configuration-synchronization-state.md) documentation.
+{% endhint %}
 
 ## Group synchronized test cases to a test suite
 
-We have seen already how to synchronize scenarios to test cases. To be able to easily find these test cases in Azure DevOps, they can be added to test suites. SpecSync can automatically add/remove the synchronized test cases to a test suite. For this you have to specify the name or the ID or the name of the test suite in the configuration.
+We have seen already how to synchronize scenarios to test cases. To be able to easily find these Test Cases in Azure DevOps, they can be added to Test Suites. SpecSync can automatically add/remove the synchronized test cases to a Test Suite. For this you have to specify the name or the ID or the name of the test suite in the configuration.
 
 1. Create a "Static suite" \(e.g. "BDD Scenarios"\) in Azure DevOps. \(For that you have to navigate to "Test plans" and create and select a test plan first.\)
-2. Specify the name of the test suite in the `remote/testSuite/name` entry of the `specsync.json` file. \(Alternatively you can specify the ID of the suite in `remote/testSuite/id`. The suite names are not unique in Azure DevOps!\)
+2. Specify the name of the test suite in the `remote/testSuite/name` entry of the `specsync.json` file.
 
    ```javascript
    {
@@ -165,7 +181,8 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
        "testSuite": {
          "name": "BDD Scenarios"
        }
-     }
+     },
+     //[...]
    }
    ```
 
@@ -173,8 +190,12 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 4. Run the synchronization again:
 
    ```text
-   path-to-specsync-package/SpecSync4AzureDevOps.exe push
+   $SPECSYNC_DIR/SpecSync4AzureDevOps push
    ```
+
+{% hint style="info" %}
+_Since the test suite names are not unique in Azure DevOps, you can also specify the test suite ID in the_ `remote/testSuite/id` _setting._
+{% endhint %}
 
 The synchronization will proceed with the result similar to this.
 
@@ -184,5 +205,7 @@ SpecSync has added the test cases to the test suite.
 
 ![Test cases were added to the test suite](../.gitbook/assets/getting-started-specflow-updated-test-suite.png)
 
-_Note: Since the test suite names are not unique in Azure DevOps, you can also specify the test suite ID in the_ `remote/testSuite/id` _setting._
+{% hint style="info" %}
+For projects with many Test Suite it is recommended to also specify the Test Plan ID, where the Test Suite belongs to. This makes the synchronization faster.
+{% endhint %}
 
