@@ -209,3 +209,34 @@ SpecSync has added the test cases to the test suite.
 For projects with many Test Suite it is recommended to also specify the Test Plan ID, where the Test Suite belongs to. This makes the synchronization faster.
 {% endhint %}
 
+## Publishing test results \(optional\)
+
+So far we have shown how to keep the Azure DevOps Test Cases in sync with the scenarios in the feature files. This provides you easily accessible documentation and traceability. The synchronized Test Cases can also be executed as manual tests from Azure DevOps.
+
+To turn the Test Cases into a living documentation, you can also publish test results of the scenarios connected to the Test Cases and Test Suites. 
+
+For that you need to execute the tests and use the publish-test-result command of SpecSync to publish these results to Azure DevOps. SpecSync supports several test result file formats and BDD tools. The list of currently supported tools can be found on the [Compatibility](../reference/compatibility.md#supported-test-result-formats) page. 
+
+{% hint style="info" %}
+The list of supported formats are constantly growing and from SpecSync v3.1 you are also able to create a SpecSync plugin to support your own test result format.
+{% endhint %}
+
+{% hint style="success" %}
+To be able to publish test results to Azure DevOps, the Test Cases have to be added to a Test Suite. In this guide we have configured SpecSync to add them to a Test Suite called `BDD Scenarios` in an earlier step.
+{% endhint %}
+
+In Azure DevOps, the test result are always associated to a Test Configuration. You can review the test configurations and associate them to Test Suites on the Azure DevOps portal. Azure DevOps adds a configuration called `Windows 10` by default when you create a new project.
+
+The following example shows how to publish a Cucumber Java test result file.
+
+```bash
+dotnet specsync publish-test-results --testConfiguration "Windows 10" 
+  --testResultFile mytestresult.xml --testResultFileFormat cucumberJavaJUnitXml
+```
+
+The command analyses the test result file and connects the results with the scenarios to be able to associate them to Test Cases. You can find the created Test Run in the _Test Plans / Runs_ section of your Azure DevOps portal.
+
+{% hint style="info" %}
+To find more information about the available options on how to publish test results, please check the [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md) page.
+{% endhint %}
+
