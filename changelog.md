@@ -1,6 +1,10 @@
 # Changelog
 
-## v3.0.1 - 2020/09/03
+## v3.0.2 - 2020/09/03
+
+{% hint style="warning" %}
+v3.0.1 released earlier on the same day has been deprecated due to a bug for specifying log files. Please use v3.0.2.
+{% endhint %}
 
 ### Improvements
 
@@ -19,6 +23,7 @@
 * Fix: Gherkin Rule keyword is not supported \(no scenarios found in file\)
 * Fix: Invalid Build ID detected from build or release pipeline
 * Fix: Unnecessary whitespace at the bottom of DocString \(fix applies at the next scenario change unless you perform a push with `--force`\)
+* Fix: Error when log file does not exist \(found in v3.0.1\)
 
 ## v3.0.0 - 2020/07/24
 

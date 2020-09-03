@@ -115,7 +115,7 @@ If you use the Docker container for building or testing .NET Core applications \
 In this setup the easiest is to install SpecSync into the image as a global .NET Core tool. In the [Install as .NET Core tool](../installation/dotnet-core-tool.md) page we recommend installing SpecSync as a local .NET Core Tool to avoid version conflicts between projects on the same machines, but since the Docker container will be bound to one specific project anyway, you can safely use global tools. To install SpecSync as a global .NET Core Tool in the image, you need to add the following line to the Dockerfile.
 
 ```bash
-RUN dotnet tool install --global SpecSync.AzureDevOps --version 3.0.1
+RUN dotnet tool install --global SpecSync.AzureDevOps --version 3.0.2
 ```
 
 Specifying the version is optional. You can even make your image configurable for different SpecSync versions by specifying the SpecSync version as an argument \(see example below\).
@@ -138,7 +138,7 @@ The following Dockerfile creates an image based on the .NET Core SDK to be able 
 ```text
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
-ARG SPECSYNC_VERSION=3.0.1
+ARG SPECSYNC_VERSION=3.0.2
 ARG LOCAl_DIR=/local
 
 RUN dotnet tool install --global SpecSync.AzureDevOps --version ${SPECSYNC_VERSION}
@@ -185,7 +185,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ARG SPECSYNC_VERSION=3.0.1
+ARG SPECSYNC_VERSION=3.0.2
 ARG LOCAl_DIR=/local
 
 WORKDIR /specsync

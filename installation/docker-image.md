@@ -46,6 +46,6 @@ Docker caches images locally, therefore if you use a floating SpecSync image tag
 | :--- | :--- | :--- | :--- |
 | Latest released version | yes | latest | Points to the latest released SpecSync version image. In a case of a new major release using the latest tag might cause breakages, therefore it is recommended to use this for evaluation and experimenting only. |
 | Up-to-date version line | yes | 3.0 | Points to the latest patch version of a version line. Recommended for production setup. |
-| Specific release | no | 3.0.1 | Points to a specific patch release within a version line. This tag always points to the same image therefore it offers the most predictability.  |
+| Specific release | no | 3.0.2 | Points to a specific patch release within a version line. This tag always points to the same image therefore it offers the most predictability.  |
 | Specific preliminary release | no | 3.1.0-pre20200903-2 | Points to a specific preliminary release. The preliminary releases are less stable therefore should only be used to validate fixes or improvements. |
 
