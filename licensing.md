@@ -10,21 +10,31 @@ The location of the license file \(absolute or relative to the project folder\) 
 
 ## Limitations of the Free Edition
 
-* Maximum 30 scenarios can be synchronized. Scenario Outlines count as multiple scenarios based on the number of examples defined for the scenario outline.
+* Maximum 30 scenarios can be synchronized
 * Enterprise features cannot be used
+
+{% hint style="info" %}
+From v2.1.14, Scenario Outlines count as one scenario.
+{% endhint %}
 
 ## Limitations of the Standard Edition
 
-* Maximum 300 scenarios can be synchronized. Scenario Outlines count as multiple scenarios based on the number of examples defined for the scenario outline.
+* Maximum 300 scenarios can be synchronized
 * Enterprise features cannot be used
+
+{% hint style="info" %}
+From v2.1.14, Scenario Outlines count as one scenario.
+{% endhint %}
 
 ## Enterprise features
 
 * Two-way synchronization \(using the `pull` command\). See [Two-way synchronization](features/pull-features/two-way-synchronization.md) for details.
 * Branch-tag support -- supports synchronization of scenarios on a feature branch. See [Support synchronizing scenarios from a branch](features/push-features/support-synchronizing-scenarios-from-a-branch.md) for details.
-* Field default value support -- enables setting default values to test case fields. Useful for custom Azure DevOps process templates.
-* Custom field update support -- enables updating test case fields that are normally not changed by SpecSync.
-* Test case step ignore -- can ignore \(leave unchanged\) test case steps with a specific prefix.
+* [Field default value support](features/push-features/customization-setting-test-case-fields-with-default-values.md) -- enables setting default values to test case fields. Useful for custom Azure DevOps process templates.
+* [Custom field update support](features/push-features/customization-update-custom-test-case-fields-on-push.md) -- enables updating test case fields that are normally not changed by SpecSync.
+* [Test case step ignore](features/push-features/customization-ignoring-marked-test-case-steps.md) -- can ignore \(leave unchanged\) test case steps with a specific prefix.
+* [Mapping tags](features/push-features/customization-mapping-tags.md) -- can replace characters or sub-strings in tags
+* [Publishing test results to multiple Test Suites](features/test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md) -- Make the test result visible in multiple Test Suites with a single test result publish command
 * Integrations with 3rd party commercial products, like SpecFlow+
 
 ## Enterprise support

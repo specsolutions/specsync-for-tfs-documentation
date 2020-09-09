@@ -31,7 +31,7 @@
   * [Test result publishing features](features/test-result-publishing-features/README.md)
     * [Publishing test result files](features/test-result-publishing-features/publishing-test-result-files.md)
     * [Support for Azure DevOps Test Plan / Test Suite based test execution](features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md)
-    * [Customization: Publishing test results to multiple Test Suite](features/test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md)
+    * [Customization: Publishing test results to multiple Test Suites](features/test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md)
   * [General features](features/general-features/README.md)
     * [Azure DevOps authentication options](features/general-features/tfs-authentication-options.md)
     * [Configuration file](features/general-features/configuration-file.md)
