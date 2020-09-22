@@ -30,3 +30,46 @@ In some cases the environment variable does not contain a valid build ID or the 
 
 **Solution 2:** To avoid the automatic detection of a \(wrong\) build ID, set the `--buildId` option to an empty value \(  `--buildId " "`\). \(Some Azure DevOps build tasks do not handle empty arguments, therefore setting it to `""` might cause parameter errors.\)
 
+### Authentication/SSL error "The remote certificate is invalid according to the validation procedure." when connecting to an Azure DevOps Server \(on promises\)
+
+Many on-promises installed Azure DevOps or TFS Server runs with self-signed or internally signed certificates. These certificates are usually installed on the machines of the team members using Windows Active Directory policies, so people might not even realize. In some cases though, especially when SpecSync is executed from Docker container, you might get an authentication error, similar to this:
+
+```text
+Connection or authentication to server failed.
+ERROR: Unable to authenticate to the Azure DevOps server.
+  Underlying errors:
+    The SSL connection could not be established, see inner exception.
+    The remote certificate is invalid according to the validation procedure.
+```
+
+{% hint style="warning" %}
+**Important note for all solutions below:** Declaring a certificate as trusted manually is a potential security risk, because by trusting a certificate created by a malicious site operator, they might be able to access the authentication credentials you use for connecting to Azure DevOps.
+
+**Always make sure that the certificate you trust is coming from a trustworthy source.** The URL displayed in your browser alone does not guarantee trustworthiness. Ask help from your Azure DevOps operator in case of doubt.
+{% endhint %}
+
+**Solution 1:** To be able to use SpecSync with these services, you need to install the certificate. 
+
+On Windows you can view and install the certificate from your browser, usually by clicking on the lock icon next to the URL \(you should install the certificate to the "Trusted Root Certification Authorities" store of the current user\). 
+
+When the error comes from a Docker container, you either have to install the certificate to the Docker container or create a derived Docker Image that has this certificate installed. Installing the certificate on a docker container may vary with the Linux distribution used for the image, but with the most common setup, it requires the following steps
+
+1. Export the certificate from your browser to a CER file \(using DER encoding\).
+2. In the docker container, convert the CER file to CRT, for example using: `openssl x509 -inform DER -in my-certificate.cer -out my-certificate.crt`
+3. Copy the CRT file to the `/usr/local/share/ca-certificates/` folder of the container
+4. Invoke `update-ca-certificates`
+
+{% hint style="info" %}
+The default certificate validation in Linux seems to be more strict than on Windows, so it can happen that a certificate that works after installing it on Windows might not work in Docker/Linux even after performing the setup instructions above. \(E.g. when the certificate has an invalid "Key Usage" setting. Invalid settings are also displayed on Windows among the certificate details with a small exclamation mark.\)
+
+In this case you should contact your system administrators to generate a valid certificate or use Solution 2.
+{% endhint %}
+
+**Solution 2:** From version v3.1, SpecSync provides a setting to declare a particular certificate as trusted by specifying its thumbprint. It will only accept that particular certificate and for all the others, it uses the standard validation procedure.
+
+The feature can be used by specifying the `-ignoreCertificateErrorsForThumbprint "<thumbprint>"`  [command line option](../reference/command-line-reference/) or setting the `"ignoreCertificateErrorsForThumbprint"` setting in the [`"remote"`](../reference/configuration/configuration-remote.md) section of the [configuration](../reference/configuration/).
+
+The thumbprint can be found by checking the certificate from windows but it is also displayed by SpecSync when there was a certificate error.
+
+We recommend using this solution only if installing the certificate on operating system level \(Solution 1\) is not possible.
+
