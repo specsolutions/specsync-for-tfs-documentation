@@ -29,6 +29,10 @@ v3.0.1 released earlier on the same day has been deprecated due to a bug for spe
 
 _Note: The release was formerly planned as v2.2._
 
+{% hint style="info" %}
+When upgrading from v2, please check the [Migrating from SpecSync v2 to v3](important-concepts/migrating-from-specsync-v2-to-v3.md) page.
+{% endhint %}
+
 ### New features & improvements
 
 * .NET Core Support: SpecSync is provided as a .NET Core Tool, the .NET Framework executable is available as NuGet package: [SpecSync.AzureDevOps.Console](https://www.nuget.org/packages/SpecSync.AzureDevOps.Console)
