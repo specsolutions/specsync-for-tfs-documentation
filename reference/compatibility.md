@@ -5,11 +5,11 @@
 SpecSync for Azure DevOps might work with other Azure DevOps or TFS installations as well, but it has been tested with the following configurations:
 
 * Azure DevOps Services \(Visual Studio Team Services, VSTS, VSO\)
-* Azure DevOps Server 2019
-* Team Foundation Server 2018
-* Team Foundation Server 2017
-* Team Foundation Server 2015 Update 3 \(up to SpecSync v2.1\)
-* Team Foundation Server 2013 Update 1 \(up to SpecSync v1.3\)
+* Azure DevOps Server 2019 \(Version 17.\*, Dev17.\*\)
+* Team Foundation Server 2018 \(Version 16.\*\)
+* Team Foundation Server 2017 \(Version 15.\*\)
+* Team Foundation Server 2015 Update 3 \(Version 14.\*\) — _up to SpecSync v2.1_
+* Team Foundation Server 2013 Update 1 \(Version 12.\*\) — _up to SpecSync v1.3_
 
 ## Supported BDD Tools
 
