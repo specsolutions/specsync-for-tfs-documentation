@@ -49,7 +49,7 @@
   * [Using SpecSync with Cucumber](important-concepts/using-specsync-with-cucumber.md)
   * [Using SpecSync on macOS or Linux](important-concepts/using-specsync-on-osxlinux-page.md)
   * [Migrating from SpecSync v2 to v3](important-concepts/migrating-from-specsync-v2-to-v3.md)
-  * [Migrating from SpecSync v1](important-concepts/migrating-from-specsync-v1.md)
+  * [Migrating from SpecSync v1 to v2](important-concepts/migrating-from-specsync-v1.md)
   * [Using SpecSync inside a Docker container](important-concepts/using-specsync-inside-a-docker-container.md)
 * [Changelog](changelog.md)
 * [Downloads](downloads.md)

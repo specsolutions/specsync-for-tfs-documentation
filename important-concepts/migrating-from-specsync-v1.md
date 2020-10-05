@@ -1,4 +1,4 @@
-# Migrating from SpecSync v1
+# Migrating from SpecSync v1 to v2
 
 SpecSync v2 has introduced a couple of major improvements. If you have used SpecSync v1.\* earlier, you need to do a few steps in order to use v2 in your project.
 
