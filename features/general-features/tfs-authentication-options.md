@@ -6,17 +6,36 @@ For Azure DevOps \(Visual Studio Team Services, VSTS\)
 
 * [Personal access tokens](tfs-authentication-options.md#vsts-personal-access-tokens)
 * [Alternate authentication credentials](tfs-authentication-options.md#vsts-alternate-authentication-credentials)
-* [Visual Studio sign-in prompt](tfs-authentication-options.md#vsts-visual-studio-sign-in-prompt)
+* [Microsoft account sign-in prompt](tfs-authentication-options.md#vsts-visual-studio-sign-in-prompt)
 
-For on premises Team Foundation Server
+For on premises Azure DevOps Server \(or Team Foundation Server\)
 
 * [Domain user name and password](tfs-authentication-options.md#tfs-domain-user-name-and-password)
 * [Windows sign-in prompt](tfs-authentication-options.md#tfs-windows-sign-in-prompt)
 * [Personal access tokens](tfs-authentication-options.md#vsts-personal-access-tokens)
 
-The authentication credentials can be specified in the in the configuration file \(see [`remote` Configuration](../../reference/configuration/configuration-remote.md) for details\) or as command line options \(see [Usage](../../reference/command-line-reference/) for details\).
+The authentication credentials can be specified in the in the configuration file \(see [`remote` Configuration](../../reference/configuration/configuration-remote.md) for details\) or as command line options \(see [Usage](../../reference/command-line-reference/) for details\). It is recommended to store user-specific credentials in the [`knownRemotes` section](../../reference/configuration/knownremotes.md) of the [user-specific configuration file](hierarchical-configuration-files.md#user-specific-configuration-files). 
 
-For all configuration options, you can use environment variables for specifying user name and password \(`%variable%` format\), to make the testing easier without checking-in passwords to the source control. Environment variables are also useful for specifying passwords for [invoking the synchronization from the CI build process](../../important-concepts/synchronizing-test-cases-from-build.md).
+{% code title="specsync.json \(in the SpecSync folder of the local app data\)" %}
+```javascript
+{
+  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+
+  "knownRemotes": [
+    {
+      "projectUrl": "https://dev.azure.com/myorg/*",
+      "user": "g2x.....................ac2vx57i4a"
+    },
+    {
+      "projectUrl": "https://dev.azure.com/otherorg/OtherProject",
+      "user": "y6s.....................ksuc7tsts"
+    }
+  ]
+}
+```
+{% endcode %}
+
+Alternatively, you can also use environment variables for specifying user name and password \(`%variable%` format\), to make the testing easier without checking-in passwords to the source control. Environment variables are also useful for specifying passwords for [invoking the synchronization from the CI build process](../../important-concepts/synchronizing-test-cases-from-build.md).
 
 The the environment variables can be used in the [configuration file](../../reference/configuration/configuration-remote.md):
 
@@ -74,6 +93,10 @@ Or on the command line prompt:
 
 ## Alternate authentication credentials  <a id="vsts-alternate-authentication-credentials"></a>
 
+{% hint style="warning" %}
+Azure DevOps no longer supports alternate credentials since 2020. It is recommended to use [Personal Access Tokens](tfs-authentication-options.md#vsts-personal-access-tokens) instead. See [Microsoft announcement](https://devblogs.microsoft.com/devops/azure-devops-will-no-longer-support-alternate-credentials-authentication) for details.
+{% endhint %}
+
 A slightly less secure alternative of personal access tokens is to use alternate authentication credentials with Azure DevOps. With this option, you can provide a username/password pair that can be used for password-based authentication.
 
 To enable alternate authentication credentials, you have to follow the following steps:
@@ -107,6 +130,10 @@ Or on the command line prompt:
 \(If you don't specify the `--password` option, the tool will prompt you for entering the password.\)
 
 ## Microsoft account sign-in prompt  <a id="vsts-visual-studio-sign-in-prompt"></a>
+
+{% hint style="warning" %}
+The Microsoft account sign-in prompt is currently not supported when you use the [.NET Core or the native binary installation](../../installation/) of SpecSync.
+{% endhint %}
 
 For interactive sessions you can also provide your Azure DevOps credentials using the Microsoft account sign-in prompt \(similar to what you get when providing your credentials for Visual Studio\).
 
@@ -149,6 +176,10 @@ Or on the command line prompt:
 \(If you don't specify the `--password` option, the tool will prompt you for entering the password.\)
 
 ## Windows sign-in prompt  <a id="tfs-windows-sign-in-prompt"></a>
+
+{% hint style="warning" %}
+The Windows sign-in prompt is currently not supported when you use the [.NET Core or the native binary installation](../../installation/) of SpecSync.
+{% endhint %}
 
 For installed Team Foundation Servers, if you don't specify the user, you will be asked to provide your credentials in an interactive sign-in prompt.
 

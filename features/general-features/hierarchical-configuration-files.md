@@ -51,7 +51,6 @@ The following example shows a user-specific configuration file that specifies an
     }
   ]
 }
-
 ```
 {% endcode %}
 
