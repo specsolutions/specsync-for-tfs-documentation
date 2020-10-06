@@ -1,6 +1,6 @@
 # state
 
-This configuration section contains settings to configure how the test case _state_ field should be updated.
+This configuration section contains settings to configure how the test case _state_ field should be updated. See [Setting Test Case State on change](../../../features/push-features/setting-test-case-state-on-change.md) for details.
 
 The following example shows the available options within this sub-section.
 
