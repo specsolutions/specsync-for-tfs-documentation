@@ -40,8 +40,8 @@ When upgrading from v2, please check the [Migrating from SpecSync v2 to v3](impo
 * Publishing test results to multiple Test Suites \(enterprise feature\)
 * Allow to specify log file
 * init command to setup SpecSync for a new project
-* Hierarchical SpecSync configuration files
-* List known remotes in user-specific configuration file
+* Hierarchical SpecSync configuration files \(see [Hierarchical configuration files](features/general-features/hierarchical-configuration-files.md)\)
+* List known remotes in user-specific configuration file \(see [Hierarchical configuration files](features/general-features/hierarchical-configuration-files.md#user-specific-configuration-files)\)
 * Attaching files to test run
 * Tag test cases of removed scenarios
 * Support for SpecFlow v3.3 with Test Suite based execution with Scenario Outline wrappers strategy, using NuGet package: [SpecSync.AzureDevOps.SpecFlow.3-3](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-3)
