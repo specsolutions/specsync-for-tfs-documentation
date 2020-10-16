@@ -1,6 +1,8 @@
 # Troubleshooting
 
-This page contains common issues and their solution. If you don't find your issues here, please [contact support](specsync-support.md).
+This page contains common issues and their solution. To better understand the synchronization process that led to the error, you can try to re-run the synchronization with an additional `--verbose` option.
+
+If you don't find your issues here, please [contact support](specsync-support.md).
 
 ### Test result publishing fails with "Mismatch in automation status of test case and test run"
 
