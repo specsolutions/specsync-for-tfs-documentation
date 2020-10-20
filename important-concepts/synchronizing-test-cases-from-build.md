@@ -13,7 +13,7 @@ The exact build steps and their order might be dependent on the project context,
 
 In this documentation we first show how to add a build step to your pipeline that invokes SpecFlow and how to configure the authentication.
 
-In the last sections \(\) we show how to configure the SpecSync step for performing a `push` and a `publish-test-results` command.
+In the last sections \([Performing synchronization \(push\) from build or release pipeline](synchronizing-test-cases-from-build.md#performing-synchronization-push-from-build-or-release-pipeline) and [Publishing test results from build or release pipeline](synchronizing-test-cases-from-build.md#publishing-test-results-from-build-or-release-pipeline)\) we show how to configure the SpecSync step for performing `push` and `publish-test-results` commands.
 
 ## Adding SpecSync steps to your build or release pipeline
 
