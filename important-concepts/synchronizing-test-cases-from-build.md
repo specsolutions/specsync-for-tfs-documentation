@@ -1,4 +1,4 @@
-# Synchronizing test cases from build
+# Use SpecSync from build or release pipeline
 
 Keeping the test cases in sync with the scenarios is important, therefore automating the synchronization process is recommended. This can be done for example from Azure DevOps build or release pipeline: you can configure an additional build steps that invoke the synchronization and test result publishing process.
 
