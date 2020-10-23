@@ -4,6 +4,16 @@ This page contains common issues and their solution. To better understand the sy
 
 If you don't find your issues here, please [contact support](specsync-support.md).
 
+### Connecting to Azure DevOps fails with "API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not registered" error
+
+The Azure DevOps Connection might fail for various reasons, including incorrect [credentials](../features/general-features/tfs-authentication-options.md), missing permissions or [incompatible Azure DevOps versions](../reference/compatibility.md). 
+
+If the error `API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not registered` is displayed \(the ID might be different\), the problem might be with the Azure DevOps project URL you have specified.
+
+**Solution 1:** If you use TFS 2013 or TFS 2015, please check if the TFS server is compatible with the SpecSync version you use in the [Compatibility](../reference/compatibility.md) page. For older TFS servers you might need to donwgrade to an older version of SpecSync.
+
+**Solution 2:** Check is the Azure DevOps project URL is correct. It can happen that the URL you have specified points to the project collection and the project name part is missing. You can use the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) guide for help. Fix the project URL and rerun the synchronization.
+
 ### Test result publishing fails with "Mismatch in automation status of test case and test run"
 
 Azure DevOps \(ADO\) collects test execution results in Test Runs. Test runs can be either manual or automated. Automated test runs can only contain automated tests \(Test Cases marked as "automated"\) while manual Test Runs can contain any Test Cases. The error message is provided by ADO when a non-automated Test Case is being added to the Test Run.
