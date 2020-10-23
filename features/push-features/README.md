@@ -16,6 +16,8 @@
 
 {% page-ref page="customization-ignoring-marked-test-case-steps.md" %}
 
+{% page-ref page="customization-ignoring-test-case-tags.md" %}
+
 {% page-ref page="customization-mapping-tags.md" %}
 
 {% page-ref page="support-synchronizing-scenarios-from-a-branch.md" %}

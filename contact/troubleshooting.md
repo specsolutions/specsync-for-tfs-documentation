@@ -18,7 +18,7 @@ If the error `API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not
 
 Azure DevOps \(ADO\) collects test execution results in Test Runs. Test runs can be either manual or automated. Automated test runs can only contain automated tests \(Test Cases marked as "automated"\) while manual Test Runs can contain any Test Cases. The error message is provided by ADO when a non-automated Test Case is being added to the Test Run.
 
-SpecSync sets both the Test Run and the Test Case automation status base on the configuration setting [`synchronization/automation/enabled`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md). This means that if the same scenarios were synchronized by SpecSync then the ones that were executed in the test result file, such conflict cannot happen.
+SpecSync sets both the Test Run and the Test Case automation status base on the configuration setting [`synchronization/automation/enabled`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md). \(see [Mark Test Cases as Automated](../features/push-features/mark-test-cases-as-automated.md)\) This means that if the same scenarios were synchronized by SpecSync then the ones that were executed in the test result file, such conflict cannot happen.
 
 Cause: It can happen that some scenarios are excluded from the "automated" status using the [`synchronization/automation/skipForTags`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) configuration setting, but they were still included in the test result. 
 

@@ -1,5 +1,32 @@
 # Changelog
 
+## v3.1.0 - coming soon!
+
+### New features & improvements
+
+* SpecSync plugin support. See [SpecSync Plugins](features/general-features/specsync-plugins.md) for details. \(\#110\)
+* Allow users to enter their credentials interactively in the .NET Core based installations \(\#298\)
+* Allow users to save their user name or PAT to the user-specific configuration if they have entered them interactively \(\#297\)
+* Non-zero exit code is returned on warnings \(\#285\)
+* Force SpecSync tool to exit with zero exit code even in case of warnings using the `--zeroExitCodeForWarnings` flag. \(\#301\)
+* Ignore specified Azure DevOps Test Case tags \(they are not going to be removed even if there is no corresponding tag on the scenario\) \(\#305\)
+* Allow ignoring SSL certificate errors for a trusted certificate \(\#290\)
+* Show warning when feature files have became invalid after synchronization \(\#286\)
+* Diagnostic categories can be specified on command line. The support team might ask you to configure this for diagnosing special integration issues. \(\#234\)
+* Allow specifying the SpecSync compatibility version in configuration files. The compatibility version specifies the SpecSync version that the configuration file was created for. The new SpecSync features can be used even if the compatibility version is older than the current version, but if the default values of some settings change in the future, SpecSync will not apply these default unless the compatibility version is updated. \(\#312\)
+
+### Breaking changes
+
+* The setting `--baseFolder` becomes obsolete. It can be still used in v3.1 but it is going to be removed in a future release. As an alternative, you can set the working directory of the SpecSync tool. \(\#311\)
+* The setting `--diag` becomes obsolete. It can be still used in v3.1 but it is going to be removed in a future release. As an alternative, you should use the equivalent `--verbose` \(or `-v`\) options. \(\#309\)
+
+### Bug Fixes
+
+All bug fixes od v3.0.3 are also included in this release.
+
+* Fix: Test Case change is not detected if it only contains a link removal and there are no other field changes
+* Fix: Make "assemblyBasedExecution" strategy as default \(\#313\)
+
 ## v3.0.3 - 2020/10/23
 
 ### Improvements
@@ -59,7 +86,7 @@ When upgrading from v2, please check the [Migrating from SpecSync v2 to v3](impo
 * Hierarchical SpecSync configuration files \(see [Hierarchical configuration files](features/general-features/hierarchical-configuration-files.md)\)
 * List known remotes in user-specific configuration file \(see [Hierarchical configuration files](features/general-features/hierarchical-configuration-files.md#user-specific-configuration-files)\)
 * Attaching files to test run
-* Tag test cases of removed scenarios
+* Tag test cases of removed scenarios with `specsync:removed`
 * Support for SpecFlow v3.3 with Test Suite based execution with Scenario Outline wrappers strategy, using NuGet package: [SpecSync.AzureDevOps.SpecFlow.3-3](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-3)
 * Map inconclusive test results for publishing
 * Specify target test suite for publishing on the command line
