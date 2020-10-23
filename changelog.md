@@ -1,5 +1,21 @@
 # Changelog
 
+## v3.0.3 - 2020/10/23
+
+### Improvements
+
+* `--verbose` option also displays diagnostic messages \(equivalent to `--diag`\). The `--diag` option will become obsolete in v3.1. \(\#310\)
+* Display config file being used \(\#304\)
+* Suggest checking the [troubleshooting](contact/troubleshooting.md) page on error \(\#227\)
+
+### Bug Fixes
+
+* Fix: Misleading error message when the SpecFlow tools folder is not configured/detected correctly \(\#300\)
+* Fix: Should load user-specific config file even if `ignoreParentConfig` is set to true \(\#306\)
+* Fix: When [multi-suite-publish customization](features/test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md) is used, the enforcement of specifying a Test Suite is unnecessary \(\#299\)
+* Fix: Test cases with more than 200 history item cause synchronization error \(\#123\)
+* Fix: Package name is displayed instead of product name in the command line tool \(\#307\)
+
 ## v3.0.2 - 2020/09/03
 
 {% hint style="warning" %}
