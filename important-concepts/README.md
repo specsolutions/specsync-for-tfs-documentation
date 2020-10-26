@@ -1,6 +1,6 @@
 # Guides
 
-Please check the following concept descriptions.
+Please check the following guides.
 
 {% page-ref page="what-is-my-tfs-project-url.md" %}
 
