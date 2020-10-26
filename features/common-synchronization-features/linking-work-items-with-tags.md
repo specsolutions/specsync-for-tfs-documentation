@@ -89,5 +89,5 @@ _Note: Currently changing the link type will not trigger the re-synchronization 
 ## Limitations
 
 * Existing test case links are not removed automatically, even if you remove the tag from the scenario. They have to be removed manually.
-* Links are not supported for two-way synchronization.
+* Link tags are not created when the Test Case changes retrieved with the pull command.
 

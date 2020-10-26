@@ -39,3 +39,7 @@ If you specify a test suite name that does not exist, SpecSync creates a test su
 _Since the test suite names are not unique in Azure DevOps, you can also specify the test suite ID in the_ `remote/testSuite/id` _setting._
 {% endhint %}
 
+{% hint style="info" %}
+Retrieving Test Suites might take longer time when the ID of the Test Plan that the Test Suite is defined in is unknown. If you have many Test Plans or experience longer processing time, please specify the ID of the Test Plan as well in the `remote/testSuite/testPlanId` setting.
+{% endhint %}
+

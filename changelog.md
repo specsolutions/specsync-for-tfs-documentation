@@ -14,6 +14,7 @@
 * Show warning when feature files have became invalid after synchronization \(\#286\)
 * Diagnostic categories can be specified on command line. The support team might ask you to configure this for diagnosing special integration issues. \(\#234\)
 * Allow specifying the SpecSync compatibility version in configuration files. The compatibility version specifies the SpecSync version that the configuration file was created for. The new SpecSync features can be used even if the compatibility version is older than the current version, but if the default values of some settings change in the future, SpecSync will not apply these default unless the compatibility version is updated. \(\#312\)
+* Allow to override Run Type setting of the published Test Run \(handling automation mismatch error\) \(\#125\)
 
 ### Breaking changes
 
