@@ -29,6 +29,10 @@ The following example shows the available options within this section.
       "enabled": true,
       "ignoredPrefixes": [ "COMMENT" ]
     },
+    "ignoreTestCaseTags": {
+      "enabled": true,
+      "tags": [ "mytag", "ado-tag*" ]
+    },
     "tagTextMapTransformation": {
       "enabled": true,
       "textMap": {
@@ -60,7 +64,7 @@ The following example shows the available options within this section.
 
 ### fieldDefaults
 
-Enables setting default values to test case fields. Useful for custom Azure DevOps process templates.
+Enables setting default values to test case fields. Useful for custom Azure DevOps process templates. See [Customization: Setting Test Case fields with default values](../../features/push-features/customization-setting-test-case-fields-with-default-values.md) for details.
 
 | Setting | Description | Default |
 | :--- | :--- | :--- |
@@ -69,36 +73,36 @@ Enables setting default values to test case fields. Useful for custom Azure DevO
 
 ### customFieldUpdates
 
-Enables updating test case fields that are normally not changed by SpecSync.
+Enables updating test case fields that are normally not changed by SpecSync. See [Customization: Update custom Test Case fields on push](../../features/push-features/customization-update-custom-test-case-fields-on-push.md) for details.
 
 | Setting | Description | Default |
 | :--- | :--- | :--- |
 | `customFieldUpdates/enabled` | Enables the customization. | `false` |
-| `customFieldUpdates/updates` | A list of key-value pair, where the key is the canonical name of the field to be updated \(e.g. `System.Description`\) and the value is the template to be used to update the field. The template can contain placeholders listed below. | mandatory |
-
-The template value for `customFieldUpdates/updates` can contain the following placeholders:
-
-* `{feature-name}` -- the name of the feature \(specified in the feature file header\)
-* `{feature-description}` -- the description of the feature \(the free-text block specified after the feature file header\)
-* `{scenario-name}` -- the name of the scenario or scenario outline
-* `{scenario-description}` -- the description of the scenario or scenario outline 
-* `{feature-file-name}` -- the file name of the feature file \(without folder\)
-* `{feature-file-folder}` -- the folder of the feature file, relative to the project root
-* `{feature-file-path}` -- the path \(folder and file name\) of the feature file, relative to the project root
-* `{br}` -- a new line
+| `customFieldUpdates/updates` | A list of key-value pair, where the key is the canonical name of the field to be updated \(e.g. `System.Description`\) and the value is the template to be used to update the field. The template can contain placeholders listed in [Customization: Update custom Test Case fields on push - Template placeholders](../../features/push-features/customization-update-custom-test-case-fields-on-push.md#template-placeholders) page. | mandatory |
 
 ### ignoreTestCaseSteps
 
-Can ignore \(leave unchanged\) test case steps with a specific prefix.
+Can ignore \(leave unchanged\) test case steps with a specific prefix. See [Customization: Ignoring marked Test Case steps](../../features/push-features/customization-ignoring-marked-test-case-steps.md) for details.
 
 | Setting | Description | Default |
 | :--- | :--- | :--- |
 | `ignoreTestCaseSteps/enabled` | Enables the customization. | `false` |
 | `ignoreTestCaseSteps/ignoredPrefixes` | An array of prefixes. The test case steps that start with any of the listed prefixes \(case-insensitive\) will be ignored by the synchronization. | mandatory |
 
+### ignoreTestCaseTags
+
+Can ignore \(leave unchanged\) test case tags. See [Customization: Ignoring Test Case Tags](../../features/push-features/customization-ignoring-test-case-tags.md) for details.
+
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| `ignoreTestCaseTags/enabled` | Enables the customization. | `false` |
+| `ignoreTestCaseTags/tags` | An array of tag specifiers. The tag specifier can be a tag \(e.g. `mytag`\) or a tag prefix with tailing wildcard \(e.g. `ado-tag*` - ignores tags like `ado-tag-important`\). The test case tags that match to any of the listed tag specifiers will be ignored by the synchronization. | mandatory |
+
+### 
+
 ### tagTextMapTransformation
 
-Can substitute characters or sub-strings in tags when synchronizing to Azure DevOps. E.g. underscores \(`_`\) in scenario tags can be represented with spaces in Test Case tags.
+Can substitute characters or sub-strings in tags when synchronizing to Azure DevOps. E.g. underscores \(`_`\) in scenario tags can be represented with spaces in Test Case tags. See [Customization: Mapping tags](../../features/push-features/customization-mapping-tags.md) for details.
 
 | Setting | Description | Default |
 | :--- | :--- | :--- |
@@ -121,7 +125,7 @@ Allows publishing test results to multiple Test Suites. See [Customization: Publ
 
 ### branchTag
 
-Supports synchronization of scenarios on feature branches.
+Supports synchronization of scenarios on feature branches. See [Customization: Synchronizing scenarios from feature branches](../../features/push-features/support-synchronizing-scenarios-from-a-branch.md) for details.
 
 | Setting | Description | Default |
 | :--- | :--- | :--- |

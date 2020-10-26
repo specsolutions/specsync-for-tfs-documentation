@@ -8,7 +8,7 @@ The _Multi-suite publish_ customization for SpecSync allows publishing the same 
 The _Multi-suite publish_ customization described here is an [Enterprise feature](../../licensing.md).
 {% endhint %}
 
-In order to enable the customization, the `multiSuitePublishTestResults` section of the configuration has to be enabled. The list of all possible settings can be found in the [customization configuration reference](../../reference/configuration/configuration-customizations.md). Since the Test Suites have to be in the same Test Plan, specifying the `testPlanId` setting is mandatory.
+In order to enable the customization, the `customizations/multiSuitePublishTestResults` section of the configuration has to be enabled. The list of all possible settings can be found in the [customization configuration reference](../../reference/configuration/configuration-customizations.md). Since the Test Suites have to be in the same Test Plan, specifying the `testPlanId` setting is mandatory.
 
 The following example shows a basic configuration.
 

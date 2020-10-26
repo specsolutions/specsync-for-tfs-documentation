@@ -9,7 +9,7 @@
 * Allow users to save their user name or PAT to the user-specific configuration if they have entered them interactively \(\#297\)
 * Non-zero exit code is returned on warnings \(\#285\)
 * Force SpecSync tool to exit with zero exit code even in case of warnings using the `--zeroExitCodeForWarnings` flag. \(\#301\)
-* Ignore specified Azure DevOps Test Case tags \(they are not going to be removed even if there is no corresponding tag on the scenario\) \(\#305\)
+* Ignore specified Azure DevOps Test Case tags \(they are not going to be removed even if there is no corresponding tag on the scenario\) See [Customization: Ignoring Test Case Tags](features/push-features/customization-ignoring-test-case-tags.md) for details. \(\#305\)
 * Allow ignoring SSL certificate errors for a trusted certificate \(\#290\)
 * Show warning when feature files have became invalid after synchronization \(\#286\)
 * Diagnostic categories can be specified on command line. The support team might ask you to configure this for diagnosing special integration issues. \(\#234\)
