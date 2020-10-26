@@ -1,6 +1,6 @@
 # Synchronizing automated test cases
 
-_**Important: This article describes the behavior of SpecSync for Azure DevOps v2.1 or later. This version introduced major improvements for automated test cases. For the v2.0 behavior, please check**_ [_**this article**_]()_**.**_ 
+_**Important: This article describes the behavior of SpecSync for Azure DevOps v2.1 or later. This version introduced major improvements for automated test cases.**_ 
 
 The test cases synchronized by SpecSync can also track test executions and test results through the "Test Run" infrastructure of Azure DevOps. This might be useful to create a "Living Documentation" -- a description of the expected system behavior that can also indicate whether the solution currently fulfills these expectations or not. Tracking the test results for the test cases is optional.
 
