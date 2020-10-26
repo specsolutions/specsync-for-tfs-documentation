@@ -98,7 +98,7 @@ In Azure DevOps only Azure DevOps build pipelines can be associated. Build refer
 
 ### Results of Scenario Outline executions
 
-Scenario outlines represent data-driven variation tests: the same test is executed with different input data. SpecSync [synchronizes scenario outlines to parametrized Test Cases](../../important-concepts/synchronizing-scenario-outlines.md). 
+Scenario outlines represent data-driven variation tests: the same test is executed with different input data. SpecSync [synchronizes scenario outlines to parametrized Test Cases](../push-features/synchronizing-scenario-outlines.md). 
 
 SpecSync publishes the result of a scenario outline is cumulated from the results of the individual data variations \(examples\). In this cases the test result comment contains the individual results or the error messages. SpecSync also publishes these results as sub-results of the test result, but currently sub-results are not displayed in the Azure DevOps user interface \(they can be retrieved though the API though\). To check these results in detail, you need to open the test result file attached to the Test Run.
 

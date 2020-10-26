@@ -105,7 +105,7 @@ The push command updates certain fields of the linked Azure DevOps Test Case to 
       <td style="text-align:left">The scenario outlines are synchronized to parametrized Test Cases. The
         values provided in the scenario outline <em>Examples </em>block are saved
         as parameter values. Multiple examples blocks are merged into one Test
-        Case parameter value table. See <a href="../../important-concepts/synchronizing-scenario-outlines.md">Synchronizing Scenario Outlines</a> for
+        Case parameter value table. See <a href="synchronizing-scenario-outlines.md">Synchronizing Scenario Outlines</a> for
         details.</td>
     </tr>
     <tr>

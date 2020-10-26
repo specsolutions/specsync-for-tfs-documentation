@@ -1,5 +1,9 @@
 # Using SpecSync with SpecFlow+
 
+{% hint style="warning" %}
+This documentation page is outdated and represents SpecSync v2. Please check the page later for an updated version.
+{% endhint %}
+
 SpecSync can synchronize scenarios from projects that use SpecFlow+. SpecFlow+ is a set of commercial extensions and tools for SpecFlow provided by TechTalk. You can find further information about SpecFlow+ at [http://www.specflow.org/plus](http://www.specflow.org/plus).
 
 ## Integration with SpecFlow+ Runner

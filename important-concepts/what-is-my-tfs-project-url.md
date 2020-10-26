@@ -1,4 +1,4 @@
-# What is my Azure DevOps project URL
+# What is my Azure DevOps project URL?
 
 In order to configure the remote Azure DevOps server for synchronizing the scenarios to, the Azure DevOps project URL has to be configured in the [`remote` Configuration](../reference/configuration/configuration-remote.md).
 

@@ -6,6 +6,8 @@ This chapter contains features related to updating Test Cases based on the local
 
 {% page-ref page="configuring-the-format-of-the-synchronized-test-cases.md" %}
 
+{% page-ref page="synchronizing-scenario-outlines.md" %}
+
 {% page-ref page="add-new-test-cases-to-an-area-or-an-iteration.md" %}
 
 {% page-ref page="mark-test-cases-as-automated.md" %}
