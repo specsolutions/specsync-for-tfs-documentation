@@ -40,7 +40,7 @@
     * [SpecSync Plugins](features/general-features/specsync-plugins.md)
   * [Customizations](features/customizations.md)
 * [Licensing](licensing.md)
-* [Important Concepts](important-concepts/README.md)
+* [Guides](important-concepts/README.md)
   * [What is my Azure DevOps project URL](important-concepts/what-is-my-tfs-project-url.md)
   * [How to define the local feature-set to be synchronized](important-concepts/how-to-define-the-local-feature-set-to-be-synchronized.md)
   * [Synchronizing Scenario Outlines](important-concepts/synchronizing-scenario-outlines.md)

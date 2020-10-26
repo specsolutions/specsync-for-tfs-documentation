@@ -1,4 +1,4 @@
-# Important Concepts
+# Guides
 
 Please check the following concept descriptions.
 
