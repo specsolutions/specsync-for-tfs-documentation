@@ -22,6 +22,8 @@ The following list contains the detailed description of the most important featu
 
 {% page-ref page="push-features/customization-ignoring-marked-test-case-steps.md" %}
 
+{% page-ref page="push-features/customization-ignoring-test-case-tags.md" %}
+
 {% page-ref page="push-features/customization-mapping-tags.md" %}
 
 {% page-ref page="push-features/support-synchronizing-scenarios-from-a-branch.md" %}
@@ -32,11 +34,11 @@ The following list contains the detailed description of the most important featu
 
 ### Common synchronization features
 
-{% page-ref page="common-synchronization-features/excluding-scenarios-from-synchronization.md" %}
+{% page-ref page="common-synchronization-features/linking-work-items-with-tags.md" %}
 
 {% page-ref page="common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md" %}
 
-{% page-ref page="common-synchronization-features/linking-work-items-with-tags.md" %}
+{% page-ref page="common-synchronization-features/excluding-scenarios-from-synchronization.md" %}
 
 ### Test result publishing features
 
@@ -56,6 +58,8 @@ The following list contains the detailed description of the most important featu
 
 {% page-ref page="general-features/hierarchical-configuration-files.md" %}
 
+{% page-ref page="general-features/specsync-plugins.md" %}
+
 ### Customizations
 
 The customizations below are also mentioned at the feature areas they are related to.
@@ -63,6 +67,8 @@ The customizations below are also mentioned at the feature areas they are relate
 {% page-ref page="push-features/customization-setting-test-case-fields-with-default-values.md" %}
 
 {% page-ref page="push-features/customization-update-custom-test-case-fields-on-push.md" %}
+
+{% page-ref page="push-features/customization-ignoring-test-case-tags.md" %}
 
 {% page-ref page="push-features/customization-ignoring-marked-test-case-steps.md" %}
 

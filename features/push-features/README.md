@@ -1,5 +1,7 @@
 # Push features
 
+This chapter contains features related to updating Test Cases based on the local scenarios \(push\).
+
 {% page-ref page="pushing-scenario-changes-to-test-cases.md" %}
 
 {% page-ref page="configuring-the-format-of-the-synchronized-test-cases.md" %}

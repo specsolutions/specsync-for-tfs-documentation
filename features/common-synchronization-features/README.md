@@ -1,5 +1,7 @@
 # Common synchronization features
 
+This chapter contains common synchronization features that are used both during [push](../push-features/) and [pull](../pull-features/) commands.
+
 {% page-ref page="linking-work-items-with-tags.md" %}
 
 {% page-ref page="group-synchronized-test-cases-to-a-test-suite.md" %}
