@@ -107,7 +107,7 @@ Can substitute characters or sub-strings in tags when synchronizing to Azure Dev
 
 ### multiSuitePublishTestResults
 
-Allows publishing test results to multiple Test Suites.
+Allows publishing test results to multiple Test Suites. See [Customization: Publishing test results to multiple Test Suites](../../features/test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md) for details.
 
 | Setting | Description | Default |
 | :--- | :--- | :--- |
