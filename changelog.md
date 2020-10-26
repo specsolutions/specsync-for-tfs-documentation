@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.1.0 - coming soon!
+## v3.1.0 - 2020/10/26
 
 ### New features & improvements
 
