@@ -1,6 +1,6 @@
 # Older versions
 
-The reference guide contains the documentation of SpecSync for AzureDevOps v3.0. 
+The reference guide contains the documentation of SpecSync for AzureDevOps v3.1. 
 
 ## Reference for older versions
 

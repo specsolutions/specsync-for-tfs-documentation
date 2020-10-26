@@ -45,7 +45,7 @@
   * [What is my Azure DevOps project URL?](important-concepts/what-is-my-tfs-project-url.md)
   * [How to define the local feature-set to be synchronized](important-concepts/how-to-define-the-local-feature-set-to-be-synchronized.md)
   * [Filters and scopes](important-concepts/filters-and-scopes.md)
-  * [Synchronizing automated test cases](important-concepts/synchronizing-automated-test-cases.md)
+  * [How to synchronize automated test cases](important-concepts/synchronizing-automated-test-cases.md)
   * [Use SpecSync from build or release pipeline](important-concepts/synchronizing-test-cases-from-build.md)
   * [Using SpecSync with SpecFlow+](important-concepts/using-specsync-with-specflow-plus.md)
   * [Using SpecSync with Cucumber](important-concepts/using-specsync-with-cucumber.md)
