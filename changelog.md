@@ -81,20 +81,20 @@ When upgrading from v2, please check the [Migrating from SpecSync v2 to v3](impo
 
 * .NET Core Support: SpecSync is provided as a .NET Core Tool, the .NET Framework executable is available as NuGet package: [SpecSync.AzureDevOps.Console](https://www.nuget.org/packages/SpecSync.AzureDevOps.Console)
 * Using new Azure DevOps API
-* Publishing test results to multiple Test Suites \(enterprise feature\)
+* Publishing test results to multiple Test Suites \(enterprise feature, see [Customization: Publishing test results to multiple Test Suites](features/test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md)\)
 * Allow to specify log file
-* init command to setup SpecSync for a new project
+* init command to setup SpecSync for a new project \(see [init command](reference/command-line-reference/init-command.md)\)
 * Hierarchical SpecSync configuration files \(see [Hierarchical configuration files](features/general-features/hierarchical-configuration-files.md)\)
 * List known remotes in user-specific configuration file \(see [Hierarchical configuration files](features/general-features/hierarchical-configuration-files.md#user-specific-configuration-files)\)
 * Attaching files to test run
 * Tag test cases of removed scenarios with `specsync:removed`
 * Support for SpecFlow v3.3 with Test Suite based execution with Scenario Outline wrappers strategy, using NuGet package: [SpecSync.AzureDevOps.SpecFlow.3-3](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-3)
-* Map inconclusive test results for publishing
+* Map inconclusive test results for publishing \(see [Publishing inconclusive test results](features/test-result-publishing-features/publishing-test-result-files.md#publishing-inconclusive-test-results)\)
 * Specify target test suite for publishing on the command line
 * Tag expressions support tail wildcards
-* Map tags \(enterprise feature\)
+* Map tags \(enterprise feature, see [Customization: Mapping tags](features/push-features/customization-mapping-tags.md)\)
 * Allow specifying test run and test result comments for publishing
-* Published test results are automatically connected to the AzureDevOps builds or the build reference can be specified explicitly
+* Published test results are automatically connected to the Azure DevOps builds or the build reference can be specified explicitly
 * New supported test result formats \(besides TRX\): Cucumber Java \(XML\), Python Behave \(XML\), Cucumber Studio/Hiptest JSON, Python PyTest.BDD \(XML\), SpecFlow NUnit \(XML\)
 * Simplified licensing: scenario outlines count as one for synchronization limit
 * Improved authentication error handling

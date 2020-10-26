@@ -102,6 +102,12 @@ Scenario outlines represent data-driven variation tests: the same test is execut
 
 SpecSync publishes the result of a scenario outline is cumulated from the results of the individual data variations \(examples\). In this cases the test result comment contains the individual results or the error messages. SpecSync also publishes these results as sub-results of the test result, but currently sub-results are not displayed in the Azure DevOps user interface \(they can be retrieved though the API though\). To check these results in detail, you need to open the test result file attached to the Test Run.
 
+### Publishing inconclusive test results
+
+Some test execution frameworks report skipped scenarios as Inconclusive. Publishing them as inconclusive result \(that is a kind of failure\) would make the overall test outcome and the detail statistics invalid. 
+
+My setting the `publishTestResults/treatInconclusiveAs` setting in the configuration file, you can map this result to another value, e.g. `NotExecuted`. 
+
 ## Examples
 
 ### SpecFlow \(.NET Core\)
