@@ -1,5 +1,5 @@
 ---
-description: for v3.0
+description: for v3.1
 ---
 
 # Configuration reference
@@ -19,6 +19,7 @@ The following example shows a minimal configuration file.
 ```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+  "compatibilityVersion": 3.1,
 
   "remote": {
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
@@ -27,6 +28,10 @@ The following example shows a minimal configuration file.
 ```
 
 A detailed sample configuration file that contains nearly all settings can be found at [http://schemas.specsolutions.eu/specsync-sample.json](http://schemas.specsolutions.eu/specsync-sample.json).
+
+{% hint style="info" %}
+The `compatibilityVersion` setting at the top of the file specifies the SpecSync version that the configuration file was created for. The new SpecSync features can be used even if the compatibility version is older than the current version, but if the default values of some settings change in the future, SpecSync will not apply these default unless the compatibility version is updated.
+{% endhint %}
 
 ## Configuration sections
 

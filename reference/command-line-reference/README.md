@@ -1,5 +1,5 @@
 ---
-description: for v3.0
+description: for v3.1
 ---
 
 # Command line reference
@@ -21,6 +21,7 @@ The command line tool terminated with a specific exit code depending on the exec
 | Exit Code | Description |
 | :--- | :--- |
 | 0 | Completed |
+| 5 | Warnings \(use `--zeroExitCodeForWarnings` to use zero exit code\) |
 | 10 | Failed with a synchronization error |
 | 90 | Failed with an unhandled error |
 | 100 | Failed with a configuration error |
@@ -57,12 +58,12 @@ The following command line options are available for all commands that require e
 | &lt;CONFIG‑FILE‑PATH&gt; | The path of the SpecSync configuration file, absolute path or relative to the current folder, e.g. `MyProject.Specs\specsync.json`. Has to be specified as a last parameter. | use `specsync.json` from the current folder |
 | `--user` &lt;USER‑NAME&gt; | The Azure DevOps user name or [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). Overrides `remote/user` setting of the configuration file. See [Azure DevOps authentication options](../../features/general-features/tfs-authentication-options.md) for details. | use from config file or interactive prompt |
 | `--password` &lt;PASSWORD&gt; | The password for the Azure DevOps user. Overrides `remote/password` setting of the configuration file. See [Azure DevOps authentication options](../../features/general-features/tfs-authentication-options.md) for details. | use from config file or interactive prompt |
+| `--ignoreCertificateErrorsForThumbprint` | The thumbprint of the server certificate that should be treated as trusted. It is recommended to install trusted certificates on the operating system instead of using this setting. See related [Troubleshooting entry](../../contact/troubleshooting.md#authentication-ssl-error-the-remote-certificate-is-invalid-according-to-the-validation-procedure-when-connecting-to-an-azure-devops-server-on-promises) for details. | SSL is verified by the OS |
 | `--license` &lt;LICENSE‑FILE‑PATH&gt; | The path to the license file; can be relative to the project folder. Overrides `toolSettings/licensePath` setting of the configuration file. See [Licensing](../../licensing.md) for details. \(Default: use from config file or `specsync.lic`\) | use from config file or `specsync.lic` |
-| `--baseFolder` &lt;FOLDER&gt; | The base folder where SpecSync searches for project, feature and license files by default. | folder of the configuration file |
 | `--disableStats` | If specified, SpecSync will not collect anonymous error diagnostics and statistics. Overrides `toolSettings/disableStats` setting of the configuration file. | false |
-| `-v`, `--verbose` | If specified, error messages and trace information will be displayed more in detail. Overrides `toolSettings/outputLevel` setting of the configuration file. | false |
-| `--diag` | If specified, diagnostic information will be added to the output. | false |
+| `-v`, `--verbose` \(`--diag` in v3.0\) | If specified, diagnostic information will be added to the output. Overrides `toolSettings/outputLevel` setting of the configuration file. | false |
 | `--log` &lt;LOG-FILE&gt; | If specified, the output will also be saved to a log file. | no log file is written |
+| `--zeroExitCodeForWarnings` | If specified, the command line tool will terminate with 0 exit code even in case of warnings. | Non-zero exit code is returned for warnings |
 
 ## Examples
 

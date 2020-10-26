@@ -9,6 +9,7 @@ The following example shows the available options within this section.
   ...
   "specFlow": {
     "specFlowGeneratorFolder": "..\\packages\\SpecFlow.2.3.0\\tools",
+    "generateFeatureFileCodeBehinds": false,
     "scenarioOutlineAutomationWrappers": "iterateThroughExamples",
     "wrapperMethodPrefix": "_SpecSyncWrapper_",
     "wrapperMethodCategory": "SpecSyncWrapper"
@@ -35,6 +36,14 @@ The following example shows the available options within this section.
         usually the <code>tools</code> folder of the SpecFlow NuGet package, e.g. <code>packages\\SpecFlow.2.3.0\\tools</code>.</td>
       <td
       style="text-align:left">detect generator of the project</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>generateFeatureFileCodeBehinds</code>
+      </td>
+      <td style="text-align:left">Specifies whether SpecSync should attempt to regenerate feature file code-behind
+        files after they have been changed by SpecSync. This is only required for
+        SpecFlow v2.</td>
+      <td style="text-align:left">SpecSync automatically decides whether generation is necessary</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>scenarioOutlineAutomationWr appers</code>

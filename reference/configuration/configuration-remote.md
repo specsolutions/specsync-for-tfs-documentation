@@ -68,6 +68,15 @@ The remote settings of the Azure DevOps project can also be specified in the kno
       style="text-align:left">system default</td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>ignoreCertificateErrorsForThumbprint</code>
+      </td>
+      <td style="text-align:left">The thumbprint of the server certificate that should be treated as trusted.
+        It is recommended to install trusted certificates on the operating system
+        instead of using this setting. See related <a href="../../contact/troubleshooting.md#authentication-ssl-error-the-remote-certificate-is-invalid-according-to-the-validation-procedure-when-connecting-to-an-azure-devops-server-on-promises">Troubleshooting entry</a> for
+        details.</td>
+      <td style="text-align:left">SSL is verified by the OS</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>testSuite</code>
       </td>
       <td style="text-align:left">

@@ -80,6 +80,13 @@ The following example shows the most common options within this section.
       <td style="text-align:left">load from test result file</td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>runType</code>
+      </td>
+      <td style="text-align:left">Sets the run type of the created Test Run.</td>
+      <td style="text-align:left">set based on <a href="configuration-synchronization/configuration-synchronization-automation.md">synchronization automation setting</a>
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>runComment</code>
       </td>
       <td style="text-align:left">The comment of the created Test Run.</td>
