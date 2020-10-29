@@ -1,8 +1,15 @@
 # Downloads
 
-For .NET projects using SpecFlow, SpecSync for Azure DevOps can be installed from NuGet: [SpecSync.AzureDevOps](https://www.nuget.org/packages/SpecSync.AzureDevOps/).
+The v3.0 release introduced SpecSync as a portable .NET Core tool, so re recommend using that on all platforms, including macOS/Linux. See [Install as .NET Core tool](installation/dotnet-core-tool.md) for details. 
 
-For non-SpecFlow projects \(e.g. Cucumber\), the SpecSync for Azure DevOps synchronization tool can be downloaded for Windows, OSX or Linux-based systems. Find the download links below.
+The following links contain direct download options as an alternative to that.
+
+## v3.1
+
+* Windows: [SpecSync.AzureDevOps.Console.3.1.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.3.1.0.zip)
+* Linux: [SpecSync.AzureDevOps.3.1.0-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.1.0-linux-x64.zip)
+* OSX: [SpecSync.AzureDevOps.3.1.0-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.1.0-osx-x64.zip)
+* Any platform \(.NET Core SDK required\): [SpecSync.AzureDevOps.3.1.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.1.0.zip)
 
 ## v3.0
 
