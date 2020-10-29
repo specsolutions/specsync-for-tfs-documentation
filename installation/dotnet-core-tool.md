@@ -58,3 +58,23 @@ dotnet tool restore
 For a special automated Test Case scenario you might need to install an additional NuGet package to your project. This is usually not necessary even for .NET projects. For details please check the [setup instructions](setup-and-configure.md#setup-specflow-plugin).
 {% endhint %}
 
+## Upgrading SpecSync .NET Core tool
+
+There are several ways to upgrade SpecSync if it was installed as a .NET Core tool. The most simple way is to use the `dotnet tool update` command. See more information about this command on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update).
+
+The following command upgrades SpecSync to the latest release version.
+
+```bash
+dotnet tool update SpecSync.AzureDevOps
+```
+
+You can also upgrade SpecSync to a specific version using the --version option.
+
+```bash
+dotnet tool update SpecSync.AzureDevOps --version 3.1.0
+```
+
+{% hint style="info" %}
+To be able to upgrade to a preliminary version, you always need to specify the exact version number explicitly using the --version option.
+{% endhint %}
+
