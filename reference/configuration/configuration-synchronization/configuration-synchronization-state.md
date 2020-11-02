@@ -22,7 +22,7 @@ The following example shows the available options within this sub-section.
 
 | Setting | Description | Default |
 | :--- | :--- | :--- |
-| `setValueOnChangeTo` | A state value \(e.g. `Design`\) to set test case state to when updating or creating a test case during synchronization. Useful for setting back `Ready` test cases to `Design` on change. | don't change test case state |
+| `setValueOnChangeTo` | A state value \(e.g. `Design`\) to set test case state to when updating or creating a test case during synchronization. Useful for setting back test cases to state `Design` on change. The possible allowed values might depend on the process template your project uses. | don't change test case state |
 
 {% page-ref page="./" %}
 
