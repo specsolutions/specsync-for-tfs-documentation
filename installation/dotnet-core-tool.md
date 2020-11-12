@@ -14,7 +14,7 @@ SpecSync can be installed as .NET Core tool, even if the project does not use .N
 
 SpecSync should be installed as a _local_ .NET Core tool \(.NET Core tools can also be installed globally for the machine, but that is more suitable for general, non project specific tools\). By installing as local tool, you can use different SpecSync versions for different projects and the required SpecSync version is registered in the project repository. You can read more about .NET Core local tools on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
 
-{% embed url="https://youtu.be/qrfSX\_pXyNA" caption="Video tutorial about installing SpecSync as a .NET Core tool" %}
+{% embed url="https://youtu.be/czUI-geOYmY" caption="Video tutorial about installing SpecSync as a .NET Core tool" %}
 
 ### Step 1: Initialize .NET Core local tool configuration \(if needed\)
 
