@@ -1,5 +1,17 @@
 # Changelog
 
+## v3.1.1 - 2021/01/05
+
+### Improvements
+
+* Parameters of Scenario Outlines are not visible in published test results if there are only one example. \(\#320\)
+* Support localized Azure DevOps processes: set `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings \(\#315\)
+
+### Bug Fixes
+
+* Fix: Test Cases synchronized from non-SpecFlow project cannot be marked as automated \(\#345\)
+* Fix: Test Run automation status is not set on TFS2017 \(\#352\)
+
 ## v3.1.0 - 2020/10/26
 
 ### New features & improvements

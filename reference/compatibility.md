@@ -11,6 +11,10 @@ SpecSync for Azure DevOps might work with other Azure DevOps or TFS installation
 * Team Foundation Server 2015 Update 3 \(Version 14.\*\) — _up to SpecSync v2.1_
 * Team Foundation Server 2013 Update 1 \(Version 12.\*\) — _up to SpecSync v1.3_
 
+{% hint style="info" %}
+To use SpecSync with localized Azure DevOps processes \(where the names of the work item types are translated\), the name of the Test Case and the Test Suite work item has to be specified in the  `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings.
+{% endhint %}
+
 ## Supported BDD Tools
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.
