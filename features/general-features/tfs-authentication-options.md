@@ -69,7 +69,7 @@ To create a personal access token, you have to follow the following steps:
 2. On the upper right corner, click on your name and select "Security".
 3. Switch to the "Personal access tokens" tab inside the "Security" group.
 4. Click on "New Token" to create a new personal access token for synchronization.
-5. Specify a description \(e.g. "SpecSync"\), select an expiration and select "Full access" as authorized scopes \(we will refine the necessary scopes in further versions\).
+5. Specify a description \(e.g. "SpecSync"\), select an expiration and select "Full access" as authorized scopes or select at least the scopes listed below in section [Authorization scopes required for Personal Access Tokens](tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens).
 6. Click on "Create" and save the generated token.
 
 Once you have created your token, you can use it as _user_ for the synchronization.
@@ -90,6 +90,17 @@ The personal access token can be configured in the [configuration file](../../re
 Or on the command line prompt:
 
 `path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "52yny...........................nycsetda"`
+
+### Authorization scopes required for Personal Access Tokens
+
+In order to work correctly SpecSync requires at least the following authorization scopes enabled for Personal Access Tokens \(PAT\). The Build and Release read permissions are required to associate the test results to build and release pipelines.
+
+| PAT Scope | Required permission |
+| :--- | :--- |
+| Work Items | Read & write |
+| Test Management | Read & write |
+| Build | Read |
+| Release | Read |
 
 ## Alternate authentication credentials  <a id="vsts-alternate-authentication-credentials"></a>
 
