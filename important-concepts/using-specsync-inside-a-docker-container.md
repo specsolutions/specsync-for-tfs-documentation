@@ -170,7 +170,7 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 Just like with the other Docker container options it is recommended to [mount the local folder](using-specsync-inside-a-docker-container.md#mounting-vs-copying-feature-files-to-the-container) instead of copying it. 
 
-You can make the image for generic-purpose use \(e.g. for interactive work\), or you can make it specificly for the purpose of executing the SpecSync command line tool using the `ENTRYPOINT` command. In case of the latter, you can consider using the [official SpecSync Docker images](../installation/docker-image.md) or create a [derived image](using-specsync-inside-a-docker-container.md#create-a-derived-docker-image-from-the-official-specsync-docker-image) from them. 
+You can make the image for generic-purpose use \(e.g. for interactive work\), or you can make it specifically for the purpose of executing the SpecSync command line tool using the `ENTRYPOINT` command. In case of the latter, you can consider using the [official SpecSync Docker images](../installation/docker-image.md) or create a [derived image](using-specsync-inside-a-docker-container.md#create-a-derived-docker-image-from-the-official-specsync-docker-image) from them. 
 
 ### Example
 
@@ -210,5 +210,7 @@ To run SpecSync from the created image, you need to mount the local repository f
 docker run --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @foo
 ```
 
-
+{% hint style="info" %}
+The pure `ubuntu` image does not contain the packages necessary for HTTPS requests, therefore if your Azure DevOps server needs HTTPS connection, you also need to install the necessary packages. In the example above, we installed the `wget` package that implicitly included these. If you prepare a package that does not need `wget`, you need to add the `libssl1.1` and `ca-certificates` with `apt-get`.
+{% endhint %}
 
