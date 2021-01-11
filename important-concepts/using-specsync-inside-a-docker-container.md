@@ -124,7 +124,7 @@ Global .NET Core tools are installed to `/root/.dotnet/tools`, but this folder i
 
 Just like with the other Docker container options it is recommended to [mount the local folder](using-specsync-inside-a-docker-container.md#mounting-vs-copying-feature-files-to-the-container) instead of copying it. 
 
-You can build the image to be used for interactive development but you can also populate it with scripts to perform complex tasks, e.g. build project and synchronize test cases with SpecSync push command, or run tests and publish test results with SpecSync.
+You can build the image to be used for interactive development but you can also populate it with scripts to perform complex tasks, e.g. build project and synchronize test cases with SpecSync push command, or run tests and publish test results with SpecSync. 
 
 {% hint style="info" %}
 If you would like to use the contain only to run SpecSync, it is better to [use the official containers](using-specsync-inside-a-docker-container.md#create-a-derived-docker-image-from-the-official-specsync-docker-image) or [build one on pure Linux](using-specsync-inside-a-docker-container.md#integrate-specsync-into-a-pure-linux-image).
@@ -132,13 +132,13 @@ If you would like to use the contain only to run SpecSync, it is better to [use 
 
 ### Example
 
-The following Dockerfile creates an image based on the .NET Core SDK to be able to develop the project interactively. 
+The following Dockerfile creates an image based on the .NET Core 3.1 SDK to be able to develop the project interactively. 
 
 {% code title="Dockerfile" %}
 ```text
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
-ARG SPECSYNC_VERSION=3.0.2
+ARG SPECSYNC_VERSION=3.1.1
 ARG LOCAl_DIR=/local
 
 RUN dotnet tool install --global SpecSync.AzureDevOps --version ${SPECSYNC_VERSION}
@@ -155,6 +155,10 @@ You can build an image and work with that interactively, e.g.:
 # dotnet build
 # specync push --tagFilter @foo
 ```
+
+{% hint style="info" %}
+From SpecSync v3.2, you can also use .NET 5 images to build your container. For that, replace the first line of the example above to `FROM mcr.microsoft.com/dotnet/sdk:5.0`.
+{% endhint %}
 
 ## Integrate SpecSync into a pure Linux image
 
