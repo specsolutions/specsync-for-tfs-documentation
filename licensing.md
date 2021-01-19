@@ -8,6 +8,10 @@ The licenses are provided as a license file. SpecSync tries to find the license 
 
 The location of the license file \(absolute or relative to the project folder\) can also be specified with the `--license` option of the [synchronization tool](reference/command-line-reference/) or in the `toolSettings/licensePath` setting of the [configuration file](reference/configuration/configuration-toolsettings.md) if necessary.
 
+{% hint style="info" %}
+The SpecSync license files are digitally signed text files. You can open them with a text editor \(e.g. Notepad\) to check the expiry date, the edition and other details.
+{% endhint %}
+
 ## Limitations of the Free Edition
 
 * Maximum 30 scenarios can be synchronized
