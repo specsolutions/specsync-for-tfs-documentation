@@ -28,7 +28,7 @@
 
 ### Breaking changes
 
-* Make SubResult publish optional. Because of the improved iteration details publishing \(see above\), SpecSync will not automatically publish Scenario Outline iterations as SubResults \(sub-results are not displayed on Azure DevOps UI, but can be retrieved using the Azure DevOps API\). Publishing sub-results can be enabled with `publishTestResults/createSubResults`. \(\#339\)
+* Make sub-result publish optional. Because of the improved iteration details publishing \(see above\), SpecSync will not automatically publish Scenario Outline iterations as sub-results \(sub-results are not displayed on Azure DevOps UI, but can be retrieved using the Azure DevOps API\). Publishing sub-results can be enabled with `publishTestResults/createSubResults`. \(\#339\)
 * Use `condition` instead `skipForTags` in `synchronization/automation` configuration setting. The condition should contain the negated expression of the `skipForTags`, e.g. `not @manual`. \(\#381\)
 
 ### Bug Fixes
