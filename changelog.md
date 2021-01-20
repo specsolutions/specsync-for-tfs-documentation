@@ -1,5 +1,43 @@
 # Changelog
 
+## v3.2.0 - coming soon!
+
+\(Try new features and improvements using the [preview versions](downloads.md#v-3-2-preview).\)
+
+### New features
+
+* Publish execution result details as Test Run iterations with step results and the standard output of the tests is also attached to the test result. Step results are published only if the result format supports it \(currently for SpecFlow results and Cucumber JSON\). \(\#317, \#318\)
+* Support for new test result formats: Cucumber JSON \(works with all Cucumbers\), Cucumber.js XML and Cypress JSON files. See all supported formats at in the [Compatibility](reference/compatibility.md#supported-test-result-formats) page. \(\#349, \#341\)
+* Support publishing test result attachments. Currently supported for TRX and Cucumber JSON result formats. \(\#122, \#360\)
+* Customization: Allow reset Test Case state after change as a separate work item update based on tags. This is useful for example when the Test Case has to be marked as `Ready` if the scenario is tagged with `@ready`, but when work item updates are not allowed in `Ready` state. \(\#378\)
+* Support .NET 5. The SpecSync [.NET Core Tool](installation/dotnet-core-tool.md) package now also contains a .NET 5 version. The .NET Core 3.1 is still available and can also be used. \(\#340\)
+
+### Improvements
+
+* Allow publisging multiple test result files. The test results from the multiple files are going to be merged and published as a single test run. You can list multiple files and directories using the `-r` \(`--testResultFile`\) option separated by semicolons \(`;`\). \(\#343\)
+* Support for SpecFlow v3.5 \(\#353\)
+* Improved custom update templates: remove description indent, allow scenario/feature source text to be used, allow Rule name and description to be used, can use Gherkin-independent placeholder names \(\#347, \#323\)
+* Allow environment variables to be used in custom update and custom default template in `{env:ENV_VARIABLE_NAME}` format. \(\#348\)
+* Improve error message in case of insufficient PAT authorization scope issue \(\#124\)
+* Use folder file source when SpecSync is invoked from a non-dotnet folder and improve error message if it is invoked from the wrong folder. This way you can start using SpecSync for non-dotnet projects without specifying `local` settings in configuration. \(\#342\)
+* Allow setting `System.History` field \(appears as "Discussion" in Azure DevOps\) with custom field updates \(\#324\)
+* Use the test configuration of the test suite if there is only one assigned by default for publishing test results. Supported only with Azure DevOps Services, on older versions the configuration has to be specified explicitly with the `-c` \(`--testConfiguration`\) option or in the config file. \(\#321\)
+* Displaying release date, warn if an outdated release is used \(\#375\)
+* State change \(`synchronization/state/setValueOnChangeTo`\) can be limited to scenarios using tag expressions. Can be used together with the Reset Test Case state customization. \(\#379\)
+* Improve error reporting of publish-test-results \(\#350\)
+
+### Breaking changes
+
+* Make SubResult publish optional. Because of the improved iteration details publishing \(see above\), SpecSync will not automatically publish Scenario Outline iterations as SubResults \(sub-results are not displayed on Azure DevOps UI, but can be retrieved using the Azure DevOps API\). Publishing sub-results can be enabled with `publishTestResults/createSubResults`. \(\#339\)
+* Use `condition` instead `skipForTags` in `synchronization/automation` configuration setting. The condition should contain the negated expression of the `skipForTags`, e.g. `not @manual`. \(\#381\)
+
+### Bug Fixes
+
+* Fix: Circular parent config files causes Stack Overflow \(\#316\)
+* Fix: Too long examples lines might cause xUnit TRX results unable to load \(\#361\)
+* Fix: SDK-style .NET project files with explicitly listed feature file references using wildcards are not supported \(\#216\)
+* Fix: SpecSync assemblies have non-real date in PE header timestamp \(\#368\)
+
 ## v3.1.1 - 2021/01/05
 
 ### Improvements
