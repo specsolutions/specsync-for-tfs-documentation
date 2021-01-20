@@ -1,4 +1,4 @@
-# Setting Test Case State on change
+# Setting Test Case state on change
 
 Some team use the _State_ field of the Test Case work items to track whether the particular test has been approved to perform the related verification. In case of any changes to the Test Case the approval process might need to be performed again. 
 

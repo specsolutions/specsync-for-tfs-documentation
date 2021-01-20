@@ -17,7 +17,7 @@
     * [Synchronizing Scenario Outlines](features/push-features/synchronizing-scenario-outlines.md)
     * [Add new Test Cases to an Area or an Iteration](features/push-features/add-new-test-cases-to-an-area-or-an-iteration.md)
     * [Mark Test Cases as Automated](features/push-features/mark-test-cases-as-automated.md)
-    * [Setting Test Case State on change](features/push-features/setting-test-case-state-on-change.md)
+    * [Setting Test Case state on change](features/push-features/setting-test-case-state-on-change.md)
     * [Customization: Setting Test Case fields with default values](features/push-features/customization-setting-test-case-fields-with-default-values.md)
     * [Customization: Update custom Test Case fields on push](features/push-features/customization-update-custom-test-case-fields-on-push.md)
     * [Customization: Ignoring marked Test Case steps](features/push-features/customization-ignoring-marked-test-case-steps.md)
