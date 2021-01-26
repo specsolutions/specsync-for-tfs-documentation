@@ -20,8 +20,6 @@ The following links contain direct download options as an alternative to that.
 
 ## v3.0
 
-The v3.0 release introduces SpecSync as a portable .NET Core tool, so re recommend using that on OSX/Linux. 
-
 * Windows: [SpecSync.AzureDevOps.Console.3.0.3.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.3.0.3.zip)
 * Linux: [SpecSync.AzureDevOps.3.0.3-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.3-linux-x64.zip)
 * OSX: [SpecSync.AzureDevOps.3.0.3-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.0.3-osx-x64.zip)
