@@ -1,8 +1,6 @@
 # Changelog
 
-## v3.2.0 - coming soon!
-
-\(Try new features and improvements using the [preview versions](downloads.md#v-3-2-preview).\)
+## v3.2.0 - 2021/01/26
 
 ### New features
 
