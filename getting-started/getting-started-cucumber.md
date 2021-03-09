@@ -45,6 +45,10 @@ Before the first synchronization we have to review and change a few settings in 
 1. Open the `specsync.json` file in your IDE \(e.g. Visual Studio Code\) from your project folder.
 2. Set the value of the `local/featureFileSource/type` setting to `folder` and the `local/featureFileSource/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
 
+{% hint style="info" %}
+If feature file source is not specified, SpecSync will synchronize the feature files from the folder of the configuration file \(including subfolders\).
+{% endhint %}
+
 The `specsync.json` file after basic configuration has been set
 
 {% code title="specsync.json" %}

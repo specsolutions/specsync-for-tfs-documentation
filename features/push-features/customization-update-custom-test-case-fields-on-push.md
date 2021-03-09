@@ -52,4 +52,5 @@ To initialize custom fields with a default value, use the [_Field defaults_ cust
 | `{feature-file-folder}` | the folder of the feature file, relative to the project root |
 | `{feature-file-path}` | the path \(folder and file name\) of the feature file, relative to the project root |
 | `{br}` | a new line |
+| `{env:ENVIRONMENT_VARIABLE_NAME}` | The content of the environment variable specified \(`ENVIRONMENT_VARIABLE_NAME` in this example\) |
 
