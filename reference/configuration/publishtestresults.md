@@ -43,9 +43,9 @@ The following example shows the most common options within this section.
           <li><code>testConfiguration/name</code> &#x2014; The name of the test configuration.</li>
           <li><code>testConfiguration/id</code> &#x2014; The ID of the test configuration.</li>
         </ul>
+        <p>Can be overridden using with a <a href="../command-line-reference/publish-test-results-command.md">command line option</a>.</p>
       </td>
-      <td style="text-align:left">specified as <a href="../command-line-reference/publish-test-results-command.md">command line option</a>
-      </td>
+      <td style="text-align:left">uses the single Test Configuration assigned to the Test Suite</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>testResult</code>

@@ -46,11 +46,15 @@ A set of test results are grouped together into a Test Run. A Test Run can conta
 
 ### Test results belong to a Test Configuration
 
-The test results in Azure DevOps are always connected to a Test Configuration, so you have to choose a Test Configuration when publishing the test results with SpecSync.
+The test results in Azure DevOps are always connected to a Test Configuration, so you can choose a Test Configuration when publishing the test results with SpecSync. 
+
+{% hint style="info" %}
+SpecSync automatically chooses the Test Configuration when it is not specified and the target Test Suite has only one configuration assigned.
+{% endhint %}
 
 The Test Configuration represents the configuration your product was tested with. A configuration can be the target operating system, the target browser or the target mobile phone, but many teams do not need to represent these configuration differences  in BDD scenario executions. Depending on your needs, you can configure multiple Test Configurations in Azure DevOps \(see [documentation](https://docs.microsoft.com/en-us/azure/devops/test/test-different-configurations?view=azure-devops)\) or just create a default configuration. Azure DevOps always creates a default Test Configuration called `Windows 10` \(can be renamed\).
 
-In case you use a single default configuration, you can specify it in the config file by providing either the [`publishTestResults/testConfiguration/name` or `publishTestResults/testConfiguration/id`](../../reference/configuration/publishtestresults.md) setting.
+In case you you do not plan to publish results to multiple configurations, you can omit the Test Configuration setting or specify it in the config file by providing either the [`publishTestResults/testConfiguration/name` or `publishTestResults/testConfiguration/id`](../../reference/configuration/publishtestresults.md) setting.
 
 In case you publish results to different Test Configurations it is better to specify it using the [`--testConfiguration` command line option](../../reference/command-line-reference/publish-test-results-command.md).
 
@@ -112,7 +116,7 @@ My setting the `publishTestResults/treatInconclusiveAs` setting in the configura
 
 ### SpecFlow \(.NET Core\)
 
-The following example shows how to run .NET Core SpecFlow tests using the `dotnet test` command and publish the test result file \(`bddtestresults.trx`\) to the default `Windows 10` Test Configuration. The Test Suite in this case is the Test Suite that the scenarios are synchronized to \(`BDD Scenarios`\).
+The following example shows how to run .NET Core SpecFlow tests using the `dotnet test` command and publish the test result file \(`bddtestresults.trx`\) to the default Test Configuration. The Test Suite in this case is the Test Suite that the scenarios are synchronized to \(`BDD Scenarios`\).
 
 {% code title="specsync.json" %}
 ```javascript
@@ -131,14 +135,14 @@ The following example shows how to run .NET Core SpecFlow tests using the `dotne
 
 ```text
 dotnet test --logger trx;logfilename=bddtestresults.trx
-dotnet specsync publish-test-result --testResultFile bddtestresults.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-result --testResultFile bddtestresults.trx
 ```
 
 ### Cucumber \(Java, Maven\)
 
-The following example shows how to run Cucumber Java tests using Maven and publish the test result file to the default `Windows 10` Test Configuration. 
+The following example shows how to run Cucumber Java tests using Maven and publish the test result file to the default Test Configuration. 
 
-When runing `mvn test` the test result file is saved to a file name that matches to your package name under the `target/surefire-reports` folder, e.g. `target/surefire-reports/TEST-eu.specsolutions.calculator.CucumberTest.xml`. Check the [Maven Surefire Report Plugin documentation](https://maven.apache.org/surefire/maven-surefire-report-plugin/examples/report-custom-location.html) for details.
+When running `mvn test` the test result file is saved to a file name that matches to your package name under the `target/surefire-reports` folder, e.g. `target/surefire-reports/TEST-eu.specsolutions.calculator.CucumberTest.xml`. Check the [Maven Surefire Report Plugin documentation](https://maven.apache.org/surefire/maven-surefire-report-plugin/examples/report-custom-location.html) for details.
 
 The Test Suite in this case is the Test Suite that the scenarios are synchronized to \(`BDD Scenarios`\). In this example we use the [SpecSync native binaries](../../installation/native-binaries.md) to invoke the command, but the same would work with the other [installation options](../../installation/) too.
 
@@ -159,7 +163,17 @@ The Test Suite in this case is the Test Suite that the scenarios are synchronize
 
 ```text
 mvn test
-<SPECSYNC-FOLDER>/SpecSync4AzureDevOps publish-test-result --testResultFile bddtestresults.xml --testResultFileFormat cucumberJavaJUnitXml --testConfiguration "Windows 10"
+<SPECSYNC-FOLDER>/SpecSync4AzureDevOps publish-test-result --testResultFile bddtestresults.xml --testResultFileFormat cucumberJavaJUnitXml
+```
+
+### Publish using a specific Test Configuration
+
+The following example shows how to publish the results to a specific Test Configuration. In this case the tests are executed both with Chrome and Firefox, therefore we created two Test Configurations \(`Chrome` and `Firefox`\) and assigned them to the Test Suite that the scenarios are synchronized to \(`BDD Scenarios`\).
+
+We executed the tests for Chrome and saved the results to a file `bddresults-chrome.trx`. After that publishing the results to the Chrome configuration can be done with
+
+```text
+dotnet specsync publish-test-result -r bddresults-chrome.trx --testConfiguration "Chrome"
 ```
 
 ### SpecFlow \(.NET Framework, VSTest\)
@@ -209,7 +223,7 @@ The following example shows how to customize the settings for the publish-test-r
   },
   "publishTestResults": {
     "testConfiguration": {
-      "name": "BDD Results"
+      "name": "Chrome"
     },
     "testSuite": {
       "name": "BDD Results",

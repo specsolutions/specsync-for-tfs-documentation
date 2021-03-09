@@ -10,7 +10,7 @@ In addition the the options listed here, all [common command line options](./#co
 
 | Option | Description | Default |
 | :--- | :--- | :--- |
-| `--testConfiguration` &lt;CONFIGURATION&gt; | The Azure DevOps Test Configuration name or ID to publish the results for. For specifying an ID, use `#1234` format. | use from config file |
+| `--testConfiguration` &lt;CONFIGURATION&gt; | The Azure DevOps Test Configuration name or ID to publish the results for. For specifying an ID, use `#1234` format. | use from config file or detect automatically |
 | `--testResultFile` &lt;FILE‑PATH&gt; | The file path of the test result \(.trx, .xml or .json\) file to publish. | use from config file |
 | `--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
 | `--testSuite` &lt;SUITE‑NAME‑OR‑ID&gt; | A Test Suite name or ID to publish the test results to. For specifying an ID, use `#1234` format. \(e.g. `My Suite` or `#1234`\) | use from config file |
