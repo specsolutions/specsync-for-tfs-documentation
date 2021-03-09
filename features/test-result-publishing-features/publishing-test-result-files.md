@@ -2,14 +2,18 @@
 
 In order to turn the Test Cases in Azure DevOps into a real living documentation it is essential to register the execution results of the Test Cases. Having the Test Case execution results registered in Azure DevOps might be also important as part of the traceability requirements.
 
-You can publish scenario execution results \(test results\) to Azure DevOps with SpecSync using the `publish-test-result` command that works with many BDD tool and platform inluding SpecFlow, Cucumber Java and PyTest.
+![Execution results linked to a Test Case synchronized from a scenario](../../.gitbook/assets/image%20%2822%29.png)
+
+You can publish scenario execution results \(test results\) to Azure DevOps with SpecSync using the `publish-test-result` command that works with many BDD tool and platform inluding SpecFlow, Cucumber and PyTest.
+
+![Test execution result with iteration and step execution details](../../.gitbook/assets/image%20%2821%29.png)
 
 This documentation page describes in detail the concept for publishing test results with SpecSync. The complete reference guide of the command line options can be found in the [publish-test-results reference](../../reference/command-line-reference/publish-test-results-command.md) page. The configuration settings for test result publishing are in the [publishTestResults configuration section](../../reference/configuration/publishtestresults.md).
 
 The [Examples](publishing-test-result-files.md#examples) section below shows a few concrete examples. A simple usage of the command could be as simple as this:
 
 ```text
-dotnet specsync publish-test-result --testResultFile result.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-result --testResultFile result.trx
 ```
 
 The [Use SpecSync from build or release pipeline](../../important-concepts/synchronizing-test-cases-from-build.md) guide contains details about how to integrate the publish-test-result command to a build or release pipeline.

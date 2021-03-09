@@ -2,7 +2,7 @@
 
 This configuration section contains settings related to publishing test results. 
 
-To read more about publishing test results see the "Assembly based execution strategy" section of the [Synchronizing automated test cases](../../important-concepts/synchronizing-automated-test-cases.md) article. Please also check the [command line reference](../command-line-reference/publish-test-results-command.md) for the `publish-test-results` command.
+To read more about publishing test results see the [Publishing test result files](../../features/test-result-publishing-features/publishing-test-result-files.md) page. Please also check the [command line reference](../command-line-reference/publish-test-results-command.md) for the `publish-test-results` command.
 
 The following example shows the most common options within this section.
 
