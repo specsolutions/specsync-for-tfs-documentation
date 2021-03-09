@@ -147,5 +147,46 @@ Allows resetting Test Case state after change as a separate work item update bas
 | `resetTestCaseState/state` | A state value \(e.g. `Ready`\) to set test case state to after updating a test case as a separate update. | mandatory |
 | `resetTestCaseState/condition` | A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be included for state change \(e.g. `@ready`, `not @inprogress`\). | all scenarios included for state change |
 
+### linkOnChange
+
+Allows linking changed Test Cases to a work item or pull request, related to the change. See [Customization: Automatically link changed Test Cases](../../features/push-features/customization-automatically-link-changed-test-cases.md) for details.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Setting</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>linkOnChange/enabled</code>
+      </td>
+      <td style="text-align:left">Enables the customization.</td>
+      <td style="text-align:left"><code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>linkOnChange/targetId</code>
+      </td>
+      <td style="text-align:left">The ID of the work item or pull request to link the Test Case to. Placeholders,
+        like <code>{env:ENVIRONMENT_VARIABLE}</code> can be used.</td>
+      <td style="text-align:left">mandatory</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>linkOnChange/relationship</code>
+      </td>
+      <td style="text-align:left">
+        <p>Specify the relationship for the created link. E.g. specifying <code>Parent</code> means
+          that the linked work item will be the parent of the test case work item.</p>
+        <p>For linking Pull Requests it has to be set to <code>Pull Request</code>.</p>
+      </td>
+      <td style="text-align:left"><code>Tests</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 {% page-ref page="./" %}
 

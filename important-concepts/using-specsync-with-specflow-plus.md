@@ -10,7 +10,7 @@ SpecSync can synchronize scenarios from projects that use SpecFlow+. SpecFlow+ i
 
 SpecFlow+ Runner \(formerly known as "SpecRun"\) is a test runner specialized to execute SpecFlow scenarios. SpecSync can be used to synchronize test cases from Scenarios in projects using the SpecFlow+ Runner.
 
-For associating automated test results of SpecFlow+ Runner with the synchronized test cases, the "Assembly based execution" strategy can be used as described in the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article.\)
+In order to publish test results executed with SpecFlow+ Runner, the runner needs to be invoked with `dotnet test` and the generated TRX file can be published with SpecSync as described in [How to synchronize automated test cases](synchronizing-automated-test-cases.md).
 
 ## Integration with SpecFlow+ Excel
 
@@ -18,5 +18,5 @@ SpecFlow+ Excel can be used to edit the scenarios or the scenario outline exampl
 
 SpecSync can synchronize SpecFlow+ Excel scenarios where Excel is used for storing the example tables.
 
-The synchronization of Excel feature files has limited support. SpecSync can synchronize the updates, but the tags necessary for the initial lining have to be added to the Excel file manually. If this limitation would be problematic for you, please contact support.
+SpecFlow+ Excel is not supported by recent SpecFlow versions, so the support of this format had to be removed from SpecFlow in v3.0.
 
