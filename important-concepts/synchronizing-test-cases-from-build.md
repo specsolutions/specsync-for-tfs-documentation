@@ -124,6 +124,10 @@ _Note: Secret variables can only be used using the `$(variable)` form, they will
 
 The SpecSync push command is usually performed after the successful execution of core tests \(e.g. unit tests\), but before executing the BDD tests. This way you can ensure that the test cases are updated even if some of the BDD scenarios fail \(especially when automated as integration or end-to-end test\).
 
+{% hint style="info" %}
+Adding the push step to the pipeline ensures that the Test Cases are updated to the exact same version that was used to execute the tests. If the changes have been synchronized locally then this step will just simply detect that the test cases are up-to-date and not change them.
+{% endhint %}
+
 The following table contains the settings that are important or usually configured for the `push` command.
 
 | Setting | Description |
