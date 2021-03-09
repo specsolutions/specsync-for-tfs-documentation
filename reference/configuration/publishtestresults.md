@@ -54,7 +54,7 @@ The following example shows the most common options within this section.
         <p>The test result configuration</p>
         <ul>
           <li><code>testResult/filePath</code> &#x2014; The path of the test result file
-            (e.g. TRX) file.</li>
+            (e.g. TRX) file or a folder containing multiple test result files.</li>
           <li><code>testResult/fileFormat</code> &#x2014; The format of the test result
             file. Please check the <a href="../compatibility.md#supported-test-result-formats">Compatibility</a> page
             for supported formats. Invoking the <code>publish-test-result</code> command

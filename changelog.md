@@ -13,7 +13,7 @@
 ### Improvements
 
 * Support for linking pull requests using tags. To link a pull request, you have to [configure a link synchronization](features/common-synchronization-features/linking-work-items-with-tags.md) with a prefix and with `relationship` set to `Pull Request`. \(\#388\)
-* Allow publishing multiple test result files. The test results from the multiple files are going to be merged and published as a single test run. You can list multiple files and directories using the `-r` \(`--testResultFile`\) option separated by semicolons \(`;`\). \(\#343\)
+* Allow publishing multiple test result files. The test results from the multiple files are going to be merged and published as a single test run. You can list multiple files and directories using the `-r` \(`--testResultFile`\) option separated by semicolons \(`;`\). See [Publishing test result files](features/test-result-publishing-features/publishing-test-result-files.md#merging-multiple-test-result-files) for details. \(\#343\)
 * Support for SpecFlow v3.5 \(\#353\)
 * Support for SpecFlow v3.6 \(\#391\)
 * Improved custom update templates: remove description indent, allow scenario/feature source text to be used, allow Rule name and description to be used, can use Gherkin-independent placeholder names \(\#347, \#323\)

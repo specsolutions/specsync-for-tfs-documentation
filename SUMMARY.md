@@ -5,7 +5,7 @@
   * [Getting started using SpecFlow](getting-started/getting-started-specflow.md)
   * [Getting started using Cucumber or other Gherkin-based BDD tool](getting-started/getting-started-cucumber.md)
 * [Installation & Setup](installation/README.md)
-  * [Install as .NET Core tool](installation/dotnet-core-tool.md)
+  * [Install as .NET tool](installation/dotnet-core-tool.md)
   * [Install as .NET Console App](installation/dotnet-console.md)
   * [Install as native binaries for Linux or macOS](installation/native-binaries.md)
   * [Install as Docker image](installation/docker-image.md)

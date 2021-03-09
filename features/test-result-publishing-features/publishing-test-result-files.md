@@ -116,6 +116,14 @@ Some test execution frameworks report skipped scenarios as Inconclusive. Publish
 
 My setting the `publishTestResults/treatInconclusiveAs` setting in the configuration file, you can map this result to another value, e.g. `NotExecuted`. 
 
+### Merging multiple test result files
+
+You can also specify multiple test result files. In this case SpecSync will merge the results and publish them as a single Test Run.
+
+The `--testResultFile` command line option allows specifying multiple files, separated by a semicolon \(`;`\).
+
+Multiple test results files can also be specified by specifying a folder name. In this case SpecSync will scan through the folder and uses all files that are supported by the specified format setting \(e.g. all TRX files\).
+
 ## Examples
 
 ### SpecFlow \(.NET Core\)

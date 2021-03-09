@@ -6,7 +6,7 @@ The _Reset Test Case state_ customization can be used to reset Test Case state a
 The _Reset Test Case state_ customization described here is an [Enterprise feature](../../licensing.md).
 {% endhint %}
 
-In order to enable this customization, the `customizations/resetTestCaseState` section of the configuration has to be enabled. The complete reference of the configuration settings can be found in the [customizations configuration reference](../../reference/configuration/configuration-customizations.md#ignoretestcasetags).
+In order to enable this customization, the `customizations/resetTestCaseState` section of the configuration has to be enabled. The complete reference of the configuration settings can be found in the [customizations configuration reference](../../reference/configuration/configuration-customizations.md#resettestcasestate).
 
 The following example shows a basic configuration that resets the Test Case state to `Ready` if after change if the scenario is tagged with `@ready`.
 

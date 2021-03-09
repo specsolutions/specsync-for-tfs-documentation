@@ -1,24 +1,26 @@
-# Install as .NET Core tool
+# Install as .NET tool
 
 {% hint style="info" %}
 This install method is available for machines with .NET Core SDK 3.0 or higher installed regardless of whether the BDD project uses .NET or whether it uses .NET Core. Other [installation options](./) available.
+
+.NET 5.0 is also supported from SpecSync v3.2.
 {% endhint %}
 
 {% hint style="warning" %}
 The Azure DevOps API that SpecSync uses currently does not support[ "Microsoft account sign-in prompt" authentication](../features/general-features/tfs-authentication-options.md#tfs-windows-sign-in-prompt) on .NET Core. The other authentication options, including the recommended [Personal Access Token \(PAT\)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) or password authentication is still supported.
 {% endhint %}
 
-The most convenient way to use SpecSync is to install it as a .NET Core tool. While .NET Core tools require .NET Core SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET Core SDK can be installed from the [.NET Core Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET Core SDK.
+The most convenient way to use SpecSync is to install it as a .NET tool. While .NET tools require .NET Core SDK or .NET 5 SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET 5 SDK can be installed from the [.NET Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET SDK.
 
-SpecSync can be installed as .NET Core tool, even if the project does not use .NET \(e.g. uses Cucumber Java\) or if it uses a different version of .NET \(e.g. .NET Framework v4.7\).
+SpecSync can be installed as .NET tool, even if the project does not use .NET \(e.g. uses Cucumber Java\) or if it uses a different version of .NET \(e.g. .NET Framework v4.7\).
 
-SpecSync should be installed as a _local_ .NET Core tool \(.NET Core tools can also be installed globally for the machine, but that is more suitable for general, non project specific tools\). By installing as local tool, you can use different SpecSync versions for different projects and the required SpecSync version is registered in the project repository. You can read more about .NET Core local tools on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
+SpecSync should be installed as a _local_ .NET tool \(.NET tools can also be installed globally for the machine, but that is more suitable for general, non project specific tools\). By installing as local tool, you can use different SpecSync versions for different projects and the required SpecSync version is registered in the project repository. You can read more about .NET local tools on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
 
-{% embed url="https://youtu.be/czUI-geOYmY" caption="Video tutorial about installing SpecSync as a .NET Core tool" %}
+{% embed url="https://youtu.be/czUI-geOYmY" caption="Video tutorial about installing SpecSync as a .NET tool" %}
 
-### Step 1: Initialize .NET Core local tool configuration \(if needed\)
+### Step 1: Initialize .NET local tool configuration \(if needed\)
 
-If you haven't used any .NET Core local tool in your project, you need to create the necessary configuration file. Otherwise this step can be skipped.
+If you haven't used any .NET local tool in your project, you need to create the necessary configuration file. Otherwise this step can be skipped.
 
 For initializing the configuration files, you need to run the `dotnet new tool-manifest` command from the solution or repository root directory.
 
@@ -28,7 +30,7 @@ dotnet new tool-manifest
 
 This command creates a manifest file named `dotnet-tools.json` under the `.config` directory. This file should be added to source control so that all other members of the team can use the same tools.
 
-### Step 2: Install SpecSync as a .NET Core local tool
+### Step 2: Install SpecSync as a .NET local tool
 
 Once the .NET local tool configuration is initialized SpecSync can be easily installed using the `dotnet tool install` command. This will download and install the latest version of SpecSync from NuGet.org.
 
@@ -48,7 +50,7 @@ If the correct version number is displayed, you are ready to move on to setup an
 
 ### Step 4: Restore SpecSync for other people working with your project
 
-To be able to use the .NET Core local tools you have installed by other members of the same project, they need to "restore" the installed tools. This can be performed using the `dotnet tool restore` command, that restores all .NET Core local tools of the project. See more information about this command on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
+To be able to use the .NET local tools you have installed by other members of the same project, they need to "restore" the installed tools. This can be performed using the `dotnet tool restore` command, that restores all .NET local tools of the project. See more information about this command on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
 
 The same command should be performed in build servers when [SpecSync is integrated to the CI pipeline](../important-concepts/synchronizing-test-cases-from-build.md).
 
@@ -60,9 +62,9 @@ dotnet tool restore
 For a special automated Test Case scenario you might need to install an additional NuGet package to your project. This is usually not necessary even for .NET projects. For details please check the [setup instructions](setup-and-configure.md#setup-specflow-plugin).
 {% endhint %}
 
-## Upgrading SpecSync .NET Core tool
+## Upgrading SpecSync .NET tool
 
-There are several ways to upgrade SpecSync if it was installed as a .NET Core tool. The most simple way is to use the `dotnet tool update` command. See more information about this command on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update).
+There are several ways to upgrade SpecSync if it was installed as a .NET tool. The most simple way is to use the `dotnet tool update` command. See more information about this command on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-update).
 
 The following command upgrades SpecSync to the latest release version.
 

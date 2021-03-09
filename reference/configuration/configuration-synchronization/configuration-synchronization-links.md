@@ -24,7 +24,7 @@ The following example shows how this sub-section can be used to specify a single
 
 The following example shows the available options within this sub-section. This example configures two link types.
 
-```text
+```javascript
 {
   ...
   "synchronization": {
@@ -38,6 +38,10 @@ The following example shows the available options within this sub-section. This 
       },
       {
         "tagPrefix": "bug"
+      },
+      {
+        "tagPrefix": "pr",
+        "relationship": "Pull Request"
       }
     ],
     ...
@@ -78,11 +82,13 @@ For each link type configuration the following settings can be used.
     <tr>
       <td style="text-align:left"><code>relationship</code>
       </td>
-      <td style="text-align:left">Specify the relationship for the created link. E.g. specifying <code>Parent</code> means
-        that the linked work item will be the parent of the test case work item.</td>
-      <td
-      style="text-align:left"><code>Tests</code>
-        </td>
+      <td style="text-align:left">
+        <p>Specify the relationship for the created link. E.g. specifying <code>Parent</code> means
+          that the linked work item will be the parent of the test case work item.</p>
+        <p>For linking Pull Requests it has to be set to <code>Pull Request</code>.</p>
+      </td>
+      <td style="text-align:left"><code>Tests</code>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>mode</code>

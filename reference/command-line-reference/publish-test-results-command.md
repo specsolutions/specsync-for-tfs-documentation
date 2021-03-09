@@ -31,9 +31,12 @@ In addition the the options listed here, all [common command line options](./#co
         <p><code>--testResultFile</code> &lt;FILE&#x2011;PATH&gt;</p>
         <p>(short name <code>-r</code>)</p>
       </td>
-      <td style="text-align:left">The file path of the test result (.trx, .xml or .json) file to publish.</td>
-      <td
-      style="text-align:left">use from config file</td>
+      <td style="text-align:left">
+        <p>The file path of the test result (.trx, .xml or .json) file to publish
+          or a folder that contains multiple test result files.</p>
+        <p>Multiple paths can be listed, separated by semicolon (<code>;</code>).</p>
+      </td>
+      <td style="text-align:left">use from config file</td>
     </tr>
     <tr>
       <td style="text-align:left">

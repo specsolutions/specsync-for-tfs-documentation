@@ -82,9 +82,19 @@ SpecSync creates a "Tests" link type between the test cases and the other work i
 }
 ```
 
-_Note: The link type name is case sensitive and might contain spaces._
+{% hint style="info" %}
+The link type name is case sensitive and might contain spaces. 
 
-_Note: Currently changing the link type will not trigger the re-synchronization of the scenario. If the scenario has been synchronized already, you have to to force synchronization using the_ [`--force` _command line option_](../../reference/command-line-reference/)_._
+For linking Pull Requests, the `relationship` setting is mandatory and has to be set to `Pull Request`.
+{% endhint %}
+
+{% hint style="warning" %}
+Currently changing the link type will not trigger the re-synchronization of the scenario. If the scenario has been synchronized already, you have to to force synchronization using the [`--force` command line option](../../reference/command-line-reference/).
+{% endhint %}
+
+## Linking Pull Requests
+
+From SpecSync v3.2 the Test Cases can also be linked to Pull Requests using tags. For that the `relationship` setting of the link specification must be set to `Pull Request`.
 
 ## Limitations
 
