@@ -24,6 +24,7 @@
     * [Customization: Ignoring Test Case Tags](features/push-features/customization-ignoring-test-case-tags.md)
     * [Customization: Mapping tags](features/push-features/customization-mapping-tags.md)
     * [Customization: Synchronizing scenarios from feature branches](features/push-features/support-synchronizing-scenarios-from-a-branch.md)
+    * [Customization: Reset Test Case state after change](features/push-features/customization-reset-test-case-state-after-change.md)
   * [Pull features](features/pull-features/README.md)
     * [Pulling Test Case changes to local scenarios](features/pull-features/two-way-synchronization.md)
   * [Common synchronization features](features/common-synchronization-features/README.md)

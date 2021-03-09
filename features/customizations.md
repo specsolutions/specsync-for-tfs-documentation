@@ -20,3 +20,5 @@ The customizations described here are [Enterprise features](../licensing.md).
 
 {% page-ref page="test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md" %}
 
+{% page-ref page="push-features/customization-reset-test-case-state-after-change.md" %}
+

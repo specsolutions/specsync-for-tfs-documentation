@@ -54,6 +54,11 @@ The following example shows the available options within this section.
     "branchTag": {
       "enabled": true,
       "prefix": "tc.mybranch"
+    },
+    "resetTestCaseState": {
+      "enabled": true,
+      "state": "Ready",
+      "condition": "@ready"
     }
   }
   ...
@@ -131,6 +136,16 @@ Supports synchronization of scenarios on feature branches. See [Customization: S
 | :--- | :--- | :--- |
 | `branchTag/enabled` | Enables the customization. | `false` |
 | `branchTag/prefix` | The tag prefix to be used for linking scenarios that are updated on a branch. E.g. the prefix `tc.mybranch` will generate tags, like `@tc.mybranch:1234`. | mandatory |
+
+### resetTestCaseState
+
+Allows resetting Test Case state after change as a separate work item update based on tags. See [Customization: Reset Test Case state after change](../../features/push-features/customization-reset-test-case-state-after-change.md) for details.
+
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| `resetTestCaseState/enabled` | Enables the customization. | `false` |
+| `resetTestCaseState/state` | A state value \(e.g. `Ready`\) to set test case state to after updating a test case as a separate update. | mandatory |
+| `resetTestCaseState/condition` | A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be included for state change \(e.g. `@ready`, `not @inprogress`\). | all scenarios included for state change |
 
 {% page-ref page="./" %}
 
