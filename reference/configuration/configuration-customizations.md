@@ -59,6 +59,15 @@ The following example shows the available options within this section.
       "enabled": true,
       "state": "Ready",
       "condition": "@ready"
+    },
+    "linkOnChange": {
+      "enabled": true,
+      "links": [
+        {
+          "targetId": "{env:SYSTEM_PULLREQUEST_PULLREQUESTID}",
+          "relationship": "Pull Request"
+        }
+      ]
     }
   }
   ...
