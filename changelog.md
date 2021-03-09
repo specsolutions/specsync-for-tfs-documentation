@@ -57,6 +57,19 @@
 * Fix: SDK-style .NET project files with explicitly listed feature file references using wildcards are not supported \(\#216\)
 * Fix: SpecSync assemblies have non-real date in PE header timestamp \(\#368\)
 
+## v3.1.2 - 2021/03/09
+
+### Improvements
+
+* Support SpecSync plugins in .NET Framework runner \(SpecSync.AzureDevOps.Console package\). \(\#415\)
+* Improve error message in case of insufficient PAT authorization scope issue \(\#124\)
+* Displaying release date, warn if an outdated release is used \(\#375\)
+
+### Bug Fixes
+
+* Fix: Circular parent config files causes Stack Overflow \(\#316\)
+* Fix: Invalid ADO parameter data causes synchronization to stop \(\#413\)
+
 ## v3.1.1 - 2021/01/05
 
 ### Improvements
