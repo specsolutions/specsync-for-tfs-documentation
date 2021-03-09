@@ -168,14 +168,14 @@ Allows linking changed Test Cases to a work item or pull request, related to the
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>linkOnChange/targetId</code>
+      <td style="text-align:left"><code>linkOnChange/links[]/targetId</code>
       </td>
       <td style="text-align:left">The ID of the work item or pull request to link the Test Case to. Placeholders,
         like <code>{env:ENVIRONMENT_VARIABLE}</code> can be used.</td>
       <td style="text-align:left">mandatory</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>linkOnChange/relationship</code>
+      <td style="text-align:left"><code>linkOnChange/links[]/relationship</code>
       </td>
       <td style="text-align:left">
         <p>Specify the relationship for the created link. E.g. specifying <code>Parent</code> means

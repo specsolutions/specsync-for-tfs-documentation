@@ -16,8 +16,12 @@ The following example shows a basic configuration that links the changed Test Ca
  "customizations": {
     "linkOnChange": {
       "enabled": true,
-      "targetId": "{env:SYSTEM_PULLREQUEST_PULLREQUESTID}",
-      "relationship": "Pull Request"
+      "links": [
+        {
+          "targetId": "{env:SYSTEM_PULLREQUEST_PULLREQUESTID}",
+          "relationship": "Pull Request"
+        }
+      ]
     }
   }
   ...
