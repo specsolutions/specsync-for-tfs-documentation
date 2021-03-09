@@ -1,5 +1,24 @@
 # Changelog
 
+## v3.2.1 - 2021/03/09
+
+### New features
+
+* [Customization: Automatically link changed Test Cases](features/push-features/customization-automatically-link-changed-test-cases.md) \(\#412\)
+
+### Improvements
+
+* Support SpecSync plugins in .NET Framework runner \(SpecSync.AzureDevOps.Console package\). \(\#415\)
+* Support for Jest with jest-cucumber. You need to use `jestCucumberXml` as a publish format. \(\#395\)
+* SpecFlow step-level messages are displayed in the test result \(\#402\)
+* SpecFlow+ Runner results can be published with Free and Standard editions \(\#404\)
+* Support for SpecFlow v3.7 \(\#414\)
+
+### Bug fixes
+
+* Fix: Multi-line step messages are displayed without line separators \(\#411\)
+* Fix: Invalid ADO parameter data causes synchronization to stop \(\#413\)
+
 ## v3.2.0 - 2021/01/26
 
 ### New features
