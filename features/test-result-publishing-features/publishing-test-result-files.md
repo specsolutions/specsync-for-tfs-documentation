@@ -4,7 +4,7 @@ In order to turn the Test Cases in Azure DevOps into a real living documentation
 
 ![Execution results linked to a Test Case synchronized from a scenario](../../.gitbook/assets/image%20%2822%29.png)
 
-You can publish scenario execution results \(test results\) to Azure DevOps with SpecSync using the `publish-test-result` command that works with many BDD tool and platform inluding SpecFlow, Cucumber and PyTest.
+You can publish scenario execution results \(test results\) to Azure DevOps with SpecSync using the `publish-test-result` command that works with many BDD tool and platform including SpecFlow, Cucumber and PyTest \(Check [Compatibility](../../reference/compatibility.md#supported-test-result-formats) page for the full list\).
 
 ![Test execution result with iteration and step execution details](../../.gitbook/assets/image%20%2821%29.png)
 

@@ -28,8 +28,13 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 | SpecFlow | xUnit | TRX | `trx` |
 | SpecFlow | SpecFlow+ Runner | TRX | `trx` |
 | SpecFlow | NUnit | XML | `specFlowNUnitXml` |
-| Python Behave |  | XML | `pythonBehaveXml` |
+| Cucumber \(Java, JavaScript, Ruby\) | `json` formatter | JSON | `cucumberJson` |
 | Cucumber Java | JUnit | XML | `cucumberJavaJUnitXml` |
+| Cucumber.js | cucumber-junit-formatter | XML | `cucumberJsJUnitXml` |
+| Cypress |  | JSON | `cypressCucumberJson` |
+| Jest | jest-cucumber | XML | `jestCucumberXml` |
+| Python Behave |  | XML | `pythonBehaveXml` |
+| PyTest.BDD |  | XML | `pyTestBddXml` |
 | Cucumber Studio \(Hiptest\) |  | JSON | `hiptestJson` |
 
 Other test result formats are added on request. Please [contact support](../contact/specsync-support.md).
