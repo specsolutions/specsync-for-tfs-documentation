@@ -24,3 +24,20 @@ The following example shows how to set the state to `Design` when the scenario h
 The possible allowed values might depend on the process template your project uses.
 {% endhint %}
 
+This feature can be limited to a set of scenarios, specified by a tag expression. For that the `condition` setting has to be specified.
+
+```javascript
+{
+  ...
+  "synchronization": {
+    ...
+    "state": {
+      "setValueOnChangeTo": "Design",
+      "condition": "@ready"
+    },
+    ...
+  },
+  ...
+}
+```
+

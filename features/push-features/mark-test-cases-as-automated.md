@@ -32,9 +32,9 @@ In SpecSync v3.0 or earlier, the `synchronization/automation/testExecutionStrate
 
 ## Marking only certain Test Cases as automated
 
-In some projects the feature files contain non-automated scenarios as well. These scenarios are usually marked with specific tags, like @manual or @ignore. 
+In some projects the feature files contain non-automated scenarios as well. These scenarios are usually marked with specific tags, like `@manual` or `@ignore` or the automated ones are marked with a specific tag, like `@automated`. 
 
-In order to not mark the Test Cases for these scenarios as automated, you can set a [tag expression](http://speclink.me/tagexpressions) in the `synchronization/automation/skipForTags` configuration setting as shown below.
+In order to mark only the Test Cases for selected scenarios as automated, you can set a [tag expression](http://speclink.me/tagexpressions) in the `synchronization/automation/condition` configuration setting as shown below.
 
 {% code title="specsync.json" %}
 ```javascript
@@ -44,7 +44,7 @@ In order to not mark the Test Cases for these scenarios as automated, you can se
     ...
     "automation": {
       "enabled": true,
-      "skipForTags": "@manual or @ignore"
+      "condition": "not @manual"
     },
     ...
   },
@@ -52,8 +52,4 @@ In order to not mark the Test Cases for these scenarios as automated, you can se
 }
 ```
 {% endcode %}
-
-{% hint style="info" %}
-To only mark some tagged scenarios as automated, you can use the `not` operator in the tag expression. E.g. to synchronize automated Test Cases from the scenarios marked with `@automated`, you can use `"skipForTags": "not @automated"`. \(Note the space between `not` and the tag name.\)
-{% endhint %}
 

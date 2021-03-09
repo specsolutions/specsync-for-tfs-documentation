@@ -18,7 +18,7 @@ The following example shows the available options within this section.
 
     "automation": {
       "enabled": true,
-      "skipForTags": "@manual"
+      "condition": "not @manual"
     },
 
     "state": {

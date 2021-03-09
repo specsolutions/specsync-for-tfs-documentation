@@ -116,6 +116,17 @@ The following example shows the most common options within this section.
       </td>
       <td style="text-align:left">test cases are not included to a test suite</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>createSubResults</code>
+      </td>
+      <td style="text-align:left">Enables publishing scenario outline iteration results as sub-results.
+        Sub-results are not displayed in the Azure DevOps user interface but can
+        be retrieved through the API. The scenario outline iteration results are
+        published as iteration results (displayed on the user interface) regardless
+        of this setting.</td>
+      <td style="text-align:left"><code>false</code>
+      </td>
+    </tr>
   </tbody>
 </table>
 
