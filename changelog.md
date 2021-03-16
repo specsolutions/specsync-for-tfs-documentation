@@ -1,5 +1,15 @@
 # Changelog
 
+## v3.2.2 - 2021/03/16
+
+### Improvements
+
+* Display more diagnostic information when no test results were published \(\#425\)
+
+### Bug fixes
+
+* Fix: Test step results are published incorrectly when `useExpectedResult` format option is enabled and the scenario has more than 2 Then step \(\#422\)
+
 ## v3.2.1 - 2021/03/09
 
 ### New features
@@ -8,7 +18,7 @@
 
 ### Improvements
 
-* Support SpecSync plugins in .NET Framework runner \(SpecSync.AzureDevOps.Console package\). \(\#415\)
+* Support SpecSync plugins in .NET Framework runner \([SpecSync.AzureDevOps.Console package](https://www.nuget.org/packages/SpecSync.AzureDevOps.Console)\). \(\#415\)
 * Support for Jest with jest-cucumber. You need to use `jestCucumberXml` as a publish format. \(\#395\)
 * SpecFlow step-level messages are displayed in the test result \(\#402\)
 * SpecFlow+ Runner results can be published with Free and Standard editions \(\#404\)
@@ -26,7 +36,7 @@
 * Publish execution result details as Test Run iterations with step results and the standard output of the tests is also attached to the test result. Step results are published only if the result format supports it \(currently for SpecFlow results and Cucumber JSON\). \(\#317, \#318\)
 * Support for new test result formats: Cucumber JSON \(works with all Cucumbers\), Cucumber.js XML and Cypress JSON files. See all supported formats at in the [Compatibility](reference/compatibility.md#supported-test-result-formats) page. \(\#349, \#341\)
 * Support publishing test result attachments. Currently supported for TRX and Cucumber JSON result formats. \(\#122, \#360\)
-* Customization: Allow reset Test Case state after change as a separate work item update based on tags. This is useful for example when the Test Case has to be marked as `Ready` if the scenario is tagged with `@ready`, but when work item updates are not allowed in `Ready` state. See [Customization: Reset Test Case state after change](features/push-features/customization-reset-test-case-state-after-change.md) for details. \(\#378\)
+* [Customization: Allow reset Test Case state](features/push-features/customization-reset-test-case-state-after-change.md) after change as a separate work item update based on tags. This is useful for example when the Test Case has to be marked as `Ready` if the scenario is tagged with `@ready`, but when work item updates are not allowed in `Ready` state. See [Customization: Reset Test Case state after change](features/push-features/customization-reset-test-case-state-after-change.md) for details. \(\#378\)
 * Support .NET 5. The SpecSync [.NET Core Tool](installation/dotnet-core-tool.md) package now also contains a .NET 5 version. The .NET Core 3.1 is still available and can also be used. \(\#340\)
 
 ### Improvements
