@@ -1,5 +1,20 @@
 # Changelog
 
+## v3.2.3 - 2021/04/29
+
+### Improvements
+
+* Include interface code documentation for plugin dependencies \(\#450\)
+
+### Bug fixes
+
+* Fix: Error during synchronization for very long project, feature or scenario names \(\#439\)
+* Fix: Python Behave skipped status is not mapped, pending is not recognized \(\#427\)
+* Fix: Incorrect run completion time published when publishing from a different time zone as the tests run \(\#445\)
+* Fix: Attached images are not numbered using test case step number, when useExpectedResult is enabled \(\#440\)
+* Fix: Zip packages use incompatible path references for Linux \(\#437\)
+* Fix: Synchronizing scenarios with "&lt;" character causes the test case to display incorrectly \(\#451\)
+
 ## v3.2.2 - 2021/03/16
 
 ### Improvements
