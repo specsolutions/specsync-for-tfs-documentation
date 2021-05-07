@@ -82,9 +82,10 @@ The following example shows the most common options within this section.
     <tr>
       <td style="text-align:left"><code>runType</code>
       </td>
-      <td style="text-align:left">Sets the run type of the created Test Run.</td>
-      <td style="text-align:left">set based on <a href="configuration-synchronization/configuration-synchronization-automation.md">synchronization automation setting</a>
-      </td>
+      <td style="text-align:left">Sets the run type of the created Test Run. Possible values: <code>automated</code>, <code>manual</code>.</td>
+      <td
+      style="text-align:left">set based on <a href="configuration-synchronization/configuration-synchronization-automation.md">synchronization automation setting</a>
+        </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>runComment</code>
