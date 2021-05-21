@@ -182,7 +182,7 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/net_core_test_task.png)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -193,6 +193,7 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
     command: test
     projects: 'src/Tests/MyProject.Specs/*.csproj'
     arguments: '--configuration $(BuildConfiguration) --logger trx;logfilename=bddtestresults.trx'
+    publishTestResults: false
     testRunTitle: 'BDD Tests'
     workingDirectory: src/Tests/MyProject.Specs
 ```
@@ -200,7 +201,15 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
 {% endtabs %}
 
 {% hint style="info" %}
-By default, the .NET Core CLI task saves the result file to the `$(Agent.TempDirectory)` folder. Although this can be changed, but changing this causes issues with the pipeline result reporting \(test errors might not be displayed\). Therefore it is recommended to keep the TRX file in this folder.
+By default, the .NET Core CLI task saves the result file to the `$(Agent.TempDirectory)` folder.
+{% endhint %}
+
+{% hint style="warning" %}
+The .NET Core task with the "test" command by default has the "Publish test results and code coverage" setting enabled \(this is the default if you use YAML\), but the test results will be published by SpecSync anyway so this setting is unnecessary.
+
+Having the results published both by the .NET Core task and SpecSync might cause the tests appearing twice in the "Tests" tab of the build pipeline. To avoid that, it is recomended to uncheck the "Publish test results and code coverage" setting or specify `publishTestResults: false` in YAML.
+
+As the "Tests" tab only displays published test results if they are marked as "Automated", SpecSync will try to publish the test results as automated even if you haven't enabled the [Mark Test Cases as Automated](../features/push-features/mark-test-cases-as-automated.md) feature for the synchronized Test Cases. In older version of Azure DevOps this is not possible, so you should set it manually if the tests don't appear in the "Tests" tab of the build pipeline.
 {% endhint %}
 
 The **VSTest task** \(used for older .NET Framework projects\) can be configured similarly. For that task, the test result file can be configured by setting the _Other console options_ property to `/logger:trx;LogFileName=bddtestresults.trx`. You might also need to review the _Test results folder_ property.

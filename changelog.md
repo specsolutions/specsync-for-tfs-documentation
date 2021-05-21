@@ -1,5 +1,12 @@
 # Changelog
 
+## v3.2.4 - 2021/05/21
+
+### Bug fixes
+
+* Fix: Test statistics are not displayed on stage summary for staged builds \(\#448\)
+* Fix: Published tests are not displayed in the "Tests" tab of the build result \(see [Use SpecSync from build or release pipeline](important-concepts/synchronizing-test-cases-from-build.md#publishing-test-results-from-build-or-release-pipeline) for details\) \(\#453\)
+
 ## v3.2.3 - 2021/04/29
 
 ### Improvements
