@@ -195,7 +195,6 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
     arguments: '--configuration $(BuildConfiguration) --logger trx;logfilename=bddtestresults.trx --results-directory $(Agent.TempDirectory)'
     publishTestResults: false
     testRunTitle: 'BDD Tests'
-    workingDirectory: src/Tests/MyProject.Specs
 ```
 {% endtab %}
 {% endtabs %}
