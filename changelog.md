@@ -1,5 +1,19 @@
 # Changelog
 
+## v3.2.5 - 2021/07/01
+
+### Improvements
+
+* Show license info in "version" command. With the option `--bare`, only the version number is displayed. \(See [version](reference/command-line-reference/version-command.md) command.\) \(\#462\)
+* Show custom value for empty "expected result" using `synchronization/format/emptyExpectedResultValue` setting. \(See [format](reference/configuration/configuration-synchronization/configuration-synchronization-format.md) settings.\) \(\#456\)
+* Allow specifying additional labels for work item links in tags, separated by a semicolon, like `@bug:456:argument_error_for_empty_input`. \(See [Linking Work Items using tags](features/common-synchronization-features/linking-work-items-with-tags.md#work-item-tags).\) \(\#460\)
+
+### Bug fixes
+
+* Fix: Behave test results not detected when scenario outline placeholder is used in the title \(\#470\)
+* Fix: Unable to create link for PRs in another project \(\#458\)
+* Fix: Unhandled error "Value cannot be null. \(Parameter 'gherkinDialect'\)" for invalid feature files \(\#469\)
+
 ## v3.2.4 - 2021/05/21
 
 ### Bug fixes

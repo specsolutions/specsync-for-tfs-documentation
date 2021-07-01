@@ -6,10 +6,10 @@ The following links contain direct download options as an alternative to that.
 
 ## v3.2
 
-* Windows: [SpecSync.AzureDevOps.Console.3.2.4.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.3.2.4.zip)
-* Linux: [SpecSync.AzureDevOps.3.2.4-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.2.4-linux-x64.zip)
-* OSX: [SpecSync.AzureDevOps.3.2.4-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.2.4-osx-x64.zip)
-* Any platform \(.NET Core 3.1 or .NET 5 SDK required\): [SpecSync.AzureDevOps.3.2.4.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.2.4.zip)
+* Windows: [SpecSync.AzureDevOps.Console.3.2.5.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.3.2.5.zip)
+* Linux: [SpecSync.AzureDevOps.3.2.5-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.2.5-linux-x64.zip)
+* OSX: [SpecSync.AzureDevOps.3.2.5-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.2.5-osx-x64.zip)
+* Any platform \(.NET Core 3.1 or .NET 5 SDK required\): [SpecSync.AzureDevOps.3.2.5.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.2.5.zip)
 
 ## v3.1
 

@@ -32,7 +32,11 @@ The work item tag can be specified at scenario level or feature level. In the la
 
 If the work item with the specified ID does not exist or the user who performs the synchronization does not have permission for it, SpecSync will display an error message for that particular scenario. If at least one scenario has failed to synchronize, the command line tool returns with the exit code 10.
 
-_Note: Tags, where_ `N` _is not a valid number, are ignored._
+{% hint style="info" %}
+Tags, where `N` is not a valid number, are ignored.
+{% endhint %}
+
+Optionally you can add an additional label to the work item tags to help the readers to understand what the referred work item is about. The additional label has to be separated by the work item number with a colon \(`:`\) character, like `@bug:456:argument_error_for_empty_input` .
 
 ## Using multiple tag prefixes
 

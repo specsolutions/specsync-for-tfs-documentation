@@ -13,6 +13,7 @@ The following example shows the available options within this sub-section.
     ...
     "format": {
       "useExpectedResult": false,
+      "emptyExpectedResultValue": "N/A"
       "syncDataTableAsText": false,
       "prefixBackgroundSteps": true,
       "prefixTitle": true
@@ -27,9 +28,10 @@ The following example shows the available options within this sub-section.
 | Setting | Description | Default |
 | :--- | :--- | :--- |
 | `useExpectedResult` | If set to `true`, _Then_ steps will be synchronized to the _Expected result_ field of the test case steps. | `false` |
-| syncDataTableAsText | If set to `true`, _Data Tables_ will be synchronized as plain text instead of HTML tables. | `false` |
-| prefixBackgroundSteps | If set to `true`, _Background_ steps will be synchronized with the `Background:` prefix. | `true` |
-| prefixTitle | If set to `true`, test case title will be synchronized with the `Scenario:` or `Scenario Outline:` prefix. | `true` |
+| `emptyExpectedResultValue` | Specifies the value to be used synchronizing a Test Case step with an empty expected result value. Can only be used with `useExpectedResult`. | field remains empty |
+| `syncDataTableAsText` | If set to `true`, _Data Tables_ will be synchronized as plain text instead of HTML tables. | `false` |
+| `prefixBackgroundSteps` | If set to `true`, _Background_ steps will be synchronized with the `Background:` prefix. | `true` |
+| `prefixTitle` | If set to `true`, test case title will be synchronized with the `Scenario:` or `Scenario Outline:` prefix. | `true` |
 
 {% page-ref page="./" %}
 
