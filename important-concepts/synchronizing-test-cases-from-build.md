@@ -182,7 +182,7 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/net_core_test_task.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -192,7 +192,7 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
   inputs:
     command: test
     projects: 'src/Tests/MyProject.Specs/*.csproj'
-    arguments: '--configuration $(BuildConfiguration) --logger trx;logfilename=bddtestresults.trx'
+    arguments: '--configuration $(BuildConfiguration) --logger trx;logfilename=bddtestresults.trx --results-directory $(Agent.TempDirectory)'
     publishTestResults: false
     testRunTitle: 'BDD Tests'
     workingDirectory: src/Tests/MyProject.Specs
@@ -200,8 +200,10 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
-By default, the .NET Core CLI task saves the result file to the `$(Agent.TempDirectory)` folder.
+{% hint style="warning" %}
+The .NET Core CLI task automatically changes the output folder used for the test result file depending on its own "Publish test results and code coverage" \(`publishTestResults`\) setting, that should normally be disabled when you publish the test results with SpecSync \(see below\). If the setting is enabled, the output folder is automatically set to the `Agent.TempDirectory)` folder. 
+
+To remain consistent with this behavior, it is recommended to set the output folder to the same, even if the publish setting is disabled \(which is the recommended way\). You can achieve that by providing an additional `--results-directory $(Agent.TempDirectory)` argument as you can see in the example above.
 {% endhint %}
 
 {% hint style="warning" %}
