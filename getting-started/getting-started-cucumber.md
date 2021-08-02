@@ -229,13 +229,11 @@ The list of supported formats are constantly growing and from SpecSync v3.1 you 
 To be able to publish test results to Azure DevOps, the Test Cases have to be added to a Test Suite. In this guide we have configured SpecSync to add them to a Test Suite called `BDD Scenarios` in an earlier step.
 {% endhint %}
 
-In Azure DevOps, the test result are always associated to a Test Configuration. You can review the test configurations and associate them to Test Suites on the Azure DevOps portal. Azure DevOps adds a configuration called `Windows 10` by default when you create a new project.
-
 The following example shows how to publish a Cucumber Java test result file.
 
 ```bash
-dotnet specsync publish-test-results --testConfiguration "Windows 10" 
-  --testResultFile mytestresult.xml --testResultFileFormat cucumberJavaJUnitXml
+dotnet specsync publish-test-results --testResultFile mytestresult.xml 
+  --testResultFileFormat cucumberJavaJUnitXml
 ```
 
 The command analyses the test result file and connects the results with the scenarios to be able to associate them to Test Cases. You can find the created Test Run in the _Test Plans / Runs_ section of your Azure DevOps portal.

@@ -230,11 +230,10 @@ dotnet test --logger trx;logfilename=testresult.trx
 
 When the test execution has been finished, the test result file is updated. The default location of the file is the `TestResults` folder.
 
-Now lets publish these results using the publish-test-results command of SpecSync. In Azure DevOps, the test result are always associated to a Test Configuration. You can review the test configurations and associate them to Test Suites on the Azure DevOps portal. Azure DevOps adds a configuration called `Windows 10` by default when you create a new project.
+Now lets publish these results using the publish-test-results command of SpecSync. 
 
 ```bash
-dotnet specsync publish-test-results 
-  --testConfiguration "Windows 10" --testResultFile TestResults\testresult.trx
+dotnet specsync publish-test-results --testResultFile TestResults\testresult.trx
 ```
 
 The command analyses the test result file and connects the results with the scenarios to be able to associate them to Test Cases. You can find the created Test Run in the _Test Plans / Runs_ section of your Azure DevOps portal.
