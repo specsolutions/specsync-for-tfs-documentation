@@ -2,9 +2,9 @@
 
 For some applications or products the development team need to maintain multiple main product versions. For example, you need to keep maintaining v1 of the product \(provide bugfixes, etc.\) although you have already released v2 as well.
 
-Handinlg such multiple versions in source code is easy with branching, but if your source code is connected to different work items in Azure DevOps \(including Test Cases\), you have to consider your release strategy, because Azure DevOps work items do not support having multiple parallel active versions or linking to a specific history item of a work item.
+Handling such multiple versions in source code is easy with branching, but if your source code is connected to different work items in Azure DevOps \(including Test Cases\), you have to consider your release strategy, because Azure DevOps work items do not support having multiple parallel active versions or linking to a specific history item of a work item.
 
-For the requirement work items, teams usually make categories of release-dependent and release-agnostic work items. For example, the User Story work item always belongs to a release, but the feature work item is independent of the release and you have refer to the same feature from multiple releases. 
+For the requirement work items, teams usually make categories of release-dependent and release-agnostic work items. For example, the User Story work item always belongs to a release, but the feature work item is independent of the release and you have to refer the same feature from multiple releases. 
 
 This problem is especially interesting for Test Cases, because although the same Test Cases usually have to be verified for multiple releases, they might also need to be changed to match the new capabilities of the new release. In more detail, in case of a new v2 release, the following cases are possible:
 
@@ -52,13 +52,13 @@ To be able to achieve this model, when a new release is started, you need to
 * Create a new Test Plan with an empty Test Suite for the Test Cases synchronized with SpecSync \(don't use "Copy test plan", see note below\)
 * Change the `specsync.json` configuration file on the branch of the new release and specify a Test Suite in the new Test Plan 
 * Delete all @tc:XXX tags from the scenarios on the branch of the new release. This can be done in Visual Studio by performing a "Replace in Files" command with "Use regular expressions" enabled, `@tc:\d+` as search text and an empty replacement text. \(Alternatively you can keep the tags on the scenarios, but specify a new Test Case tag prefix \(e.g. `tc-rel-2`\) in the [`synchronization/testCaseTagPrefix`](../reference/configuration/configuration-synchronization/) setting of the configuration file. If you also enable the old prefix as [work item link](../features/common-synchronization-features/linking-work-items-with-tags.md), the newly created Test Cases will even have a reference to the version in the previous release even.\)
-* Invoke the SpecSync push command from the the branch of the new release. This will create new Test Cases of the scenarios and add tags to the scenarios for them. These Test Cases will be essentially the clones of the Test Cases in the previous release, as they both have been synchronized from the scenarios that are not changed yet.
+* Invoke the SpecSync push command from the branch of the new release. This will create new Test Cases of the scenarios and add tags to the scenarios for them. These Test Cases will be essentially the clones of the Test Cases in the previous release, as they both have been synchronized from the scenarios that are not changed yet.
 * Synchronize the scenarios with SpecSync from the different release branches -- they will add/remove the test cases from the Test Suite in the Test Plan of the release and change the Test Cases related to the particular release.
 
 {% hint style="info" %}
 It is currently not recommended to use the "Copy test plan" feature of Azure DevOps with the "Duplicate existing test cases" option, as you would need to manually update the Test Case tags in the scenarios to update the cloned Test Cases.
 
-A feature is currently in preparation, where you could select an recent "Copy test plan" operation and based on it's results SpecSync would update all Test Case links. This is planned to be implemented in Q3 2021.
+A feature is currently in preparation, where you could select a recent "Copy test plan" operation and based on its results SpecSync would update all Test Case links. This is planned to be implemented in Q3 2021.
 
 If your Test Plans contain many Test Cases that are not synchronized by SpecSync \(e.g. manual test\), you can consider using the "Copy test plan" with the duplicate option, but delete the cloned Test Cases that are related to the scenarios. SpecSync will anyway create the clones of those.
 {% endhint %}
