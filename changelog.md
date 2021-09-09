@@ -1,5 +1,20 @@
 # Changelog
 
+## v3.2.6 - 2021/09/09
+
+### Improvements
+
+* Use build/release queue user as test "run by" identity \(\#510\)
+* Support for SpecFlow v3.8, v3.9 \(\#531\)
+
+### Bug fixes
+
+* Fix: Last test result indicator is not visible in Azure DevOps test suite screen for ADO2019 or earlier \(\#530\)
+* Fix: Suite name requires to be unique across all plans even is test plan specified \(\#513\)
+* Fix: Test result publishing might not publish results to Test Plans with more than 200 Test Suites \(\#496\)
+* Fix: Duplicate test results published with multi-suite publish customization \(\#502\)
+* Fix: Test results are not associated with the result when invoked from a release pipeline \(\#507\)
+
 ## v3.2.5 - 2021/07/01
 
 ### Improvements
