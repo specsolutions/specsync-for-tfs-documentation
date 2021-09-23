@@ -5,6 +5,7 @@
 SpecSync for Azure DevOps might work with other Azure DevOps or TFS installations as well, but it has been tested with the following configurations:
 
 * Azure DevOps Services \(Visual Studio Team Services, VSTS, VSO\)
+* Azure DevOps Server 2020 \(Version 18.\*\)
 * Azure DevOps Server 2019 \(Version 17.\*, Dev17.\*\)
 * Team Foundation Server 2018 \(Version 16.\*\)
 * Team Foundation Server 2017 \(Version 15.\*\)
