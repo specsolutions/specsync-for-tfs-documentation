@@ -46,6 +46,8 @@ When synchronizing scenarios to non-automated test cases \(default\) or automate
 
 For synchronizing automated test cases with the "Suite based execution strategy", currently the following SpecFlow versions are supported.
 
+* SpecFlow v3.9 \(from SpecSync v3.2.6\)
+* SpecFlow v3.8 \(from SpecSync v3.2.6\)
 * SpecFlow v3.7 \(from SpecSync v3.2.1\)
 * SpecFlow v3.6 \(from SpecSync v3.2\)
 * SpecFlow v3.5 \(from SpecSync v3.2\)
