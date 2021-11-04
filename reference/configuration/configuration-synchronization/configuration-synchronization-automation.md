@@ -14,7 +14,8 @@ The following example shows the available options within this sub-section.
     "automation": {
       "enabled": true,
       "condition": "not @manual",
-      "testExecutionStrategy": "assemblyBasedExecution"
+      "testExecutionStrategy": "assemblyBasedExecution",
+      "automatedTestType": "BDD tests"
     },
     ...
   },
@@ -26,48 +27,19 @@ The following example shows the available options within this sub-section.
 
 
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Setting</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><code>enabled</code>
-      </td>
-      <td style="text-align:left">Specifies whether SpecSync should attempt to create automated test cases.</td>
-      <td
-      style="text-align:left"><code>false</code>
-        </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>condition</code>
-      </td>
-      <td style="text-align:left">
-        <p>A <a href="http://speclink.me/tagexpressions">tag expression</a> of scenarios
-          that should be included in automation (e.g. <code>not @manual or @automated</code>).</p>
-        <p>Before v3.2 this setting had to be specified as <code>skipForTags</code> where
-          the excluded scenarios had to be specified.</p>
-      </td>
-      <td style="text-align:left">all scenarios included</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>testExecutionStrategy</code>
-      </td>
-      <td style="text-align:left">Specifies the test execution strategy for the automated test cases. The <code>assemblyBasedExecution</code>strategy
-        (default from v3.1) is used in the most of the cases. The options <code>testSuiteBasedExecution</code> and <code>testSuiteBasedExecutionWithScenarioOutlineWrappers</code> should
-        only be used for suite based execution. See <a href="../../../features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md">Support for Azure DevOps Test Plan / Test Suite based test execution</a> for
-        details.</td>
-      <td style="text-align:left"><code>assemblyBasedExecution</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Setting                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Default                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- |
+| `enabled`               | Specifies whether SpecSync should attempt to create automated test cases.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `false`                                 |
+| `condition`             | <p>A <a href="http://speclink.me/tagexpressions">tag expression</a> of scenarios that should be included in automation (e.g. <code>not @manual or @automated</code>).</p><p>Before v3.2 this setting had to be specified as <code>skipForTags</code> where the excluded scenarios had to be specified.</p>                                                                                                                                                                                                                                                                                                                                                                                       | all scenarios included                  |
+| `automatedTestType`     | Specifies the value to be used in the _Automated test type_ field of the Test Case.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | uses a strategy-dependent default value |
+| `testExecutionStrategy` | <p>Specifies the test execution strategy for the automated test cases. The <code>assemblyBasedExecution</code> strategy can be used to document that the tests are executed by running them from .NET assemblies. The <code>custom</code> strategy can be used for non .NET projects. </p><p>The options <code>testSuiteBasedExecution</code> and <code>testSuiteBasedExecutionWithScenarioOutlineWrappers</code> should only be used for suite based execution. See <a href="../../../features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md">Support for Azure DevOps Test Plan / Test Suite based test execution</a> for details.</p> | `assemblyBasedExecution`                |
 
-{% page-ref page="./" %}
 
-{% page-ref page="../" %}
 
+{% content-ref url="./" %}
+[.](./)
+{% endcontent-ref %}
+
+{% content-ref url="../" %}
+[..](../)
+{% endcontent-ref %}

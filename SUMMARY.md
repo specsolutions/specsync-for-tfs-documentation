@@ -22,6 +22,7 @@
     * [Customization: Update custom Test Case fields on push](features/push-features/customization-update-custom-test-case-fields-on-push.md)
     * [Customization: Ignoring marked Test Case steps](features/push-features/customization-ignoring-marked-test-case-steps.md)
     * [Customization: Ignoring Test Case Tags](features/push-features/customization-ignoring-test-case-tags.md)
+    * [Customization: Ignore non-supported local tags](features/push-features/customization-ignore-non-supported-local-tags.md)
     * [Customization: Mapping tags](features/push-features/customization-mapping-tags.md)
     * [Customization: Synchronizing scenarios from feature branches](features/push-features/support-synchronizing-scenarios-from-a-branch.md)
     * [Customization: Reset Test Case state after change](features/push-features/customization-reset-test-case-state-after-change.md)
@@ -92,7 +93,6 @@
 * [Troubleshooting](contact/troubleshooting.md)
 * [FAQ](contact/faq.md)
 
----
+***
 
 * [Project Website](http://speclink.me/specsync)
-

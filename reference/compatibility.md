@@ -1,19 +1,19 @@
 # Compatibility
 
-## Supported Azure DevOps systems  <a id="supported-tfs-systems"></a>
+## Supported Azure DevOps systems  <a href="supported-tfs-systems" id="supported-tfs-systems"></a>
 
 SpecSync for Azure DevOps might work with other Azure DevOps or TFS installations as well, but it has been tested with the following configurations:
 
-* Azure DevOps Services \(Visual Studio Team Services, VSTS, VSO\)
-* Azure DevOps Server 2020 \(Version 18.\*\)
-* Azure DevOps Server 2019 \(Version 17.\*, Dev17.\*\)
-* Team Foundation Server 2018 \(Version 16.\*\)
-* Team Foundation Server 2017 \(Version 15.\*\)
-* Team Foundation Server 2015 Update 3 \(Version 14.\*\) — _up to SpecSync v2.1_
-* Team Foundation Server 2013 Update 1 \(Version 12.\*\) — _up to SpecSync v1.3_
+* Azure DevOps Services (Visual Studio Team Services, VSTS, VSO)
+* Azure DevOps Server 2020 (Version 18.\*)
+* Azure DevOps Server 2019 (Version 17.\*, Dev17.\*)
+* Team Foundation Server 2018 (Version 16.\*)
+* Team Foundation Server 2017 (Version 15.\*)
+* Team Foundation Server 2015 Update 3 (Version 14.\*) — _up to SpecSync v2.1_
+* Team Foundation Server 2013 Update 1 (Version 12.\*) — _up to SpecSync v1.3_
 
 {% hint style="info" %}
-To use SpecSync with localized Azure DevOps processes \(where the names of the work item types are translated\), the name of the Test Case and the Test Suite work item has to be specified in the  `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings.
+To use SpecSync with localized Azure DevOps processes (where the names of the work item types are translated), the name of the Test Case and the Test Suite work item has to be specified in the  `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings.
 {% endhint %}
 
 ## Supported BDD Tools
@@ -22,50 +22,50 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 
 ## Supported Test Result Formats
 
-| BDD Tool | Runner | Extension | Format specifier |
-| :--- | :--- | :--- | :--- |
-| SpecFlow | MsTest | TRX | `trx` |
-| SpecFlow | NUnit | TRX | `trx` |
-| SpecFlow | xUnit | TRX | `trx` |
-| SpecFlow | SpecFlow+ Runner | TRX | `trx` |
-| SpecFlow | NUnit | XML | `specFlowNUnitXml` |
-| Cucumber \(Java, JavaScript, Ruby\) | `json` formatter | JSON | `cucumberJson` |
-| Cucumber Java | JUnit | XML | `cucumberJavaJUnitXml` |
-| Cucumber.js | cucumber-junit-formatter | XML | `cucumberJsJUnitXml` |
-| Cypress |  | JSON | `cypressCucumberJson` |
-| Jest | jest-cucumber | XML | `jestCucumberXml` |
-| Python Behave |  | XML | `pythonBehaveXml` |
-| PyTest.BDD |  | XML | `pyTestBddXml` |
-| Cucumber Studio \(Hiptest\) |  | JSON | `hiptestJson` |
+| BDD Tool                          | Runner                   | Extension | Format specifier       |
+| --------------------------------- | ------------------------ | --------- | ---------------------- |
+| SpecFlow                          | MsTest                   | TRX       | `trx`                  |
+| SpecFlow                          | NUnit                    | TRX       | `trx`                  |
+| SpecFlow                          | xUnit                    | TRX       | `trx`                  |
+| SpecFlow                          | SpecFlow+ Runner         | TRX       | `trx`                  |
+| SpecFlow                          | NUnit                    | XML       | `specFlowNUnitXml`     |
+| SpecFlow                          | NUnit v2                 | XML       | `specFlowNUnit2Xml`    |
+| Cucumber (Java, JavaScript, Ruby) | `json` formatter         | JSON      | `cucumberJson`         |
+| Cucumber Java                     | JUnit                    | XML       | `cucumberJavaJUnitXml` |
+| Cucumber.js                       | cucumber-junit-formatter | XML       | `cucumberJsJUnitXml`   |
+| Cypress                           |                          | JSON      | `cypressCucumberJson`  |
+| Jest                              | jest-cucumber            | XML       | `jestCucumberXml`      |
+| Python Behave                     |                          | XML       | `pythonBehaveXml`      |
+| PyTest.BDD                        |                          | XML       | `pyTestBddXml`         |
+| Cucumber Studio (Hiptest)         |                          | JSON      | `hiptestJson`          |
 
 Other test result formats are added on request. Please [contact support](../contact/specsync-support.md).
 
-## Supported SpecFlow versions  <a id="supported-specflow-versions"></a>
+## Supported SpecFlow versions  <a href="supported-specflow-versions" id="supported-specflow-versions"></a>
 
-When synchronizing scenarios to non-automated test cases \(default\) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any SpecFlow versions.
+When synchronizing scenarios to non-automated test cases (default) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any SpecFlow versions.
 
 For synchronizing automated test cases with the "Suite based execution strategy", currently the following SpecFlow versions are supported.
 
-* SpecFlow v3.9 \(from SpecSync v3.2.6\)
-* SpecFlow v3.8 \(from SpecSync v3.2.6\)
-* SpecFlow v3.7 \(from SpecSync v3.2.1\)
-* SpecFlow v3.6 \(from SpecSync v3.2\)
-* SpecFlow v3.5 \(from SpecSync v3.2\)
-* SpecFlow v3.4 \(from SpecSync v3.0.2\)
-* SpecFlow v3.3 \(from SpecSync v2.1.14\)
-* SpecFlow v3.1 \(from SpecSync v2.1.10\)
-* SpecFlow v3.0 \(from SpecSync v2.1\)
+* SpecFlow v3.9 (from SpecSync v3.2.6)
+* SpecFlow v3.8 (from SpecSync v3.2.6)
+* SpecFlow v3.7 (from SpecSync v3.2.1)
+* SpecFlow v3.6 (from SpecSync v3.2)
+* SpecFlow v3.5 (from SpecSync v3.2)
+* SpecFlow v3.4 (from SpecSync v3.0.2)
+* SpecFlow v3.3 (from SpecSync v2.1.14)
+* SpecFlow v3.1 (from SpecSync v2.1.10)
+* SpecFlow v3.0 (from SpecSync v2.1)
 * SpecFlow v2.4
 * SpecFlow v2.3
-* SpecFlow v2.2.1 \(with SpecSync v1.4.1\)
+* SpecFlow v2.2.1 (with SpecSync v1.4.1)
 
 See more details in [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md).
 
 ## Supported SpecFlow unit test runners
 
-When synchronizing scenarios to non-automated test cases \(default\) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any test runner supported by SpecFlow.
+When synchronizing scenarios to non-automated test cases (default) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any test runner supported by SpecFlow.
 
 For synchronizing automated test cases with the "Suite based execution strategy", SpecSync supports MsTest V1 & V2, NUnit and xUnit on Azure DevOps and MsTest V1 on TFS2018 or earlier.
 
 See more details in [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md).
-
