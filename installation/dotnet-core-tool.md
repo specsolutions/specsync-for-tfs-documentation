@@ -7,18 +7,20 @@ This install method is available for machines with .NET Core SDK 3.0 or higher i
 {% endhint %}
 
 {% hint style="warning" %}
-The Azure DevOps API that SpecSync uses currently does not support[ "Microsoft account sign-in prompt" authentication](../features/general-features/tfs-authentication-options.md#tfs-windows-sign-in-prompt) on .NET Core. The other authentication options, including the recommended [Personal Access Token \(PAT\)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) or password authentication is still supported.
+The Azure DevOps API that SpecSync uses currently does not support[ "Microsoft account sign-in prompt" authentication](../features/general-features/tfs-authentication-options.md#tfs-windows-sign-in-prompt) on .NET Core. The other authentication options, including the recommended [Personal Access Token (PAT)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) or password authentication is still supported.
 {% endhint %}
 
 The most convenient way to use SpecSync is to install it as a .NET tool. While .NET tools require .NET Core SDK or .NET 5 SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET 5 SDK can be installed from the [.NET Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET SDK.
 
-SpecSync can be installed as .NET tool, even if the project does not use .NET \(e.g. uses Cucumber Java\) or if it uses a different version of .NET \(e.g. .NET Framework v4.7\).
+SpecSync can be installed as .NET tool, even if the project does not use .NET (e.g. uses Cucumber Java) or if it uses a different version of .NET (e.g. .NET Framework v4.7).
 
-SpecSync should be installed as a _local_ .NET tool \(.NET tools can also be installed globally for the machine, but that is more suitable for general, non project specific tools\). By installing as local tool, you can use different SpecSync versions for different projects and the required SpecSync version is registered in the project repository. You can read more about .NET local tools on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
+SpecSync should be installed as a _local_ .NET tool (.NET tools can also be installed globally for the machine, but that is more suitable for general, non project specific tools). By installing as local tool, you can use different SpecSync versions for different projects and the required SpecSync version is registered in the project repository. You can read more about .NET local tools on [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-local-tool).
 
-{% embed url="https://youtu.be/czUI-geOYmY" caption="Video tutorial about installing SpecSync as a .NET tool" %}
+{% embed url="https://youtu.be/czUI-geOYmY" %}
+Video tutorial about installing SpecSync as a .NET tool
+{% endembed %}
 
-### Step 1: Initialize .NET local tool configuration \(if needed\)
+### Step 1: Initialize .NET local tool configuration (if needed)
 
 If you haven't used any .NET local tool in your project, you need to create the necessary configuration file. Otherwise this step can be skipped.
 
@@ -81,4 +83,3 @@ dotnet tool update SpecSync.AzureDevOps --version 3.1.0
 {% hint style="info" %}
 To be able to upgrade to a preliminary version, you always need to specify the exact version number explicitly using the --version option.
 {% endhint %}
-

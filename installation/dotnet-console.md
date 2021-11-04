@@ -4,7 +4,7 @@
 This install method is available for Windows machines with .NET Framework v4.6.2 or higher. Other [installation options](./) available.
 {% endhint %}
 
-SpecSync can be used as a .NET Framework Windows Console App \(`SpecSync4AzureDevOps.exe`\). The tool can be downloaded from NuGet.org \(for .NET projects\) or as a downloadable zip package for other development platforms. 
+SpecSync can be used as a .NET Framework Windows Console App (`SpecSync4AzureDevOps.exe`). The tool can be downloaded from NuGet.org (for .NET projects) or as a downloadable zip package for other development platforms.&#x20;
 
 ## Installing SpecSync .NET Console App from NuGet for .NET projects
 
@@ -14,7 +14,7 @@ The SpecSync .NET Console App is wrapped as a NuGet package, [SpecSync.AzureDevO
 
 Installing it to a .NET project is similar to other NuGet packages. You can use the NuGet package manager in Visual Studio or the package management console.
 
-```text
+```
 Install-Package SpecSync.AzureDevOps.Console
 ```
 
@@ -24,21 +24,21 @@ Since the NuGet package does not contain any library that would be referenced fr
 
 Depending on your project setup, the package has been downloaded and extracted to
 
-* into the `packages` folder of your solution: &lt;SOLUTION‑FOLDER&gt;\packages\SpecSync.AzureDevOps.Console.&lt;SPECSYNC‑VERSION&gt;
-* into the global packages folder: C:\Users\&lt;USER&gt;\.nuget\packages\specsync.azuredevops.console\&lt;SPECSYNC‑VERSION&gt;
+* into the `packages` folder of your solution: \<SOLUTION‑FOLDER>\packages\SpecSync.AzureDevOps.Console.\<SPECSYNC‑VERSION>
+* into the global packages folder: C:\Users\\\<USER>\\.nuget\packages\specsync.azuredevops.console\\\<SPECSYNC‑VERSION>
 * into an other folder configured in the `NuGet.config` file
 
-### Step 2: Create/review a CMD file in order to execute the console app easily from the installation folder \(optional\)
+### Step 2: Create/review a CMD file in order to execute the console app easily from the installation folder (optional)
 
-As the package installation folder is pretty complicated to type-in frequently, it is recommended to add a simple command line shell script \(`specsync4azuredevops.cmd`\) that executes the tool from the right folder. 
+As the package installation folder is pretty complicated to type-in frequently, it is recommended to add a simple command line shell script (`specsync4azuredevops.cmd`) that executes the tool from the right folder.&#x20;
 
 {% hint style="info" %}
-In case you use NuGet packages from the `packages` folder of your solution and your project uses the classic project file format, the package installation populated a `specsync4azuredevops.cmd` into the project folder. Review the script and apply any changes if necessary.
+In case you use NuGet packages from the `packages` folder of your solution and your project uses the classic project file format, the package installation populated a `specsync4azuredevops.cmd `into the project folder. Review the script and apply any changes if necessary.
 {% endhint %}
 
 A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App from the local packages folder might look similar to this:
 
-```text
+```
 @REM Executing SpecSync .NET Console App by forwarding all command line parameters
 @REM Note: the version number has to be updated after a SpecSync version upgrade
 %~dp0\..\packages\SpecSync.AzureDevOps.Console.3.0.0\tools\SpecSync4AzureDevOps.exe %*
@@ -47,7 +47,7 @@ A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App 
 
 A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App from the global packages folder might look similar to this:
 
-```text
+```
 @REM Executing SpecSync .NET Console App by forwarding all command line parameters
 @REM Note: the version number has to be updated after a SpecSync version upgrade
 %HOMEPATH%\.nuget\packages\SpecSync.AzureDevOps.Console\3.0.0\tools\SpecSync4AzureDevOps.exe %*
@@ -83,4 +83,3 @@ You can test the installation by checking the installed SpecSync version. Open a
 ```
 
 If the correct version number is displayed, you are ready to move on to setup and configure SpecSync for the first synchronization. Check the [Setup and Configure](setup-and-configure.md) page for the details.
-

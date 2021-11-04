@@ -2,22 +2,22 @@
 
 Keeping the test cases in sync with the scenarios is important, therefore automating the synchronization process is recommended. This can be done for example from Azure DevOps build or release pipeline: you can configure an additional build steps that invoke the synchronization and test result publishing process.
 
-The exact build steps and their order might be dependent on the project context, but a build pipeline that includes synchronization of the scenarios and publishes test results to Azure DevOps, usually follow the structure below \(SpecSync specific steps are highlighted\):
+The exact build steps and their order might be dependent on the project context, but a build pipeline that includes synchronization of the scenarios and publishes test results to Azure DevOps, usually follow the structure below (SpecSync specific steps are highlighted):
 
-1. Initialize project \(get sources, restore packages, etc.\)
-2. Build project \(compile, build and publish your code\)
-3. Perform core tests \(e.g. unit tests or other programmer tests\)
+1. Initialize project (get sources, restore packages, etc.)
+2. Build project (compile, build and publish your code)
+3. Perform core tests (e.g. unit tests or other programmer tests)
 4. **SpecSync push — synchronize scenarios to Azure DevOps Test Cases**
-5. Run BDD tests and produce test result file \(e.g. run SpecFlow tests\)
+5. Run BDD tests and produce test result file (e.g. run SpecFlow tests)
 6. **SpecSync publish-test-results — publish the test results from the test result file to the synchronized Test Cases**
 
 In this documentation we first show how to add a build step to your pipeline that invokes SpecFlow and how to configure the authentication.
 
-In the last sections \([Performing synchronization \(push\) from build or release pipeline](synchronizing-test-cases-from-build.md#performing-synchronization-push-from-build-or-release-pipeline) and [Publishing test results from build or release pipeline](synchronizing-test-cases-from-build.md#publishing-test-results-from-build-or-release-pipeline)\) we show how to configure the SpecSync step for performing `push` and `publish-test-results` commands.
+In the last sections ([Performing synchronization (push) from build or release pipeline](synchronizing-test-cases-from-build.md#performing-synchronization-push-from-build-or-release-pipeline) and [Publishing test results from build or release pipeline](synchronizing-test-cases-from-build.md#publishing-test-results-from-build-or-release-pipeline)) we show how to configure the SpecSync step for performing `push` and `publish-test-results` commands.
 
 ## Adding SpecSync steps to your build or release pipeline
 
-The SpecSync commands can be added to an Azure DevOps build or release pipeline as a [Command line task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/command-line?view=azure-devops&tabs=yaml) or as a [.NET Core CLI task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) if you have installed SpecSync as a [.NET Core tool](../installation/dotnet-core-tool.md). These tasks work both in Classic or YAML pipelines. See details on how to configure these tasks below.
+The SpecSync commands can be added to an Azure DevOps build or release pipeline as a [Command line task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/command-line?view=azure-devops\&tabs=yaml) or as a [.NET Core CLI task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) if you have installed SpecSync as a [.NET Core tool](../installation/dotnet-core-tool.md). These tasks work both in Classic or YAML pipelines. See details on how to configure these tasks below.
 
 {% hint style="info" %}
 In order to diagnose synchronization issues, it is recommeded to specify a log file `$(build.artifactstagingdirectory)` for SpecSync execution. This can be done by specifying a `--log $(build.artifactstagingdirectory)\<log-file-name>.log` SpecSync [command line option](../reference/command-line-reference/#common-command-line-options).
@@ -31,11 +31,11 @@ This option can only be used if you have installed SpecSync as a [.NET Core tool
 
 If SpecSync has installed as a .NET Core tool, it can be invoked easily from a pipeline using the integrated .NET Core CLI task. The .NET Core tool commands can also be invoked from a Command line task as well of course.
 
-In order to use any .NET Core tool, the tools have to be restored. If SpecSync is your first .NET Core tool in the project, than you need to add a step to do that to the beginning of the pipeline \(usually before the normal `dotnet restore` command\), as below.
+In order to use any .NET Core tool, the tools have to be restored. If SpecSync is your first .NET Core tool in the project, than you need to add a step to do that to the beginning of the pipeline (usually before the normal `dotnet restore` command), as below.
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/image%20%289%29.png)
+![](<../.gitbook/assets/image (11).png>)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -50,13 +50,13 @@ In order to use any .NET Core tool, the tools have to be restored. If SpecSync i
 {% endtab %}
 {% endtabs %}
 
-In order to invoke SpecSync using a the .NET Core CLI command, you have to set the _Command_ proeprty to `custom` , the _Custom command_ property to `specsync` and you need to specify the SpecSync command line arguments \(e.g. `push`\) in the _Arguments_ property.
+In order to invoke SpecSync using a the .NET Core CLI command, you have to set the _Command_ proeprty to `custom` , the _Custom command_ property to `specsync` and you need to specify the SpecSync command line arguments (e.g. `push`) in the _Arguments_ property.
 
-The following example shows how to invoke SpecSync `push` command from a Command line tool task from a restored NuGet package. See the following sections for details about the recommended authentication options and for the usual settings for `push` and `publish-test-results` commands.
+The following example shows how to invoke SpecSync `push` command from a Command line tool task from a restored NuGet package. See the following sections for details about the recommended authentication options and for the usual settings for `push `and `publish-test-results` commands.
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/image%20%2819%29.png)
+![](<../.gitbook/assets/image (13).png>)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -74,7 +74,7 @@ The following example shows how to invoke SpecSync `push` command from a Command
 
 ### Adding a Command line task to invoke SpecSync
 
-In the SpecSync command line task you need to invoke the `SpecSync4AzureDevOps.exe` executable with the necessary command line parameters. For that you need to ensure that SpecSync has been downloaded to the build agent. 
+In the SpecSync command line task you need to invoke the `SpecSync4AzureDevOps.exe` executable with the necessary command line parameters. For that you need to ensure that SpecSync has been downloaded to the build agent.&#x20;
 
 If you have installed SpecSync as a [.NET Console App](../installation/dotnet-console.md) by adding a reference to the `SpecSync.AzureDevOps.Console` NuGet package in one of your projects, the build has probably restored this package already. You just need to figure out where the NuGet packages are downloaded. With the usual setup it is either the `packages` folder of your solution for older projects or the folder `$(UserProfile)\.nuget\packages` for newer, SDK-stype projects.
 
@@ -82,11 +82,11 @@ If you use the SpecSync native binaries, you have to make sure that the necessar
 
 If you use the SpecSync official Docker image, you have to invoke the appropriate Docker commands from the command line task.
 
-The following example shows how to invoke SpecSync `push` command from a Command line tool task from a restored NuGet package. See the following sections for details about the recommended authentication options and for the usual settings for `push` and `publish-test-results` commands.
+The following example shows how to invoke SpecSync `push` command from a Command line tool task from a restored NuGet package. See the following sections for details about the recommended authentication options and for the usual settings for `push `and `publish-test-results` commands.
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/image%20%2816%29.png)
+![](<../.gitbook/assets/image (14).png>)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -100,13 +100,13 @@ The following example shows how to invoke SpecSync `push` command from a Command
 
 ## Authentication settings to perform SpecSync commands from build or release pipeline
 
-For [authentication](../features/general-features/tfs-authentication-options.md), you need an Azure DevOps user account with sufficient privileges \(modify test cases and test suites\). In this section we show how the authentication can be configured using [Personal Access Tokens \(PAT\)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens), but the authentication can also be performed with user name and password in a similar way.
+For [authentication](../features/general-features/tfs-authentication-options.md), you need an Azure DevOps user account with sufficient privileges (modify test cases and test suites). In this section we show how the authentication can be configured using [Personal Access Tokens (PAT)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens), but the authentication can also be performed with user name and password in a similar way.
 
 ### Step 1: Define a secret environment variable for the PAT in your pipeline
 
-Add a new variable in the Variables section of your pipeline \(e.g. `SPECSYNC_PAT`\), specify the PAT of the account and make it secret.
+Add a new variable in the Variables section of your pipeline (e.g. `SPECSYNC_PAT`), specify the PAT of the account and make it secret.
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](<../.gitbook/assets/image (15).png>)
 
 ### Step 2: Use the environment variable in SpecSync commands
 
@@ -117,12 +117,12 @@ Once the variable is defined, you can pass its value to SpecSync using the `--us
 ```
 
 {% hint style="info" %}
-_Note: Secret variables can only be used using the `$(variable)` form, they will not be substituted using the %variable% form._ 
+_Note: Secret variables can only be used using the `$(variable)` form, they will not be substituted using the %variable% form. _
 {% endhint %}
 
-## Performing synchronization \(push\) from build or release pipeline
+## Performing synchronization (push) from build or release pipeline
 
-The SpecSync push command is usually performed after the successful execution of core tests \(e.g. unit tests\), but before executing the BDD tests. This way you can ensure that the test cases are updated even if some of the BDD scenarios fail \(especially when automated as integration or end-to-end test\).
+The SpecSync push command is usually performed after the successful execution of core tests (e.g. unit tests), but before executing the BDD tests. This way you can ensure that the test cases are updated even if some of the BDD scenarios fail (especially when automated as integration or end-to-end test).
 
 {% hint style="info" %}
 Adding the push step to the pipeline ensures that the Test Cases are updated to the exact same version that was used to execute the tests. If the changes have been synchronized locally then this step will just simply detect that the test cases are up-to-date and not change them.
@@ -130,18 +130,18 @@ Adding the push step to the pipeline ensures that the Test Cases are updated to 
 
 The following table contains the settings that are important or usually configured for the `push` command.
 
-| Setting | Description |
-| :--- | :--- |
-| Working Directory | For the easiest configuration it is recommended to set the Working Directory property of the task to the folder where your feature-set is \(e.g. to the SpecFlow project folder\). This is typically the same folder where your [SpecSync configuration file](../features/general-features/configuration-file.md) is located. |
-| `--user` | The `--user` command line option can be used so specify the user credentials \(e.g. Personal Access Token, PAT\) for the user that needs to be used for the synchronization. See [Synchronizing test cases from build](synchronizing-test-cases-from-build.md#authentication-settings-to-perform-specsync-commands-from-build-or-release-pipeline) for details. |
-| `--disableLocalChanges` | Creating the initial link between scenarios and test cases requires a small change in the feature file \(to include the test case tags\). Such changes cannot be done in an automated process, because the changes cannot be committed to the source control. To handle this, SpecSync provides a `--disableLocalChanges` switch \(see [command line reference](../reference/command-line-reference/push-command.md) for more details\). If this switch is provided, SpecSync will not synchronize new scenarios, but only updates the ones that are already linked to test cases. |
-| Task conditions \(_Run this task_ property\) | The synchronization usually should be performed only for normal build executions and not for Pull Requests. This can be ensured by setting `and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))` as custom condition \(see example below\). |
+| Setting                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Working Directory                          | For the easiest configuration it is recommended to set the Working Directory property of the task to the folder where your feature-set is (e.g. to the SpecFlow project folder). This is typically the same folder where your [SpecSync configuration file](../features/general-features/configuration-file.md) is located.                                                                                                                                                                                                                                                    |
+| `--user`                                   | The `--user` command line option can be used so specify the user credentials (e.g. Personal Access Token, PAT) for the user that needs to be used for the synchronization. See [Synchronizing test cases from build](synchronizing-test-cases-from-build.md#authentication-settings-to-perform-specsync-commands-from-build-or-release-pipeline) for details.                                                                                                                                                                                                                  |
+| `--disableLocalChanges`                    | Creating the initial link between scenarios and test cases requires a small change in the feature file (to include the test case tags). Such changes cannot be done in an automated process, because the changes cannot be committed to the source control. To handle this, SpecSync provides a `--disableLocalChanges` switch (see [command line reference](../reference/command-line-reference/push-command.md) for more details). If this switch is provided, SpecSync will not synchronize new scenarios, but only updates the ones that are already linked to test cases. |
+| Task conditions (_Run this task_ property) | The synchronization usually should be performed only for normal build executions and not for Pull Requests. This can be ensured by setting `and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))` as custom condition (see example below).                                                                                                                                                                                                                                                                                                                           |
 
-The following example shows a fully configured step that performs the SpecSync push command using the .NET Core CLI task. 
+The following example shows a fully configured step that performs the SpecSync push command using the .NET Core CLI task.&#x20;
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/image%20%2817%29.png)
+![](<../.gitbook/assets/image (17).png>)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -159,30 +159,30 @@ The following example shows a fully configured step that performs the SpecSync p
 {% endtabs %}
 
 {% hint style="info" %}
-For information on how to configure the build executing automated test cases, please check the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article. 
+For information on how to configure the build executing automated test cases, please check the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article.&#x20;
 {% endhint %}
 
 ## Publishing test results from build or release pipeline
 
 {% hint style="info" %}
-For information on how to configure the build executing automated test cases, please check the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article. 
+For information on how to configure the build executing automated test cases, please check the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article.&#x20;
 {% endhint %}
 
-To be able to track the test execution results at the test cases, you can execute the tests like usual, save the test result to a test result file \(in case of .NET this is a TRX file\) and publish the test results using the SpecSync `publish-test-results` command. 
+To be able to track the test execution results at the test cases, you can execute the tests like usual, save the test result to a test result file (in case of .NET this is a TRX file) and publish the test results using the SpecSync `publish-test-results` command.&#x20;
 
 {% hint style="info" %}
-For information on how to configure the build executing automated test cases, please check the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article. 
+For information on how to configure the build executing automated test cases, please check the [Synchronizing automated test cases](synchronizing-automated-test-cases.md) article.&#x20;
 {% endhint %}
 
 ### Step 1: Prepare test execution task
 
-In order to publish the test results, the test execution task has to be configured to save the results to a test result file \(in case of .NET this is a TRX file\). The exact way of doing that depends on the platform and the test execution tool you use. For .NET projects usually the .NET Core CLI task or the VSTest task is used. 
+In order to publish the test results, the test execution task has to be configured to save the results to a test result file (in case of .NET this is a TRX file). The exact way of doing that depends on the platform and the test execution tool you use. For .NET projects usually the .NET Core CLI task or the VSTest task is used.&#x20;
 
-If the **.NET Core CLI task** is used, the Arguments property has to be extended with an `--logger trx;logfilename=<your-trx-file-name>.trx` option. The following examples show how to configure the .NET Core CLI task to save the test results to a file `bddestresults.trx`.  
+If the **.NET Core CLI task** is used, the Arguments property has to be extended with an `--logger trx;logfilename=<your-trx-file-name>.trx` option. The following examples show how to configure the .NET Core CLI task to save the test results to a file `bddestresults.trx`. &#x20;
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/image%20%2825%29.png)
+![](<../.gitbook/assets/image (27).png>)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -200,20 +200,20 @@ If the **.NET Core CLI task** is used, the Arguments property has to be extended
 {% endtabs %}
 
 {% hint style="warning" %}
-The .NET Core CLI task automatically changes the output folder used for the test result file depending on its own "Publish test results and code coverage" \(`publishTestResults`\) setting, that should normally be disabled when you publish the test results with SpecSync \(see below\). If the setting is enabled, the output folder is automatically set to the `Agent.TempDirectory)` folder. 
+The .NET Core CLI task automatically changes the output folder used for the test result file depending on its own "Publish test results and code coverage" (`publishTestResults`) setting, that should normally be disabled when you publish the test results with SpecSync (see below). If the setting is enabled, the output folder is automatically set to the `Agent.TempDirectory)` folder.&#x20;
 
-To remain consistent with this behavior, it is recommended to set the output folder to the same, even if the publish setting is disabled \(which is the recommended way\). You can achieve that by providing an additional `--results-directory $(Agent.TempDirectory)` argument as you can see in the example above.
+To remain consistent with this behavior, it is recommended to set the output folder to the same, even if the publish setting is disabled (which is the recommended way). You can achieve that by providing an additional `--results-directory $(Agent.TempDirectory)` argument as you can see in the example above.
 {% endhint %}
 
 {% hint style="warning" %}
-The .NET Core task with the "test" command by default has the "Publish test results and code coverage" setting enabled \(this is the default if you use YAML\), but the test results will be published by SpecSync anyway so this setting is unnecessary.
+The .NET Core task with the "test" command by default has the "Publish test results and code coverage" setting enabled (this is the default if you use YAML), but the test results will be published by SpecSync anyway so this setting is unnecessary.
 
 Having the results published both by the .NET Core task and SpecSync might cause the tests appearing twice in the "Tests" tab of the build pipeline. To avoid that, it is recomended to uncheck the "Publish test results and code coverage" setting or specify `publishTestResults: false` in YAML.
 
 As the "Tests" tab only displays published test results if they are marked as "Automated", SpecSync will try to publish the test results as automated even if you haven't enabled the [Mark Test Cases as Automated](../features/push-features/mark-test-cases-as-automated.md) feature for the synchronized Test Cases. In older version of Azure DevOps this is not possible, so you should set it manually if the tests don't appear in the "Tests" tab of the build pipeline.
 {% endhint %}
 
-The **VSTest task** \(used for older .NET Framework projects\) can be configured similarly. For that task, the test result file can be configured by setting the _Other console options_ property to `/logger:trx;LogFileName=bddtestresults.trx`. You might also need to review the _Test results folder_ property.
+The **VSTest task** (used for older .NET Framework projects) can be configured similarly. For that task, the test result file can be configured by setting the _Other console options_ property to `/logger:trx;LogFileName=bddtestresults.trx`. You might also need to review the _Test results folder_ property.
 
 ### Step 2: Configure SpecSync task to publish test result file
 
@@ -221,82 +221,21 @@ In order to publish the test results, a SpecSync task has to be added right afte
 
 The following table contains the settings that are important or usually configured for the `publish-test-results` command.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Setting</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Working Directory</td>
-      <td style="text-align:left">For the easiest configuration it is recommended to set the Working Directory
-        property of the task to the folder where your feature-set is (e.g. to the
-        SpecFlow project folder). This is typically the same folder where your
-        <a
-        href="../features/general-features/configuration-file.md">SpecSync configuration file</a>is located.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>--user</code>
-      </td>
-      <td style="text-align:left">The <code>--user</code> command line option can be used so specify the user
-        credentials (e.g. Personal Access Token, PAT) for the user that needs to
-        be used for the synchronization. See <a href="synchronizing-test-cases-from-build.md#authentication-settings-to-perform-specsync-commands-from-build-or-release-pipeline">Synchronizing test cases from build</a> for
-        details.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>--testConfiguration</code>
-      </td>
-      <td style="text-align:left">When publishing test results to Azure DevOps Test Cases (Test Suites),
-        you have to select a Test Configuration that is associated to the Test
-        Suite of your Test Cases. You can specify the Test Configuration in the
-        configuration file or using the <code>--testConfiguration</code> command
-        line option.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>--testResultsFile</code>
-      </td>
-      <td style="text-align:left">The test results file produced by the test execution step can be specified
-        using the <code>--testResultsFile</code> option. Make sure you specify the
-        file from the right folder (usually <code>$(Agent.TempDirectory)</code>).</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>--testResultFileFormat</code>
-      </td>
-      <td style="text-align:left">This setting is needed if the test result file is NOT a TRX file. For
-        TRX files this setting can be omitted. The possible format values are listed
-        in the <a href="../reference/compatibility.md#supported-test-result-formats">Compatibility</a> page.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>--runName</code>
-      </td>
-      <td style="text-align:left">There are many settings that can be used to customize the Test Run created
-        by SpecSync. You can find these settings in the <a href="../reference/command-line-reference/publish-test-results-command.md">publish-test-results</a> page.
-        The <code>--runName</code> setting for example can be used to specify a name
-        of your Test Run, so that it can be easily distinguished from the normal
-        test execution results.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Task conditions (<em>Run this task</em> property)</td>
-      <td style="text-align:left">
-        <p>It is important that the publish-test-result command is performed even
-          if the test execution failed. By default the tasks are only executed if
-          all previous tasks succeeded. Also make sense to note that test result
-          publishing usually should be performed only for normal build executions
-          and not for Pull Requests.</p>
-        <p>This two conditions can be ensured by setting <code>and(succeededOrFailed(), ne(variables[&apos;Build.Reason&apos;], &apos;PullRequest&apos;))</code> as
-          custom condition (see example below).</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Setting                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Working Directory                          | For the easiest configuration it is recommended to set the Working Directory property of the task to the folder where your feature-set is (e.g. to the SpecFlow project folder). This is typically the same folder where your [SpecSync configuration file](../features/general-features/configuration-file.md) is located.                                                                                                                                                                                       |
+| `--user`                                   | The `--user` command line option can be used so specify the user credentials (e.g. Personal Access Token, PAT) for the user that needs to be used for the synchronization. See [Synchronizing test cases from build](synchronizing-test-cases-from-build.md#authentication-settings-to-perform-specsync-commands-from-build-or-release-pipeline) for details.                                                                                                                                                     |
+| `--testConfiguration`                      | When publishing test results to Azure DevOps Test Cases (Test Suites), you have to select a Test Configuration that is associated to the Test Suite of your Test Cases. You can specify the Test Configuration in the configuration file or using the `--testConfiguration` command line option.                                                                                                                                                                                                                  |
+| `--testResultsFile`                        | The test results file produced by the test execution step can be specified using the `--testResultsFile` option. Make sure you specify the file from the right folder (usually `$(Agent.TempDirectory)`).                                                                                                                                                                                                                                                                                                         |
+| `--testResultFileFormat`                   | This setting is needed if the test result file is NOT a TRX file. For TRX files this setting can be omitted. The possible format values are listed in the [Compatibility](../reference/compatibility.md#supported-test-result-formats) page.                                                                                                                                                                                                                                                                      |
+| `--runName`                                | There are many settings that can be used to customize the Test Run created by SpecSync. You can find these settings in the [publish-test-results](../reference/command-line-reference/publish-test-results-command.md) page. The `--runName` setting for example can be used to specify a name of your Test Run, so that it can be easily distinguished from the normal test execution results.                                                                                                                   |
+| Task conditions (_Run this task_ property) | <p>It is important that the publish-test-result command is performed even if the test execution failed. By default the tasks are only executed if all previous tasks succeeded. Also make sense to note that test result publishing usually should be performed only for normal build executions and not for Pull Requests. </p><p>This two conditions can be ensured by setting <code>and(succeededOrFailed(), ne(variables['Build.Reason'], 'PullRequest'))</code> as custom condition (see example below).</p> |
 
 The following example shows a fully configured step that performs the SpecSync `publish-test-results` command using the .NET Core CLI task. The example assumes that the test results were saved to a file `bddtestresults.trx` in the folder `$(Agent.TempDirectory)` like it was configured in the example of the previous step.
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
-![](../.gitbook/assets/image%20%2812%29.png)
+![](<../.gitbook/assets/image (21).png>)
 {% endtab %}
 
 {% tab title="YAML pipeline" %}
@@ -313,6 +252,4 @@ The following example shows a fully configured step that performs the SpecSync `
 ```
 {% endtab %}
 {% endtabs %}
-
-
 
