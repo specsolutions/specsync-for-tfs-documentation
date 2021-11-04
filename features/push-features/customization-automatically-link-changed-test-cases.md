@@ -30,4 +30,10 @@ The following example shows a basic configuration that links the changed Test Ca
 
 You can use environment variable references in the `targetId` setting as shown above.&#x20;
 
+{% hint style="warning" %}
+The environment variable `SYSTEM_PULLREQUEST_PULLREQUESTID` is only available in pull request verification builds. Synchronizing scenarios in such builds might be dangerous, because the Test Cases will be updated based on unaccepted changes!
+
+In order to link the changed scenarios to the pull request that just has been merged (from the build of the main branch), you need to get the pull request ID from the commit message with a script (the commit message usually starts with _"Merged PR 12345: ..."_). The script in this case can set an environment variable with the extracted value and the customization can use this environment variable.
+{% endhint %}
+
 If the `targetId` evaluates to an empty string, no link will be added.
