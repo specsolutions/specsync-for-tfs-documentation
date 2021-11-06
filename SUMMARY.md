@@ -52,6 +52,7 @@
   * [Use SpecSync from build or release pipeline](important-concepts/synchronizing-test-cases-from-build.md)
   * [Using SpecSync with SpecFlow+](important-concepts/using-specsync-with-specflow-plus.md)
   * [Using SpecSync with Cucumber](important-concepts/using-specsync-with-cucumber.md)
+  * [Using SpecSync with Cypress](important-concepts/using-specsync-with-cypress.md)
   * [Using SpecSync on macOS or Linux](important-concepts/using-specsync-on-osxlinux-page.md)
   * [Using SpecSync inside a Docker container](important-concepts/using-specsync-inside-a-docker-container.md)
   * [How to handle Test Cases of multiple parallel application releases](important-concepts/how-to-handle-test-cases-of-multiple-parallel-application-releases.md)
