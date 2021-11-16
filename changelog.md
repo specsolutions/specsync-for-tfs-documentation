@@ -13,7 +13,7 @@
 
 ### Bug fixes
 
-* Fix: Additional space included to the Test Case title when the local test case title contains a colon and synchronized from a plugin (#551)
+* Fix: Additional space included to the Test Case title or parts of the title is missing when the local test case title contains a colon and synchronized from a plugin (#551)
 * Fix: JSON schema for the configuration file does not allow `:` in tag expressions (#536)
 
 ## v3.2.6 - 2021/09/09
