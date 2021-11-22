@@ -1,6 +1,6 @@
 # Compatibility
 
-## Supported Azure DevOps systems  <a href="supported-tfs-systems" id="supported-tfs-systems"></a>
+## Supported Azure DevOps systems <a href="supported-tfs-systems" id="supported-tfs-systems"></a>
 
 SpecSync for Azure DevOps might work with other Azure DevOps or TFS installations as well, but it has been tested with the following configurations:
 
@@ -13,10 +13,14 @@ SpecSync for Azure DevOps might work with other Azure DevOps or TFS installation
 * Team Foundation Server 2013 Update 1 (Version 12.\*) — _up to SpecSync v1.3_
 
 {% hint style="info" %}
-To use SpecSync with localized Azure DevOps processes (where the names of the work item types are translated), the name of the Test Case and the Test Suite work item has to be specified in the  `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings.
+To use SpecSync with localized Azure DevOps processes (where the names of the work item types are translated), the name of the Test Case and the Test Suite work item has to be specified in the `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings.
 {% endhint %}
 
-## Supported BDD Tools
+## Supported operating systems and platforms
+
+SpecSync is supported on Windows, Linux and MacOS operating systems. It can be installed as a standalone tool or as a .NET tool. Please check Installation & Setup for details on which installation option is available on the different target systems.
+
+## Supported BDD tools
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.
 
@@ -41,7 +45,7 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 
 Other test result formats are added on request. Please [contact support](../contact/specsync-support.md).
 
-## Supported SpecFlow versions  <a href="supported-specflow-versions" id="supported-specflow-versions"></a>
+## Supported SpecFlow versions <a href="supported-specflow-versions" id="supported-specflow-versions"></a>
 
 When synchronizing scenarios to non-automated test cases (default) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any SpecFlow versions.
 
