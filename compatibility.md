@@ -11,6 +11,10 @@ SpecSync for Azure DevOps might work with other Azure DevOps or TFS installation
 * Team Foundation Server 2015 Update 3 \(up to SpecSync v2.1\)
 * Team Foundation Server 2013 Update 1 \(up to SpecSync v1.3\)
 
+## Supported operating systems and platforms
+
+SpecSync is supported on Windows, Linux and MacOS operating systems. It can be installed as a standalone tool or as a .NET tool. Please check [Installation & Setup](installation/) for details on which installation option is available on the different target systems.
+
 ## Supported BDD Tools
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow. Please refer to the [Getting started](getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.

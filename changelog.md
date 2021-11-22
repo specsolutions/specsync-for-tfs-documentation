@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.2.8 - 2021/11/22
+
+### Improvements
+
+* Support for .NET 6 framework when [installed as a .NET tool](installation/dotnet-core-tool.md). (#565)
+
 ## v3.2.7 - 2021/11/04
 
 ### Improvements

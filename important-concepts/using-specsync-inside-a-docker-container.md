@@ -157,7 +157,7 @@ You can build an image and work with that interactively, e.g.:
 ```
 
 {% hint style="info" %}
-From SpecSync v3.2, you can also use .NET 5 images to build your container. For that, replace the first line of the example above to `FROM mcr.microsoft.com/dotnet/sdk:5.0`.
+From SpecSync v3.2, you can also use .NET 5 or .NET 6 images to build your container. For that, replace the first line of the example above to `FROM mcr.microsoft.com/dotnet/sdk:5.0`.
 {% endhint %}
 
 ## Integrate SpecSync into a pure Linux image
