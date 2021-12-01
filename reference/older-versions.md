@@ -1,6 +1,6 @@
 # Older versions
 
-The reference guide contains the documentation of SpecSync for AzureDevOps v3.1. 
+The reference guide contains the documentation of SpecSync for AzureDevOps v3.2. 
 
 ## Reference for older versions
 
@@ -8,5 +8,6 @@ The reference guide contains the documentation of SpecSync for AzureDevOps v3.1.
 
 ## Migration guides
 
-* [Migrating from SpecSync v1](../important-concepts/migrating-from-specsync-v1.md)
+* [Migrating from SpecSync v1 to v2](../important-concepts/migrating-from-specsync-v1.md)
+* [Migrating from SpecSync v2 to v3](../important-concepts/migrating-from-specsync-v2-to-v3.md)
 

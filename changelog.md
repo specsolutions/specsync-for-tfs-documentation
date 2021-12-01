@@ -1,5 +1,9 @@
 # Changelog
 
+{% hint style="info" %}
+For plans for future release please check the [Release Model and Roadmap](roadmap.md) page.
+{% endhint %}
+
 ## v3.2.8 - 2021/11/22
 
 ### Improvements

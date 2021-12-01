@@ -59,6 +59,7 @@
   * [Migrating from SpecSync v2 to v3](important-concepts/migrating-from-specsync-v2-to-v3.md)
   * [Migrating from SpecSync v1 to v2](important-concepts/migrating-from-specsync-v1.md)
 * [Changelog](changelog.md)
+* [Release Model and Roadmap](roadmap.md)
 * [Downloads](downloads.md)
 
 ## Reference
