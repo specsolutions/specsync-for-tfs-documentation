@@ -68,7 +68,7 @@ The following command line options are available for all commands that require e
 
 ## Override configuration setting from command line
 
-With the `--configOverride` option any configuration file setting can be overridden even if there is no dedicated command line option for that. Using this option can be used as a backup solution to handle special cases. As an alternative to this option, you can also consider using [hierarchical configuration files](../../features/hierarchical-configuration-files.md).
+With the `--configOverride` option any configuration file setting can be overridden even if there is no dedicated command line option for that. Using this option can be used as a backup solution to handle special cases. As an alternative to this option, you can also consider using [hierarchical configuration files](../../features/general-features/hierarchical-configuration-files.md#parent-configuration-files).
 
 The following example overrides the user name setting in the `remote` configuration section (equivalent to the exposed `--user` option).
 
@@ -77,7 +77,7 @@ dotnet specsync push --configOverride "remote/user=myusername"
 ```
 
 {% hint style="warning" %}
-Most of the configuration settings changes the synchronization behavior and therefore changing them might cause a modification for many Test Cases. Therefore it is generally not recommended to use the `--configOverride` option. Please contact [support](contact/specsync-support.md) if you are unsure about how to solve a particular synchronization requirement with SpecSync.
+Most of the configuration settings changes the synchronization behavior and therefore changing them might cause a modification for many Test Cases. Therefore it is generally not recommended to use the `--configOverride` option. Please contact [support](../../contact/specsync-support.md) if you are unsure about how to solve a particular synchronization requirement with SpecSync.
 {% endhint %}
 
 In order to override multiple configuration setting, the `--configOverride` option can be used multiple times or you can specify multiple settings separated by a semicolon \(`;`\).
