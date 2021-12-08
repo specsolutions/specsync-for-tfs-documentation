@@ -120,10 +120,11 @@ Can ignore (leave unchanged) test case tags. See [Customization: Ignoring Test C
 
 Can be used to specify supported tags. SpecSync will only synchronize the supported tags and ignore all others. See [customization-ignore-non-supported-local-tags.md](../../features/push-features/customization-ignore-non-supported-local-tags.md "mention") for details.
 
-| Setting                                     | Description                                                                                                                                         | Default                       |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| `ignoreNotSupportedLocalTags/enabled`       | Enables the customization.                                                                                                                          | `false`                       |
-| `ignoreNotSupportedLocalTags/supportedTags` | The list of local (scenario) tags. The list can contain full tag names (e.g. `@my-tag1`) or tag name prefixes with tail wildcard (e.g. `@my-tag*`). | empty (no tags are supported) |
+| Setting                                        | Description                                                                                                                                                                                                                                                | Default                         |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `ignoreNotSupportedLocalTags/enabled`          | Enables the customization.                                                                                                                                                                                                                                 | `false`                         |
+| `ignoreNotSupportedLocalTags/supportedTags`    | The list of local (scenario) tags that can be synchronized to Azure DevOps. The list can contain full tag names (e.g. `@my-tag1`) or tag name prefixes with tail wildcard (e.g. `@my-tag*`).                                                               | empty (no tags are supported)   |
+| `ignoreNotSupportedLocalTags/notSupportedTags` | The list of local (scenario) tags that cannot be synchronized to Azure DevOps. This setting cannot be used together with 'supportedTags'. The list can contain full tag names (e.g. `@my-tag1`) or tag name prefixes with tail wildcard (e.g. `@my-tag*`). | `supportedTags` setting is used |
 
 ###
 

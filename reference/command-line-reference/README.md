@@ -64,6 +64,31 @@ The following command line options are available for all commands that require e
 | `-v`, `--verbose` \(`--diag` in v3.0\) | If specified, diagnostic information will be added to the output. Overrides `toolSettings/outputLevel` setting of the configuration file. | false |
 | `--log` &lt;LOG-FILE&gt; | If specified, the output will also be saved to a log file. | no log file is written |
 | `--zeroExitCodeForWarnings` | If specified, the command line tool will terminate with 0 exit code even in case of warnings. | Non-zero exit code is returned for warnings |
+| `--configOverride` | Can be used to override configuration file settings. This option can be used multiple times. See [Override configuration setting from command line](#override-configuration-setting-from-command-line) for details. | No configuration setting overrides |
+
+## Override configuration setting from command line
+
+With the `--configOverride` option any configuration file setting can be overridden even if there is no dedicated command line option for that. Using this option can be used as a backup solution to handle special cases. As an alternative to this option, you can also consider using [hierarchical configuration files](../../features/hierarchical-configuration-files.md).
+
+The following example overrides the user name setting in the `remote` configuration section (equivalent to the exposed `--user` option).
+
+```text
+dotnet specsync push --configOverride "remote/user=myusername"
+```
+
+{% hint style="warning" %}
+Most of the configuration settings changes the synchronization behavior and therefore changing them might cause a modification for many Test Cases. Therefore it is generally not recommended to use the `--configOverride` option. Please contact [support](contact/specsync-support.md) if you are unsure about how to solve a particular synchronization requirement with SpecSync.
+{% endhint %}
+
+In order to override multiple configuration setting, the `--configOverride` option can be used multiple times or you can specify multiple settings separated by a semicolon \(`;`\).
+
+The value for the `--configOverride` option is a *configuration setter* that has to follow a certain format: `<path>=<value>`, where
+
+* `<path>` is the path of the configuration setting, e.g. `remote/testSuite/name`. For overriding values of list \(array\) settings, you can use the following path values:
+  * `<array-path>[<index>]` -- overrides a setting at a specific index. E.g. `synchronization/links[0]/tagPrefix` can be used to set or override the `tagPrefix` setting of the first `link` element.
+  * `<array-path>[]` -- adds a new element to the end of the list. E.g. `synchronization/links[]/tagPrefix` can be used to add a new link element and set the `tagPrefix` setting.
+  * `<array-path>[-<index>]` -- overrides a setting at a specific index backwards (-1 is the last element, -2 is the one before last, etc.). E.g. `synchronization/links[-1]/tagPrefix` can be used to set or override the `tagPrefix` setting of the last `link` element. This setting can also be used in combination with the `[]` syntax. E.g. the following two setting adds a new link elements and sets two settings of it: `synchronization/links[]/tagPrefix=bug;synchronization/links[-1]/relationship=tests`
+* `<value>` is the new value of the setting. The option recognizes numbers, booleans \(true/false\) and arbitrary strings.
 
 ## Examples
 

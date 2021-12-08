@@ -4,6 +4,13 @@
 For plans for future release please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.2.9 - 2021/12/08
+
+### Improvements
+
+* The [Ignore non-supported local tags](features/push-features/customization-ignore-non-supported-local-tags.md) customization has been extended to allow specifying the not-supported tags instead of the supported tags in order to handle cases where you want to skip synchronizing certain tags. (#568)
+* Override any configuration setting from command line using the `--configOverride` option. See [Override configuration setting from command line](reference/command-line-reference#override-configuration-setting-from-command-line) for details. (#578)
+
 ## v3.2.8 - 2021/11/22
 
 ### Improvements
