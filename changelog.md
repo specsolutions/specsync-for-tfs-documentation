@@ -4,6 +4,13 @@
 For plans for future release please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.2.10 - 2021/12/16
+
+### Bug fixes
+
+* Fix: When the specified Test Suite does not exists, an unnecessary ADO request is made (#582)
+* Fix: Scenario Outline results cannot be published when SpecFlow generator is configured with allowRowTests=false for xUnit and NUnit (#602)
+
 ## v3.2.9 - 2021/12/08
 
 ### Improvements
