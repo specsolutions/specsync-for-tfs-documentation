@@ -472,14 +472,14 @@ When upgrading from v2, please check the [Migrating from SpecSync v2 to v3](impo
 
 * Support for SpecFlow v2.3.\*
 * Support for synchronizing scenarios from a branch to a temporary set of test cases (see `--branchTagPrefix` option, experimental)
-* Fix: Generating feature-file code-beind files fail with the SpecFlow Visual Studio integration v2017.1.11 or later.
+* Fix: Generating feature-file code-behind files fail with the SpecFlow Visual Studio integration v2017.1.11 or later.
 * Fix: Do not remove filtered out test cases from the test suite.
 * Fix: Invalid tools version error when back-syncing new test cases.
 * Fix: Handle `&nbsp;` in test cases.
 * Fix: Use proper space encoding in the URL specified in the `@tfs` tag.
 * Fix: Do not add `@tfs` tag to feature if otherwise not changed (scenarios skipped)
 * Fix: Space handling in TFS collection name.
-* Fix: Missing parameter in paremetrized test case if the Scenario Outline placeholder is used in a DataTable.
+* Fix: Missing parameter in parametrized test case if the Scenario Outline placeholder is used in a DataTable.
 * Improved error handling
 
 ## v1.5.0 - 2018/04/11
@@ -488,7 +488,7 @@ When upgrading from v2, please check the [Migrating from SpecSync v2 to v3](impo
 
 ## v1.4.1 - 2018/04/10
 
-* Fix: ArgumentOutOfRangeException when syncronizing empty feature file
+* Fix: ArgumentOutOfRangeException when synchronizing empty feature file
 * Fix: Do not count skipped scenarios in summary
 * Improved error handling
 
@@ -496,7 +496,7 @@ When upgrading from v2, please check the [Migrating from SpecSync v2 to v3](impo
 
 * Use new TFS REST API (supports TFS 2015+)
 * Support synchronizing non-SpecFlow projects with the `--listFilePath` option. See page [Using SpecSync with Cucumber](http://speclink.me/specsynccucumber) for details.
-* Allow executing the synchronzation from OSX and Linux systems. See page [Using SpecSync on OSX/Linux](http://speclink.me/specsyncosxlinux) for details.
+* Allow executing the synchronization from OSX and Linux systems. See page [Using SpecSync on OSX/Linux](http://speclink.me/specsyncosxlinux) for details.
 * Filter scenarios to be synchronized with [tag expressions](https://docs.cucumber.io/tag-expressions/) using the `--tags` option.
 * `--skipAutomation` supports [tag expressions](https://docs.cucumber.io/tag-expressions/).
 * Improved test case formatting options (see [Configuring the format of the synchronized test cases](features/push-features/configuring-the-format-of-the-synchronized-test-cases.md))

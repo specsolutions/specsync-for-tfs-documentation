@@ -1,5 +1,16 @@
 {
   "cSpell.words": [
-    "Roadmap"
+    "azuredevops",
+    "endhint",
+    "Hiptest",
+    "Roadmap",
+    "specflow",
+    "specsync",
+    "VSTS"
+  ],
+  "cSpell.ignoreWords": [
+    "Newtonssoft",
+    "Posix",
+    "toolsettings"
   ]
 }
