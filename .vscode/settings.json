@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "azuredevops",
+    "Behat",
     "endhint",
     "Hiptest",
     "Roadmap",
@@ -11,6 +12,7 @@
   "cSpell.ignoreWords": [
     "Newtonssoft",
     "Posix",
+    "myusername",
     "toolsettings"
   ]
 }
