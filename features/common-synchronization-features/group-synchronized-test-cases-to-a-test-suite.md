@@ -36,7 +36,7 @@ As a result, SpecSync adds the synchronized test cases to the test suite.
 If you specify a test suite name that does not exist, SpecSync creates a test suite first \(under the first test plan\).
 
 {% hint style="info" %}
-_Since the test suite names are not unique in Azure DevOps, you can also specify the test suite ID in the_ `remote/testSuite/id` _setting._
+_The test suite names are not unique in Azure DevOps. If the same name is used for multiple suites, you should specify the test suite ID in the_ `remote/testSuite/id` _setting instead._
 {% endhint %}
 
 {% hint style="info" %}

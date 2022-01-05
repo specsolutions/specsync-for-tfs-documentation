@@ -195,7 +195,7 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
    ```
 
 {% hint style="info" %}
-_Since the test suite names are not unique in Azure DevOps, you can also specify the test suite ID in the_ `remote/testSuite/id` _setting._
+_The test suite names are not unique in Azure DevOps. If the same name is used for multiple suites, you should specify the test suite ID in the_ `remote/testSuite/id` _setting instead._
 {% endhint %}
 
 The synchronization will proceed with the result similar to this.
