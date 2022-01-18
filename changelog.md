@@ -4,6 +4,14 @@
 For plans for future release please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.2.11 - 2022/01/18
+
+### Bug fixes
+
+* Fix: Scenario outline xUnit result might not be found in TRX file when more data is provided in the examples table (#623)
+* Fix: String values cannot be set wrapped by quotes for config override (#610)
+* Fix: Config file path is not included in JSON deserialization error messages (#535)
+
 ## v3.2.10 - 2021/12/16
 
 ### Bug fixes
