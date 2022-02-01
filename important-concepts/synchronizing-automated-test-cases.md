@@ -11,7 +11,7 @@ SpecSync can be configured to mark the synchronized Test Cases as _Automated_. Y
 The documentation page [Mark Test Cases as Automated](../features/push-features/mark-test-cases-as-automated.md) contains the details about how this can be configured.
 
 {% hint style="info" %}
-After changing the automation configuration, you need to perform the push command with an additional `--force` setting. Using the `--force` setting is only required once.
+After changing the `condition` setting of the automation configuration, you need to perform the push command with an additional `--force` setting otherwise the existing Test Cases will not be updated until the next change of their scenario. Using the `--force` setting is only required once.
 {% endhint %}
 
 ### Publish test results to the synchronized Test Cases
