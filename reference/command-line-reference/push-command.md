@@ -10,6 +10,7 @@ In addition the the options listed here, all [common command line options](./#co
 | :--- | :--- | :--- |
 | `--disableLocalChanges` | If specified, only those changes will be performed that do not need any change in the local feature file. Linking new scenarios are skipped. Overrides `synchronization/diableLocalChanges` setting of the configuration file. See [Synchronizing test cases from build](../../important-concepts/synchronizing-test-cases-from-build.md) for details. | local changes enabled |
 | `--tagFilter` | A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be included in the current synchronization \(e.g. `@current_sprint and @done`\). See [Filters and scopes](../../important-concepts/filters-and-scopes.md) for details. | not filtered by tags |
+| `--linkOnly` | If specified, the command will link new scenarios to new Test Cases only and the existing Test Cases will not be updated. | false |
 | `--force` | If specified, SpecSync update test cases even if there is no local change and the test case was not modified remotely. | false |
 
 ## Examples

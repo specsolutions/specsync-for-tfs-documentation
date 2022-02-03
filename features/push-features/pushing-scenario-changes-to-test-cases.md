@@ -22,6 +22,10 @@ The SpecSync push command needs to modify the feature file when a new scenario i
 When performing the push on a build pipeline, or in any other cases where local changes cannot be preserved, the push command has to be invoked with the `--disableLocalChanges` switch. More information about using SpecSync in build pipelines can be found in the [Use SpecSync from build or release pipeline](../../important-concepts/synchronizing-test-cases-from-build.md) guide.
 {% endhint %}
 
+{% hint style="info" %}
+With SpecSync v3.3 or later you can perform the push operation with the `--linkOnly` flag so that it only links new scenarios and does not update existing Test Cases.
+{% endhint %}
+
 ## Test Case fields updated by the push command
 
 The push command updates certain fields of the linked Azure DevOps Test Case to represent the scenario changes as the following table shows.
