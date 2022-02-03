@@ -8,7 +8,10 @@ SpecSync provides a feature for two-way synchronization using the [`pull` comman
 
 In order to use the two-way synchronization feature efficiently, we recommend having a team agreement about whether the feature file or the Azure DevOps Test Case is the primary source of information at a time. For example, in the sprint planning preparation phase, the changes are made in the Azure DevOps Test Case, but once the sprint has been started, the changes are made in the feature file first.
 
-_Note: The two-way synchronization is an_ [_Enterprise feature_](../../licensing.md)_._
+{% hint style="info" %}
+The pull command (two-way synchronization) is an [*Enterprise feature*](../../licensing.md).
+{% endhint %}
+
 
 ## Two-way synchronization workflow
 
@@ -47,7 +50,13 @@ Once this configuration has been done, the general workflow could be:
 
 6. Check in \(commit and push\) your changes to source control
 
-_Note: SpecSync cannot ensure that the updated feature files are committed to the source control. If these changes are not committed, and someone else is also performing the synchronization, the changes will be synchronized multiple times causing various conflicts. We recommend to ensure that there are no parallel pull operations are performed._
+{% hint style="info" %}
+SpecSync cannot ensure that the updated feature files are committed to the source control. If these changes are not committed, and someone else is also performing the synchronization, the changes will be synchronized multiple times causing various conflicts. We recommend to ensure that there are no parallel pull operations are performed.
+{% endhint %}
+
+{% hint style="info" %}
+In certain cases SpecSync is not able to restore feature-level Gherkin constructs (e.g. feature-level tags or "Background" steps) without changing the behavior of the other scenarios in the same feature file. In this cases the pull command will finish with a warning and you need to review the performed changes manually.
+{% endhint %}
 
 ## Creating new scenarios from Test Cases
 
