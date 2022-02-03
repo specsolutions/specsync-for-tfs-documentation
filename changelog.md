@@ -38,6 +38,8 @@ For plans for future release please check the [Release Model and Roadmap](roadma
 * As the default value of the "Automated Test Type" Test Case field has been changed (see #550), you need to explicitly set the `synchronization/automation/automatedTestType` setting to `Unit Test` (the old default value), **when your processes were dependent on the old "Automated Test Type" value**. Usually this value is only informational, so the change will have no impact.
 * For scenario outlines with examples table that has columns not used in the steps, SpecSync will automatically add a pseudo-step by default to preserve these values (see #569). If this causes any problems, the feature can be disabled by setting the `synchronization/format/showParameterListStep` configuration setting to `never`. 
 * The SpecSync.AzureDevOps.Console package has been updated to use .NET Framework 4.7.2 instead of 4.7.1. This should have no impact on the usage. (#566)
+* The `listFile` and the `stdIn` values in the `local/featureFileSource/type` configuration setting are deprecated and will be removed in a future version. It is recommended to use `folder` value in combination with `sourceFiles` setting (#587) instead.
+* The `synchronization/links[]/mode` setting is deprecated and will be removed in a future version with the introduction of link synchronization (#570). As the mode had only one possible value, this change will have no impact. Please remove the setting.
 
 ### Bug Fixes
 
