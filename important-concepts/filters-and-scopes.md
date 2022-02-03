@@ -44,8 +44,16 @@ For the pull command the remote scope is mandatory. Read more about this in [Two
 
 ## Setting local filter
 
-To synchronize only a subset of the scenarios within the local scope, a filter tag expression can be specified as a command line option. \(See [Command line reference](../reference/command-line-reference/) for details.\) For example to only synchronize the scenarios related to a particular user story \(tagged with `@story:123`\), the following option can be used.
+To synchronize only a subset of the scenarios within the local scope you can specify a tag (`--tagFilter`) or a feature file filter (`--sourceFileFilter`) expression as a command line option. \(See [Command line reference](../reference/command-line-reference/) for details.\)
+
+For example to only synchronize the scenarios related to a particular user story \(tagged with `@story:123`\), the following option can be used.
 
 ```text
-path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push --tagFilter "@story:123"
+dotnet specsync push --tagFilter "@story:123"
+```
+
+To only synchronize a particular feature file in a sub-folder (e.g. `order.feature`), the following option can be used.
+
+```text
+dotnet specsync push --sourceFileFilter "**/order.feature"
 ```
