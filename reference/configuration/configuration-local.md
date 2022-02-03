@@ -14,6 +14,11 @@ The following example shows the available options within this section.
     },
 
     "tags": "@done and not (@ignored or @planned)",
+
+    "sourceFiles": [
+      "Folder1/",
+      "Folder3/**/alpha*.feature"
+    ],
     
     "defaultFeatureLanguage": "en-US"
   },
@@ -91,7 +96,15 @@ The following example shows the available options within this section.
       </td>
       <td style="text-align:left">A <a href="http://speclink.me/tagexpressions">tag expression</a> of scenarios
         that should be included in synchronization (e.g. <code>not @ignore</code> or <code>@done and not (@ignored or @planned)</code>).
-        See <a href="../../important-concepts/filters-and-scopes.md">Filters and scopes</a> for
+        See <a href="../../features/common-synchronization-features/excluding-scenarios-from-synchronization.md">Excluding scenarios from synchronization</a> for
+        details.</td>
+      <td style="text-align:left">all scenarios included</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>sourceFiles</code>
+      </td>
+      <td style="text-align:left">An array of <a href="https://en.wikipedia.org/wiki/Glob_%28programming%29">glob pattern</a> of feature files that should be included in synchronization (e.g. <code>Folder1/</code> or <code>Folder3/**/alpha*.feature</code>).
+        See <a href="../../features/common-synchronization-features/excluding-scenarios-from-synchronization.md">Excluding scenarios from synchronization</a> for
         details.</td>
       <td style="text-align:left">all scenarios included</td>
     </tr>

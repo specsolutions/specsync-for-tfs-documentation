@@ -8,11 +8,11 @@ For plans for future release please check the [Release Model and Roadmap](roadma
 
 ### New features
 
-* Attach files to Test Cases using tags. (See TODO for details.) (#489)
+* Attach files to Test Cases using tags. (See [feature documentation](features/push-features/attach-files.md) for details.) (#489)
 * Dry-run mode: all commands of SpecSync support a `--dryRun` option. With this option used no changes will be made neither to Azure DevOps nor to the feature files. This option is useful for testing the impact of an operation without making an actual change. (#115)
-* Re-link: a new SpecSync command that supports re-linking all scenarios after the Test Cases have been cloned using the Azure DevOps "Copy Test Plan" or "Copy Test Suite" features. (See TODO for details.) (#499)
-* Source files local scope: The set of scenarios considered for synchronization ("local scope") can be now also specified by specifying the set of feature files using the `local/sourceFiles` setting in the configuration file. (See TODO for details.) (#587)
-* Filter for feature files: when performing a push or pull command, the execution can be limited to a set of feature files using the `--sourceFileFilter` option. (See TODO for details.) (#492)
+* Re-link: a new SpecSync command that supports re-linking all scenarios after the Test Cases have been cloned using the Azure DevOps "Copy Test Plan" or "Copy Test Suite" features. (See [feature documentation](features/common-synchronization-features/re-link-scenarios.md) for details.) (#499)
+* Source files local scope: The set of scenarios considered for synchronization ("local scope") can be now also specified by specifying the set of feature files using the `local/sourceFiles` setting in the configuration file. (See [Excluding scenarios from synchronization](features/common-synchronization-features/excluding-scenarios-from-synchronization.md) for details.) (#587)
+* Filter for feature files: when performing a push or pull command, the execution can be limited to a set of feature files using the `--sourceFileFilter` option. (See [Filters and scopes](important-concepts/filters-and-scopes.md) for details.) (#492)
 
 ### Improvements
 
@@ -34,7 +34,7 @@ For plans for future release please check the [Release Model and Roadmap](roadma
 
 * The scenario hash that is calculated for the Test Cases (saved to the history) is not backwards compatible with v3.2 (see #111). 
   This means that once a Test Case has been updated with v3.3, **when downgrading to v3.2** an additional change will be recorded for the Test Cases. With the normal usage (no downgrade) the change has no impact.
-* The support for running **SpecFlow v2** scenarios using the [Test Plan / Test Suite based execution](TODO) has been removed (ie there is no update provided for the related SpecFlow plugins). You can still publish results from SpecFlow v2 projects using the "publish-test-results" command and can use the v3.2 plugins in combination with the v3.3 synchronizer if necessary. (#571)
+* The support for running **SpecFlow v2** scenarios using the [Test Plan / Test Suite based execution](features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) has been removed (ie there is no update provided for the related SpecFlow plugins). You can still publish results from SpecFlow v2 projects using the "publish-test-results" command and can use the v3.2 plugins in combination with the v3.3 synchronizer if necessary. (#571)
 * As the default value of the "Automated Test Type" Test Case field has been changed (see #550), you need to explicitly set the `synchronization/automation/automatedTestType` setting to `Unit Test` (the old default value), **when your processes were dependent on the old "Automated Test Type" value**. Usually this value is only informational, so the change will have no impact.
 * For scenario outlines with examples table that has columns not used in the steps, SpecSync will automatically add a pseudo-step by default to preserve these values (see #569). If this causes any problems, the feature can be disabled by setting the `synchronization/format/showParameterListStep` configuration setting to `never`. 
 * The SpecSync.AzureDevOps.Console package has been updated to use .NET Framework 4.7.2 instead of 4.7.1. This should have no impact on the usage. (#566)
