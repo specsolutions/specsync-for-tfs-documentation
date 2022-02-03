@@ -4,6 +4,54 @@
 For plans for future release please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.0 - soon
+
+### New features
+
+* Attach files to Test Cases using tags. (See TODO for details.) (#489)
+* Dry-run mode: all commands of SpecSync support a `--dryRun` option. With this option used no changes will be made neither to Azure DevOps nor to the feature files. This option is useful for testing the impact of an operation without making an actual change. (#115)
+* Re-link: a new SpecSync command that supports re-linking all scenarios after the Test Cases have been cloned using the Azure DevOps "Copy Test Plan" or "Copy Test Suite" features. (See TODO for details.) (#499)
+* Source files local scope: The set of scenarios considered for synchronization ("local scope") can be now also specified by specifying the set of feature files using the `local/sourceFiles` setting in the configuration file. (See TODO for details.) (#587)
+* Filter for feature files: when performing a push or pull command, the execution can be limited to a set of feature files using the `--sourceFileFilter` option. (See TODO for details.) (#492)
+
+### Improvements
+
+* Display more details about the synchronization command (e.g. how many Test Cases have been modified, how many Test Cases were up-to-date) (#583)
+* Link-only flag for push: you can specify a `--linkOnly` flag to the push command, that skips updating the existing Test Cases, but creates and links new Test Cases for the new scenarios. (#633)
+* Create-only flag for pull: you can specify a `--createOnly` flag to the pull command, that skips updating the existing scenarios, but creates new scenarios (in new feature files) for the new Test Cases. (#303)
+* The "Automated Test Type" Test Case field is better used: The default value (`Unit Test`) for the "Automated Test Type" Test Case field has been changed. The new default value is `Gherkin` for non-SpecFlow projects and `SpecFlow` for SpecFlow projects. The default value of the field can be changed using the `synchronization/automation/automatedTestType` setting in the configuration file. The change is performed with the next change of the Test Case or can be forced by running the push command with an additional `--force` flag. (#550)
+* Work item link tracking: The work item links created by SpecSync are tracked now. This means that if a link was established by SpecSync and the related scenario tag is removed from the feature file, the link will also be removed at the next synchronization. The links created manually or by an earlier version of SpecSync are never removed. (#570)
+* All scenario outline examples columns are preserved. If you had a scenario outline with an examples table that contained a column (e.g. "description") that was not used anywhere in the steps, this column was not synchronized to Azure DevOps. Now in this case an additional pseudo-test step is added to the Test Case, in order to preserve all parameters. This behavior can be forced to all scenario outlines or completely disabled using the `synchronization/format/showParameterListStep` configuration setting. (#569)
+* Support for Gherkin v22: tagged rules, rule-specific backgrounds (#497)
+* Support for Background steps in pull (#611)
+* Improved change detection for scenarios (new hash algorithm) (#111)
+* Improved possibilities for SpecSync plugins
+  * Allow analyzing custom keyword (#552)
+  * Allow using class name and method name in test result matchers for detecting data row (#603)
+  * Customizable base classes for writing custom test source plugins easier (#557)
+
+### Breaking changes
+
+* The scenario hash that is calculated for the Test Cases (saved to the history) is not backwards compatible with v3.2 (see #111). 
+  This means that once a Test Case has been updated with v3.3, **when downgrading to v3.2** an additional change will be recorded for the Test Cases. With the normal usage (no downgrade) the change has no impact.
+* The support for running **SpecFlow v2** scenarios using the [Test Plan / Test Suite based execution](TODO) has been removed (ie there is no update provided for the related SpecFlow plugins). You can still publish results from SpecFlow v2 projects using the "publish-test-results" command and can use the v3.2 plugins in combination with the v3.3 synchronizer if necessary. (#571)
+* As the default value of the "Automated Test Type" Test Case field has been changed (see #550), you need to explicitly set the `synchronization/automation/automatedTestType` setting to `Unit Test` (the old default value), **when your processes were dependent on the old "Automated Test Type" value**. Usually this value is only informational, so the change will have no impact.
+* For scenario outlines with examples table that has columns not used in the steps, SpecSync will automatically add a pseudo-step by default to preserve these values (see #569). If this causes any problems, the feature can be disabled by setting the `synchronization/format/showParameterListStep` configuration setting to `never`. 
+* The SpecSync.AzureDevOps.Console package has been updated to use .NET Framework 4.7.2 instead of 4.7.1. This should have no impact on the usage. (#566)
+
+### Bug Fixes
+
+* Fix: Feature tags are duplicated at the scenario on pull (#612)
+* Fix: Test Case parameters are not cleared when a Scenario Outline is changed to a normal Scenario (#641)
+* Fix: When only non-SpecSync managed fields changed in ADO, but these fields are updated with a customization, scenario is detected to be up-to-date even with --force (392)
+
+## v3.2.12 - soon
+
+### Bug fixes
+
+* Fix: Test Configuration might not be resolved by name when there are more than 200 configurations specified in the project (#629)
+* Fix: The relativeResultsDirectory attribute of the UnitTestResult element of the TRX file is not used to find attachments (#635)
+
 ## v3.2.11 - 2022/01/18
 
 ### Bug fixes
