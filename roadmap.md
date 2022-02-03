@@ -32,8 +32,8 @@ There is not yet a final date for the v3.3 release, but the final version is pla
 * Support for dry-run: synchronization attempt without making any change in Azure DevOps or in the local repository
 * Support for latest Gherkin version (v20)
 * Filter synchronization for feature files
-* Interactive synchronization: ask before applying changes
 
 ### Features planned for v3.4
 
 * Provide more options to build complex Test Suite hierarchies automatically with SpecSync.
+* Interactive synchronization: ask before applying changes
