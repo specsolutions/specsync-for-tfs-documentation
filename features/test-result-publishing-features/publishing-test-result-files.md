@@ -24,7 +24,7 @@ With SpecSync v3.3 or later all operations, including the publish-test-results c
 
 
 {% hint style="info" %}
-You can find an overview of the Azure DevOps Test Case results in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/test/new-test-plans-page?view=azure-devops).
+You can find an overview of the Azure DevOps Test Case results in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/test/navigate-test-plans?view=azure-devops).
 {% endhint %}
 
 ## Getting scenario execution result from your BDD tool
