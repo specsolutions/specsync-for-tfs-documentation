@@ -16,7 +16,8 @@ The following example shows the available options within this sub-section.
       "emptyExpectedResultValue": "N/A"
       "syncDataTableAsText": false,
       "prefixBackgroundSteps": true,
-      "prefixTitle": true
+      "prefixTitle": true,
+      "showParameterListStep": "whenUnusedParameters"
     }
   },
   ...
@@ -32,6 +33,7 @@ The following example shows the available options within this sub-section.
 | `syncDataTableAsText` | If set to `true`, _Data Tables_ will be synchronized as plain text instead of HTML tables. | `false` |
 | `prefixBackgroundSteps` | If set to `true`, _Background_ steps will be synchronized with the `Background:` prefix. | `true` |
 | `prefixTitle` | If set to `true`, test case title will be synchronized with the `Scenario:` or `Scenario Outline:` prefix. | `true` |
+| `showParameterListStep` | Specifies whether an additional test case step should be synchronized that list the Test Case iteration parameters. | `whenUnusedParameters` |
 
 {% page-ref page="./" %}
 
