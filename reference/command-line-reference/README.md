@@ -61,6 +61,7 @@ The following command line options are available for all commands that require e
 | `--log` &lt;LOG-FILE&gt; | If specified, the output will also be saved to a log file. | no log file is written |
 | `--zeroExitCodeForWarnings` | If specified, the command line tool will terminate with 0 exit code even in case of warnings. | Non-zero exit code is returned for warnings |
 | `--configOverride` | Can be used to override configuration file settings. This option can be used multiple times. See [Override configuration setting from command line](#override-configuration-setting-from-command-line) for details. | No configuration setting overrides |
+| `--dryRun` | If specified, the command will be performed, but no actual change is made either to Azure DevOps or to the local test files (feature files). This option is useful for testing the impact of an operation without making an actual change. | Normal mode |
 
 ## Override configuration setting from command line
 

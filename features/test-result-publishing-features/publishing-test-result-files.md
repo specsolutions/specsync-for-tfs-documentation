@@ -19,6 +19,11 @@ dotnet specsync publish-test-result --testResultFile result.trx
 The [Use SpecSync from build or release pipeline](../../important-concepts/synchronizing-test-cases-from-build.md) guide contains details about how to integrate the publish-test-result command to a build or release pipeline.
 
 {% hint style="info" %}
+With SpecSync v3.3 or later all operations, including the publish-test-results command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
+{% endhint %}
+
+
+{% hint style="info" %}
 You can find an overview of the Azure DevOps Test Case results in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/test/new-test-plans-page?view=azure-devops).
 {% endhint %}
 

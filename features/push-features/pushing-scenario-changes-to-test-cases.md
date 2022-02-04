@@ -26,6 +26,10 @@ When performing the push on a build pipeline, or in any other cases where local 
 With SpecSync v3.3 or later you can perform the push operation with the `--linkOnly` flag so that it only links new scenarios and does not update existing Test Cases.
 {% endhint %}
 
+{% hint style="info" %}
+With SpecSync v3.3 or later all operations, including the push command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
+{% endhint %}
+
 ## Test Case fields updated by the push command
 
 The push command updates certain fields of the linked Azure DevOps Test Case to represent the scenario changes as the following table shows.

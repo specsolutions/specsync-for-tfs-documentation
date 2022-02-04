@@ -58,6 +58,10 @@ SpecSync cannot ensure that the updated feature files are committed to the sourc
 In certain cases SpecSync is not able to restore feature-level Gherkin constructs (e.g. feature-level tags or "Background" steps) without changing the behavior of the other scenarios in the same feature file. In this cases the pull command will finish with a warning and you need to review the performed changes manually.
 {% endhint %}
 
+{% hint style="info" %}
+With SpecSync v3.3 or later all operations, including the pull command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
+{% endhint %}
+
 ## Creating new scenarios from Test Cases
 
 By default, the pull command only loads the changes of the Test Cases that have been linked to a scenario already \(i.e. have been synchronized with SpecSync push once\).
