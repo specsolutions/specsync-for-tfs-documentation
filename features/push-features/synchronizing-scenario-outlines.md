@@ -31,7 +31,6 @@ The image above shows the behaviour with the `never` option (the behaviour prior
 {% endhint %}
 
 
-## Associating automation for a scenario outline test case \(for SpecFlow\)
+## Special considerations for test-suite based execution
 
-For synchronizing automated test cases from Scenario Outline, the test case has to be associated with a single test method \(normally SpecFlow generates one method for each example within the Scenario Outline\). For SpecFlow unit test providers that do not generate a single method, like MsTest, this can be done using the SpecFlow plugin provided by SpecSync. See more about this at [Synchronizing automated test cases](../../important-concepts/synchronizing-automated-test-cases.md).
-
+When the legacy [test-suite based execution](../test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) method with SpecFlow, the test case has to be associated with a single test method \(normally SpecFlow generates multiple test methods for the Scenario Outline, one for each example\). To be able to produce such a single test method, a SpecFlow plugin has to be used that is provided by SpecSync. See more about this at the [Support for Azure DevOps Test Plan / Test Suite based test execution](../test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) page.
