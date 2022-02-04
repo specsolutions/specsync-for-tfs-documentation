@@ -24,7 +24,7 @@ SpecSync is supported on Windows, Linux and MacOS operating systems. It can be i
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.
 
-## Supported Test Result Formats
+## Supported test result formats
 
 | BDD Tool                                                        | Runner                   | Extension | Format specifier       |
 | --------------------------------------------------------------- | ------------------------ | --------- | ---------------------- |
@@ -47,9 +47,11 @@ Other test result formats are added on request. Please [contact support](../cont
 
 ## Supported SpecFlow versions <a href="supported-specflow-versions" id="supported-specflow-versions"></a>
 
-When synchronizing scenarios to non-automated test cases (default) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any SpecFlow versions.
+Synchronizing scenarios from SpecFlow projects and publishing test results is supported for **any SpecFlow versions**. 
 
-For synchronizing automated test cases with the "Suite based execution strategy", currently the following SpecFlow versions are supported.
+## Supported SpecFlow versions for test-suite based execution
+
+To be able to use the legacy [test-suite based execution](../features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) method, a special SpecFlow plugin has to be used that is specific to a particular SpecFlow version. This plugin is provided for the following SpecFlow versions.
 
 * SpecFlow v3.9 (from SpecSync v3.2.6)
 * SpecFlow v3.8 (from SpecSync v3.2.6)
@@ -60,16 +62,10 @@ For synchronizing automated test cases with the "Suite based execution strategy"
 * SpecFlow v3.3 (from SpecSync v2.1.14)
 * SpecFlow v3.1 (from SpecSync v2.1.10)
 * SpecFlow v3.0 (from SpecSync v2.1)
-* SpecFlow v2.4
-* SpecFlow v2.3
+* SpecFlow v2.4 (up to SpecSync v3.2)
+* SpecFlow v2.3 (up to SpecSync v3.2)
 * SpecFlow v2.2.1 (with SpecSync v1.4.1)
 
-See more details in [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md).
+For test-suite based execution, Azure DevOps supports only MsTest officially, but the plugins work also with MsTest V1 & V2, NUnit and xUnit on Azure DevOps and MsTest V1 on TFS2018 or earlier.
 
-## Supported SpecFlow unit test runners
-
-When synchronizing scenarios to non-automated test cases (default) or automated test cases with the "Assembly based execution" strategy, SpecSync can be used with any test runner supported by SpecFlow.
-
-For synchronizing automated test cases with the "Suite based execution strategy", SpecSync supports MsTest V1 & V2, NUnit and xUnit on Azure DevOps and MsTest V1 on TFS2018 or earlier.
-
-See more details in [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md).
+See more details on the [Support for Azure DevOps Test Plan / Test Suite based test execution](../features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) page.
