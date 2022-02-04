@@ -24,6 +24,8 @@ For that you need to mark the scenarios with tags, like `@story:123`, and specif
 
 This will synchronize the scenario with the Azure DevOps test case and establish a link between the test case and the user story \#123 work item.
 
+From SpecSync v3.3, the links created by SpecSync are removed when the tag is removed from the scenario. The links created manually or by an earlier version of SpecSync are never removed.
+
 ## Work item tags
 
 The work item tags should follow the pattern `@prefix:N`, where `prefix` is a label of your choice \(e.g. `story`, `bug` or `wi`\) and `N` is the ID of the related work item \(e.g. `123`\).
@@ -63,7 +65,9 @@ In order to use multiple tag prefixes, you have to list multiple link type confi
 }
 ```
 
-_Note: SpecSync does not check the type of the referred work item. Specifying_ `@bug:123` _will also make the link between the user story \#123 and the test case. Though you can establish different link types for the different prefixes._
+{% hint style="info" %}
+SpecSync does not check the type of the referred work item. Specifying `@bug:123` will also make the link between the user story \#123 and the test case. Though you can establish different link types for the different prefixes.
+{% endhint %}
 
 ## Link types
 
@@ -93,7 +97,7 @@ For linking Pull Requests, the `relationship` setting is mandatory and has to be
 {% endhint %}
 
 {% hint style="warning" %}
-Currently changing the link type will not trigger the re-synchronization of the scenario. If the scenario has been synchronized already, you have to to force synchronization using the [`--force` command line option](../../reference/command-line-reference/).
+Changing the link type will not trigger the re-synchronization of the scenario. If the scenario has been synchronized already, you have to to force synchronization using the [`--force` command line option](../../reference/command-line-reference/).
 {% endhint %}
 
 ## Linking Pull Requests
@@ -102,6 +106,5 @@ From SpecSync v3.2 the Test Cases can also be linked to Pull Requests using tags
 
 ## Limitations
 
-* Existing test case links are not removed automatically, even if you remove the tag from the scenario. They have to be removed manually.
 * Link tags are not created when the Test Case changes retrieved with the pull command.
-
+* In SpecSync v3.2 or earlier: Existing test case links are not removed automatically, even if you remove the tag from the scenario. They have to be removed manually.
