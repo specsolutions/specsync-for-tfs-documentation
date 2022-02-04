@@ -71,6 +71,7 @@
   * [push](reference/command-line-reference/push-command.md)
   * [pull](reference/command-line-reference/pull-command.md)
   * [publish-test-results](reference/command-line-reference/publish-test-results-command.md)
+  * [re-link](reference/command-line-reference/re-link-command.md)
   * [version](reference/command-line-reference/version-command.md)
 * [Configuration reference](reference/configuration/README.md)
   * [toolSettings](reference/configuration/configuration-toolsettings.md)

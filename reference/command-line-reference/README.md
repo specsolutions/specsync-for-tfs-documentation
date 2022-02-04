@@ -42,6 +42,7 @@ _SpecSync collects anonymous error diagnostics and statistics. Neither user nor 
 | [push](push-command.md) | All | Pushes changes of the scenarios on the local repository to the Azure DevOps server. This includes linking of new scenarios to new test cases \(link\) and updating test cases of linked scenarios \(update\). |
 | [pull](pull-command.md) | All | Pulls changes from Azure DevOps server to the local repository. This by default includes creation of new scenarios from unlinked test cases \(create\) and changing scenarios of linked test cases \(change\). |
 | [publish-test-results](publish-test-results-command.md) | 2.1 + | Publishes local test results to Azure DevOps server. |
+| [re-link](re-link-command.md) | 3.3 + | Re-links scenarios (local test cases) to cloned Test Cases in Azure DevOps. |
 | help | All | Displays help information or help for a command. |
 | version | All | Displays SpecSync version and license information. |
 
