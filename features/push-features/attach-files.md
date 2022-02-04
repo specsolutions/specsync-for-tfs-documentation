@@ -20,7 +20,9 @@ SpecSync can attach files to Test Cases during synchronization using tags. In or
 }
 ```
 
-You can specify one or more attachment tags for a scenario and you can also use wildcards \([glob patterns](https://en.wikipedia.org/wiki/Glob_%28programming%29)\) as well in the tag to attach multiple files with a single tag. The attachment tag should be in the `@attachment:<attached-file-name>` format, but the tag prefix can also be customized. For example, to attach a file `screen.png` to a scenario, you have to tag it with `@attachment:screen.png`. To attach all PNG files from within images folder (including sub-folders), you can tags the scenario with `@attachment:images/**/*.png`.
+You can specify one or more attachment tags for a scenario and you can also use wildcards \([glob patterns](https://en.wikipedia.org/wiki/Glob_%28programming%29)\) as well in the tag to attach multiple files with a single tag. The attachment tag should be in the `@attachment:<attached-file-name>` format, but the tag prefix can be customized. 
+
+For example, to attach a file `screen.png` to a scenario, you have to tag it with `@attachment:screen.png`. To attach all PNG files from within images folder (including sub-folders), you can tags the scenario with `@attachment:images/**/*.png`.
 
 SpecSync tracks the changes of the attached files and automatically re-attach the updated files when they are changed. The attachments are removed from the Test Case when the attachment tag is removed from the scenario.
 
