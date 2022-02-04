@@ -14,6 +14,8 @@ This chapter contains features related to updating Test Cases based on the local
 
 {% page-ref page="setting-test-case-state-on-change.md" %}
 
+{% page-ref page="attach-files.md" %}
+
 {% page-ref page="customization-setting-test-case-fields-with-default-values.md" %}
 
 {% page-ref page="customization-update-custom-test-case-fields-on-push.md" %}
