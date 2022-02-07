@@ -47,7 +47,7 @@ For plans for future release please check the [Release Model and Roadmap](roadma
 * Fix: Test Case parameters are not cleared when a Scenario Outline is changed to a normal Scenario (#641)
 * Fix: When only non-SpecSync managed fields changed in ADO, but these fields are updated with a customization, scenario is detected to be up-to-date even with --force (392)
 
-## v3.2.12 - soon
+## v3.2.12 - 2022/02/07
 
 ### Bug fixes
 
