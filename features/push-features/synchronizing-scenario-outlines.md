@@ -25,7 +25,7 @@ SpecSync synchronizes scenario outlines automatically to parametrized test cases
 ![Test case synchronized from scenario outline](../../.gitbook/assets/scenario-outlines-parametrized-test-case.png)
 
 {% hint style="info" %}
-The scenario outline above has a column in the examples table ("description") that is not used in the scenario steps. In Azure DevOps you can only list parameters if they are included in one of the steps, so to be able to preserve the parameter values, with SpecSync v3.3 or later SpecSync will automatically add a last pseudo-step that lists all parameters, including the "description" value. This behavior can be customized using the `synchronization/format/showParameterListStep` configuration setting. The default value is `whenUnusedParameters` but you can force to generate the pseudo-step always using the value `always` or completely disable using the value `never`.
+The scenario outline above has a column in the examples table ("description") that is not used in the scenario steps. In Azure DevOps you can only list parameters if they are included in one of the steps, so to be able to preserve the parameter values, with SpecSync v3.3 or later SpecSync will automatically add a first pseudo-step that lists all parameters, including the "description" value. This behavior can be customized using the `synchronization/format/showParameterListStep` configuration setting. The default value is `whenUnusedParameters` but you can force to generate the pseudo-step always using the value `always` or completely disable using the value `never`.
 
 The image above shows the behaviour with the `never` option (the behaviour prior to v3.3).
 {% endhint %}
