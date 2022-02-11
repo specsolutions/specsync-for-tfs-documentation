@@ -29,6 +29,7 @@ For plans for future release please check the [Release Model and Roadmap](roadma
   * Allow analyzing custom keyword (#552)
   * Allow using class name and method name in test result matchers for detecting data row (#603)
   * Customizable base classes for writing custom test source plugins easier (#557)
+  * The test result matcher infrastructure has been adapted to the other "provider-style" services and `TestResultMatcher` has been renamed to `TestResultMatcherProvider` on the plugin interface (#647)
 
 ### Breaking changes
 
@@ -40,6 +41,7 @@ For plans for future release please check the [Release Model and Roadmap](roadma
 * The target framework of the SpecSync SpecFlow plugins has been updated to use .NET Framework 4.7.2 instead of 4.7.1. This should have no impact on the usage. (The SpecSync.AzureDevops.Console package still depends on .NET Framework 4.6.2, this wasn't changed.) (#566)
 * The `listFile` and the `stdIn` values in the `local/featureFileSource/type` configuration setting are deprecated and will be removed in a future version. It is recommended to use `folder` value in combination with `sourceFiles` setting (#587) instead.
 * The `synchronization/links[]/mode` setting is deprecated and will be removed in a future version with the introduction of link synchronization (#570). As the mode had only one possible value, this change will have no impact. Please remove the setting.
+* Because of the improved possibilities for SpecSync plugins, the SpecSync plugins created for v3.2 have to be adapted slightly.
 
 ### Bug Fixes
 
