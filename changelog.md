@@ -34,6 +34,7 @@ For planned features in future releases please check the [Release Model and Road
   * Allow using class name and method name in test result matchers for detecting data row (#603)
   * Customizable base classes for writing custom test source plugins easier (#557)
   * The test result matcher infrastructure has been adapted to the other "provider-style" services and `TestResultMatcher` has been renamed to `TestResultMatcherProvider` on the plugin interface (#647)
+  * More functions defined on the `ILocalTestCaseContainerUpdater` interface (#648)
 
 ### Breaking changes
 
