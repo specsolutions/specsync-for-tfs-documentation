@@ -18,6 +18,10 @@ We provide three type of releases:
 It is always recommended to update to the latest update release as it might contain important bug fixes. It is also recommended to update to the latest main release at least once a year.
 {% endhint %}
 
+{% hint style="info" %}
+The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-upgrade-specsync.md) guide contains information about how to upgrade to a newer version.
+{% endhint %}
+
 ## Roadmap
 
 ### Most important features planned for v3.3

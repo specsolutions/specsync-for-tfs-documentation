@@ -1,7 +1,11 @@
 # Changelog
 
 {% hint style="info" %}
-For plans for future release please check the [Release Model and Roadmap](roadmap.md) page.
+The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-upgrade-specsync.md) guide contains information about how to upgrade to a newer version.
+{% endhint %}
+
+{% hint style="info" %}
+For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
 ## v3.3.0 - soon
