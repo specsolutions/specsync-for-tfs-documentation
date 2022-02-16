@@ -1,0 +1,14 @@
+# How to upgrade to a newer version of SpecSync
+
+If you are using an older version of SpecSync it is recommended to upgrade it to a more recent version. If your version is older than 365 days, SpecSync will even remind you for upgrading.
+
+Before upgrade we recommend checking the [Changelog](../changelog.md) page and choose the version you would like to upgrade to. Upgrading to a newer update version (only the third number is different, e.g. `3.2.9` to `3.2.12`) can be done without planning and consideration, but for upgrading to a newer main version you should check the [Changelog](../changelog.md) for compatibility notes. You can find more details about the release types in the [Release Model and Roadmap](../roadmap.md) page.
+
+The upgrade procedure depends on how you have [installed SpecSync](../installation). In this list we provide the upgrade procedure for the most common installation options. In the examples we assume you want to upgrade to v3.2.12, but you need to replace this with the version you have chosen.
+
+* If you have installed SpecSync as a [.NET Tool](../installation/dotnet-core-tool.md) (you use it with the `dotnet specsync` command), you need to invoke `dotnet tool update SpecSync.AzureDevOps --version 3.2.12` from your local repository. Make sure you commit the changes to the `dotnet-tools.json` file and ask your team mates to perform a `dotnet tool restore` command after they pulled your change.
+* If you have installed as a [.NET Console App](../installation/dotnet-console.md) (you invoke `specsync4azuredevops.cmd` or you invoke `SpecSync4AzureDevOps.exe` from the `tools` folder of the [SpecSync.AzureDevOps.Console](https://www.nuget.org/packages/SpecSync.AzureDevOps.Console) NuGet package), you need to update the NuGet package with `dotnet add package SpecSync.AzureDevOps --version 3.2.12` or from the Package Manager in Visual Studio.
+* If you use the downloaded [binaries](../installation/native-binaries.md) (you invoke `SpecSync4AzureDevOps` or `SpecSync4AzureDevOps.exe` from an arbitrary folder), you need to download a newer version from the Downloads page.
+* If you use the SpecSync official [Docker image](../installation/docker-image.md) (you invoke a `docker run` command for the `specsolutions/specsync`, `specsolutions/specsync:3.2` or `specsolutions/specsync:3.2.9` image), you need to either use a specific tag (e.g. `specsolutions/specsync:3.2.12`) or make sure you have the latest version of the image using the `docker pull specsolutions/specsync:3.2` command.
+
+If you have problems or questions related to upgrading SpecSync, please contact [support](../contact/specsync-support.md).

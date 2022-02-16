@@ -52,6 +52,7 @@
   * [Filters and scopes](important-concepts/filters-and-scopes.md)
   * [How to synchronize automated test cases](important-concepts/synchronizing-automated-test-cases.md)
   * [How to use SpecSync from build or release pipeline](important-concepts/synchronizing-test-cases-from-build.md)
+  * [How to upgrade to a newer version of SpecSync](important-concepts/how-to-upgrade-specsync.md)
   * [How to attach files to test results](important-concepts/how-to-attach-files-to-test-results.md)
   * [Using SpecSync with SpecFlow+](important-concepts/using-specsync-with-specflow-plus.md)
   * [Using SpecSync with Cucumber](important-concepts/using-specsync-with-cucumber.md)
