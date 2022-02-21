@@ -6,4 +6,4 @@ The format of the synchronized test cases can be changed with the following ways
 * To synchronize data tables as plain text, change the `synchronization/format/syncDataTableAsText` setting.
 * To skip adding the _Background:_ prefix for background steps, change the `synchronization/format/prefixBackgroundSteps` setting.
 * To skip adding the _Scenario:_ or _Scenario Outline:_ prefix for the test case title, change the `synchronization/format/prefixTitle` setting.
-
+* To change the behavior of how scenario outline parameters are synchronized change the `synchronization/format/showParameterListStep` setting.
