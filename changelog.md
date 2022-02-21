@@ -36,7 +36,7 @@ For planned features in future releases please check the [Release Model and Road
   * The test result matcher infrastructure has been adapted to the other "provider-style" services and `TestResultMatcher` has been renamed to `TestResultMatcherProvider` on the plugin interface (#647)
   * More functions defined on the `ILocalTestCaseContainerUpdater` interface (#648)
 
-### Breaking changes
+### Breaking changes <a href="v3-3-0-compatibility" id="v3-3-0-compatibility"></a>
 
 * The scenario hash that is calculated for the Test Cases (saved to the history) is not backwards compatible with v3.2 (see #111). 
   This means that once a Test Case has been updated with v3.3, **when downgrading to v3.2** an additional change will be recorded for the Test Cases. With the normal usage (no downgrade) the change has no impact.
