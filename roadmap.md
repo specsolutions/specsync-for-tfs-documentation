@@ -24,20 +24,12 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 
 ## Roadmap
 
-### Most important features planned for v3.3
+We have just released v3.3 and the detailed planning of v3.4 has not started yet. Smaller compatible feature requests are now provided for v3.3. 
 
-There is not yet a final date for the v3.3 release, but the final version is planned to be published in Q1 2022.
+### Planned features
 
-* Support for attaching files to Test Cases via tags
-* Improved change detection of scenarios
-* Full synchronization of Test Case links that are established through link tags (so far the links were not removed from the Test Case even if the link tag has been removed from the scenario)
-* Option to generate an additional first step for scenario outlines that lists all possible parameters
-* Support for updating scenario tags after performing a "Clone Test Plan" command in Azure DevOps
-* Support for dry-run: synchronization attempt without making any change in Azure DevOps or in the local repository
-* Support for latest Gherkin version (v20)
-* Filter synchronization for feature files
-
-### Features planned for v3.4
-
+* Tag-based remote scope
+* Automatically synchronize Tets Case tags from feature title
+* Cucumber messages test result support
 * Provide more options to build complex Test Suite hierarchies automatically with SpecSync.
 * Interactive synchronization: ask before applying changes
