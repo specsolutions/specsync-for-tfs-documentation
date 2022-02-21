@@ -1,8 +1,15 @@
 # Downloads
 
-SpecSync is available as a portable .NET tool, so we recommend using that on all platforms, including macOS/Linux. See [Install as .NET tool](installation/dotnet-core-tool.md) for details.&#x20;
+SpecSync is available as a portable .NET tool, so we recommend using that on all platforms, including macOS/Linux. See [Install as .NET tool](installation/dotnet-core-tool.md) for details.
 
 The following links contain direct download options as an alternative to that.
+
+## v3.3
+
+* Windows: [SpecSync.AzureDevOps.Console.3.3.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.3.3.0.zip)
+* Linux: [SpecSync.AzureDevOps.3.3.0-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.3.0-linux-x64.zip)
+* OSX: [SpecSync.AzureDevOps.3.3.0-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.3.0-osx-x64.zip)
+* Any platform (.NET Core 3.1, .NET 5 or .NET 6 SDK required): [SpecSync.AzureDevOps.3.3.0.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.3.3.0.zip)
 
 ## v3.2
 

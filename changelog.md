@@ -8,7 +8,7 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
-## v3.3.0 - soon
+## v3.3.0 - 2022/02/21 <a href="v3-3-0" id="v3-3-0"></a>
 
 ### New features
 
