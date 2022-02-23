@@ -2,6 +2,8 @@
 
 Pulls changes from Azure DevOps server to the local repository. This by default includes creation of new scenarios from unlinked test cases \(create\) and changing scenarios of linked test cases \(change\).
 
+See more details about the command in the [Pulling Test Case changes to local scenarios](../../features/pull-features/two-way-synchronization.md) article.
+
 ## Options
 
 In addition the the options listed here, all [common command line options](./#common-command-line-options) can also be used.

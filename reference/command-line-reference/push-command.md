@@ -2,6 +2,8 @@
 
 Pushes changes of the scenarios on the local repository to the Azure DevOps server. This includes linking of new scenarios to new test cases \(link\) and updating test cases of linked scenarios \(update\).
 
+See more details about the command in the [Pushing scenario changes to Test Cases](../../features/push-features/pushing-scenario-changes-to-test-cases.md) article.
+
 ## Options
 
 In addition the the options listed here, all [common command line options](./#common-command-line-options) can also be used.
