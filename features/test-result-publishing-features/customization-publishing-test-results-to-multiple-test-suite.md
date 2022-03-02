@@ -5,7 +5,7 @@ As described in the [Publishing test result files](publishing-test-result-files.
 The _Multi-suite publish_ customization for SpecSync allows publishing the same test results to multiple Test Suites (even into all Test Suite where the Test Case is included). Because of Azure DevOps limitations, these Test Suites must belong the the same Test Plan.
 
 {% hint style="info" %}
-The _Multi-suite publish _customization described here is an [Enterprise feature](../../licensing.md).
+The *Multi-suite publish* customization described here is an [Enterprise feature](../../licensing.md).
 {% endhint %}
 
 {% hint style="warning" %}

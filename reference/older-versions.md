@@ -1,9 +1,10 @@
 # Older versions
 
-The reference guide contains the documentation of SpecSync for AzureDevOps v3.2. 
+The reference guide contains the documentation of SpecSync for AzureDevOps v3.3. 
 
 ## Reference for older versions
 
+* v3.2: [SpecSync Reference v3.2 (un-rendered MarkDown)](https://github.com/specsolutions/specsync-for-tfs-documentation/tree/line-3.2)
 * v2.1: [SpecSync Reference v2.1](http://speclink.me/specsync-ref-v21)
 
 ## Migration guides
