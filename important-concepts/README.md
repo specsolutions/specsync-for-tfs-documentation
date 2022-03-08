@@ -12,6 +12,8 @@ Please check the following guides.
 
 {% page-ref page="synchronizing-test-cases-from-build.md" %}
 
+{% page-ref page="how-to-use-the-pipeline-tasks.md" %}
+
 {% page-ref page="how-to-upgrade-specsync.md" %}
 
 {% page-ref page="how-to-attach-files-to-test-results.md" %}
