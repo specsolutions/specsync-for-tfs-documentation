@@ -8,6 +8,13 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.1 - 2022/03/10
+
+### Bug fixes
+
+* Fix: Test execution history is not displayed in the History tab of the Test Run (#653)
+* Fix: Tests appear multiple times in the 'Tests' tab of the pipeline result when the `VsTest` task is used. To fix this there is a new "SpecSync Tools" Azure DevOps extension, that contains a task "Visual Studio Test for SpecSync" that is a modified version of the `VsTest` task that does not display the result in the 'Tests' tab. (See [How to use the SpecSync Azure DevOps pipeline tasks](important-concepts/how-to-use-the-pipeline-tasks.md) for details.) (#655)
+
 ## v3.3.0 - 2022/02/21 <a href="v3-3-0" id="v3-3-0"></a>
 
 ### New features
