@@ -61,6 +61,13 @@ For planned features in future releases please check the [Release Model and Road
 * Fix: Test Case parameters are not cleared when a Scenario Outline is changed to a normal Scenario (#641)
 * Fix: When only non-SpecSync managed fields changed in ADO, but these fields are updated with a customization, scenario is detected to be up-to-date even with --force (392)
 
+## v3.2.13 - 2022/03/10
+
+### Bug fixes
+
+* Fix: Test execution history is not displayed in the History tab of the Test Run (#653)
+* Fix: Tests appear multiple times in the 'Tests' tab of the pipeline result when the `VsTest` task is used. To fix this there is a new "SpecSync Tools" Azure DevOps extension, that contains a task "Visual Studio Test for SpecSync" that is a modified version of the `VsTest` task that does not display the result in the 'Tests' tab. (See [How to use the SpecSync Azure DevOps pipeline tasks](important-concepts/how-to-use-the-pipeline-tasks.md) for details.) (#655)
+
 ## v3.2.12 - 2022/02/07
 
 ### Bug fixes
