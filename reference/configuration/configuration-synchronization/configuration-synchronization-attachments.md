@@ -11,8 +11,8 @@ The following example shows the available options within this sub-section.
   ...
   "synchronization": {
     ...
-    "automation": {
-      "attachments": true,
+    "attachments": {
+      "enabled": true,
       "tagPrefixes": [
         "wireframe",
         "specification"

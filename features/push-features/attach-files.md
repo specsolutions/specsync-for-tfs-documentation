@@ -4,7 +4,7 @@
 This feature is supported in SpecSync v3.3 or later.
 {% endhint %}
 
-SpecSync can attach files to Test Cases during synchronization using tags. In order to use this feature, it has to be enabled in the configuration file. 
+SpecSync can attach files to Test Cases during synchronization using tags. In order to use this feature, it has to be enabled in the configuration file using the [`synchronization/attachments` section](../../reference/configuration/configuration-synchronization/configuration-synchronization-attachments.md). 
 
 ```javascript
 {
