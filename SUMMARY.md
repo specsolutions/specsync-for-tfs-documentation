@@ -88,6 +88,7 @@
     * [areaPath](reference/configuration/configuration-synchronization/configuration-synchronization-areapath.md)
     * [iterationPath](reference/configuration/configuration-synchronization/configuration-synchronization-iterationpath.md)
     * [links](reference/configuration/configuration-synchronization/configuration-synchronization-links.md)
+    * [attachments](reference/configuration/configuration-synchronization/configuration-synchronization-attachments.md)
     * [format](reference/configuration/configuration-synchronization/configuration-synchronization-format.md)
   * [publishTestResults](reference/configuration/publishtestresults.md)
   * [specFlow](reference/configuration/configuration-specflow.md)
