@@ -23,6 +23,12 @@ In addition the the options listed here, all [common command line options](./#co
       <td
       style="text-align:left">detect from Test Cases</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>---workItemClonesFile </code>&lt;CSV&#x2011;FILE&#x2011;PATH&gt;</td>
+      <td style="text-align:left">A path of a CSV file that contains additional Work Item clones to be processed in link tags. The file must have a `source` and a `target` column.</td>
+      <td
+      style="text-align:left">Work item link tags are not changed</td>
+    </tr>
   </tbody>
 </table>
 

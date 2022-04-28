@@ -8,6 +8,21 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.2 - 2022/04/28
+
+### Bug fixes
+
+* Fix: Strong name validation failed error when using the SpecSync.AzureDevOps.Console package (#695)
+* Fix: Init command does not work when config file name is specified in the command line (#686)
+
+### Improvements
+
+* Allow specifying additional work item clones for re-link in a CSV file using the `--workItemClonesFile` option.
+* Display .NET version information in verbose mode (#694)
+* The SpecSync Docker images now provide a `specsync` executable for simpler usage (it is a symbolic link to the executable `SpecSync4AzureDevOps`). (#682)
+* The SpecSync Docker images are now based on the `ubuntu:20.04` image (#697)
+* Smaller improvements for work item identity and console handling (#681, #687)
+
 ## v3.3.1 - 2022/03/10
 
 ### Bug fixes
