@@ -109,6 +109,10 @@ When the SpecSync publish-test-results command is invoked from an Azure DevOps b
 In Azure DevOps only Azure DevOps build pipelines can be associated. Build references for other build servers (e.g. Jenkins) can be recorded using the Test Run comment or the individual test result comments with the `--runComment` or the `--testResultComment` command line options.
 {% endhint %}
 
+{% hint style="warning" %}
+In Azure DevOps the pipeline can only be associated to the created Test Run, if that pipeline is in the same Azure DevOps project as the synchronized Test Cases. If you try to publish test result from a different project, you will receive a **pipeline not found error**. See the [Troubleshooting guide](../../contact/troubleshooting.md#pipeline-not-found) for a workaround to this limitation.
+{% endhint %}
+
 ### Results of Scenario Outline executions
 
 Scenario outlines represent data-driven variation tests: the same test is executed with different input data. SpecSync [synchronizes scenario outlines to parametrized Test Cases](../push-features/synchronizing-scenario-outlines.md).&#x20;

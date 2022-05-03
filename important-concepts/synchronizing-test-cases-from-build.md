@@ -233,7 +233,11 @@ Having the results published both by the .NET Core task and SpecSync might cause
 As the "Tests" tab only displays published test results if they are marked as "Automated", SpecSync will try to publish the test results as automated even if you haven't enabled the [Mark Test Cases as Automated](../features/push-features/mark-test-cases-as-automated.md) feature for the synchronized Test Cases. In older version of Azure DevOps this is not possible, so you should set it manually if the tests don't appear in the "Tests" tab of the build pipeline.
 {% endhint %}
 
-The **VSTest task** (used for older .NET Framework projects) can be configured similarly. For that task, the test result file can be configured by setting the _Other console options_ property to `/logger:trx;LogFileName=bddtestresults.trx`. You might also need to review the _Test results folder_ property.
+#### Using the VSTest task to execute the tests <a href="using-vstest" id="using-vstest"></a>
+
+The **VSTest task** (used for older .NET Framework projects and for special cases) can be configured similarly. For that task, the test result file can be configured by setting the _Other console options_ property to `/logger:trx;LogFileName=bddtestresults.trx`. You might also need to review the _Test results folder_ property. 
+
+The VSTest task always publishes the test results, but these test results will not be associated to the Test Cases. When you use VSTest and SpecSync test result publishing together, you might see the test results twice at the pipeline result page. If this is causes a problem, you can use the `VsTestForSpecSync` task instead of the VSTest task (see details [here](how-to-use-the-pipeline-tasks.md)) or [disable the pipeline association](../features/test-result-publishing-features/publishing-test-result-files.md#test-results-can-be-associated-to-an-azure-devops-build) feature of SpecSync.
 
 ### Step 2: Configure SpecSync task to publish test result file
 
@@ -273,3 +277,6 @@ The following example shows a fully configured step that performs the SpecSync `
 {% endtab %}
 {% endtabs %}
 
+{% hint style="warning" %}
+In Azure DevOps the pipeline can only be associated to the created Test Run, if that pipeline is in the same Azure DevOps project as the synchronized Test Cases. If you try to publish test result from a different project, you will receive a **pipeline not found error**. See the [Troubleshooting guide](../contact/troubleshooting.md#pipeline-not-found) for a workaround to this limitation.
+{% endhint %}

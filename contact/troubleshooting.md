@@ -96,7 +96,7 @@ The error is caused by a limitation of Azure DevOps: The Test Run (this is the c
 
 **Solution 1:** If possible, try to arrange your pipelines in a way that they belong to the same Azure DevOps project. (For large projects you can consider introducing [multiple teams](https://docs.microsoft.com/en-us/azure/devops/organizations/settings/about-teams-and-settings?view=azure-devops).)
 
-**Solution 2:** If you cannot change the Azure DevOps project structure, you need do [disable the build association](https://specsolutions.gitbook.io/specsync/features/test-result-publishing-features/publishing-test-result-files#test-results-can-be-associated-to-an-azure-devops-build). This you can do by specifying an empty Build ID value for the SpecSync `publish-test-results` command using the `--buildId " "` option.
+**Solution 2:** If you cannot change the Azure DevOps project structure, you need do [disable the build association](../features/test-result-publishing-features/publishing-test-result-files.md#test-results-can-be-associated-to-an-azure-devops-build). This you can do by specifying an empty Build ID value for the SpecSync `publish-test-results` command using the `--buildId " "` option.
 
 In order to keep a documentation of the pipeline that performed the test execution, you can use the `--runComment` or the `--testResultComment` command line option. The test result comment is visible in all individual test results, the run comment is only visible on the Test Run of the test results.
 
