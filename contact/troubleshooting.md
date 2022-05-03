@@ -87,3 +87,17 @@ The feature can be used by specifying the&#x20;
 The thumbprint can be found by checking the certificate from windows but it is also displayed by SpecSync when there was a certificate error.
 
 We recommend using this solution only if installing the certificate on operating system level (Solution 1) is not possible.
+
+### Build or release pipeline cannot be found error when publishing test results <a href="pipeline-not-found" id="pipeline-not-found"></a>
+
+SpecSync automatically associate the build or release pipeline to the published test results if you invoke the `publish-test-results` command from a pipeline. When the pipeline is in a different Azure DevOps project than the synchronized Test Cases, you will get an error `Build <build-id> cannot be found.` or `Release environment with release uri <uri> and environment uri <uri> cannot be found.`. 
+
+The error is caused by a limitation of Azure DevOps: The Test Run (this is the container that holds the test results) can only be associated to a build or release pipeline if that is in the same Azure DevOps project.
+
+**Solution 1:** If possible, try to arrange your pipelines in a way that they belong to the same Azure DevOps project. (For large projects you can consider introducing [multiple teams](https://docs.microsoft.com/en-us/azure/devops/organizations/settings/about-teams-and-settings?view=azure-devops).)
+
+**Solution 2:** If you cannot change the Azure DevOps project structure, you need do [disable the build association](https://specsolutions.gitbook.io/specsync/features/test-result-publishing-features/publishing-test-result-files#test-results-can-be-associated-to-an-azure-devops-build). This you can do by specifying an empty Build ID value for the SpecSync `publish-test-results` command using the `--buildId " "` option.
+
+In order to keep a documentation of the pipeline that performed the test execution, you can use the `--runComment` or the `--testResultComment` command line option. The test result comment is visible in all individual test results, the run comment is only visible on the Test Run of the test results.
+
+For example to document the build number, you can specify: `--testResultComment "Build: $(Build.BuildNumber)"`. For documenting the release name, you can specify: `--testResultComment "Release: $(Release.ReleaseName)"`.
