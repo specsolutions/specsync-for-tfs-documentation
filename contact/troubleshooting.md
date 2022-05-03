@@ -8,11 +8,12 @@ If you don't find your issues here, please [contact support](specsync-support.md
 
 The Azure DevOps Connection might fail for various reasons, including incorrect [credentials](../features/general-features/tfs-authentication-options.md), missing permissions or [incompatible Azure DevOps versions](../reference/compatibility.md).&#x20;
 
-If the error `API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not registered` is displayed (the ID might be different), the problem might be with the Azure DevOps project URL you have specified.
+If the error `API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not
+ registered` is displayed (the ID might be different), the problem might be with the Azure DevOps project URL you have specified.
 
-**Solution 1: **If you use TFS 2013 or TFS 2015, please check if the TFS server is compatible with the SpecSync version you use in the [Compatibility](../reference/compatibility.md) page. For older TFS servers you might need to donwgrade to an older version of SpecSync.
+**Solution 1:** If you use TFS 2013 or TFS 2015, please check if the TFS server is compatible with the SpecSync version you use in the [Compatibility](../reference/compatibility.md) page. For older TFS servers you might need to donwgrade to an older version of SpecSync.
 
-**Solution 2: **Check is the Azure DevOps project URL is correct. It can happen that the URL you have specified points to the project collection and the project name part is missing. You can use the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) guide for help. Fix the project URL and re-run the synchronization.
+**Solution 2:** Check is the Azure DevOps project URL is correct. It can happen that the URL you have specified points to the project collection and the project name part is missing. You can use the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) guide for help. Fix the project URL and re-run the synchronization.
 
 ### Test result publishing fails with "Mismatch in automation status of test case and test run"
 
@@ -22,15 +23,15 @@ By default SpecSync sets both the Test Run and the Test Case automation status b
 
 Cause: It can happen that some scenarios are excluded from the "automated" status using the [`synchronization/automation/condition`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) or [`synchronization/automation/skipForTags`](../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md)configuration setting, but they were still included in the test result.&#x20;
 
-**Solution 1: **Make sure that the Test Cases the test result belongs to have been successfully synchronized before publishing the test results with the same automation setting.
+**Solution 1:** Make sure that the Test Cases the test result belongs to have been successfully synchronized before publishing the test results with the same automation setting.
 
-**Solution 2**: Try excluding the non-automated scenarios from the test execution
+**Solution 2:** Try excluding the non-automated scenarios from the test execution
 
-**Solution 3**: Override the run type setting of the created Test Run using the `publishTestResults/runType` configuration setting. This setting is available from SpecSync v3.1. For earlier SpecSync versions, create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. (You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.)
+**Solution 3:** Override the run type setting of the created Test Run using the `publishTestResults/runType` configuration setting. This setting is available from SpecSync v3.1. For earlier SpecSync versions, create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. (You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.)
 
 ### "VS30063: You are not authorized to access" error when using SpecSync with Personal Access Tokens (PAT)
 
-**Solution: **Please check if the PAT has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorizeation scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
+**Solution:** Please check if the PAT has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorizeation scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
 
 ### Invalid build ID detected when publish-test-result command is invoked from a CI/CD pipeline
 
@@ -38,9 +39,9 @@ SpecSync can associate the Test Run created by the publish-test-result command w
 
 In some cases the environment variable does not contain a valid build ID or the build is not accessible for the user who performs the synchronization (e.g. is in another Azure DevOps project). In some cases the build ID is detected incorrectly from release pipelines.
 
-**Solution 1: **Specify the build ID or the build number manually using the `--buildId` or the `--buildNumber` option ( e.g. `--buildId "$(parameter-that-contains-your-build-id)"`). Note that the build ID is always a number. This number is shown in the URL when you open the build details.&#x20;
+**Solution 1:** Specify the build ID or the build number manually using the `--buildId` or the `--buildNumber` option ( e.g. `--buildId "$(parameter-that-contains-your-build-id)"`). Note that the build ID is always a number. This number is shown in the URL when you open the build details.&#x20;
 
-**Solution 2: **To avoid the automatic detection of a (wrong) build ID, set the `--buildId` option to an empty value (  `--buildId " "`). (Some Azure DevOps build tasks do not handle empty arguments, therefore setting it to `""` might cause parameter errors.)
+**Solution 2:** To avoid the automatic detection of a (wrong) build ID, set the `--buildId` option to an empty value (  `--buildId " "`). (Some Azure DevOps build tasks do not handle empty arguments, therefore setting it to `""` might cause parameter errors.)
 
 ### Authentication/SSL error "The remote certificate is invalid according to the validation procedure." when connecting to an Azure DevOps Server (on promises)
 
@@ -55,12 +56,12 @@ ERROR: Unable to authenticate to the Azure DevOps server.
 ```
 
 {% hint style="warning" %}
-**Important note for all solutions below: **Declaring a certificate as trusted manually is a potential security risk, because by trusting a certificate created by a malicious site operator, they might be able to access the authentication credentials you use for connecting to Azure DevOps.
+**Important note for all solutions below:** Declaring a certificate as trusted manually is a potential security risk, because by trusting a certificate created by a malicious site operator, they might be able to access the authentication credentials you use for connecting to Azure DevOps.
 
-**Always make sure that the certificate you trust is coming from a trustworthy source. **The URL displayed in your browser alone does not guarantee trustworthiness. Ask help from your Azure DevOps operator in case of doubt.
+**Always make sure that the certificate you trust is coming from a trustworthy source.** The URL displayed in your browser alone does not guarantee trustworthiness. Ask help from your Azure DevOps operator in case of doubt.
 {% endhint %}
 
-**Solution 1: **To be able to use SpecSync with these services, you need to install the certificate.&#x20;
+**Solution 1:** To be able to use SpecSync with these services, you need to install the certificate.&#x20;
 
 On Windows you can view and install the certificate from your browser, usually by clicking on the lock icon next to the URL (you should install the certificate to the "Trusted Root Certification Authorities" store of the current user).&#x20;
 
@@ -78,9 +79,10 @@ The default certificate validation in Linux seems to be more strict than on Wind
 In this case you should contact your system administrators to generate a valid certificate or use Solution 2.
 {% endhint %}
 
-**Solution 2: **From version v3.1, SpecSync provides a setting to declare a particular certificate as trusted by specifying its thumbprint. It will only accept that particular certificate and for all the others, it uses the standard validation procedure.
+**Solution 2:** From version v3.1, SpecSync provides a setting to declare a particular certificate as trusted by specifying its thumbprint. It will only accept that particular certificate and for all the others, it uses the standard validation procedure.
 
-The feature can be used by specifying the&#x20;`-ignoreCertificateErrorsForThumbprint "<thumbprint>"`  [command line option](../reference/command-line-reference/) or setting the `"ignoreCertificateErrorsForThumbprint"` setting in the [`"remote"`](../reference/configuration/configuration-remote.md) section of the [configuration](../reference/configuration/).
+The feature can be used by specifying the&#x20;
+`-ignoreCertificateErrorsForThumbprint "<thumbprint>"`  [command line option](../reference/command-line-reference/) or setting the `"ignoreCertificateErrorsForThumbprint"` setting in the [`"remote"`](../reference/configuration/configuration-remote.md) section of the [configuration](../reference/configuration/).
 
 The thumbprint can be found by checking the certificate from windows but it is also displayed by SpecSync when there was a certificate error.
 
