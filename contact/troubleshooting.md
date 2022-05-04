@@ -41,7 +41,7 @@ In some cases the environment variable does not contain a valid build ID or the 
 
 **Solution 1:** Specify the build ID or the build number manually using the `--buildId` or the `--buildNumber` option ( e.g. `--buildId "$(parameter-that-contains-your-build-id)"`). Note that the build ID is always a number. This number is shown in the URL when you open the build details.&#x20;
 
-**Solution 2:** To avoid the automatic detection of a (wrong) build ID, set the `--buildId` option to an empty value (  `--buildId " "`). (Some Azure DevOps build tasks do not handle empty arguments, therefore setting it to `""` might cause parameter errors.)
+**Solution 2:** To avoid the automatic detection of a (wrong) build ID, use the `--disablePipelineAssociation` option (or set the `--buildId` option to an empty value before v3.3.3).
 
 ### Authentication/SSL error "The remote certificate is invalid according to the validation procedure." when connecting to an Azure DevOps Server (on promises)
 
@@ -96,7 +96,7 @@ The error is caused by a limitation of Azure DevOps: The Test Run (this is the c
 
 **Solution 1:** If possible, try to arrange your pipelines in a way that they belong to the same Azure DevOps project. (For large projects you can consider introducing [multiple teams](https://docs.microsoft.com/en-us/azure/devops/organizations/settings/about-teams-and-settings?view=azure-devops).)
 
-**Solution 2:** If you cannot change the Azure DevOps project structure, you need do [disable the build association](../features/test-result-publishing-features/publishing-test-result-files.md#test-results-can-be-associated-to-an-azure-devops-build). This you can do by specifying an empty Build ID value for the SpecSync `publish-test-results` command using the `--buildId " "` option.
+**Solution 2:** If you cannot change the Azure DevOps project structure, you need do [disable the build association](../features/test-result-publishing-features/publishing-test-result-files.md#test-results-can-be-associated-to-an-azure-devops-build). This you can do by specifying the `--disablePipelineAssociation` option (or set the `--buildId` option to an empty value before v3.3.3).
 
 In order to keep a documentation of the pipeline that performed the test execution, you can use the `--runComment` or the `--testResultComment` command line option. The test result comment is visible in all individual test results, the run comment is only visible on the Test Run of the test results.
 

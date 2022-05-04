@@ -83,8 +83,7 @@ In addition the the options listed here, all [common command line options](./#co
     <tr>
       <td style="text-align:left"><code>--buildId</code> &lt;BUILD&#x2011;ID&gt;</td>
       <td style="text-align:left">The build ID (e.g. <code>345</code>) of the build the test result was created
-        for. To prevent detecting build from build, it can be set to an empty value
-        (<code>--buildId &quot; &quot;</code>).</td>
+        for. To prevent detecting build from build you can specify the `--disablePipelineAssociation` option (or set the `--buildId` option to an empty value before v3.3.3).</td>
       <td style="text-align:left">detect from current build</td>
     </tr>
     <tr>
@@ -103,10 +102,15 @@ In addition the the options listed here, all [common command line options](./#co
     </tr>
     <tr>
       <td style="text-align:left"><code>--buildPlatform</code> &lt;PLATFORM&gt;</td>
-      <td style="text-align:left">he build flavor (e.g. <code>x86</code>) of the build the test result was
+      <td style="text-align:left">The build flavor (e.g. <code>x86</code>) of the build the test result was
         created for. Can only be specified if either <code>--buildNumber</code> or <code>--buildId</code> is
         specified.</td>
       <td style="text-align:left">detect from current build</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">`--disablePipelineAssociation`</td>
+      <td style="text-align:left">If specified, the published test results will not be associated to the build or release pipeline. This is useful if the Azure DevOps project of the build is different to the project of the Test Cases. See [Troubleshooting entry](../../contact/troubleshooting.md#pipeline-not-found) for details.</td>
+      <td style="text-align:left">pipelines are associated</td>
     </tr>
     <tr>
       <td style="text-align:left"><code>--attachedFiles</code> &lt;FILE&#x2011;LIST&gt;</td>

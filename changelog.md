@@ -8,6 +8,16 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.3 - 2022/05/04
+
+### Bug fixes
+
+* Fix: Allow disabling release pipeline association for publish-test-result command with the new `--disablePipelineAssociation` command line option. (#707)
+
+### Improvements
+
+* Allow enabling timing diagnostics (#708)
+
 ## v3.3.2 - 2022/04/28
 
 ### Bug fixes
