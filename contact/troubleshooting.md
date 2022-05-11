@@ -31,7 +31,11 @@ Cause: It can happen that some scenarios are excluded from the "automated" statu
 
 ### "VS30063: You are not authorized to access" error when using SpecSync with Personal Access Tokens (PAT)
 
-**Solution:** Please check if the PAT has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorizeation scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
+**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
+
+### "GSSAPI operation failed with error - Unspecified GSS failure.  Minor code may provide more information (SPNEGO cannot find mechanisms to negotiate)" error when using SpecSync with Personal Access Tokens (PAT)
+
+**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
 
 ### Invalid build ID detected when publish-test-result command is invoked from a CI/CD pipeline
 
