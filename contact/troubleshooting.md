@@ -15,6 +15,32 @@ If the error `API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not
 
 **Solution 2:** Check is the Azure DevOps project URL is correct. It can happen that the URL you have specified points to the project collection and the project name part is missing. You can use the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) guide for help. Fix the project URL and re-run the synchronization.
 
+### Connecting to Azure DevOps with SpecSync v2 fails with "Unable to read data from the transport connection" error
+
+The Azure DevOps team [deprecated TLS 1.0/1.1 access for Azure DevOps Services](https://devblogs.microsoft.com/devops/deprecating-weak-cryptographic-standards-tls-1-0-and-1-1-in-azure-devops-services/) (cloud version). As the Azure DevOps client library SpecSync uses for v2.1 or earlier uses TLS 1.1 by default you will get an error like:
+
+```
+Unable to authenticate to the Azure DevOps server.
+  Underlying errors:
+    And error occurred while sending the request.
+    The underlying connection was closed: An unexpected error occurred on a send.
+    Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host.
+    An existing connection was forcibly closed by the remote host.
+```
+
+**Solution 1:** To be able to use SpecSync v2.1 and earlier versions with Azure DevOps Services, you need to set the `remote/securityProtocol` setting to `Tls12`.
+
+**Solution 2:** Upgrade to SpecSync v3 that uses the supported TLS 1.2 protocol by default.
+
+
+### "VS30063: You are not authorized to access" error when using SpecSync with Personal Access Tokens (PAT)
+
+**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
+
+### "GSSAPI operation failed with error - Unspecified GSS failure.  Minor code may provide more information (SPNEGO cannot find mechanisms to negotiate)" error when using SpecSync with Personal Access Tokens (PAT)
+
+**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
+
 ### Test result publishing fails with "Mismatch in automation status of test case and test run"
 
 Azure DevOps (ADO) collects test execution results in Test Runs. Test runs can be either manual or automated. Automated test runs can only contain automated tests (Test Cases marked as "automated") while manual Test Runs can contain any Test Cases. The error message is provided by ADO when a non-automated Test Case is being added to the Test Run.
@@ -28,14 +54,6 @@ Cause: It can happen that some scenarios are excluded from the "automated" statu
 **Solution 2:** Try excluding the non-automated scenarios from the test execution
 
 **Solution 3:** Override the run type setting of the created Test Run using the `publishTestResults/runType` configuration setting. This setting is available from SpecSync v3.1. For earlier SpecSync versions, create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. (You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.)
-
-### "VS30063: You are not authorized to access" error when using SpecSync with Personal Access Tokens (PAT)
-
-**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
-
-### "GSSAPI operation failed with error - Unspecified GSS failure.  Minor code may provide more information (SPNEGO cannot find mechanisms to negotiate)" error when using SpecSync with Personal Access Tokens (PAT)
-
-**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
 
 ### Invalid build ID detected when publish-test-result command is invoked from a CI/CD pipeline
 

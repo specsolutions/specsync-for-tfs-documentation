@@ -12,6 +12,10 @@ SpecSync for Azure DevOps might work with other Azure DevOps or TFS installation
 * Team Foundation Server 2015 Update 3 (Version 14.\*) — _up to SpecSync v2.1_
 * Team Foundation Server 2013 Update 1 (Version 12.\*) — _up to SpecSync v1.3_
 
+{% hint style="warning" %}
+The Azure DevOps team [deprecated TLS 1.0/1.1 access for Azure DevOps Services](https://devblogs.microsoft.com/devops/deprecating-weak-cryptographic-standards-tls-1-0-and-1-1-in-azure-devops-services/) (cloud version). As the Azure DevOps client library SpecSync uses for v2.1 or earlier uses TLS 1.1 by default you will get an error. To be able to use SpecSync v2.1 and earlier versions with Azure DevOps Services, you need to set the `remote/securityProtocol` setting to `Tls12`.
+{% endhint %}
+
 {% hint style="info" %}
 To use SpecSync with localized Azure DevOps processes (where the names of the work item types are translated), the name of the Test Case and the Test Suite work item has to be specified in the `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings.
 {% endhint %}
