@@ -3,7 +3,7 @@
 The _Link on change _ customization can be used to link changed Test Cases to a work item or pull request, related to the change.
 
 {% hint style="info" %}
-The _Link on change _customization described here is an [Enterprise feature](../../licensing.md).
+The _Link on change_ customization described here is an [Enterprise feature](../../licensing.md).
 {% endhint %}
 
 In order to enable this customization, the `customizations/linkOnChange` section of the configuration has to be enabled. The complete reference of the configuration settings can be found in the [customizations configuration reference](../../reference/configuration/configuration-customizations.md#linkonchange).

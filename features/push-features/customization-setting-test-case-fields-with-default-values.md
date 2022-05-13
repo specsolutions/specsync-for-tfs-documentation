@@ -3,7 +3,7 @@
 The _Field defaults_ customization can be used to initialize arbitrary Test Case fields that are otherwise would not be updated by SpecSync to a default value. This might be useful for custom Azure DevOps process templates.
 
 {% hint style="info" %}
-The _Field defaults _customization described here is an [Enterprise feature](../../licensing.md).
+The _Field defaults_ customization described here is an [Enterprise feature](../../licensing.md).
 {% endhint %}
 
 In order to enable this customization, the `customizations/fieldDefaults` section of the configuration has to be enabled. The complete reference of the configuration settings can be found in the [customizations configuration reference](../../reference/configuration/configuration-customizations.md#fielddefaults).

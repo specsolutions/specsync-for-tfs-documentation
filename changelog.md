@@ -19,7 +19,7 @@ For planned features in future releases please check the [Release Model and Road
 
 ### Improvements
 
-* Customization: Synchronize linked artifact titles. This customization can be used to synchronize linked artifact (Work Item) titles back to the local test case tags in '@story:1234:This_is_the_story_title' format. The link tags are only updated when the scenario is otherwise changed or when the `--force` option is used. (#714)
+* [Customization: Synchronize linked artifact titles](features/push-features/customization-synchronize-linked-artifact-titles.md). This customization can be used to synchronize linked artifact (Work Item) titles back to the local test case tags in '@story:1234:This_is_the_story_title' format. The link tags are only updated when the scenario is otherwise changed or when the `--force` option is used. (#714)
 
 ## v3.3.3 - 2022/05/04
 
