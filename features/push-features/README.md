@@ -30,5 +30,5 @@ This chapter contains features related to updating Test Cases based on the local
 
 {% page-ref page="customization-reset-test-case-state-after-change.md" %}
 
-{% page-ref page="customization-synchronize-linked-artifact-titles.md" %}
+{% page-ref page="customization-sync-linked-artifact-titles.md" %}
 

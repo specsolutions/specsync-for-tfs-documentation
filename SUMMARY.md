@@ -28,7 +28,7 @@
     * [Customization: Synchronizing scenarios from feature branches](features/push-features/support-synchronizing-scenarios-from-a-branch.md)
     * [Customization: Reset Test Case state after change](features/push-features/customization-reset-test-case-state-after-change.md)
     * [Customization: Automatically link changed Test Cases](features/push-features/customization-automatically-link-changed-test-cases.md)
-    * [Customization: Synchronize linked artifact titles](features/push-features/customization-synchronize-linked-artifact-titles.md)
+    * [Customization: Synchronize linked artifact titles](features/push-features/customization-sync-linked-artifact-titles.md)
   * [Pull features](features/pull-features/README.md)
     * [Pulling Test Case changes to local scenarios](features/pull-features/two-way-synchronization.md)
   * [Common synchronization features](features/common-synchronization-features/README.md)

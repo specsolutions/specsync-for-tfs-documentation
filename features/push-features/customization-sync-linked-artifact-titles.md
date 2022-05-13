@@ -1,6 +1,6 @@
 # Customization: Synchronize linked artifact titles
 
-The _Synchronize linked artifact titles_ customization can be used to synchronize linked artifact (Work Item) titles back to the local test case tags in '@story:1234:This_is_the_story_title' format. The link tags are only updated when the scenario is otherwise changed or when the `--force` option is used. 
+The _Synchronize linked artifact titles_ customization can be used to synchronize linked artifact (Work Item) titles back to the local test case tags in `@story:1234:This_is_the_story_title` format. The link tags are only updated when the scenario is otherwise changed or when the `--force` option is used. 
 
 The link prefixes this behavior should be enabled for have to be explicitly listed in the configuration.
 

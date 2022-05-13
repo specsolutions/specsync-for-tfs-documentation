@@ -44,8 +44,8 @@ The customizations described here are [Enterprise features](../licensing.md).
 [customization-automatically-link-changed-test-cases.md](push-features/customization-automatically-link-changed-test-cases.md)
 {% endcontent-ref %}
 
-{% content-ref url="push-features/customization-synchronize-linked-artifact-titles.md" %}
-[customization-synchronize-linked-artifact-titles.md](push-features/customization-synchronize-linked-artifact-titles.md)
+{% content-ref url="push-features/customization-sync-linked-artifact-titles.md" %}
+[customization-sync-linked-artifact-titles.md](push-features/customization-sync-linked-artifact-titles.md)
 {% endcontent-ref %}
 
 {% content-ref url="test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md" %}
