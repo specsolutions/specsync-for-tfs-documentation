@@ -24,6 +24,10 @@ To use SpecSync with localized Azure DevOps processes (where the names of the wo
 
 SpecSync is supported on Windows, Linux and MacOS operating systems. It can be installed as a standalone tool or as a .NET tool. Please check Installation & Setup for details on which installation option is available on the different target systems.
 
+{% hint style="info" %}
+SpecSync does not use Log4J and therefore it is not affected by the vulnerability [CVE-2021-44228](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q).
+{% endhint %}
+
 ## Supported BDD tools
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.
