@@ -8,6 +8,19 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.4 - 2022/05/13
+
+### Bug fixes
+
+* Fix: XML/HTML tags replaced to parameters in normal scenarios (not scenario outlines) (#712)
+* Fix: Handle PAT expiration GSSAPI error as normal error (#715)
+* Fix: .NET projects with special wildcard includes cannot be processed (#720)
+* Fix: The reported parameter usages are shifted in the published results when parameter list pseudo step is used (#716)
+
+### Improvements
+
+* Customization: Synchronize linked artifact titles. This customization can be used to synchronize linked artifact (Work Item) titles back to the local test case tags in '@story:1234:This_is_the_story_title' format. The link tags are only updated when the scenario is otherwise changed or when the `--force` option is used. (#714)
+
 ## v3.3.3 - 2022/05/04
 
 ### Bug fixes
