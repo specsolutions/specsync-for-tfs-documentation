@@ -8,6 +8,18 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.5 - 2022/06/09
+
+### Bug fixes
+
+* Fix: Synchronize linked artifact titles customization does not link scenario if it contains only a requirement link tag (#731)
+
+### Improvements
+
+* Treat test result attachment upload errors as warnings: Ignore test result attachments that are too large (#727)
+* Allow placeholders (`{testrun-id}`, `{testrun-url}`) in test run and test result comment (#724)
+* Show created Test Run URL in output (#732)
+
 ## v3.3.4 - 2022/05/13
 
 ### Bug fixes
