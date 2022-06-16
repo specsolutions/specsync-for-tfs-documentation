@@ -25,7 +25,7 @@ The following example shows a basic configuration that initializes the Descripti
 }
 ```
 
-The fields have to be identified using their reference name and not their label. E.g. the reference name for the _Description_ field is `System.Description`. The reference names of the built-in fields can be found in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/boards/work-items/guidance/work-item-field?view=azure-devops).
+The fields have to be identified using their reference name and *not their label*. E.g. the reference name for the _Description_ field is `System.Description`. The reference names of the built-in fields can be found in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/boards/work-items/guidance/work-item-field?view=azure-devops). The reference name of the custom fields can be obtained from the Azure DevOps project administrator, but usually they follow the format `Custom.<your-field-name>` (e.g. `Custom.BusinessRule`).
 
 {% hint style="warning" %}
 Specifying an update for a field that is also updated by SpecSync (e.g. Title) causes unpredictable behavior.&#x20;
