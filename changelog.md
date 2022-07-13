@@ -8,6 +8,17 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.6 - 2022/07/13
+
+### Bug fixes
+
+* Fix: Duration in Cucumber JSON results is interpreted incorrectly (#748)
+* Fix: Publishing tests executed by the VsTest re-run setting is not supported. (This fix changes the default for the `publishTestResults/createSubResults` to `true`.) (#745)
+
+### Improvements
+
+* Allow specifying empty "Action" value (#734)
+
 ## v3.3.5 - 2022/06/09
 
 ### Bug fixes
