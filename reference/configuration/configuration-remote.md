@@ -12,7 +12,8 @@ The following example shows the most common options within this section.
     "user": "myuser",
     "password": "%MYPWD%",
     "testSuite": {
-      "name": "BDD Scenarios"
+      "name": "BDD Scenarios",
+      "testPlanId": 12345
     }
   },
   ...
