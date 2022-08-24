@@ -85,23 +85,26 @@ For each link type configuration the following settings can be used.
       <td style="text-align:left">
         <p>Specify the relationship for the created link. E.g. specifying <code>Parent</code> means
           that the linked work item will be the parent of the test case work item.</p>
-        <p>For linking Pull Requests it has to be set to <code>Pull Request</code>.</p>
+        <p>Set to <code>Pull Request</code> for Azure DevOps Pull Requests and <code>GitHub Pull Request</code> for GitHub Pull Requests.</p>
       </td>
       <td style="text-align:left"><code>Tests</code>
       </td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>linkTemplate</code>
+      </td>
+      <td style="text-align:left">
+        <p>Specifies the HTTP link template of the related artifact (for `GitHub Pull Request` relationship). The link template can use the specified value using the `{id}` placeholder.</p>
+      </td>
+      <td style="text-align:left">no template used</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>mode</code>
       </td>
       <td style="text-align:left">
-        <p>Specifies how the links are updated. Available options: <code>createIfMissing</code>.</p>
-        <ul>
-          <li><code>createIfMissing</code> &#x2014; SpecSync only creates links but never
-            removes them, even if the tag has been removed from the scenario.</li>
-        </ul>
+        <p>Deprecated and will be removed in a future version.</p>
       </td>
-      <td style="text-align:left"><code>createIfMissing</code>
-      </td>
+      <td style="text-align:left"></td>
     </tr>
   </tbody>
 </table>

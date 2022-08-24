@@ -8,6 +8,17 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.7 - 2022/08/24
+
+### Bug fixes
+
+* Fix: Indentation is not kept when tagging scenarios (#754)
+* Fix: Relation already exists error when linking Azure DevOps pull requests (#762)
+
+### Improvements
+
+* Support linking GitHub Pull Requests (#761)
+
 ## v3.3.6 - 2022/07/13
 
 ### Bug fixes
