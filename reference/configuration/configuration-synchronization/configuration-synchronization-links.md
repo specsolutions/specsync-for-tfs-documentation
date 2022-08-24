@@ -94,7 +94,7 @@ For each link type configuration the following settings can be used.
       <td style="text-align:left"><code>linkTemplate</code>
       </td>
       <td style="text-align:left">
-        <p>Specifies the HTTP link template of the related artifact (for `GitHub Pull Request` relationship). The link template can use the specified value using the `{id}` placeholder.</p>
+        <p>Specifies the HTTP link template of the related artifact (for <code>GitHub Pull Request</code> relationship). The link template can use the specified value using the <code>{id}</code> placeholder.</p>
       </td>
       <td style="text-align:left">no template used</td>
     </tr>
