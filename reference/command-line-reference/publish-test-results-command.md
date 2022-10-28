@@ -10,11 +10,11 @@ In addition the the options listed here, all [common command line options](./#co
 
 | Option | Description | Default |
 | :--- | :--- | :--- |
-| `-r|--testResultFile` &lt;FILE&#x2011;PATH&gt; | The file path of the test result (.trx, .xml or .json) file to publish or a folder that contains multiple test result files. Multiple paths can be listed, separated by semicolon (`;`). | use from config file |
-| `-f|--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
+| `-r`\|`--testResultFile` &lt;FILE&#x2011;PATH&gt; | The file path of the test result (.trx, .xml or .json) file to publish or a folder that contains multiple test result files. Multiple paths can be listed, separated by semicolon (`;`). | use from config file |
+| `-f`\|`--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
 | `--runName` &lt;NAME&gt; | The name of the Test Run to be created. | get from test result file |
 | `--attachedFiles` &lt;FILE&#x2011;LIST&gt; | Semicolon separated list of file paths that should be attached to the test run additionally. (e.g. `error1.png;error2.log`) Wildcards are currently not supported. | only test result file attached |
-| `-c|--testConfiguration` &lt;CONFIGURATION&gt; | The Azure DevOps Test Configuration name or ID to publish the results for. For specifying an ID, use `#1234` format. | use from config file or detect automatically |
+| `-c`\|`--testConfiguration` &lt;CONFIGURATION&gt; | The Azure DevOps Test Configuration name or ID to publish the results for. For specifying an ID, use `#1234` format. | use from config file or detect automatically |
 | `--testSuite` &lt;SUITE&#x2011;NAME&#x2011;OR&#x2011;ID&gt; | A Test Suite name or ID to publish the test results to. For specifying an ID, use `#1234` format. (e.g. `My Suite` or `#1234`) | use from config file |
 | `--testPlanId` &lt;PLAN&#x2011;ID&gt; | The ID of the Test Plan to search the Test Suite in. (e.g. `123`) | all Test Plans are scanned through |
 | `--runComment` &lt;RUN&#x2011;COMMENT&gt; | The comment field of the Test Run to be created. | not specified |

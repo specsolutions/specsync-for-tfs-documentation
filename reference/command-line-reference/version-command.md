@@ -10,7 +10,7 @@ In addition the the options listed here, all [common command line options](./#co
 
 | Option | Description | Default |
 | :--- | :--- | :--- |
-| `-b|--bare` | Only displays the product version and does not attempt to check the configuration and the license file. | Version, release date and license information are displayed. |
+| `-b`\|`--bare` | Only displays the product version and does not attempt to check the configuration and the license file. | Version, release date and license information are displayed. |
 
 ## Examples
 
