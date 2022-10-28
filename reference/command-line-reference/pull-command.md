@@ -15,6 +15,7 @@ In addition the the options listed here, all [common command line options](./#co
 | `--createOnly` | If specified, the command will create new scenarios for the unlinked Test Cases only and the existing scenarios will not be modified. This setting automatically enables the 'enableCreatingScenariosForNewTestCases' pull setting. | false |
 | `--force` | If specified, SpecSync changes scenarios even if there is no remote change and the scenario was not modified locally. | false |
 
+
 ## Examples
 
 Pulls remote changes from Azure DevOps using the configured settings in the `specsync.json` configuration file:
@@ -23,7 +24,7 @@ Pulls remote changes from Azure DevOps using the configured settings in the `spe
 dotnet specsync pull
 ```
 
-Pulls remote changes using the specified [Personal Access Token \(PAT\)](../../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) for authentication:
+Pulls remote changes using the specified [Personal Access Token \(PAT\)](../../features/general-features/server-authentication-options.md#vsts-personal-access-tokens) for authentication:
 
 ```text
 dotnet specsync pull --user 52yny...........................nycsetda

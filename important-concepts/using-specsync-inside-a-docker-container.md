@@ -71,7 +71,7 @@ You can create derived images from the official SpecSync Docker image and custom
 * Install further certificates to access your Azure DevOps installation
 * Include base configuration files \(see [Hierarchical configuration files](../features/general-features/hierarchical-configuration-files.md)\)
 * Include license file
-* Include scripts that specify default parameters for SpecSync \(e.g. the license file location or user [PAT](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens)\)
+* Include scripts that specify default parameters for SpecSync \(e.g. the license file location or user [PAT](../features/general-features/server-authentication-options.md#vsts-personal-access-tokens)\)
 
 You can find further information on how to use such an image in the [Install as Docker image](../installation/docker-image.md) page.
 

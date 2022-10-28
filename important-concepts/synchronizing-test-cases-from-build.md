@@ -100,7 +100,7 @@ The following example shows how to invoke SpecSync `push` command from a Command
 
 ## Authentication settings to perform SpecSync commands from build or release pipeline
 
-For [authentication](../features/general-features/tfs-authentication-options.md), you can use the built-in [Job access token](../features/general-features/tfs-authentication-options.md#vsts-alternate-authentication-credentials) or you need an Azure DevOps user account with sufficient privileges (modify test cases and test suites).&#x20;
+For [authentication](../features/general-features/server-authentication-options.md), you can use the built-in [Job access token](../features/general-features/server-authentication-options.md#vsts-alternate-authentication-credentials) or you need an Azure DevOps user account with sufficient privileges (modify test cases and test suites).&#x20;
 
 ### Use job access token
 
@@ -120,7 +120,7 @@ Once the job access token is enabled, you can pass its value to SpecSync using t
 
 ### Use a user account for the synchronization
 
-In this section we show how the authentication can be configured using [Personal Access Tokens (PAT)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens), but the authentication can also be performed with user name and password in a similar way.
+In this section we show how the authentication can be configured using [Personal Access Tokens (PAT)](../features/general-features/server-authentication-options.md#vsts-personal-access-tokens), but the authentication can also be performed with user name and password in a similar way.
 
 #### Step 1: Define a secret environment variable for the PAT in your pipeline
 

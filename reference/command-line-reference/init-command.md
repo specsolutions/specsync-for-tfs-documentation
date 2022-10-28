@@ -4,7 +4,7 @@ Initializes SpecSync configuration by creating a `specsync.json` configuration f
 
 During the execution of the command, the basic configuration settings \(project URL and authorization settings\) can be specified. The init command verifies the connection to the Azure DevOps project specified to avoid common authentication issues.
 
-In case of [Personal Access Token \(PAT\) authentication](../../features/general-features/tfs-authentication-options.md), the command also offers you to save the authentication details to the user-specific configuration file, so that the credentials are not included in the project configuration.
+In case of [Personal Access Token \(PAT\) authentication](../../features/general-features/server-authentication-options.md), the command also offers you to save the authentication details to the user-specific configuration file, so that the credentials are not included in the project configuration.
 
 ## Options
 
@@ -25,7 +25,7 @@ dotnet specsync init
 Initialize configuration for a specific project:
 
 ```text
-dotnet specsync init -p https://dev.azure.com/myorganization/MyProject
+dotnet specsync init -p https://specsyncdemo.visualstudio.com/MyCalculator
 ```
 
 {% page-ref page="./" %}

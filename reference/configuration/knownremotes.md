@@ -9,19 +9,14 @@ The following example shows a usage of this section.
   ...
   "knownRemotes": [
     {
-      "projectUrl": "https://dev.azure.com/myorganization/MyProject",
-      "user": "52yny...........................nycsetda"
+      "projectUrl": "https://dev.azure.com/myorg/*",
+      "user": "g2x.....................ac2vx57i4a"
     },
     {
-      "projectUrl": "https://dev.azure.com/myorganization/OtherProject",
-      "user": "Qt44.............................kofhrhsa"
-    },
-    {
-      "projectUrl": "https://dev.azure.com/otherorg/*",
-      "user": "pg5i6q5........................44azwc6fsioa",
-      "securityProtocol": "Tls12"
+      "projectUrl": "https://dev.azure.com/otherorg/OtherProject",
+      "user": "y6s.....................ksuc7tsts"
     }
-  },
+  ],
   ...
 }
 ```

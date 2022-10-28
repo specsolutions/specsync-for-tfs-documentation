@@ -1,13 +1,13 @@
 # Setup and Configure
 
-Once you have installed SpecSync for AzureDevOps tool, you need to configure it. This means you have to create a SpecSync configuration file \(specsync.json\) that contains the Azure DevOps project connection details and other synchronization settings.
+Once you have installed SpecSync for Azure DevOps tool, you need to configure it. This means you have to create a SpecSync configuration file \(specsync.json\) that contains the Azure DevOps project connection details and other synchronization settings.
 
 ### Step 1: Define feature file sets
 
-SpecSync has to be configures for every _feature file set_. **Feature file set is a folder that contains feature files that you want to synchronize as one batch.**
+SpecSync has to be configured for every _feature file set_. **Feature file set is a folder that contains feature files that you want to synchronize as one batch.**
 
 {% hint style="info" %}
-_Feature file set_ is a term introduced by SpecSync v3 to denote the set of feature files that belong together in a platform independent way. Earlier we used the term _project folder_, but it was misleading, because people might call different things as "project" on .NET, Java and node.js platforms and also it could be confused with Azure DevOps projects.
+_Feature file set_ is a term introduced by SpecSync to denote the set of feature files that belong together in a platform independent way. Earlier we used the term _project folder_, but it was misleading, because people might call different things as "project" on .NET, Java and node.js platforms and also it could be confused with Azure DevOps projects.
 
 If you use SpecSync with SpecFlow, the Visual Studio projects configured with SpecFlow are the feature file sets.
 
@@ -45,7 +45,7 @@ dotnet specsync init
 
 {% tab title=".NET Console App" %}
 ```text
-specsync4azuredevops.cmd init
+SpecSync4AzureDevOps.cmd init
 ```
 {% endtab %}
 
@@ -56,7 +56,7 @@ specsync4azuredevops.cmd init
 {% endtab %}
 {% endtabs %}
 
-The init command will ask a few questions in order the setup the connection to the Azure DevOps project, like the project URL and the authentication details. If you are unsure about what is exactly your Azure DevOps project URL, please check the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) page. You can fine more information about the authentication options in the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md) page.
+The init command will ask a few questions in order the setup the connection to the Azure DevOps project, like the project URL and the authentication details. If you are unsure about what is exactly your Azure DevOps project URL, please check the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) page. You can fine more information about the authentication options in the [Azure DevOps authentication options](../features/general-features/server-authentication-options.md) page.
 
 {% hint style="success" %}
 It is recommended to let the init command test the authentication to the Azure DevOps project to make sure the connection is configured properly.
@@ -64,7 +64,7 @@ It is recommended to let the init command test the authentication to the Azure D
 
 ### Step 3: Review SpecSync features and extend configuration settings
 
-The init command configures the settings that are enough for the first synchronization. SpecSync comes with useful default values for all settings, but you can still review the [SpecSync features](../features/) and extend the [configuration ](../reference/configuration/)if you need to. It is recommended to think about whether you would like to [exclude any scenarios from the synchronization](../features/common-synchronization-features/excluding-scenarios-from-synchronization.md) or consider [including all Azure DevOps Test Cases synchronized by SpecSync into a Test Suite](../features/common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md).
+The init command configures the settings that are enough for the first synchronization. SpecSync comes with useful default values for all settings, but you can still review the [SpecSync features](../features/) and extend the [configuration ](../reference/configuration/) if you need to. It is recommended to think about whether you would like to [exclude any scenarios from the synchronization](../features/common-synchronization-features/excluding-scenarios-from-synchronization.md) or consider [including all Azure DevOps Test Cases synchronized by SpecSync into a Test Suite](../features/common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md).
 
 {% page-ref page="../features/" %}
 
@@ -87,7 +87,7 @@ dotnet specsync push --tagFilter @specsync_test
 
 {% tab title=".NET Console App" %}
 ```text
-specsync4azuredevops.cmd push --tagFilter @specsync_test
+SpecSync4AzureDevOps.cmd push --tagFilter @specsync_test
 ```
 {% endtab %}
 
@@ -100,7 +100,7 @@ specsync4azuredevops.cmd push --tagFilter @specsync_test
 
 The synchronization should run successfully and SpecSync should create Test Cases in Azure DevOps for the selected scenarios and link to them using a tag.
 
-In case of errors, you can retry the synchronization with an additional --diag option that displays additional diagnostic information. If this does not help, please check the [Troubleshooting](../contact/troubleshooting.md) page or contact [SpecSync Support](../contact/specsync-support.md).
+In case of errors, you can retry the synchronization with an additional --verbose option that displays additional diagnostic information. If this does not help, please check the [Troubleshooting](../contact/troubleshooting.md) page or contact [SpecSync Support](../contact/specsync-support.md).
 
 ## Setup SpecFlow plugin to support "Test Suite based execution with Scenario Outline wrappers" automation strategy for .NET SpecFlow projects <a id="setup-specflow-plugin"></a>
 
@@ -121,4 +121,3 @@ The exact NuGet package to be installed depends on the SpecFlow version of your 
 {% hint style="info" %}
 If your project is not configured to use the  "Test Suite based execution with Scenario Outline wrappers" automation strategy, the plugin will not have any impact \(can be safely removed\).
 {% endhint %}
-

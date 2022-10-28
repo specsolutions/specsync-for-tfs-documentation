@@ -27,6 +27,3 @@ The following example shows a minimal configuration file.
   }
 }
 ```
-
-A detailed sample configuration file that contains nearly all settings can be found at [http://schemas.specsolutions.eu/specsync-sample.json](http://schemas.specsolutions.eu/specsync-sample.json).
-

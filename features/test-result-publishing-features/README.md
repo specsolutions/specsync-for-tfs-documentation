@@ -9,4 +9,3 @@ This chapter contains features related to publishing test execution results to A
 {% page-ref page="customization-publishing-test-results-to-multiple-test-suite.md" %}
 
 
-

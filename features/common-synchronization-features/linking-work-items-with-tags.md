@@ -1,4 +1,4 @@
-# Linking Work Items using tags
+# Linking work items using tags
 
 SpecSync can synchronize the scenarios with Azure DevOps test cases. In order to be able to use these test cases in Azure DevOps, you might want to link them to other work items. For example, if the scenario is describing the behavior of the user story \#123, you make a link between the test case synchronized from the scenario and the story. This gives you a better traceability and allows you to create requirement- or query-based test suites in Azure DevOps. For example you can create a test suite that contains all test cases \(scenarios\) that are related to user story \#123.
 
@@ -24,9 +24,13 @@ For that you need to mark the scenarios with tags, like `@story:123`, and specif
 
 This will synchronize the scenario with the Azure DevOps test case and establish a link between the test case and the user story \#123 work item.
 
-From SpecSync v3.3, the links created by SpecSync are removed when the tag is removed from the scenario. The links created manually or by an earlier version of SpecSync are never removed.
+The links created by SpecSync are removed when the tag is removed from the scenario. The links created manually are never removed.
 
-## Work item tags
+{% hint style="info" %}
+Links created by SpecSync v3.2 or earlier are not removed automatically.
+{% endhint %}
+
+## The work item tags
 
 The work item tags should follow the pattern `@prefix:N`, where `prefix` is a label of your choice \(e.g. `story`, `bug` or `wi`\) and `N` is the ID of the related work item \(e.g. `123`\).
 
@@ -35,7 +39,7 @@ The work item tag can be specified at scenario level or feature level. In the la
 If the work item with the specified ID does not exist or the user who performs the synchronization does not have permission for it, SpecSync will display an error message for that particular scenario. If at least one scenario has failed to synchronize, the command line tool returns with the exit code 10.
 
 {% hint style="info" %}
-Tags, where `N` is not a valid number, are ignored.
+In SpecSync v3.3 or earlier, tags, where `N` is not a valid number, are ignored.
 {% endhint %}
 
 Optionally you can add an additional label to the work item tags to help the readers to understand what the referred work item is about. The additional label has to be separated by the work item number with a colon \(`:`\) character, like `@bug:456:argument_error_for_empty_input` .
@@ -90,9 +94,12 @@ SpecSync creates a "Tests" link type between the test cases and the other work i
 }
 ```
 
+
 {% hint style="info" %}
 The link type name is case sensitive and might contain spaces. 
+{% endhint %}
 
+{% hint style="info" %}
 For linking Pull Requests, the `relationship` setting is mandatory and has to be set to `Pull Request`.
 {% endhint %}
 

@@ -6,7 +6,7 @@ If you don't find your issues here, please [contact support](specsync-support.md
 
 ### Connecting to Azure DevOps fails with "API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not&#xD; registered" error
 
-The Azure DevOps Connection might fail for various reasons, including incorrect [credentials](../features/general-features/tfs-authentication-options.md), missing permissions or [incompatible Azure DevOps versions](../reference/compatibility.md).&#x20;
+The Azure DevOps Connection might fail for various reasons, including incorrect [credentials](../features/general-features/server-authentication-options.md), missing permissions or [incompatible Azure DevOps versions](../reference/compatibility.md).&#x20;
 
 If the error `API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not
  registered` is displayed (the ID might be different), the problem might be with the Azure DevOps project URL you have specified.
@@ -35,11 +35,11 @@ Unable to authenticate to the Azure DevOps server.
 
 ### "VS30063: You are not authorized to access" error when using SpecSync with Personal Access Tokens (PAT)
 
-**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
+**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/server-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
 
 ### "GSSAPI operation failed with error - Unspecified GSS failure.  Minor code may provide more information (SPNEGO cannot find mechanisms to negotiate)" error when using SpecSync with Personal Access Tokens (PAT)
 
-**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/tfs-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
+**Solution:** Please check if the PAT is not expired and has all necessary permissions that are required to manage Test Cases and Test Suites. The required authorization scopes are listed on the [Azure DevOps authentication options](../features/general-features/server-authentication-options.md#authorization-scopes-required-for-personal-access-tokens) page.
 
 ### Test result publishing fails with "Mismatch in automation status of test case and test run"
 
@@ -123,3 +123,4 @@ The error is caused by a limitation of Azure DevOps: The Test Run (this is the c
 In order to keep a documentation of the pipeline that performed the test execution, you can use the `--runComment` or the `--testResultComment` command line option. The test result comment is visible in all individual test results, the run comment is only visible on the Test Run of the test results.
 
 For example to document the build number, you can specify: `--testResultComment "Build: $(Build.BuildNumber)"`. For documenting the release name, you can specify: `--testResultComment "Release: $(Release.ReleaseName)"`.
+

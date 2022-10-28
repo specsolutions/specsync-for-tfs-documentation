@@ -1,6 +1,6 @@
 # specFlow
 
-This configuration section contains settings related to synchronizing SpecFlow projects. These settings are only required for synchronizing automated test cases. See [Synchronizing automated test cases](../../important-concepts/synchronizing-automated-test-cases.md) for more details.
+This configuration section contains settings related to synchronizing SpecFlow projects. These settings are only required for old SpecFlow versions and for [synchronizing automated test cases](../../important-concepts/synchronizing-automated-test-cases.md).
 
 The following example shows the available options within this section.
 

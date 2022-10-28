@@ -32,8 +32,8 @@ The customizations described here are [Enterprise features](../licensing.md).
 [customization-mapping-tags.md](push-features/customization-mapping-tags.md)
 {% endcontent-ref %}
 
-{% content-ref url="push-features/support-synchronizing-scenarios-from-a-branch.md" %}
-[support-synchronizing-scenarios-from-a-branch.md](push-features/support-synchronizing-scenarios-from-a-branch.md)
+{% content-ref url="push-features/customization-support-synchronizing-scenarios-from-a-branch.md" %}
+[customization-support-synchronizing-scenarios-from-a-branch.md](push-features/customization-support-synchronizing-scenarios-from-a-branch.md)
 {% endcontent-ref %}
 
 {% content-ref url="push-features/customization-reset-test-case-state-after-change.md" %}

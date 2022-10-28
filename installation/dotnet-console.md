@@ -4,7 +4,7 @@
 This install method is available for Windows machines with .NET Framework v4.6.2 or higher. Other [installation options](./) available.
 {% endhint %}
 
-SpecSync can be used as a .NET Framework Windows Console App (`SpecSync4AzureDevOps.exe`). The tool can be downloaded from NuGet.org (for .NET projects) or as a downloadable zip package for other development platforms.&#x20;
+SpecSync can be used as a .NET Framework Windows Console App (`SpecSync4AzureDevOps.exe`). The tool can be downloaded from NuGet.org (for .NET projects) or as a downloadable zip package for other development platforms.
 
 ## Installing SpecSync .NET Console App from NuGet for .NET projects
 
@@ -25,18 +25,18 @@ Since the NuGet package does not contain any library that would be referenced fr
 Depending on your project setup, the package has been downloaded and extracted to
 
 * into the `packages` folder of your solution: \<SOLUTION‑FOLDER>\packages\SpecSync.AzureDevOps.Console.\<SPECSYNC‑VERSION>
-* into the global packages folder: C:\Users\\\<USER>\\.nuget\packages\specsync.azuredevops.console\\\<SPECSYNC‑VERSION>
+* into the global packages folder: C:\Users\\\<USER>\\.nuget\packages\SpecSync.AzureDevOps.Console\\\<SPECSYNC‑VERSION>
 * into an other folder configured in the `NuGet.config` file
 
 ### Step 2: Create/review a CMD file in order to execute the console app easily from the installation folder (optional)
 
-As the package installation folder is pretty complicated to type-in frequently, it is recommended to add a simple command line shell script (`specsync4azuredevops.cmd`) that executes the tool from the right folder.&#x20;
+As the package installation folder is pretty complicated to type-in frequently, it is recommended to add a simple command line shell script (`SpecSync4AzureDevOps.cmd`) that executes the tool from the right folder.
 
 {% hint style="info" %}
-In case you use NuGet packages from the `packages` folder of your solution and your project uses the classic project file format, the package installation populated a `specsync4azuredevops.cmd `into the project folder. Review the script and apply any changes if necessary.
+In case you use NuGet packages from the `packages` folder of your solution and your project uses the classic project file format, the package installation populated a `SpecSync4AzureDevOps.cmd `into the project folder. Review the script and apply any changes if necessary.
 {% endhint %}
 
-A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App from the local packages folder might look similar to this:
+A `SpecSync4AzureDevOps.cmd` script that executes the SpecSync .NET Console App from the local packages folder might look similar to this:
 
 ```
 @REM Executing SpecSync .NET Console App by forwarding all command line parameters
@@ -45,7 +45,7 @@ A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App 
 
 ```
 
-A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App from the global packages folder might look similar to this:
+A `SpecSync4AzureDevOps.cmd` script that executes the SpecSync .NET Console App from the global packages folder might look similar to this:
 
 ```
 @REM Executing SpecSync .NET Console App by forwarding all command line parameters
@@ -56,10 +56,10 @@ A `specsync4azuredevops.cmd` script that executes the SpecSync .NET Console App 
 
 ### Step 3: Verify installation
 
-SpecSync is ready to run using the `specsync4azuredevops.cmd` script. You can test the installation by checking the installed SpecSync version.
+SpecSync is ready to run using the `SpecSync4AzureDevOps.cmd` script. You can test the installation by checking the installed SpecSync version.
 
 ```bash
-specsync4azuredevops.cmd version
+SpecSync4AzureDevOps.cmd version
 ```
 
 If the correct version number is displayed, you are ready to move on to setup and configure SpecSync for the first synchronization. Check the [Setup and Configure](setup-and-configure.md) page for the details.
@@ -79,7 +79,7 @@ After extracting the package, the `SpecSync4AzureDevOps.exe` executable can be f
 You can test the installation by checking the installed SpecSync version. Open a command prompt from your project folder and invoke the following command.
 
 ```bash
-<EXTRACTED-SPECSYNC-FOLDER>\tools\specsync4azuredevops.exe version
+<EXTRACTED-SPECSYNC-FOLDER>\tools\SpecSync4AzureDevOps.exe version
 ```
 
 If the correct version number is displayed, you are ready to move on to setup and configure SpecSync for the first synchronization. Check the [Setup and Configure](setup-and-configure.md) page for the details.

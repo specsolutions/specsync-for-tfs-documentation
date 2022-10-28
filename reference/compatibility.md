@@ -1,8 +1,8 @@
 # Compatibility
 
-## Supported Azure DevOps systems <a href="supported-tfs-systems" id="supported-tfs-systems"></a>
+## Supported Azure DevOps systems <a href="supported-server-systems" id="supported-server-systems"></a>
 
-SpecSync for Azure DevOps might work with other Azure DevOps or TFS installations as well, but it has been tested with the following configurations:
+SpecSync for Azure DevOps might work with other Azure DevOps installations as well, but it has been tested with the following configurations:
 
 * Azure DevOps Services (Visual Studio Team Services, VSTS, VSO)
 * Azure DevOps Server 2020 (Version 18.\*)

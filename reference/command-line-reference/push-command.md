@@ -18,13 +18,13 @@ In addition the the options listed here, all [common command line options](./#co
 
 ## Examples
 
-Pushes local changed to Azure DevOps using the configured settings in the `specsync.json` configuration file:
+Pushes local changes to Azure DevOps using the configured settings in the `specsync.json` configuration file:
 
 ```text
 dotnet specsync push
 ```
 
-Pushes local changes using the specified [Personal Access Token \(PAT\)](../../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) for authentication:
+Pushes local changes using the specified [Personal Access Token \(PAT\)](../../features/general-features/server-authentication-options.md#vsts-personal-access-tokens) for authentication:
 
 ```text
 dotnet specsync push --user 52yny...........................nycsetda

@@ -57,12 +57,4 @@ The following links contain direct download options as an alternative to that.
 * Windows: [SpecSync.MTM.1.4.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.MTM.1.4.1.zip)
 * OSX/Linux: [SpecSync.Mono.1.4.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Mono.1.4.1.zip)
 
-# SpecSync for Jira Downloads <a href="specsync-for-jira" id="specsync-for-jira"></a>
-
-## v1.0
-
-* Windows: [SpecSync.Jira.Console.1.0.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Jira.Console.1.0.1.zip)
-* Linux: [SpecSync.Jira.1.0.1-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Jira.1.0.1-linux-x64.zip)
-* OSX: [SpecSync.Jira.1.0.1-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Jira.1.0.1-osx-x64.zip)
-* Any platform (.NET Core 3.1, .NET 5 or .NET 6 SDK required): [SpecSync.Jira.1.0.1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.Jira.1.0.1.zip)
 

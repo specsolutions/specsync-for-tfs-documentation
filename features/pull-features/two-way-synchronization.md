@@ -37,15 +37,15 @@ Once this configuration has been done, the general workflow could be:
 2. Pull Test Case changes from Azure DevOps:
 
    ```text
-   path-to-specsync-package\tools\SpecSync4AzureDevOps.exe pull
+   dotnet specsync pull
    ```
 
 3. During the pull operation SpecSync might ask you to help resolving conflicting changes.
 4. Verify if the changes are correct \(compiles, correct Gherkin syntax, steps are defined, etc.\)
-5. Push back to Azure DevOps \(we recommend this step even if there were no fixes required, because this way SpecSync can register the current state of the scenarios in Azure DevOps\)
+5. Push back to Azure DevOps (we recommend this step even if there were no fixes required, because this way SpecSync can register the current state of the scenarios in Azure DevOps)
 
    ```text
-   path-to-specsync-package\tools\SpecSync4AzureDevOps.exe push
+   dotnet specsync push
    ```
 
 6. Check in \(commit and push\) your changes to source control
@@ -59,7 +59,7 @@ In certain cases SpecSync is not able to restore feature-level Gherkin construct
 {% endhint %}
 
 {% hint style="info" %}
-With SpecSync v3.3 or later all operations, including the pull command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
+SpecSync operations, including the pull command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
 {% endhint %}
 
 ## Creating new scenarios from Test Cases

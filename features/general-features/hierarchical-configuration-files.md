@@ -4,7 +4,7 @@ SpecSync can compose the necessary configuration settings from multiple configur
 
 ## User-specific configuration files
 
-SpecSync requires to connect to the Azure DevOps service. In many cases the authentication credentials are user-specific and therefore they cannot be included into the project-specific SpecSync configuration files \(because those are typically added to source-control and shared with other team members\).
+SpecSync requires to connect to the Azure DevOps server. In many cases the authentication credentials are user-specific and therefore they cannot be included into the project-specific SpecSync configuration files \(because those are typically added to source-control and shared with other team members\).
 
 These settings can be specified in the user-specific SpecSync configuration file. The user-specific configuration file is stored in the local application data folder of the current user. See locations on the different operating systems below. 
 

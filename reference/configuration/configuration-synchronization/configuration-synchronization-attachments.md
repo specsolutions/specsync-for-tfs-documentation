@@ -25,6 +25,7 @@ The following example shows the available options within this sub-section.
 }
 ```
 
+
 ## Settings
 
 | Setting | Description | Default |

@@ -1,12 +1,8 @@
 # SpecSync Plugins
 
-{% hint style="warning" %}
-The plugins feature of SpecSync is currently in a preview phase. This means that changes in the API might happen in the upcoming SpecSync versions.
-{% endhint %}
-
 SpecSync plugins can extend the functionality of SpecSync in order to support additional test sources, BDD tools and platforms.
 
-SpecSync plugins can be implemented as .NET assemblies that are loaded by SpecSync during execution.  In order to load a plugin, the plugin assembly has to be registered in the `toolSettings/plugins` section of the configuration file. The list of all possible settings can be found in the [`toolSettings` configuration reference](../../reference/configuration/configuration-toolsettings.md).&#x20;
+SpecSync plugins can be implemented as .NET assemblies that are loaded by SpecSync during execution.  In order to load a plugin, the plugin assembly has to be registered in the `toolSettings/plugins` section of the configuration file. The list of all possible settings can be found in the [`toolSettings` configuration reference](../../reference/configuration/configuration-toolsettings.md).
 
 The following example shows a simple plugin registration.
 
@@ -47,7 +43,7 @@ The following plugin class registers a custom test result matcher service.
 ```csharp
 using System;
 using MyCustomTestResultMatch.SpecSyncPlugin;
-using SpecSync.AzureDevOps.Plugins;
+using SpecSync.Plugins;
 
 [assembly: SpecSyncPlugin(typeof(CustomTestResultMatchPlugin))]
 
@@ -90,7 +86,7 @@ The following table describes a few scenarios that can be supported by a SpecSyn
 
 | Goal                                                                                    | Description                                                                                                                                                                                                                             | License required |
 | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Support a custom BDD tool that produces a TRX result file (e.g. a SpecFlow test runner) | Since SpecSync has built-in support for loading TRX files, in this case only a _Test Result Matcher _service has to be implemented.                                                                                                     | Any              |
+| Support a custom BDD tool that produces a TRX result file (e.g. a SpecFlow test runner) | Since SpecSync has built-in support for loading TRX files, in this case only a _Test Result Matcher_ service has to be implemented.                                                                                                     | Any              |
 | Support a custom BDD tool with an arbitrary test result file format                     | In this case the plugin needs to implement a _Test Results Loader_ and a _Test Result Matcher_ services. For JUnit XML style result files, the build-in `JUnitXmlResultLoader` base class can also be used to create the custom loader. | Any              |
 | Support a custom Gherkin dialect                                                        | The plugin needs to implement a _Local Test Case Container Parser_.                                                                                                                                                                     | Enterprise       |
 | Support a custom (non-Gherkin based) test source, e.g. an RSpec test                    | Probably all services need to be customized. If the test execution uses a standard format (e.g. TRX), the _Test Results Loader _can be skipped_._                                                                                       | Enterprise       |

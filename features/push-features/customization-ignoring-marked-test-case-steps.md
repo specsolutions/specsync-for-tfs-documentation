@@ -23,6 +23,6 @@ The following example shows a basic configuration that ignores the Test Case ste
 }
 ```
 
-Multiple Test Case step prefix can be listed in the `ignoredPrefixes` setting. The prefixes are matched in a case insensitive way.&#x20;
+Multiple Test Case step prefix can be listed in the `ignoredPrefixes` setting. The prefixes are matched in a case insensitive way.
 
 The ignores steps are moved to the top when the push command updates the Test Case.

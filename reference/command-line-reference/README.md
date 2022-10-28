@@ -4,11 +4,11 @@ SpecSync functions are provided through the command line tool. To use the comman
 
 Running SpecSync might require you to use different executable depending on the installation. 
 
-* `dotnet specsync <COMMAND> [options]` — when SpecSync is installed as a platform independent .NET Core tool \(recommended\)
+* `dotnet specsync <COMMAND> [options]` — when SpecSync is installed as a platform independent .NET tool \(recommended\)
 * `SpecSync4AzureDevOps.exe <COMMAND> [options]` — when you use the .NET Framework interface through the SpecSync.AzureDevOps.Console NuGet package on Windows
 * `SpecSync4AzureDevOps <COMMAND> [options]` — when you use the native binaries for Linux or MacOS
 
-The available commands and the options are the same for all usage, please check the [Installation & Usage](../../installation/) page for further information about usage options. In the command line reference we generally use the .NET Core tool usage syntax. 
+The available commands and the options are the same for all usage, please check the [Installation & Usage](../../installation/) page for further information about usage options. In the command line reference we generally use the .NET tool usage syntax. 
 
 ### Exit Codes
 
@@ -31,20 +31,20 @@ dotnet specsync version
 ```
 
 {% hint style="info" %}
-_SpecSync collects anonymous error diagnostics and statistics. Neither user nor machine names, nor Azure DevOps URLs, nor test case & test suite names nor IDs are collected! This can be disabled with the_ `--disableStats` _parameter._
+_SpecSync collects anonymous error diagnostics and statistics. Neither user nor machine names, nor Azure DevOps URLs, nor test case & other work item names nor IDs are collected! This can be disabled with the_ `--disableStats` _parameter._
 {% endhint %}
 
 ## Commands
 
-| Command | SpecSync version | Description |
-| :--- | :--- | :--- |
-| [init](init-command.md) | 3.0 + | Initializes SpecSync configuration |
-| [push](push-command.md) | All | Pushes changes of the scenarios on the local repository to the Azure DevOps server. This includes linking of new scenarios to new test cases \(link\) and updating test cases of linked scenarios \(update\). |
-| [pull](pull-command.md) | All | Pulls changes from Azure DevOps server to the local repository. This by default includes creation of new scenarios from unlinked test cases \(create\) and changing scenarios of linked test cases \(change\). |
-| [publish-test-results](publish-test-results-command.md) | 2.1 + | Publishes local test results to Azure DevOps server. |
-| [re-link](re-link-command.md) | 3.3 + | Re-links scenarios (local test cases) to cloned Test Cases in Azure DevOps. |
-| help | All | Displays help information or help for a command. |
-| version | All | Displays SpecSync version and license information. |
+| Command | Description |
+| :--- | :--- |
+| [init](init-command.md) | Initializes SpecSync configuration |
+| [push](push-command.md) | Pushes changes of the scenarios on the local repository to the Azure DevOps server. This includes linking of new scenarios to new test cases \(link\) and updating test cases of linked scenarios \(update\). |
+| [pull](pull-command.md) | Pulls changes from Azure DevOps server to the local repository. This by default includes creation of new scenarios from unlinked test cases \(create\) and changing scenarios of linked test cases \(change\). |
+| [publish-test-results](publish-test-results-command.md) | Publishes local test results to Azure DevOps server. |
+| [re-link](re-link-command.md) | Re-links scenarios (local test cases) to cloned Test Cases in Azure DevOps. |
+| help | Displays help information or help for a command. |
+| version | Displays SpecSync version and license information. |
 
 ## Common command line options
 
@@ -53,8 +53,8 @@ The following command line options are available for all commands that require e
 | Option | Description | Default |
 | :--- | :--- | :--- |
 | &lt;CONFIG‑FILE‑PATH&gt; | The path of the SpecSync configuration file, absolute path or relative to the current folder, e.g. `MyProject.Specs\specsync.json`. Has to be specified as a last parameter. | use `specsync.json` from the current folder |
-| `--user` &lt;USER‑NAME&gt; | The Azure DevOps user name or [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). Overrides `remote/user` setting of the configuration file. See [Azure DevOps authentication options](../../features/general-features/tfs-authentication-options.md) for details. | use from config file or interactive prompt |
-| `--password` &lt;PASSWORD&gt; | The password for the Azure DevOps user. Overrides `remote/password` setting of the configuration file. See [Azure DevOps authentication options](../../features/general-features/tfs-authentication-options.md) for details. | use from config file or interactive prompt |
+| `--user` &lt;USER‑NAME&gt; | The Azure DevOps user name or [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). Overrides `remote/user` setting of the configuration file. See [Azure DevOps authentication options](../../features/general-features/server-authentication-options.md) for details. | use from config file or interactive prompt |
+| `--password` &lt;PASSWORD&gt; | The password for the Azure DevOps user. Overrides `remote/password` setting of the configuration file. See [Azure DevOps authentication options](../../features/general-features/server-authentication-options.md) for details. | use from config file or interactive prompt |
 | `--ignoreCertificateErrorsForThumbprint` | The thumbprint of the server certificate that should be treated as trusted. It is recommended to install trusted certificates on the operating system instead of using this setting. See related [Troubleshooting entry](../../contact/troubleshooting.md#authentication-ssl-error-the-remote-certificate-is-invalid-according-to-the-validation-procedure-when-connecting-to-an-azure-devops-server-on-promises) for details. | SSL is verified by the OS |
 | `--license` &lt;LICENSE‑FILE‑PATH&gt; | The path to the license file; can be relative to the project folder. Overrides `toolSettings/licensePath` setting of the configuration file. See [Licensing](../../licensing.md) for details. \(Default: use from config file or `specsync.lic`\) | use from config file or `specsync.lic` |
 | `--disableStats` | If specified, SpecSync will not collect anonymous error diagnostics and statistics. Overrides `toolSettings/disableStats` setting of the configuration file. | false |
@@ -63,6 +63,7 @@ The following command line options are available for all commands that require e
 | `--zeroExitCodeForWarnings` | If specified, the command line tool will terminate with 0 exit code even in case of warnings. | Non-zero exit code is returned for warnings |
 | `--configOverride` | Can be used to override configuration file settings. This option can be used multiple times. See [Override configuration setting from command line](#override-configuration-setting-from-command-line) for details. | No configuration setting overrides |
 | `--dryRun` | If specified, the command will be performed, but no actual change is made either to Azure DevOps or to the local test files (feature files). This option is useful for testing the impact of an operation without making an actual change. | Normal mode |
+
 
 ## Override configuration setting from command line
 
@@ -86,7 +87,7 @@ The value for the `--configOverride` option is a *configuration setter* that has
   * `<array-path>[<index>]` -- overrides a setting at a specific index. E.g. `synchronization/links[0]/tagPrefix` can be used to set or override the `tagPrefix` setting of the first `link` element.
   * `<array-path>[]` -- adds a new element to the end of the list. E.g. `synchronization/links[]/tagPrefix` can be used to add a new link element and set the `tagPrefix` setting.
   * `<array-path>[-<index>]` -- overrides a setting at a specific index backwards (-1 is the last element, -2 is the one before last, etc.). E.g. `synchronization/links[-1]/tagPrefix` can be used to set or override the `tagPrefix` setting of the last `link` element. This setting can also be used in combination with the `[]` syntax. E.g. the following two setting adds a new link elements and sets two settings of it: `synchronization/links[]/tagPrefix=bug;synchronization/links[-1]/relationship=tests`
-* `<value>` is the new value of the setting. The option recognizes numbers, booleans \(true/false\) and arbitrary strings.
+* `<value>` is the new value of the setting. The option recognizes numbers, booleans \(`true`/`false`\) and arbitrary strings.
 
 ## Examples
 

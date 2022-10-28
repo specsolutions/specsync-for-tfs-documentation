@@ -1,7 +1,3 @@
----
-description: for v3.1
----
-
 # Configuration reference
 
 SpecSync can be configured using a json configuration file, by default called `specsync.json`. This section contains a detailed reference of the SpecSync configuration options. For a general introduction about how SpecSync configuration works, please check the [Configuration file](../../features/general-features/configuration-file.md) page. 
@@ -19,7 +15,7 @@ The following example shows a minimal configuration file.
 ```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
-  "compatibilityVersion": 3.1,
+  "compatibilityVersion": 3.3,
 
   "remote": {
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
@@ -27,7 +23,6 @@ The following example shows a minimal configuration file.
 }
 ```
 
-A detailed sample configuration file that contains nearly all settings can be found at [http://schemas.specsolutions.eu/specsync-sample.json](http://schemas.specsolutions.eu/specsync-sample.json).
 
 {% hint style="info" %}
 The `compatibilityVersion` setting at the top of the file specifies the SpecSync version that the configuration file was created for. The new SpecSync features can be used even if the compatibility version is older than the current version, but if the default values of some settings change in the future, SpecSync will not apply these default unless the compatibility version is updated.

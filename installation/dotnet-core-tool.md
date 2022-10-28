@@ -1,13 +1,11 @@
 # Install as .NET tool
 
 {% hint style="info" %}
-This install method is available for machines with .NET Core SDK 3.0 or higher installed regardless of whether the BDD project uses .NET or whether it uses .NET Core. Other [installation options](./) available.
-
-.NET 5.0 is also supported from SpecSync v3.2, .NET 6.0 is supported from SpecSync v3.2.8.
+This install method is available for machines with .NET Core SDK 3.0 or higher (including .NET 6) installed regardless of whether the BDD project uses .NET or whether it uses .NET Core. Other [installation options](./) available.
 {% endhint %}
 
 {% hint style="warning" %}
-The Azure DevOps API that SpecSync uses currently does not support[ "Microsoft account sign-in prompt" authentication](../features/general-features/tfs-authentication-options.md#tfs-windows-sign-in-prompt) on .NET Core. The other authentication options, including the recommended [Personal Access Token (PAT)](../features/general-features/tfs-authentication-options.md#vsts-personal-access-tokens) or password authentication is still supported.
+The Azure DevOps API that SpecSync uses currently does not support[ "Microsoft account sign-in prompt" authentication](../features/general-features/server-authentication-options.md#tfs-windows-sign-in-prompt) on .NET Core. The other authentication options, including the recommended [Personal Access Token (PAT)](../features/general-features/server-authentication-options.md#vsts-personal-access-tokens) or password authentication is still supported.
 {% endhint %}
 
 The most convenient way to use SpecSync is to install it as a .NET tool. While .NET tools require .NET Core SDK. NET 5 SDK or .NET 6 SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET 6 SDK can be installed from the [.NET Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET SDK.

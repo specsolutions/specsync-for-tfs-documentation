@@ -1,9 +1,9 @@
 # Customization: Mapping tags
 
-The _Tag text map transformation_ customization can be used to handle different notations between tags used in the feature file and tags in Azure DevOps (e.g. how white spaces are handled).&#x20;
+The _Tag text map transformation_ customization can be used to handle different notations between tags used in the feature file and tags in Azure DevOps (e.g. how white spaces are handled).
 
 {% hint style="info" %}
-The _Tag text map transformation _customization described here is an [Enterprise feature](../../licensing.md).
+The _Tag text map transformation_ customization described here is an [Enterprise feature](../../licensing.md).
 {% endhint %}
 
 With the customization you can substitute characters or sub-strings in tags when synchronizing to Azure DevOps. E.g. underscores (`_`) in scenario tags can be represented with spaces in Test Case tags. The customization can even be used to substitute complete tags names as well.

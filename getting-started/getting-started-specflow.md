@@ -2,15 +2,15 @@
 
 This chapter goes through the setup and the synchronization steps for SpecFlow projects. For non-SpecFlow projects, like Cucumber, please check page [Getting started using Cucumber](getting-started-cucumber.md).
 
-SpecSync is a synchronization tool that can be invoked from the command line. For SpecFlow projects, there is also a SpecFlow plugin that enables synchronizing automated test cases if that is necessary. This guide shows you step-by-step how the synchronization tool and the SpecFlow plugin can be configured.
+SpecSync is a synchronization tool that can be invoked from the command line. This guide shows you step-by-step how the synchronization tool can be configured.
 
 ## Preparation
 
-For setting up SpecSync for Azure DevOps, you need a SpecFlow project and a Azure DevOps project. For the supported Azure DevOps versions, please check the [Compatibility](../reference/compatibility.md) list.
+For setting up SpecSync for Azure DevOps, you need a SpecFlow project and an Azure DevOps project. For the supported Azure DevOps versions, please check the [Compatibility](../reference/compatibility.md) list.
 
 In our guide, we will use a calculator example \(MyCalculator\) that uses SpecFlow v2.3 with MsTest. The SpecFlow project is called `MyCalculator.Specs`. The sample project can be downloaded from [GitHub](https://github.com/gasparnagy/specsync-basic-calculator-specflow).
 
-For a synchronization target we use an Azure DevOps project: `https://specsyncdemo.visualstudio.com/MyCalculator`. \(An Azure DevOps project for testing SpecSync can be created for free from the [Azure DevOps website](https://azure.microsoft.com/en-us/services/devops/)\).
+For a synchronization target we use an Azure DevOps project: `https://specsyncdemo.visualstudio.com/MyCalculator`. (An Azure DevOps project for testing SpecSync can be created for free from the [Azure DevOps website](https://azure.microsoft.com/en-us/services/devops/)).
 
 ## Installation
 
@@ -47,7 +47,7 @@ Initialize the SpecSync configuration in your local repository root by invoking 
 dotnet specsync init
 ```
 
-The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) and the [authentication credentials](../features/general-features/tfs-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from [http://schemas.specsolutions.eu/specsync-empty.json](http://schemas.specsolutions.eu/specsync-empty.json).
+The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) and the [authentication credentials](../features/general-features/server-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from http://schemas.specsolutions.eu/specsync-empty.json.
 
 ## Review configuration
 
@@ -98,7 +98,7 @@ _Useful hint for testing:_ Normally you cannot delete work items from Azure DevO
 
 ## Check Test Case in Azure DevOps
 
-1. Find one of the created test case in Azure DevOps. The easiest way to do this is to open the Azure DevOps URL in a browser and specify the test case ID \(e.g. `#12294)` in the "Search" text box in the upper right corner of the web page.
+1. Find one of the created test case in Azure DevOps. The easiest way to do this is to open the Azure DevOps URL in a browser and specify the test case ID \(e.g. `#12302)` in the "Search" text box in the upper right corner of the web page.
 
 You should see something like this.
 
@@ -107,7 +107,7 @@ You should see something like this.
 There are a couple of things you can note here.
 
 * The name of the scenario has been synchronized as the title of the test case. \(The "Scenario:" prefix can be omitted by changing the [synchronization format configurations](../reference/configuration/configuration-synchronization/configuration-synchronization-format.md).\)
-* The tags of the scenario have been synchronized as test case tags.
+* The tags of the scenario have been synchronized as test case tags (labels).
 * The steps of the scenario have been synchronized as test case steps. \(The _Then_ steps can also be synchronized into the _Expected result_ column of the test case step list and you can [change a couple of other formatting options](../reference/configuration/configuration-synchronization/configuration-synchronization-format.md) as well.\)
 
 ## Verify feature file and commit changes
@@ -116,7 +116,7 @@ There are a couple of things you can note here.
 2. Each scenario and scenario outline has been tagged with a `@tc:...` tag making the link between the scenario and the created test case.
 
 ```text
-@tc:12294
+@tc:12302
 @important
 Scenario: Add two positive numbers
 ```
@@ -134,7 +134,7 @@ Now let's make a change in one of the scenarios and synchronize the changes to t
 1. Update the title and the steps of the scenario, for example change the scenario `Add two positive numbers` to `Multiply two positive numbers`, change `add` to `multiply` in the _When_ step and update the expected result to `377`:
 
    ```text
-   @tc:12294
+   @tc:12302
    Scenario: Multiply two positive numbers
      Given I have entered the following numbers
         | number |
@@ -214,7 +214,7 @@ For projects with many Test Suite it is recommended to also specify the Test Pla
 
 So far we have shown how to keep the Azure DevOps Test Cases in sync with the scenarios in the feature files. This provides you easily accessible documentation and traceability. The synchronized Test Cases can also be executed as manual tests from Azure DevOps.
 
-To turn the Test Cases into a living documentation, you can also publish test results of the scenarios connected to the Test Cases and Test Suites. 
+To turn the Test Cases into a living documentation, you can also publish test results of the scenarios connected to the Test Cases. 
 
 The easiest way to do this is to execute the SpecFlow scenarios as you would do normally and use the [publish-test-result command](../reference/command-line-reference/publish-test-results-command.md) of SpecSync to publish these results to Azure DevOps. 
 
@@ -237,8 +237,3 @@ dotnet specsync publish-test-results --testResultFile TestResults\testresult.trx
 ```
 
 The command analyses the test result file and connects the results with the scenarios to be able to associate them to Test Cases. You can find the created Test Run in the _Test Plans / Runs_ section of your Azure DevOps portal.
-
-{% hint style="info" %}
-To find more information about the available options on how to publish test results, please check the [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md) page.
-{% endhint %}
-

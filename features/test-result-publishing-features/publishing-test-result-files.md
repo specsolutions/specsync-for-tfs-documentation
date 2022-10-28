@@ -19,9 +19,8 @@ dotnet specsync publish-test-result --testResultFile result.trx
 The [Use SpecSync from build or release pipeline](../../important-concepts/synchronizing-test-cases-from-build.md) guide contains details about how to integrate the publish-test-result command to a build or release pipeline.
 
 {% hint style="info" %}
-With SpecSync v3.3 or later all operations, including the publish-test-results command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
+SpecSync operations, including the publish-test-results command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
 {% endhint %}
-
 
 {% hint style="info" %}
 You can find an overview of the Azure DevOps Test Case results in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/test/navigate-test-plans?view=azure-devops).
@@ -29,13 +28,13 @@ You can find an overview of the Azure DevOps Test Case results in the [Azure Dev
 
 ## Getting scenario execution result from your BDD tool
 
-The automation source of the Test Cases are provided by the BDD scenarios and the automation solution implemented for them. The automation solution might use different tools (SpecFlow, Cucumber, PyTest, etc.) and might run on different platforms (e.g. .NET, Java or Python).&#x20;
+The automation source of the Test Cases are provided by the BDD scenarios and the automation solution implemented for them. The automation solution might use different tools (SpecFlow, Cucumber, PyTest, etc.) and might run on different platforms (e.g. .NET, Java or Python).
 
-SpecSync uses a concept that works with different tools and platforms: execute the scenarios as usual with their standard tooling and save the test results into a test result file of their native test result format. SpecSync understands many test result file formats and how they represent the scenario results and able to match them to the Test Cases, synchronized earlier with a push command.&#x20;
+SpecSync uses a concept that works with different tools and platforms: execute the scenarios as usual with their standard tooling and save the test results into a test result file of their native test result format. SpecSync understands many test result file formats and how they represent the scenario results and able to match them to the Test Cases, synchronized earlier with a push command.
 
 The [Compatibility](../../reference/compatibility.md#supported-test-result-formats) page contains the currently supported BDD tools and test result file formats. Please [contact us](../../contact/specsync-support.md) if your tool is not in the list and we are happy to provide support for that. You can also support custom test result file formats with a [SpecSync plugin](../general-features/specsync-plugins.md).
 
-The exact way how you can get test result files depends on the test runner tool and the BDD framework you use. For example for .NET Core SpecFlow test projects the test results can be saved into a TRX file by providing the `--logger trx;logfilename=<your-trx-file-name>.trx` option for the `dotnet test` command.&#x20;
+The exact way how you can get test result files depends on the test runner tool and the BDD framework you use. For example for .NET Core SpecFlow test projects the test results can be saved into a TRX file by providing the `--logger trx;logfilename=<your-trx-file-name>.trx` option for the `dotnet test` command.
 
 For the SpecSync publish-test-result command, the path of the test result file can be specified using the `--testResultFile` command line option. If the test result file is not a TRX file, you also have to specify the file format using the `--testResultFileFormat` option (see [Compatibility](../../reference/compatibility.md#supported-test-result-formats) for possible values).
 
@@ -121,9 +120,9 @@ SpecSync publishes the result of a scenario outline is cumulated from the result
 
 ### Publishing inconclusive test results
 
-Some test execution frameworks report skipped scenarios as Inconclusive. Publishing them as inconclusive result (that is a kind of failure) would make the overall test outcome and the detail statistics invalid.&#x20;
+Some test execution frameworks report skipped scenarios as Inconclusive. Publishing them as inconclusive result (that is a kind of failure) would make the overall test outcome and the detail statistics invalid.
 
-My setting the `publishTestResults/treatInconclusiveAs` setting in the configuration file, you can map this result to another value, e.g. `NotExecuted`.&#x20;
+My setting the `publishTestResults/treatInconclusiveAs` setting in the configuration file, you can map this result to another value, e.g. `NotExecuted`.
 
 ### Merging multiple test result files
 
@@ -197,6 +196,7 @@ We executed the tests for Chrome and saved the results to a file `bddresults-chr
 dotnet specsync publish-test-result -r bddresults-chrome.trx --testConfiguration "Chrome"
 ```
 
+
 ### SpecFlow (.NET Framework, VSTest)
 
 The following example shows how to run .NET Framework SpecFlow tests using the `vstest.console` command and publish the test result file (`bddtestresults.trx`) to the default `Windows 10` Test Configuration. The runner saves the test result file to the `TestResults` folder by default. (.NET Framework tests can also be executed using the `dotnet test` command, see [above](publishing-test-result-files.md#specflow-net-core).)&#x20;
@@ -258,4 +258,3 @@ The following example shows how to customize the settings for the publish-test-r
 ```
 dotnet specsync publish-test-result --testResultFile bddtestresults.trx --runName "BDD Results"
 ```
-

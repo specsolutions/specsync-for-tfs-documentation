@@ -12,11 +12,11 @@ In this guide we will use Cucumber.js as an example, but the steps can also be a
 
 ## Preparation
 
-For setting up SpecSync for Azure DevOps, you need a Cucumber project and a Azure DevOps project. For the supported Azure DevOps versions, please check the [Compatibility](../reference/compatibility.md) list.
+For setting up SpecSync for Azure DevOps, you need a Cucumber project and an Azure DevOps project. For the supported Azure DevOps versions, please check the [Compatibility](../reference/compatibility.md) list.
 
 In our guide, we will use a calculator example \(my\_calculator\) that uses Cucumber.js v5.1. The sample project can be downloaded from [GitHub](https://github.com/gasparnagy/specsync-basic-calculator-cucumber-js).
 
-For a synchronization target we use an Azure DevOps project: `https://specsyncdemo.visualstudio.com/MyCalculator`. \(An Azure DevOps project for testing SpecSync can be created for free from the [Azure DevOps website](https://azure.microsoft.com/en-us/services/devops/)\).
+For a synchronization target we use an Azure DevOps project: `https://specsyncdemo.visualstudio.com/MyCalculator`. (An Azure DevOps project for testing SpecSync can be created for free from the [Azure DevOps website](https://azure.microsoft.com/en-us/services/devops/)).
 
 ## Installation
 
@@ -32,7 +32,7 @@ Initialize the SpecSync configuration in your local repository root by invoking 
 $SPECSYNC_DIR/SpecSync4AzureDevOps init
 ```
 
-The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) and the [authentication credentials](../features/general-features/tfs-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from [http://schemas.specsolutions.eu/specsync-empty.json](http://schemas.specsolutions.eu/specsync-empty.json).
+The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) and the [authentication credentials](../features/general-features/server-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from http://schemas.specsolutions.eu/specsync-empty.json.
 
 ## Basic configuration
 
@@ -109,7 +109,7 @@ You should see something like this.
 There are a couple of things you can note here.
 
 * The name of the scenario has been synchronized as the title of the test case. \(The "Scenario:" prefix can be omitted by changing the [synchronization format configurations](../reference/configuration/configuration-synchronization/configuration-synchronization-format.md).\)
-* The tags of the scenario have been synchronized as test case tags.
+* The tags of the scenario have been synchronized as test case tags (labels).
 * The steps of the scenario have been synchronized as test case steps. \(The _Then_ steps can also be synchronized into the _Expected result_ column of the test case step list and you can [change a couple of other formatting options](../reference/configuration/configuration-synchronization/configuration-synchronization-format.md) as well.\)
 
 ## Verify feature file and commit changes
@@ -217,12 +217,12 @@ For projects with many Test Suite it is recommended to also specify the Test Pla
 
 So far we have shown how to keep the Azure DevOps Test Cases in sync with the scenarios in the feature files. This provides you easily accessible documentation and traceability. The synchronized Test Cases can also be executed as manual tests from Azure DevOps.
 
-To turn the Test Cases into a living documentation, you can also publish test results of the scenarios connected to the Test Cases and Test Suites. 
+To turn the Test Cases into a living documentation, you can also publish test results of the scenarios connected to the Test Cases. 
 
 For that you need to execute the tests and use the [publish-test-result command](../reference/command-line-reference/publish-test-results-command.md) of SpecSync to publish these results to Azure DevOps. SpecSync supports several test result file formats and BDD tools. The list of currently supported tools can be found on the [Compatibility](../reference/compatibility.md#supported-test-result-formats) page. 
 
 {% hint style="info" %}
-The list of supported formats are constantly growing and from SpecSync v3.1 you are also able to create a SpecSync plugin to support your own test result format.
+The list of supported formats are constantly growing and you can also create a SpecSync plugin to support your own test result format.
 {% endhint %}
 
 {% hint style="success" %}
@@ -237,8 +237,4 @@ dotnet specsync publish-test-results --testResultFile mytestresult.xml
 ```
 
 The command analyses the test result file and connects the results with the scenarios to be able to associate them to Test Cases. You can find the created Test Run in the _Test Plans / Runs_ section of your Azure DevOps portal.
-
-{% hint style="info" %}
-To find more information about the available options on how to publish test results, please check the [Synchronizing automated test cases](../important-concepts/synchronizing-automated-test-cases.md) page.
-{% endhint %}
 

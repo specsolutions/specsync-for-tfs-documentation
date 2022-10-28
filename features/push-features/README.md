@@ -26,7 +26,7 @@ This chapter contains features related to updating Test Cases based on the local
 
 {% page-ref page="customization-mapping-tags.md" %}
 
-{% page-ref page="support-synchronizing-scenarios-from-a-branch.md" %}
+{% page-ref page="customization-support-synchronizing-scenarios-from-a-branch.md" %}
 
 {% page-ref page="customization-reset-test-case-state-after-change.md" %}
 
