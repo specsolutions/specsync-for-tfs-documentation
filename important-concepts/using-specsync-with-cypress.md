@@ -59,4 +59,4 @@ The same can be achieved with the short option forms:
 dotnet specsync publish-test-results -f cypressCucumberJson -r cypress/cucumber-json
 ```
 
-With the configuration and the steps above, the test results are now published to Azure DevOps.&#x20;
+With the configuration and the steps above, the test results are now published to Azure DevOps.

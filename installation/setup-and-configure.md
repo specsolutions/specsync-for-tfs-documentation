@@ -56,7 +56,7 @@ SpecSync4AzureDevOps.cmd init
 {% endtab %}
 {% endtabs %}
 
-The init command will ask a few questions in order the setup the connection to the Azure DevOps project, like the project URL and the authentication details. If you are unsure about what is exactly your Azure DevOps project URL, please check the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) page. You can fine more information about the authentication options in the [Azure DevOps authentication options](../features/general-features/server-authentication-options.md) page.
+The init command will ask a few questions in order the setup the connection to the Azure DevOps project, like the project URL and the authentication details. If you are unsure about what is exactly your Azure DevOps project URL, please check the [What is my Azure DevOps project URL](../important-concepts/what-is-my-server-url.md) page. You can fine more information about the authentication options in the [Azure DevOps authentication options](../features/general-features/server-authentication-options.md) page.
 
 {% hint style="success" %}
 It is recommended to let the init command test the authentication to the Azure DevOps project to make sure the connection is configured properly.

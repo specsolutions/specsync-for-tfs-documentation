@@ -41,7 +41,6 @@ Currently the remote scope can be specified by configuring a static Test Suite w
 
 For the pull command the remote scope is mandatory. Read more about this in [Two-way synchronization](../features/pull-features/two-way-synchronization.md).
 
-
 ## Setting local filter
 
 To synchronize only a subset of the scenarios within the local scope you can specify a tag (`--tagFilter`) or a feature file filter (`--sourceFileFilter`) expression as a command line option. \(See [Command line reference](../reference/command-line-reference/) for details.\)

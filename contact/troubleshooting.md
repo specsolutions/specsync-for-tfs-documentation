@@ -13,7 +13,7 @@ If the error `API resource location 603fe2ac-9723-48b9-88ad-09305aa6c6e1 is not
 
 **Solution 1:** If you use TFS 2013 or TFS 2015, please check if the TFS server is compatible with the SpecSync version you use in the [Compatibility](../reference/compatibility.md) page. For older TFS servers you might need to donwgrade to an older version of SpecSync.
 
-**Solution 2:** Check is the Azure DevOps project URL is correct. It can happen that the URL you have specified points to the project collection and the project name part is missing. You can use the [What is my Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) guide for help. Fix the project URL and re-run the synchronization.
+**Solution 2:** Check is the Azure DevOps project URL is correct. It can happen that the URL you have specified points to the project collection and the project name part is missing. You can use the [What is my Azure DevOps project URL](../important-concepts/what-is-my-server-url.md) guide for help. Fix the project URL and re-run the synchronization.
 
 ### Connecting to Azure DevOps with SpecSync v2 fails with "Unable to read data from the transport connection" error
 

@@ -47,7 +47,7 @@ Initialize the SpecSync configuration in your local repository root by invoking 
 dotnet specsync init
 ```
 
-The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-tfs-project-url.md) and the [authentication credentials](../features/general-features/server-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from http://schemas.specsolutions.eu/specsync-empty.json.
+The init command will ask you for your [Azure DevOps project URL](../important-concepts/what-is-my-server-url.md) and the [authentication credentials](../features/general-features/server-authentication-options.md). Alternatively you can manually create the configuration based on an empty configuration file downloadable from http://schemas.specsolutions.eu/specsync-empty.json.
 
 ## Review configuration
 
