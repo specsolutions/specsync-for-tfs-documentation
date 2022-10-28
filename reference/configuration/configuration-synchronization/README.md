@@ -68,7 +68,7 @@ For sub-section settings, click on the name of the setting for details.
 | Setting | Description | Default |
 | ----------------------- | ----------------------- | ----------------------- |
 | `disableLocalChanges` | Disables changing feature files in the local repository. If set to true (called _build server mode_), only those changes will be performed that do not need any change in the local feature files. Linking new scenarios or pulling changes from test cases will be skipped. Can be overridden by the `--disableLocalChanges` [command line option](../../command-line-reference/push-command.md). See [Synchronizing test cases from build](../../../important-concepts/synchronizing-test-cases-from-build.md) for details. | `false` |
-| `testCaseTagPrefix` | <p></p><p>The tag prefix for specifying the test cases. E.g. specify <code>testcase</code> for referring to test cases using a tag, like <code>@testcase:12302</code>.</p> | `tc` |
+| `testCaseTagPrefix` | <p></p><p>The tag prefix for specifying the test cases. E.g. specify <code>testcase</code> for referring to test cases using a tag, like <code>@testcase:1234</code>.</p> | `tc` |
 | [`pull`](configuration-synchronization-pull.md) | Settings to configure the pull behavior. See [Two-way synchronization](../../../features/pull-features/two-way-synchronization.md) for details |  |
 | [`automation`](configuration-synchronization-automation.md) | Settings to configure synchronizing automated test cases. See [Synchronizing automated test cases](../../../important-concepts/synchronizing-automated-test-cases.md) for details. |  |
 | [`state`](configuration-synchronization-state.md) | Settings to configure how the test case _state_ field should be updated. |  |

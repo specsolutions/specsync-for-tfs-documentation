@@ -116,7 +116,7 @@ There are a couple of things you can note here.
 2. Each scenario and scenario outline has been tagged with a `@tc:...` tag making the link between the scenario and the created test case.
 
 ```text
-@tc:12302
+@tc:1234
 @important
 Scenario: Add two positive numbers
 ```
@@ -134,7 +134,7 @@ Now let's make a change in one of the scenarios and synchronize the changes to t
 1. Update the title and the steps of the scenario, for example change the scenario `Add two positive numbers` to `Multiply two positive numbers`, change `add` to `multiply` in the _When_ step and update the expected result to `377`:
 
    ```text
-   @tc:12302
+   @tc:1234
    Scenario: Multiply two positive numbers
      Given I have entered the following numbers
         | number |
