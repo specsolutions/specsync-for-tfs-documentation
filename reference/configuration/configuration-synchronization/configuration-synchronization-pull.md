@@ -4,7 +4,9 @@ This configuration section contains settings to configure the pull behavior.
 
 Read more about the pull behavior in the [Two-way synchronization](../../../features/pull-features/two-way-synchronization.md) concept description.
 
-_Note: The two-way synchronization is an [Enterprise feature](../../../licensing.md)._
+{% hint style="info" %}
+The two-way synchronization is an [Enterprise feature](../../../licensing.md).
+{% endhint %}
 
 The following example shows the available options within this sub-section.
 

@@ -17,7 +17,7 @@ The following example shows a basic configuration that initializes the _Descript
     "customFieldUpdates": {
       "enabled": true,
       "updates": {
-        "System.Description": "Syncronized from feature {feature-name}"
+        "System.Description": "Synchronized from feature {feature-name}"
       }
     }
   }
