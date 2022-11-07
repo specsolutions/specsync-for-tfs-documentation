@@ -134,7 +134,7 @@ The problem is usually that there is a custom NuGet source configured in your or
 
 **Solution 1:** For the installation you can specify the official NuGet source by adding the  `--add-source  https://api.nuget.org/v3/index.json --ignore-failed-sources` options to the install or restore command. 
 
-E.g. the installation with specified NuGet source would be
+E.g. the installation with specified NuGet source would be...
 
 ```bash
 dotnet tool install SpecSync.AzureDevOps --add-source  https://api.nuget.org/v3/index.json --ignore-failed-sources
