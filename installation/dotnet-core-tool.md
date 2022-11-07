@@ -38,6 +38,12 @@ Once the .NET local tool configuration is initialized SpecSync can be easily ins
 dotnet tool install SpecSync.AzureDevOps
 ```
 
+{% hint style="warning" %}
+In case there is a custom NuGet source configured in your organization that does not mirror SpecSync packages, you might receive an error. In that case specifying the NuGet package source might help.
+
+You can specify the package source by adding the `--add-source  https://api.nuget.org/v3/index.json --ignore-failed-sources` command line options to the command. For further solutions for this problem, please check the [Troubleshooting guide](../contact/troubleshooting.md#nuget-package-not-found)
+{% endhint %}
+
 ### Step 3: Verify installation
 
 SpecSync is ready to run using the `dotnet specsync` command. You can test the installation by checking the installed SpecSync version.

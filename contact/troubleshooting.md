@@ -124,3 +124,20 @@ In order to keep a documentation of the pipeline that performed the test executi
 
 For example to document the build number, you can specify: `--testResultComment "Build: $(Build.BuildNumber)"`. For documenting the release name, you can specify: `--testResultComment "Release: $(Release.ReleaseName)"`.
 
+
+
+### Unable to find or restore package error when installing or restoring SpecSync as a .NET tool <a href="nuget-package-not-found" id="nuget-package-not-found"></a>
+
+When you install SpecSync as a [.NET tool](../installation/dotnet-core-tool.md), you might receive errors during the `dotnet tool install SpecSync.AzureDevOps` or the `dotnet tool restore` commands. The error message might contain `Unable to find package SpecSync.AzureDevOps` or `The tool package could not be restored`.
+
+The problem is usually that there is a custom NuGet source configured in your organization that does not mirror SpecSync packages.
+
+**Solution 1:** For the installation you can specify the official NuGet source by adding the  `--add-source  https://api.nuget.org/v3/index.json --ignore-failed-sources` options to the install or restore command. 
+
+E.g. the installation with specified NuGet source would be
+
+```bash
+dotnet tool install SpecSync.AzureDevOps --add-source  https://api.nuget.org/v3/index.json --ignore-failed-sources
+```
+
+**Solution 2:** You can change your local NuGet configuration or the `NuGet.config` file of your project to include the official NuGet source `https://api.nuget.org/v3/index.json`. Alternatively you can ask the administrator of your custom NuGet source to mirror the SpecSync NuGet packages.
