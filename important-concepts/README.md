@@ -4,6 +4,7 @@ Please check the following guides.
 
 {% page-ref page="what-is-my-server-url.md" %}
 
+
 {% page-ref page="how-to-define-the-local-feature-set-to-be-synchronized.md" %}
 
 {% page-ref page="filters-and-scopes.md" %}

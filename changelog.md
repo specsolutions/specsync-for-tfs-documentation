@@ -74,7 +74,7 @@ For planned features in future releases please check the [Release Model and Road
 
 ### Improvements
 
-* Allow specifying additional work item clones for re-link in a CSV file using the `--workItemClonesFile` option.
+* Allow specifying additional work item clones for re-link in a CSV file using the `--workItemClonesFile` option. (#663)
 * Display .NET version information in verbose mode (#694)
 * The SpecSync Docker images now provide a `specsync` executable for simpler usage (it is a symbolic link to the executable `SpecSync4AzureDevOps`). (#682)
 * The SpecSync Docker images are now based on the `ubuntu:20.04` image (#697)
