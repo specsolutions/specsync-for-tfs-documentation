@@ -23,9 +23,9 @@ The most efficient way to access the local files is to define a mounting point \
 
 ```bash
 # define a parametrizable mounting point
-ARG LOCAl_DIR=/local
+ARG LOCAL_DIR=/local
 # set it as working folder
-WORKDIR ${LOCAl_DIR}
+WORKDIR ${LOCAL_DIR}
 ```
 
 The local folders can be mounted to the container when the container is created using the `-v <LOCAL-FOLDER>:<MOUNT-POINT>` argument of the `docker run` command. In the images created for SpecSync, the mounting point is usually the `/local` folder. For example:
@@ -139,12 +139,12 @@ The following Dockerfile creates an image based on the .NET Core 3.1 SDK to be a
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 
 ARG SPECSYNC_VERSION=3.1.1
-ARG LOCAl_DIR=/local
+ARG LOCAL_DIR=/local
 
 RUN dotnet tool install --global SpecSync.AzureDevOps --version ${SPECSYNC_VERSION}
 ENV PATH="$PATH:/root/.dotnet/tools"
 
-WORKDIR ${LOCAl_DIR}
+WORKDIR ${LOCAL_DIR}
 ```
 {% endcode %}
 
@@ -176,6 +176,7 @@ Just like with the other Docker container options it is recommended to [mount th
 
 You can make the image for generic-purpose use \(e.g. for interactive work\), or you can make it specifically for the purpose of executing the SpecSync command line tool using the `ENTRYPOINT` command. In case of the latter, you can consider using the [official SpecSync Docker images](../installation/docker-image.md) or create a [derived image](using-specsync-inside-a-docker-container.md#create-a-derived-docker-image-from-the-official-specsync-docker-image) from them. 
 
+
 ### Example
 
 The following Dockerfile creates an image from `ubuntu:latest`, installs the SpecSync native binaries to it and exposes the SpecSync command line tool as a default entry point.
@@ -190,7 +191,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 ARG SPECSYNC_VERSION=3.0.2
-ARG LOCAl_DIR=/local
+ARG LOCAL_DIR=/local
 
 WORKDIR /specsync
 
@@ -202,7 +203,7 @@ RUN wget -qO specsync.zip https://www.specsolutions.eu/media/specsync/SpecSync.A
 # As SpecSync output is not culture-dependent, this setting can be used to avoid installing ICU libs (libicu66)
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
-WORKDIR ${LOCAl_DIR}
+WORKDIR ${LOCAL_DIR}
 
 ENTRYPOINT [ "/specsync/SpecSync4AzureDevOps" ]
 ```

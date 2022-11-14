@@ -141,3 +141,20 @@ dotnet tool install SpecSync.AzureDevOps --add-source  https://api.nuget.org/v3/
 ```
 
 **Solution 2:** You can change your local NuGet configuration or the `NuGet.config` file of your project to include the official NuGet source `https://api.nuget.org/v3/index.json`. Alternatively you can ask the administrator of your custom NuGet source to mirror the SpecSync NuGet packages.
+
+### No usable version of libssl was found error when running SpecSync Linux binaries on Ubuntu 22.04 <a href="no-usable-libssl-ubuntu2204" id="no-usable-libssl-ubuntu2204"></a>
+
+When the Linux binary package of an older SpecSync version is executed on Ubuntu 22.04 the synchronization might fail with the error message `No usable version of libssl was found`.
+
+This is caused by the SSL library incompatibility between .NET Core 3.1 and Ubuntu 22.04.
+
+**Solution 1:** You can use the Ubuntu 20.04 stable version for these SpecSync versions where you can have compatible SSL packages (`libssl1.1`).
+
+**Solution 2:** Upgrade SpecSync for Azure DevOps to v3.4. Those versions use .NET 6 for the Linux binaries that are compatible with `libssl3` available for Ubuntu 22.04.
+
+**Solution 3:** The compatibility can also be achieved by downgrading and installing the necessary libssl library. This can be achieved by adding the following command to your `Dockerfile` (source: [StackOverflow post](https://stackoverflow.com/a/72137153/26530)):
+
+```text
+RUN wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb \
+    && dpkg -i libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb
+```
