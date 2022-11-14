@@ -16,12 +16,42 @@ For on premises Azure DevOps Server (or Team Foundation Server)
 * [Domain user name and password](server-authentication-options.md#tfs-domain-user-name-and-password)
 * [Windows sign-in prompt](server-authentication-options.md#tfs-windows-sign-in-prompt)
 
-The authentication credentials can be specified in the in the configuration file (see [`remote` Configuration](../../reference/configuration/configuration-remote.md) for details) or as command line options (see [Usage](../../reference/command-line-reference/) for details). It is recommended to store user-specific credentials in the [`knownRemotes` section](../../reference/configuration/knownremotes.md) of the [user-specific configuration file](hierarchical-configuration-files.md#user-specific-configuration-files).&#x20;
+The authentication credentials can be specified in multiple ways:
 
-{% code title="specsync.json (in the SpecSync folder of the local app data)" %}
+1. During the execution of the SpecSync command using the interactive prompt (password is masked). This method is used by SpecSync if either the user name (token) or the password is not configured anywhere else.
+2. Using the `--user` and `--password` [command line options](../../reference/command-line-reference/#common-command-line-options).
+3. In the [`remote` section](../../reference/configuration/configuration-remote.md) of the [SpecSync configuration file](configuration-file.md) (`specsync.json`).
+4. In the [user-specific configuration file](hierarchical-configuration-files.md#user-specific-configuration-files).
+5. In system environment variables that can be referred to either in the configuration file or from the command prompt (see examples below). The environment variable name has to be specified using the `%variable%` format.
+
+### Examples
+
+Specifying the user name in the `specsync.json` configuration file:
+
+```
+{
+  ...
+ "remote": {
+    "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
+    "user": "account01"
+  },
+  ...
+}
+```
+
+Specifying the user name in the command line:
+
+```text
+dotnet specsync push --user "account01"
+```
+
+A [user-specific configuration file](hierarchical-configuration-files.md#user-specific-configuration-files) that configures credentials for multiple projects.
+
+
+{% code title="specsync.json (in C:\Users\my_user\AppData\SpecSync folder)" %}
 ```javascript
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+  "$schema": "http://schemas.specsolutions.eu/specsync-user-config-latest.json",
 
   "knownRemotes": [
     {
@@ -37,27 +67,25 @@ The authentication credentials can be specified in the in the configuration file
 ```
 {% endcode %}
 
-Alternatively, you can also use environment variables for specifying user name and password (`%variable%` format), to make the testing easier without checking-in passwords to the source control. Environment variables are also useful for specifying passwords for [invoking the synchronization from the CI build process](../../important-concepts/synchronizing-test-cases-from-build.md).
-
-The the environment variables can be used in the [configuration file](../../reference/configuration/configuration-remote.md):
+Specifying the user credentials that refer to an environment variable in the `specsync.json` configuration file. The example requires the user name to be stored in the environment variable `SPECSYNC_REMOTE_USER`:
 
 ```
 {
   ...
  "remote": {
-    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
-    "user": "%VSO_USER%",
-    "password": "%VSO_PWD%"
+    "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
+    "user": "%SPECSYNC_REMOTE_USER%"
   },
   ...
 }
 ```
 
-And also in the command line prompt:
+You can also use the environment variables without the shell resolving their values. For that, specify the value in the `%variable%` format. From shell scripts on Windows you have to use `%%` to avoid resolving the variable by the script itself.
 
-`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "%%VSO_USER%%" --password "%%VSO_PWD%%"`
+```text
+dotnet specsync push --user "%%SPECSYNC_REMOTE_USER%%"
+```
 
-(From shell scripts on Windows you have to use `%%` to avoid resolving the variable by the script itself.)
 
 ## Personal access tokens  <a href="vsts-personal-access-tokens" id="vsts-personal-access-tokens"></a>
 
