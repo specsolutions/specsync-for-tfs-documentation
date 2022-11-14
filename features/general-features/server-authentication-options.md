@@ -2,14 +2,14 @@
 
 SpecSync supports several authentication options for the [supported Azure DevOps systems](../../reference/compatibility.md#supported-server-systems). This section provides a summary of how the different authentication options have to be configured:
 
-For Azure DevOps (Visual Studio Team Services, VSTS)
+For Azure DevOps (Visual Studio Team Services, VSTS):
 
 * [Personal access tokens](server-authentication-options.md#vsts-personal-access-tokens)
 * [Job access token](server-authentication-options.md#vsts-alternate-authentication-credentials) (from build and release pipelines)
 * [Alternate authentication credentials](server-authentication-options.md#vsts-alternate-authentication-credentials)
 * [Microsoft account sign-in prompt](server-authentication-options.md#vsts-visual-studio-sign-in-prompt)
 
-For on premises Azure DevOps Server (or Team Foundation Server)
+For on premises Azure DevOps Server (or Team Foundation Server):
 
 * [Personal access tokens](server-authentication-options.md#vsts-personal-access-tokens)
 * [Job access token](server-authentication-options.md#vsts-alternate-authentication-credentials) (from build and release pipelines)
