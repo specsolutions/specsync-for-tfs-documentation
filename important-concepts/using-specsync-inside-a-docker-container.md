@@ -195,9 +195,8 @@ RUN wget -qO specsync.zip https://www.specsolutions.eu/media/specsync/SpecSync.A
   && rm specsync.zip \
   && bash -c "chmod +x ./SpecSync4AzureDevOps"
 
-# As SpecSync output is not culture-dependent, this setting can be used to avoid installing ICU libs (libicu66)
-ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-ENV DOTNET_SYSTEM_GLOBALIZATION_PREDEFINED_CULTURES_ONLY=false
+# Enable detection of running in a container
+ENV DOTNET_RUNNING_IN_CONTAINER=true
 
 WORKDIR ${LOCAL_DIR}
 
