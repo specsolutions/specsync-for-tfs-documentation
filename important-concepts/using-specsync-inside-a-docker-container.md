@@ -59,10 +59,9 @@ ENTRYPOINT [ "/specsync/SpecSync4AzureDevOps" ]
 
 Creating your own Docker image from the official SpecSync Docker image might be useful when accessing your Azure DevOps installation requires special network configurations \(e.g. installing a certificate\) or when you would like to simplify the execution parameters \(e.g. license file location\). 
 
-The official SpecSync Docker images are based on the `ubuntu:latest` image and contain the [native Linux binaries](../installation/native-binaries.md) of SpecSync. Besides that the changes are kept at minimum:
+The official SpecSync Docker images are based on the `ubuntu:22.04` image and contain the [native Linux binaries](../installation/native-binaries.md) of SpecSync. Besides that the changes are kept at minimum:
 
-* the `libssl1.1` and `ca-certificates` packages are installed using `apt-get` as these are needed to access the Azure DevOps cloud service.
-* the `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT` environment variable is set to `1` to avoid installing globalization dependencies of the Linux distribution \(ICU libs\). \(SpecSync messages are not localized.\)
+* the `libssl3` and `ca-certificates` packages are installed using `apt-get` as these are needed to access the Azure DevOps cloud service.
 
 The official SpecSync Docker image contains the SpecSync binaries in the `/specsync` folder and expects the local repository to be mounted into the `/local` folder \(see [Mounting vs copying feature files to the container](using-specsync-inside-a-docker-container.md#mounting-vs-copying-feature-files-to-the-container)\). The [working folder](using-specsync-inside-a-docker-container.md#set-the-working-directory-to-the-folder-of-the-feature-file-set-instead-of-the-specsync-tool-folder) is set to the `/local` and the default entry point to `/specsync/SpecSync4AzureDevOps`.
 
@@ -132,13 +131,13 @@ If you would like to use the contain only to run SpecSync, it is better to [use 
 
 ### Example
 
-The following Dockerfile creates an image based on the .NET Core 3.1 SDK to be able to develop the project interactively. 
+The following Dockerfile creates an image based on the .NET 6 SDK to be able to develop the project interactively. 
 
 {% code title="Dockerfile" %}
 ```text
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+FROM mcr.microsoft.com/dotnet/sdk:6.0
 
-ARG SPECSYNC_VERSION=3.1.1
+ARG SPECSYNC_VERSION=3.3.7
 ARG LOCAL_DIR=/local
 
 RUN dotnet tool install --global SpecSync.AzureDevOps --version ${SPECSYNC_VERSION}
@@ -156,21 +155,17 @@ You can build an image and work with that interactively, e.g.:
 # specync push --tagFilter @foo
 ```
 
-{% hint style="info" %}
-From SpecSync v3.2, you can also use .NET 5 or .NET 6 images to build your container. For that, replace the first line of the example above to `FROM mcr.microsoft.com/dotnet/sdk:5.0`.
-{% endhint %}
-
 ## Integrate SpecSync into a pure Linux image
 
 If your project is not .NET based, the most efficient way to include SpecSync into your Docker image is to download the SpecSync [native Linux binaries](../installation/native-binaries.md) to the image. These binaries contain all pre-requisites, so the .NET framework does not need to be installed to the Docker image.
 
-The SpecSync Linux binaries work with most Linux distributions, but we test it with `ubuntu:latest`. The Dockerfile should follow the classic _download package and unzip it_ pattern \(see example below\).
+The SpecSync Linux binaries work with most Linux distributions, but we test it with `ubuntu:latest` (currently `ubuntu:22.04`). The Dockerfile should follow the classic _download package and unzip it_ pattern (see example below).
 
-The native Linux binaries of SpecSync by default require the localization packages of the Linux distribution \(ICU libs, e.g. `libicu66` on `ubuntu:20.04`\). This can be avoided by setting the `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT` environment variable to `1`. As SpecSync messages are not localized, this can be done safely.
+{% hint style="info" %}
+For SpecSync for Azure DevOps *before* v3.4 the binaries required localization packages by default. This can be fulfilled by installing the necessary ICU packages to the Docker container (e.g. `libicu66` on `ubuntu:20.04`). For newer versions this is not necessary.
 
-```bash
-ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-```
+For the older versions an alternative to the ICU package installation, the internalization support can be disabled by setting the `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT` environment variable to `1`. (See [.NET documentation](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/globalization) for details.)
+{% endhint %}
 
 Just like with the other Docker container options it is recommended to [mount the local folder](using-specsync-inside-a-docker-container.md#mounting-vs-copying-feature-files-to-the-container) instead of copying it. 
 
@@ -179,18 +174,18 @@ You can make the image for generic-purpose use \(e.g. for interactive work\), or
 
 ### Example
 
-The following Dockerfile creates an image from `ubuntu:latest`, installs the SpecSync native binaries to it and exposes the SpecSync command line tool as a default entry point.
+The following Dockerfile creates an image from `ubuntu:22.04`, installs the SpecSync native binaries to it and exposes the SpecSync command line tool as a default entry point.
 
 {% code title="Dockerfile" %}
 ```text
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
     wget \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ARG SPECSYNC_VERSION=3.0.2
+ARG SPECSYNC_VERSION=3.3.7
 ARG LOCAL_DIR=/local
 
 WORKDIR /specsync
@@ -202,6 +197,7 @@ RUN wget -qO specsync.zip https://www.specsolutions.eu/media/specsync/SpecSync.A
 
 # As SpecSync output is not culture-dependent, this setting can be used to avoid installing ICU libs (libicu66)
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+ENV DOTNET_SYSTEM_GLOBALIZATION_PREDEFINED_CULTURES_ONLY=false
 
 WORKDIR ${LOCAL_DIR}
 
@@ -216,6 +212,6 @@ docker run --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @fo
 ```
 
 {% hint style="info" %}
-The pure `ubuntu` image does not contain the packages necessary for HTTPS requests, therefore if your Azure DevOps server needs HTTPS connection, you also need to install the necessary packages. In the example above, we installed the `wget` package that implicitly included these. If you prepare a package that does not need `wget`, you need to add the `libssl1.1` and `ca-certificates` with `apt-get`.
+The pure `ubuntu` image does not contain the packages necessary for HTTPS requests, therefore if your Azure DevOps server needs HTTPS connection, you also need to install the necessary packages. In the example above, we installed the `wget` package that implicitly included these. If you prepare a package that does not need `wget`, you need to add the `libssl3` and `ca-certificates` with `apt-get`.
 {% endhint %}
 
