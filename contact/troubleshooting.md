@@ -124,6 +124,17 @@ In order to keep a documentation of the pipeline that performed the test executi
 
 For example to document the build number, you can specify: `--testResultComment "Build: $(Build.BuildNumber)"`. For documenting the release name, you can specify: `--testResultComment "Release: $(Release.ReleaseName)"`.
 
+### 'You are not authrized to access this API' error when creating Test Cases or when adding them to Test Suite
+
+Azure DevOps uses different *user access lavels*. The default access level is *Basic* that does not include features required for maintaining Test Suites and creating Test Cases. To be able to use these features you need an access level that supports that, e.g. *Basic + Test Plans". You can find more information about the Azure DevOps user access levels required for working with Test Cases in the [Azure DevOps documentation](https://learn.microsoft.com/en-us/azure/devops/organizations/security/change-access-levels?view=azure-devops-2022).
+
+For some functions, e.g. updating an *existing* Test Case work also with the *Basic* access level, you the error is shown only when you synchronize new scenarios or make any changes that need to modify the Test Suites (e.g. remove a scenario).
+
+**Solution 1:** Change the user access level of the user you use for syncrhonization or synchronize the scenarios using another user that has the necessary access level. See [Azure DevOps documentation](https://learn.microsoft.com/en-us/azure/devops/organizations/security/change-access-levels?view=azure-devops-2022) for details.
+
+**Solution 2:** Temporarily or for the period until the access level change is performed, you can ask other users to create Test Cases manually and you can add the link tags (e.g. `@tc:1234`) of these Test Cases to the scenarios manually. You also need to add the Test Cases to the Test Suite that is configured for SpecSync manually or diable the Test Suite synchronization feature of SpecSync by removing the `remote/testSuite` section.
+
+
 
 
 ### Unable to find or restore package error when installing or restoring SpecSync as a .NET tool <a href="nuget-package-not-found" id="nuget-package-not-found"></a>
