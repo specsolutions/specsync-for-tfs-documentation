@@ -124,7 +124,7 @@ In order to keep a documentation of the pipeline that performed the test executi
 
 For example to document the build number, you can specify: `--testResultComment "Build: $(Build.BuildNumber)"`. For documenting the release name, you can specify: `--testResultComment "Release: $(Release.ReleaseName)"`.
 
-### 'You are not authrized to access this API' error when creating Test Cases or when adding them to Test Suite
+### 'You are not authrized to access this API' error when creating Test Cases or when adding them to Test Suite <a href="ado-user-access-level" id="ado-user-access-level"></a>
 
 Azure DevOps uses different *user access lavels*. The default access level is *Basic* that does not include features required for maintaining Test Suites and creating Test Cases. To be able to use these features you need an access level that supports that, e.g. *Basic + Test Plans". You can find more information about the Azure DevOps user access levels required for working with Test Cases in the [Azure DevOps documentation](https://learn.microsoft.com/en-us/azure/devops/organizations/security/change-access-levels?view=azure-devops-2022).
 
