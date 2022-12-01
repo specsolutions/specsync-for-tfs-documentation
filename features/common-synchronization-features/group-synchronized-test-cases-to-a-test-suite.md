@@ -10,7 +10,6 @@ To be able to easily find these synchronized test cases in Azure DevOps, they ca
      "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
      // See configuration options and samples at http://speclink.me/specsyncconfig.
-     // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
 
      "remote": {
        "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",

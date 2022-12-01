@@ -61,7 +61,6 @@ Open the `specsync.json` file in Visual Studio or another IDE from your project 
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
   // See configuration options and samples at http://speclink.me/specsyncconfig.
-  // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
 
   "remote": {
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
@@ -175,7 +174,6 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
      "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
 
      // See configuration options and samples at http://speclink.me/specsyncconfig.
-     // You can also check the 'specsync-sample.json' file in the 'docs' folder of the NuGet package.
 
      "remote": {
        "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",

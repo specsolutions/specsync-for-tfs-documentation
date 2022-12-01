@@ -20,7 +20,7 @@ With SpecSync v1 all the configuration had to be specified as command line optio
 
 Some of the settings can still be overridden from command line (e.g. password or force update). You can find a complete list of these in the [Usage](../reference/command-line-reference/) reference.
 
-When upgrading from v1, you have to create a `specsync.json` file (based on an [empty](http://schemas.specsolutions.eu/specsync-empty.json) or a [detailed](http://schemas.specsolutions.eu/specsync-sample.json) sample), and migrate your synchronization settings to it. Most of the settings have the same name, but we have renamed some of the settings for better clarity. If you get into trouble with finding the right setting in the new configuration file format, please contact us at specsync@specsolutions.eu.
+When upgrading from v1, you have to create a `specsync.json` file (based on an [empty configuration file](http://schemas.specsolutions.eu/specsync-empty.json)), and migrate your synchronization settings to it. Most of the settings have the same name, but we have renamed some of the settings for better clarity. If you get into trouble with finding the right setting in the new configuration file format, please contact us at specsync@specsolutions.eu.
 
 ## Review revised two-way synchronization workflow
 
