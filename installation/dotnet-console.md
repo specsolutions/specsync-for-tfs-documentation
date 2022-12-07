@@ -32,27 +32,20 @@ Depending on your project setup, the package has been downloaded and extracted t
 
 As the package installation folder is pretty complicated to type-in frequently, it is recommended to add a simple command line shell script (`SpecSync4AzureDevOps.cmd`) that executes the tool from the right folder.
 
+A `SpecSync4AzureDevOps.cmd` script that executes the SpecSync .NET Console App from the global packages folder might look similar to this (the version number has to be set according to the SpecSync version you use):
+
+```
+@REM Executing SpecSync .NET Console App by forwarding all command line parameters
+@REM Note: the version number has to be updated after a SpecSync version upgrade
+SET SPECSYNC_VERSION=3.3.7
+%HOMEPATH%\.nuget\packages\SpecSync.AzureDevOps.Console\%SPECSYNC_VERSION%\tools\SpecSync4AzureDevOps.exe %*
+
+```
+
 {% hint style="info" %}
-In case you use NuGet packages from the `packages` folder of your solution and your project uses the classic project file format, the package installation populated a `SpecSync4AzureDevOps.cmd `into the project folder. Review the script and apply any changes if necessary.
+In case you use NuGet packages from the `packages` folder of your solution the path in the script has to be changed accordingly.
 {% endhint %}
 
-A `SpecSync4AzureDevOps.cmd` script that executes the SpecSync .NET Console App from the local packages folder might look similar to this:
-
-```
-@REM Executing SpecSync .NET Console App by forwarding all command line parameters
-@REM Note: the version number has to be updated after a SpecSync version upgrade
-%~dp0\..\packages\SpecSync.AzureDevOps.Console.3.0.0\tools\SpecSync4AzureDevOps.exe %*
-
-```
-
-A `SpecSync4AzureDevOps.cmd` script that executes the SpecSync .NET Console App from the global packages folder might look similar to this:
-
-```
-@REM Executing SpecSync .NET Console App by forwarding all command line parameters
-@REM Note: the version number has to be updated after a SpecSync version upgrade
-%HOMEPATH%\.nuget\packages\SpecSync.AzureDevOps.Console\3.0.0\tools\SpecSync4AzureDevOps.exe %*
-
-```
 
 ### Step 3: Verify installation
 
