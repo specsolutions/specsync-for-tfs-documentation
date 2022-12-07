@@ -8,6 +8,26 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.8 - 2022/12/07
+
+### Bug fixes
+
+* Fix: Configuration files are reported twice when configOverride is used (#890)
+* Fix: Background step results might not be loaded from Cucumber JSON result (#819)
+* Fix: local/featureFileSource setting cannot be overridden in a child config file (#798)
+* Fix: Diagnostic output for configuration is not available (#797)
+* Fix: Invalid Gherkin file created after pulling a Test Case with a "|" in a data table (#817)
+* Fix: SpecSync might ask for password when version command is used (#848)
+* Fix: Configuration override values cannot contain equals sign (#770)
+* Fix: SpecSync Plugins: NoKeywordParser produces invalid TestSourceData (#791)
+
+### Improvements
+
+* SpecSync NuGet packages are signed with Code Signing Certificate of Spec Solutions Kft., thumbprint: dd5e69f05ef38c016508380ca0d2294dbbe1ba69 (#882)
+* Allow not publishing test results that are not executed using publishTestResults/ignoreNotExecutedTests (#893)
+* Package for common C# test source plugin dependencies: SpecSync.AzureDevOps.PluginDependency.CSharpSource (#793)
+* Allow using Client Certificates automatically from Windows Credential store for remote servers use mTLS (#838)
+
 ## v3.3.7 - 2022/08/24
 
 ### Bug fixes
