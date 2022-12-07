@@ -137,7 +137,7 @@ The following Dockerfile creates an image based on the .NET 6 SDK to be able to 
 ```text
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 
-ARG SPECSYNC_VERSION=3.3.7
+ARG SPECSYNC_VERSION=3.3.8
 ARG LOCAL_DIR=/local
 
 RUN dotnet tool install --global SpecSync.AzureDevOps --version ${SPECSYNC_VERSION}
@@ -185,7 +185,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ARG SPECSYNC_VERSION=3.3.7
+ARG SPECSYNC_VERSION=3.3.8
 ARG LOCAL_DIR=/local
 
 WORKDIR /specsync

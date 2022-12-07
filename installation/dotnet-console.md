@@ -37,7 +37,7 @@ A `SpecSync4AzureDevOps.cmd` script that executes the SpecSync .NET Console App 
 ```
 @REM Executing SpecSync .NET Console App by forwarding all command line parameters
 @REM Note: the version number has to be updated after a SpecSync version upgrade
-SET SPECSYNC_VERSION=3.3.7
+SET SPECSYNC_VERSION=3.3.8
 %HOMEPATH%\.nuget\packages\SpecSync.AzureDevOps.Console\%SPECSYNC_VERSION%\tools\SpecSync4AzureDevOps.exe %*
 
 ```

@@ -81,7 +81,7 @@ dotnet tool update SpecSync.AzureDevOps
 You can also upgrade SpecSync to a specific version using the --version option.
 
 ```bash
-dotnet tool update SpecSync.AzureDevOps --version 3.3.7
+dotnet tool update SpecSync.AzureDevOps --version 3.3.8
 ```
 
 {% hint style="info" %}
