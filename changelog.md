@@ -19,7 +19,7 @@ For planned features in future releases please check the [Release Model and Road
 * Fix: Invalid Gherkin file created after pulling a Test Case with a "|" in a data table (#817)
 * Fix: SpecSync might ask for password when version command is used (#848)
 * Fix: Configuration override values cannot contain equals sign (#770)
-* Fix: SpecSync Plugins: NoKeywordParser produces invalid TestSourceData (#791)
+* Fix: SpecSync Plugins: `NoKeywordParser` produces invalid TestSourceData (#791)
 
 ### Improvements
 
