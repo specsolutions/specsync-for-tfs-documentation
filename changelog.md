@@ -8,6 +8,15 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.3.9 - 2022/12/10
+
+### Bug fixes
+
+* Fix: Push command fails when invoked with --dryRun, a Test Suite is configured and there are multiple unlinked scenarios (#900)
+* Fix: Cucumber JUnit XML report does not find additional scenario outline examples with recent Cucumber version (#796)
+* Fix: Cucumber JSON scenario outline results are incorrectly detected as re-runs (#904)
+* Fix: Cucumber test results might not be detected when scenario outline placeholder is used in the title (#472)
+
 ## v3.3.8 - 2022/12/07
 
 ### Bug fixes
