@@ -65,20 +65,20 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 
 ### Breaking changes <a href="v3-4-0-compatibility" id="v3-4-0-compatibility"></a>
 
+* If the configuration file contained entries that are not recognized by SpecSync (these were ignored so far), you will receive warnings about these settings. Please remove these settings to eliminate the warning. (#806)
+* The test results with not executed outcome are not published by default. In order to force including them (the earlier behavior), the `publishTestResults/includeNotExecutedTests` setting can be used. (#894)
+* The default link-label separator has been changed from `:` to `;`. To continue using `:` as link label separator, please set `synchronization/linkLabelSeparator`. (#861)
+* The tag prefixes specified in `synchronization/links[]/tagPrefix` are ensured to contain only word characters (letters, numbers, underscore). (#849)
+* The support for [Test Plan / Test Suite based test execution](features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) for SpecFlow 3.0 has been removed. SpecSync can still be used with any SpecFlow versions using the ["publish-test-results" command](features/test-result-publishing-features/publishing-test-result-files.md) (#903)
+* Tag predicates in local test case conditions must start with '@'. Earlier tag predicates were also accepted, but from this version the `@` has to be used, even if the local test case does not use this prefix for tags. (#877)
+* The value specified as `synchronization/link[]/targetWorkItemType` (now renamed to `synchronization/link[]/targetType`) is used now to verify if the type of the linked work item. The verification is performed when establishing new links. To disable the verification and allow linking any work item types please remove this setting. (#822)
+* Test Suite settings cannot be specified in user-specific configuration file anymore. The can be specified in project-specific configuration files or shared parent config files still. (#863)
+* The "pull" command now adds and removes local test case tags based on the links of the Test Case. (#807)
 * Settings that have been deprecated earlier are removed now (#805)
   * `automation/skipForTags` - use `automation/condition` instead
   * `links[]/mode` - was not used
   * `local/featureFileSource/type=listFile` - use `folder` as `local/projectType` in combination with `local/sourceFiles` instead
   * `local/featureFileSource/type=stdIn` - use `folder` as `local/projectType` in combination with `local/sourceFiles` instead
-* If the configuration file contained entries that are not recognized by SpecSync (these were ignored so far), you will receive warnings about these settings. Please remove these settings to eliminate the warning. (#806)
-* The tag prefixes specified in `synchronization/links[]/tagPrefix` are ensured to contain only word characters (letters, numbers, underscore). (#849)
-* The default link-label separator has been changed from `:` to `;`. To continue using `:` as link label separator, please set `synchronization/linkLabelSeparator`. (#861)
-* The support for [Test Plan / Test Suite based test execution](features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) for SpecFlow 3.0 has been removed. SpecSync can still be used with any SpecFlow versions using the ["publish-test-results" command](features/test-result-publishing-features/publishing-test-result-files.md) (#903)
-* The test results with not executed outcome are not published by default. In order to force including them (the earlier behavior), the `publishTestResults/includeNotExecutedTests` setting can be used. (#894)
-* Tag predicates in local test case conditions must start with '@'. Earlier tag predicates were also accepted, but from this version the `@` has to be used, even if the local test case does not use this prefix for tags. (#877)
-* The value specified as `synchronization/link[]/targetWorkItemType` (now renamed to `synchronization/link[]/targetType`) is used now to verify if the type of the linked work item. The verification is performed when establishing new links. To disable the verification and allow linking any work item types please remove this setting. (#822)
-* Test Suite settings cannot be specified in user-specific configuration file anymore. The can be specified in project-specific configuration files or shared parent config files still. (#863)
-* The "pull" command now adds and removes local test case tags based on the links of the Test Case. (#807)
 
 ### Plugin API improvements <a href="v3-4-0-plugin-api" id="v3-4-0-plugin-api"></a>
 
@@ -109,12 +109,12 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 
 ### Bug Fixes
 
-Fix: Wait on stats calls block execution (#914)
-Fix: Plugins cannot be loaded with console app (#910)
-Fix: File paths in tags are not normalized on Linux and macOS (#912)
-Fix: Different hash is calculated when running on Windows or macOS/Linux causing unnecessary updates (#881)
-Fix: Plugins might be reported twice (#864)
-Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
+* Fix: Wait on stats calls block execution (#914)
+* Fix: Plugins cannot be loaded with console app (#910)
+* Fix: File paths in tags are not normalized on Linux and macOS (#912)
+* Fix: Different hash is calculated when running on Windows or macOS/Linux causing unnecessary updates (#881)
+* Fix: Plugins might be reported twice (#864)
+* Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
 
 ## v3.3.11 - 2022/12/19
 
