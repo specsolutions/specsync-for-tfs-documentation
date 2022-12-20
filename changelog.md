@@ -10,6 +10,8 @@ For planned features in future releases please check the [Release Model and Road
 
 ## v3.4.0 - coming soon
 
+All fixes of SpecSync v3.3.11 are included in this release.
+
 ### New features
 
 * Support updating Test Case fields that are not updated automatically by SpecSync using the [`fieldUpdates` configuration](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md). See [feature description](features/push-features/update-test-case-fields.md) for details. (#737)
