@@ -31,7 +31,7 @@ WORKDIR ${LOCAL_DIR}
 The local folders can be mounted to the container when the container is created using the `-v <LOCAL-FOLDER>:<MOUNT-POINT>` argument of the `docker run` command. In the images created for SpecSync, the mounting point is usually the `/local` folder. For example:
 
 ```bash
-docker run --rm -v C:\MyProject\src\features:/local myspecsyncimage push
+docker run -it --rm -v C:\MyProject\src\features:/local myspecsyncimage push
 ```
 
 The alternative would be to use the ADD or COPY command, but that essentially creates a copy of your project codebase _at the time of building the image_. The files copied into the container reduces the reusability of the created image.
@@ -104,7 +104,7 @@ ENTRYPOINT [ "/shared/runspecsync.sh" ]
 To run SpecSync from the created image, you need to mount the local repository folder and pass further arguments for SpecSync, like
 
 ```bash
-docker run --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @foo
+docker run -it --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @foo
 ```
 
 ## Integrate SpecSync into a .NET Core SDK-based image
@@ -150,7 +150,7 @@ WORKDIR ${LOCAL_DIR}
 You can build an image and work with that interactively, e.g.:
 
 ```bash
-> docker run --rm -it -v C:\MyProject\src\features:/local myimage bash
+> docker run -it --rm -v C:\MyProject\src\features:/local myimage bash
 # dotnet build
 # specync push --tagFilter @foo
 ```
@@ -207,7 +207,7 @@ ENTRYPOINT [ "/specsync/SpecSync4AzureDevOps" ]
 To run SpecSync from the created image, you need to mount the local repository folder and pass further arguments for SpecSync, like
 
 ```bash
-docker run --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @foo
+docker run -it --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @foo
 ```
 
 {% hint style="info" %}

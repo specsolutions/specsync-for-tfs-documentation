@@ -11,7 +11,7 @@ Using SpecSync through the official Docker images does not require special insta
 The following command displays SpecSync version using the official Docker image tagged with `latest`. See the list of available tags below.
 
 ```text
-docker run --rm specsolutions/specsync version
+docker run -it --rm specsolutions/specsync version
 ```
 
 Every command or option you provide after the image name \(`version` in the example above\) will be passed to the passed to the SpecSync command line tool according to the [Command line reference](../reference/command-line-reference/). 
@@ -20,12 +20,16 @@ Every command or option you provide after the image name \(`version` in the exam
 The `--rm` Docker option removes the temporary execution data gathered by Docker. In case of SpecSync this generated data is minimal though.
 {% endhint %}
 
+{% hint style="info" %}
+The `-it` Docker option runs the Docker container in interactive mode with terminal emulation. This way the console output of SpecSync will be colored and you will be able to answer interactive prompt questions. You should omit this setting when running the container on a build server.
+{% endhint %}
+
 The local folders containing the feature file sets have to be mounted to the container to the `/local` container path. This way the potential changes SpecSync performs on the feature files \(e.g. when linking new scenarios or at pull\) are preserved in your local repository. To mount the local repository, you have to use the `-v <LOCAL-FOLDER>:/local` option for the `docker run` command. The container is set to use the `/local` folder as default working directory.
 
 For example to perform a push command for the local project at `C:\MyProject\src\features`you should invoke 
 
 ```text
-docker run --rm -v C:\MyProject\src\features:/local specsolutions/specsync push
+docker run -it --rm -v C:\MyProject\src\features:/local specsolutions/specsync push
 ```
 
 The push command requires the local feature set to be configured. Check the [Setup and Configure](setup-and-configure.md) page for the details on how to setup an initial configuration and getting ready for the first synchronization.
