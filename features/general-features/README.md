@@ -8,6 +8,8 @@ This chapter contains general SpecSync features.
 
 {% page-ref page="hierarchical-configuration-files.md" %}
 
+{% page-ref page="local-test-case-conditions.md" %}
+
 {% page-ref page="specsync-plugins.md" %}
 
 

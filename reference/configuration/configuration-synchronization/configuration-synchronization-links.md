@@ -31,8 +31,8 @@ The following example shows the available options within this sub-section. This 
     ...
     "links": [
       {
-        "tagPrefix": "pbi",
-        "targetWorkItemType": "ProductBacklogItem",
+        "tagPrefix": "story",
+        "targetType": "User Story",
         "relationship": "Parent"
       },
       {
@@ -51,15 +51,15 @@ The following example shows the available options within this sub-section. This 
 
 ## Settings
 
-The `links` sub-section contains an array of link type configurations. Each of them is used to configure a link type. \(The second example above configures two link types.\)
+The `links` sub-section contains an array of link type configurations. Each of them is used to configure a link type. (The second example above configures two link types.)
 
 
 For each link type configuration the following settings can be used.
 
 | Setting | Description | Default |
 | ----------------------- | ----------------------- | ----------------------- |
-| `tagPrefix` | A tag prefix for specifying the relation for the scenario. E.g. specify `story` for linking product backlog items using a tag, like `@story:123`. | mandatory |
-| `targetWorkItemType` | The type of the Azure DevOps work item the link refers to. | can link to any work item type |
+| `tagPrefix` | A tag prefix for specifying the relation for the scenario. E.g. specify `story` for linking product backlog items using a tag, like `@story:123`. The prefix can only contain word characters (letters, numbers, underscore). | mandatory |
+| `targetType` | The type of the Azure DevOps work item the link refers to. It is verified at the time the link is established. | can link to any work item type |
 | `relationship` | Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. Set to `Pull Request` for Azure DevOps Pull Requests and `GitHub Pull Request` for GitHub Pull Requests. | `Tests` |
 | `linkTemplate` | Specifies the HTTP link template of the related artifact (for <code>GitHub Pull Request</code> relationship). The link template can use the specified value using the `{id}` placeholder. | no template used |
 

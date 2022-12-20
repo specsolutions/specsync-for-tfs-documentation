@@ -107,11 +107,34 @@ For linking Pull Requests, the `relationship` setting is mandatory and has to be
 Changing the link type will not trigger the re-synchronization of the scenario. If the scenario has been synchronized already, you have to to force synchronization using the [`--force` command line option](../../reference/command-line-reference/).
 {% endhint %}
 
+## Restrict linked work item to be of a specific type
+
+By default SpecSync will not verify the type of the linked work item: any type of work items can be used. You can enforce that a certain tag prefix can only be used for a specific work item type using the `targetType` setting. 
+
+The following example allows using the `@bug:` prefix only for "Bug" work items.
+
+```text
+{
+  ...
+  "synchronization": {
+    ...
+    "links": [
+      {
+        "tagPrefix": "bug",
+        "targetType": "Bug"
+      }
+    ],
+    ...
+  },
+  ...
+}
+```
+
 ## Linking Pull Requests
 
 From SpecSync v3.2 the Test Cases can also be linked to Pull Requests using tags. For that the `relationship` setting of the link specification must be set to `Pull Request`.
 
 ## Limitations
 
-* Link tags are not created when the Test Case changes retrieved with the pull command.
+* In SpecSync v3.3 or earlier: Link tags are not created when the Test Case changes retrieved with the pull command.
 * In SpecSync v3.2 or earlier: Existing test case links are not removed automatically, even if you remove the tag from the scenario. They have to be removed manually.

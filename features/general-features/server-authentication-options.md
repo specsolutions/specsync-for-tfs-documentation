@@ -7,7 +7,6 @@ For Azure DevOps (Visual Studio Team Services, VSTS):
 * [Personal access tokens](server-authentication-options.md#vsts-personal-access-tokens)
 * [Job access token](server-authentication-options.md#vsts-alternate-authentication-credentials) (from build and release pipelines)
 * [Alternate authentication credentials](server-authentication-options.md#vsts-alternate-authentication-credentials)
-* [Microsoft account sign-in prompt](server-authentication-options.md#vsts-visual-studio-sign-in-prompt)
 
 For on premises Azure DevOps Server (or Team Foundation Server):
 
@@ -185,28 +184,6 @@ Or on the command line prompt:
 `path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user myalternateusername --password myalternatepassword`
 
 (If you don't specify the `--password` option, the tool will prompt you for entering the password.)
-
-## Microsoft account sign-in prompt  <a href="vsts-visual-studio-sign-in-prompt" id="vsts-visual-studio-sign-in-prompt"></a>
-
-{% hint style="warning" %}
-The Microsoft account sign-in prompt is currently not supported when you use the [.NET Core or the native binary installation](../../installation/) of SpecSync.
-{% endhint %}
-
-For interactive sessions you can also provide your Azure DevOps credentials using the Microsoft account sign-in prompt (similar to what you get when providing your credentials for Visual Studio).
-
-To authenticate using the sign-in prompt, you should _not_ specify the user.
-
-```
-{
-  ...
- "remote": {
-    "projectUrl": "https://dev.azure.com/myorganization/MyProject"
-  },
-  ...
-}
-```
-
-In the popup window you have to provide the user name (email) and the password you usually use for accessing Azure DevOps with the browser.
 
 ## Domain user name and password  <a href="tfs-domain-user-name-and-password" id="tfs-domain-user-name-and-password"></a>
 

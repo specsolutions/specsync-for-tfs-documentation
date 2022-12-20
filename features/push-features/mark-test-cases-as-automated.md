@@ -36,7 +36,7 @@ In SpecSync v3.0 or earlier, the `synchronization/automation/testExecutionStrate
 
 In some projects the feature files contain non-automated scenarios as well. These scenarios are usually marked with specific tags, like `@manual` or `@ignore` or the automated ones are marked with a specific tag, like `@automated`.&#x20;
 
-In order to mark only the Test Cases for selected scenarios as automated, you can set a [tag expression](http://speclink.me/tagexpressions) in the `synchronization/automation/condition` configuration setting as shown below.
+In order to mark only the Test Cases for selected scenarios as automated, you can set a [local test case condition](../general-features/local-test-case-conditions.md) in the `synchronization/automation/condition` configuration setting as shown below.
 
 {% code title="specsync.json" %}
 ```javascript

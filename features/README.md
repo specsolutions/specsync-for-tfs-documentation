@@ -69,6 +69,8 @@ The following list contains the detailed description of the most important featu
 
 {% page-ref page="general-features/hierarchical-configuration-files.md" %}
 
+{% page-ref page="general-features/local-test-case-conditions.md" %}
+
 {% page-ref page="general-features/specsync-plugins.md" %}
 
 ### Customizations
@@ -92,3 +94,7 @@ The customizations below are also mentioned at the feature areas they are relate
 {% page-ref page="push-features/customization-sync-linked-artifact-titles.md" %}
 
 {% page-ref page="test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md" %}
+
+### Plugins
+
+{% page-ref page="plugin-list.md" %}

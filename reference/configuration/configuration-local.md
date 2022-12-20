@@ -91,7 +91,7 @@ The following example shows the available options within this section.
     <tr>
       <td style="text-align:left"><code>tags</code>
       </td>
-      <td style="text-align:left">A <a href="http://speclink.me/tagexpressions">tag expression</a> of scenarios
+      <td style="text-align:left">A <a href="../../features/general-features/local-test-case-conditions.md">local test case condition</a> of scenarios
         that should be included in synchronization (e.g. <code>not @ignore</code> or <code>@done and not (@ignored or @planned)</code>).
         See <a href="../../features/common-synchronization-features/excluding-scenarios-from-synchronization.md">Excluding scenarios from synchronization</a> for
         details.</td>
@@ -100,7 +100,7 @@ The following example shows the available options within this section.
     <tr>
       <td style="text-align:left"><code>sourceFiles</code>
       </td>
-      <td style="text-align:left">An array of <a href="https://en.wikipedia.org/wiki/Glob_%28programming%29">glob pattern</a> of feature files that should be included in synchronization (e.g. <code>Folder1/</code> or <code>Folder3/**/alpha*.feature</code>).
+      <td style="text-align:left">An array of <a href="../../features/general-features/local-test-case-conditions.md">local test case conditions</a> with source file predicates (glob patterns) of files that should be included in synchronization (e.g. <code>Folder1/</code> or <code>Folder3/**/alpha*.feature</code>).
         See <a href="../../features/common-synchronization-features/excluding-scenarios-from-synchronization.md">Excluding scenarios from synchronization</a> for
         details.</td>
       <td style="text-align:left">all scenarios included</td>

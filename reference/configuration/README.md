@@ -55,8 +55,9 @@ The following configuration sections can be used. Click to the name of the secti
 * [`toolSettings`](configuration-toolsettings.md) — settings for the synchronization tool
 * [`local`](configuration-local.md) — settings for the local repository \(file system\) containing the feature files
 * [`remote`](configuration-remote.md) — Settings for accessing the test cases on the remote Azure DevOps server
-* [`knownRemotes`](configuration-remote.md) — Specify connection and authentication details of Azure DevOps projects that are used by multiple synchronization projects
+* [`knownRemotes`](configuration-knownRemotes.md) — Specify connection and authentication details of Azure DevOps projects that are used by multiple synchronization projects. This setting can be used in [user-specific configuration files](../../features/general-features/hierarchical-configuration-files.md).
 * [`synchronization`](configuration-synchronization/) — synchronization settings
+* [`publishTestResults`](configuration-publishtestresults.md) - test result publish settings
 * [`specFlow`](configuration-specflow.md) — settings related to synchronizing SpecFlow projects
 * [`customizations`](configuration-customizations.md) — configure customizations
 

@@ -8,6 +8,114 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.0 - coming soon
+
+### New features
+
+* Support updating Test Case fields that are not updated automatically by SpecSync using the [`fieldUpdates` configuration](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md). See [feature description](features/push-features/update-test-case-fields.md) for details. (#737)
+* In all expressions where you can specify a local test case condition (`synchronization/automation/condition`, `customizations/resetTestCaseState/condition`, `synchronization/fieldUpdates[]/condition`, `synchronization/fieldUpdates[]/conditionalValue/*`), you can now also specify source file path conditions as well using the `$sourceFile ~ path/**/myfeature.feature` format. E.g. the following expression selects scenarios that are tagged with `@important` and are in the `pricing` folder or any sub-folders below: `@important and $sourceFile ~ pricing/`. See [Local test case conditions](features/general-features/local-test-case-conditions.md) for details. (#878)
+* Add/remove link tags on pull when Test Case links changed. SpecSync attempts to use the best tag prefix if there are multiple available by selecting the first with matching `targetType` or the first of the ones without `targetType` otherwise. (#807)
+* SpecSync plugins can now be loaded from NuGet packages that are distributed through nuget.org, custom NuGet feeds or from local folders. See [SpecSync plugin documentation](features/general-features/specsync-plugins.md) for examples and further details. There is also a [list of plugins](features/plugin-list.md) available on nuget.org. (#814)
+* The tag prefix separator (`:`) and the link label separator (`;`) can be customized now with `synchronization/tagPrefixSeparators` and `synchronization/linkLabelSeparator`. With that you can allow tags like `@TestCase=1234`. You can specify multiple tag prefix separators as well. SpecSync will use the first one to create new tags. (#773)
+* Allow skip publishing test results for local test cases using the `--tagFilter` and `--sourceFileFilter` options. (#853)
+* For custom placeholder in field updates, different "value loaders" can be specified. Value loaders can transform the value. E.g. if the `HTML` loader is used in a field update as `{scenario-description:HTML}`, it will replace the white space and new line characters of the scenario description with the necessary HTML elements. The following value loaders are supported: (#781)
+  * `HTML` - transforms whitespaces to HTML newlines and non-breaking spaces.
+  * `Unix` - replaces Windows-style path separators (`\`) with Unix-style ones (`/`)
+  * `Windows` - replaces Unix-style path separators (`/`) with Windows-style ones (`\`)
+* Support Cucumber Java Surefire XML report (#795)
+* Support for SpecFlow v4.0 (#901)
+* Support for .NET 7: The [.NET tool installation](installation/dotnet-core-tool.md) now works on systems that only have .NET 7.0 SDK. (#868)
+
+### New Plugins
+
+See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
+
+* **SpecSync.Plugin.ScenarioOutlinePerExamplesTestCase**: Plugin that synchronizes scenario outline examples blocks as individual test cases. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins#scenario-outline-per-exampes-test-case-plugin) (#718)
+* **SpecSync.Plugin.ExcelTestSource**: This plugin can be used to synchronize a local test cases from Excel file using the format that Azure DevOps uses when you export Test Cases to CSV. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins#excel-test-source-plugin)
+* **SpecSync.Plugin.MsTestTestSource**: Allows synchronizing "C# MsTest Tests" and publish results from TRX result files. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins#mstest-test-source-plugin)
+
+### Improvements
+
+* The SpecSync Docker image is now based on the latest stable Ubuntu image (`ubuntu:22.04`) (#696)
+* SpecSync now retries saving the Test Case if it has been modified while processing. (#614)
+* Unrecognized elements in the configuration files are reported as warnings. (#806)
+* Do not report items that are skipped because of scope by default. Using the verbose option (`--verbose` or `-v`) reports the skipped items as well. (#818)
+* The user-specific configuration file got a separate JSON schema: `https://schemas.specsolutions.eu/specsync-user-config-latest.json` (#859)
+* The type of the linked work items can be restricted using the `synchronization/link[]/targetType` or the `customizations/linkOnChange/links[]/targetType` configuration settings. (#822, #867)
+* Filter, scope and other conditions are satisfied if there is at least one scenario outline examples that satisfies the condition. (#717)
+* Improve performance of filtered / scoped command executions (#856)
+* Detecting non-interactive user session for operations require user input and automatically cancel to avoid blocking process (#891)
+* Improved publish-test-result reporting (#915)
+* Improve progress indication for publish test results (#889)
+* The test results with not executed outcome (`NotExecuted`, `NotApplicable`, `NotRunnable`, `NotImpacted`) are not published by default as they might hide earlier results of the Test Case. In order to force including them, the `publishTestResults/includeNotExecutedTests` setting can be used. (#894)
+* The product name (SpecSync for Azure DevOps or SpecSync for Jira) is visible in the license file when opened in a text editor. (#876)
+* Various stability and maintainability improvements (#911, #837, #808, #898, #880, #874, #834, #821, #832)
+
+### Deprecation notices <a href="v3-4-0-deprecation" id="v3-4-0-deprecation"></a>
+
+* The configuration setting `publishTestResults/ignoreNotExecutedTests` has been deprecated as ignoring test results with not executed outcome is the default now. (In order to force including them, the `publishTestResults/includeNotExecutedTests` setting can be used.) (#894)
+* The configuration settings `local/featureFileSource/type`, `local/featureFileSource/filePath` and `local/featureFileSource/folder` are moved to the `local` group and renamed to `local/projectType`, `local/projectFilePath`, `local/folder`. The old settings work, but show a warning. (#873)
+* The .NET 5 framework is out of support and will not receive security updates in the future (see https://aka.ms/dotnet-core-support). SpecSync versions released after 31/3/2023 will not run with .NET 5. Please use SpecSync with .NET 6 or any of the other supported platforms. (#919)
+* The configuration setting `synchronization/link[]/targetWorkItemType` has been renamed to `synchronization/link[]/targetType` and SpecSync now verifies if a valid work item type has been specified when linking. The old setting works, but shows a warning. The additional verification is performed even if the old setting was used. (#822)
+* The configuration settings `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` are moved to `/remote/azureDevOps/testCaseWorkItemName` and `remote/azureDevOps/testSuiteWorkItemName`. The old settings work, but show a warning. (#862)
+* The configuration setting `customizations/synchronizeLinkedArtifactTitles/linkLabelSeparator` has been moved to `synchronization/linkLabelSeparator`. The old settings work, but show a warning. (#850)
+* The configuration setting `publishTestResults/createSubResults` has been removed, because SpecSync always needs to publish sub-results anyway for the proper test result reporting in Azure DevOps. (#801)
+* The configuration settings `publishTestResults/runName`, `publishTestResults/runComment`, `publishTestResults/runType`, `publishTestResults/testResultComment` have been moved to `publishTestResults/testRunSettings/name`, `publishTestResults/testRunSettings/comment`, `publishTestResults/testRunSettings/runType` and `publishTestResults/testResultSettings/comment`. The old settings work, but show a warning. (#804)
+
+
+### Breaking changes <a href="v3-4-0-compatibility" id="v3-4-0-compatibility"></a>
+
+* Settings that have been deprecated earlier are removed now (#805)
+  * `automation/skipForTags` - use `automation/condition` instead
+  * `links[]/mode` - was not used
+  * `local/featureFileSource/type=listFile` - use `folder` as `local/projectType` in combination with `local/sourceFiles` instead
+  * `local/featureFileSource/type=stdIn` - use `folder` as `local/projectType` in combination with `local/sourceFiles` instead
+* If the configuration file contained entries that are not recognized by SpecSync (these were ignored so far), you will receive warnings about these settings. Please remove these settings to eliminate the warning. (#806)
+* The tag prefixes specified in `synchronization/links[]/tagPrefix` are ensured to contain only word characters (letters, numbers, underscore). (#849)
+* The default link-label separator has been changed from `:` to `;`. To continue using `:` as link label separator, please set `synchronization/linkLabelSeparator`. (#861)
+* The support for [Test Plan / Test Suite based test execution](features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) for SpecFlow 3.0 has been removed. SpecSync can still be used with any SpecFlow versions using the ["publish-test-results" command](features/test-result-publishing-features/publishing-test-result-files.md) (#903)
+* The test results with not executed outcome are not published by default. In order to force including them (the earlier behavior), the `publishTestResults/includeNotExecutedTests` setting can be used. (#894)
+* Tag predicates in local test case conditions must start with '@'. Earlier tag predicates were also accepted, but from this version the `@` has to be used, even if the local test case does not use this prefix for tags. (#877)
+* The value specified as `synchronization/link[]/targetWorkItemType` (now renamed to `synchronization/link[]/targetType`) is used now to verify if the type of the linked work item. The verification is performed when establishing new links. To disable the verification and allow linking any work item types please remove this setting. (#822)
+* Test Suite settings cannot be specified in user-specific configuration file anymore. The can be specified in project-specific configuration files or shared parent config files still. (#863)
+* The "pull" command now adds and removes local test case tags based on the links of the Test Case. (#807)
+
+### Plugin API improvements <a href="v3-4-0-plugin-api" id="v3-4-0-plugin-api"></a>
+
+* SpecSync plugins can now be loaded from NuGet packages that are distributed through nuget.org, custom NuGet feeds or from local folders. (#814)
+* SpecSync plugins will support [SpecSync for Jira](https://speclink.me/specsync-jira) as well, from the next SpecSync for Jira version (v1.2). (#902)
+  * The plugin dependency package has been renamed from `SpecSync.AzureDevOps.PluginDependencies` to `SpecSync.PluginDependencies`.
+  * The plugin API namespace has been renamed from `SpecSync.AzureDevOps.*` to `SpecSync.*`. (#833)
+* Plugins can change the configuration via the `PluginInitializeArgs.Configuration` property (#857)
+* Various improvements in plugin API (#857, #809)
+  * `BddProjectLoaderArgs.FeatureFileSource` has been renamed to `BddProjectLoaderArgs.LocalConfiguration`
+  * `TagServices` is available as `ITagServices`
+  * `ISpecSyncTracer.TraceWarning` signature now contains a single `TraceWarningItem` parameter. (#815)
+  * `IKeywordParser` can signal parsing errors and no keyword cases: the method `ParseStepKeyword` has been replaced by `TryParseStepKeyword`. (#792)
+  * Link tags now can contain non-numeric values as well
+  * `ITagServices.GetTagData` requires `ITestCaseSyncContext` instead of `ILocalTestCase`
+  * `LinkData.WorkItemId` (`int`) has been replaced by `LinkData.WorkItemIdentifier` (`WorkItemIdentifier`)
+  * `LinkData.IsSpecSyncLink` is replaced by `LinkData.IsTrackedLink`
+  * `LinkData` default constructor has been removed (related properties are get-only)
+  * `TestCaseLink` constructor takes `TestCaseIdentifier` instead of `int`
+  * `DotNetProjectLoader.CreateProjectReader` takes `BddProjectLoaderArgs` argument
+  * `DotNetProjectReader` and `SpecFlowProjectReader` constructor takes `ISpecSyncTracer` argument
+  * `IKeywordParser` has a new method: `GetPrimaryLocalTestCaseParametersKeyword`
+* Plugin dependencies are automatically loaded from the plugin folder (#908)
+* Support for custom automation details with plugins by implementing the `IAutomationSettingsProvider` interface on the `ILocalTestCase` implementation (#909)
+* Improvements in plugin dependency `SpecSync.AzureDevOps.PluginDependency.CSharpSource`:
+  * Support for updating links in C# files. (#851)
+  * Support for synchronizing descriptions from C# doc comments. (#843)
+
+### Bug Fixes
+
+Fix: Wait on stats calls block execution (#914)
+Fix: Plugins cannot be loaded with console app (#910)
+Fix: File paths in tags are not normalized on Linux and macOS (#912)
+Fix: Different hash is calculated when running on Windows or macOS/Linux causing unnecessary updates (#881)
+Fix: Plugins might be reported twice (#864)
+Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
+
 ## v3.3.11 - 2022/12/19
 
 ### Bug fixes
@@ -42,7 +150,7 @@ _Note: The release v3.3.9 has been revoked due to a release issue._
 
 * SpecSync NuGet packages are signed with Code Signing Certificate of Spec Solutions Kft., thumbprint: dd5e69f05ef38c016508380ca0d2294dbbe1ba69 (#882)
 * Allow not publishing test results that are not executed using publishTestResults/ignoreNotExecutedTests (#893)
-* Package for common C# test source plugin dependencies: SpecSync.AzureDevOps.PluginDependency.CSharpSource (#793)
+* Package for common C# test source plugin dependencies: `SpecSync.AzureDevOps.PluginDependency.CSharpSource` (#793)
 * Allow using Client Certificates automatically from Windows Credential store for remote servers use mTLS (#838)
 
 ## v3.3.7 - 2022/08/24

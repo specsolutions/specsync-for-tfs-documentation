@@ -8,7 +8,7 @@ You can publish scenario execution results (test results) to Azure DevOps with S
 
 ![Test execution result with iteration and step execution details](<../../.gitbook/assets/image (24).png>)
 
-This documentation page describes in detail the concept for publishing test results with SpecSync. The complete reference guide of the command line options can be found in the [publish-test-results reference](../../reference/command-line-reference/publish-test-results-command.md) page. The configuration settings for test result publishing are in the [publishTestResults configuration section](../../reference/configuration/publishtestresults.md).
+This documentation page describes in detail the concept for publishing test results with SpecSync. The complete reference guide of the command line options can be found in the [publish-test-results reference](../../reference/command-line-reference/publish-test-results-command.md) page. The configuration settings for test result publishing are in the [publishTestResults configuration section](../../reference/configuration/configuration-publishtestresults.md).
 
 The [Examples](publishing-test-result-files.md#examples) section below shows a few concrete examples. A simple usage of the command could be as simple as this:
 
@@ -62,7 +62,7 @@ SpecSync automatically chooses the Test Configuration when it is not specified a
 
 The Test Configuration represents the configuration your product was tested with. A configuration can be the target operating system, the target browser or the target mobile phone, but many teams do not need to represent these configuration differences  in BDD scenario executions. Depending on your needs, you can configure multiple Test Configurations in Azure DevOps (see [documentation](https://docs.microsoft.com/en-us/azure/devops/test/test-different-configurations?view=azure-devops)) or just create a default configuration. Azure DevOps always creates a default Test Configuration called `Windows 10` (can be renamed).
 
-In case you you do not plan to publish results to multiple configurations, you can omit the Test Configuration setting or specify it in the config file by providing either the [`publishTestResults/testConfiguration/name` or `publishTestResults/testConfiguration/id`](../../reference/configuration/publishtestresults.md) setting.
+In case you you do not plan to publish results to multiple configurations, you can omit the Test Configuration setting or specify it in the config file by providing either the [`publishTestResults/testConfiguration/name` or `publishTestResults/testConfiguration/id`](../../reference/configuration/configuration-publishtestresults.md) setting.
 
 In case you publish results to different Test Configurations it is better to specify it using the [`--testConfiguration` command line option](../../reference/command-line-reference/publish-test-results-command.md).
 
@@ -70,7 +70,7 @@ In case you publish results to different Test Configurations it is better to spe
 
 Test results in Azure DevOps always belong to a Test Suite and you cannot record test results to Test Cases that are not included in any Test Suites.&#x20;
 
-For SpecSync this means you have to select a Test Suite to publish the results for. By default SpecSync uses the Test Suite configured for synchronizing the test cases (see [Include synchronized Test Cases to a Test Suite](../common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md)), but you can also choose different Test Suite as well using the [`publishTestResults/testSuite/name` or `publishTestResults/testSuite/id`](../../reference/configuration/publishtestresults.md) setting or the [`--testSuite` command line option](../../reference/command-line-reference/publish-test-results-command.md). There is no restriction for the Test Suite type, you can specify static, query-based and requirement-based Test Suites as well.
+For SpecSync this means you have to select a Test Suite to publish the results for. By default SpecSync uses the Test Suite configured for synchronizing the test cases (see [Include synchronized Test Cases to a Test Suite](../common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md)), but you can also choose different Test Suite as well using the [`publishTestResults/testSuite/name` or `publishTestResults/testSuite/id`](../../reference/configuration/configuration-publishtestresults.md) setting or the [`--testSuite` command line option](../../reference/command-line-reference/publish-test-results-command.md). There is no restriction for the Test Suite type, you can specify static, query-based and requirement-based Test Suites as well.
 
 {% hint style="info" %}
 Since you can specify the Test Suite for publishing, the publish-test-result command works even if you have not configured SpecSync to [include Test Cases to a Test Suite](../common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md). But using that feature has other benefits as well so it is recommended to use it even if you publish the results to a different suite.
@@ -88,7 +88,7 @@ Alternatively you can use the [Customization: Publishing test results to multipl
 
 Azure DevOps groups the test results together into a Test Run. The list of Test Runs can be found in the _Test Plans / Runs_ section of the Azure DevOps project web portal.&#x20;
 
-The SpecSync publish-test-result command always creates a single Test Run. You can customize many details of the created Test Run using the [command line](../../reference/command-line-reference/publish-test-results-command.md) and the [configuration](../../reference/configuration/publishtestresults.md) options. For example you can set the name of the Test Run using the `--runName` option.
+The SpecSync publish-test-result command always creates a single Test Run. You can customize many details of the created Test Run using the [command line](../../reference/command-line-reference/publish-test-results-command.md) and the [configuration](../../reference/configuration/configuration-publishtestresults.md) options. For example you can set the name of the Test Run using the `--runName` option.
 
 The Azure DevOps Test Runs have a _Run Type_ setting that can either be _Automated_ or _Manual_. SpecSync sets this flag by default based on whether it is configured to [synchronize scenarios as automated test cases](../push-features/mark-test-cases-as-automated.md) (`synchronization/automation/enabled` is set to `true`). The value can be overwritten by setting `publishTestResults/runType`.&#x20;
 

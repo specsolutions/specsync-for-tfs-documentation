@@ -6,6 +6,8 @@ The SpecSync push command processed all scenarios in the [local feature set](../
 
 You can find all available command line options for the push command in the [push command line reference](../../reference/command-line-reference/push-command.md). The configuration options related to push are in the [synchronization](../../reference/configuration/configuration-synchronization/) section of the configuration file.
 
+The connection between the scenario and the Test Case in Azure DevOps is established with a *test case link tag*. By default the link tag uses the format `@tc:1234`, but both the `tc` prefix and the separator `:` can be configured (with `synchronization/tagPrefixSeparators` and `synchronization/linkLabelSeparator`), so you can also have test case links that use different format, e.g. `@TestCase=1234`. In the documentation we use the default test case link tag format.
+
 Depending on the changes of the scenario, the push command performs different actions in Azure DevOps as the following table shows.
 
 | Changes                                                                                                | Actions                                                                                                                                                                                                                                                                                                                                                                                        |

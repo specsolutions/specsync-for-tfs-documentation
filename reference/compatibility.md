@@ -44,6 +44,7 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 | SpecFlow                                                        | NUnit v2                 | XML       | `specFlowNUnit2Xml`    |
 | Cucumber (Java, JavaScript, Ruby)                               | `json` formatter         | JSON      | `cucumberJson`         |
 | Cucumber Java                                                   | JUnit                    | XML       | `cucumberJavaJUnitXml` |
+| Cucumber Java                                                   | Surefire                 | XML       | `cucumberJavaSurefireXml` |
 | Cucumber.js                                                     | cucumber-junit-formatter | XML       | `cucumberJsJUnitXml`   |
 | [Cypress](../important-concepts/using-specsync-with-cypress.md) |                          | JSON      | `cypressCucumberJson`  |
 | Jest                                                            | jest-cucumber            | XML       | `jestCucumberXml`      |
@@ -61,6 +62,7 @@ Synchronizing scenarios from SpecFlow projects and publishing test results is su
 
 To be able to use the legacy [test-suite based execution](../features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) method, a special SpecFlow plugin has to be used that is specific to a particular SpecFlow version. This plugin is provided for the following SpecFlow versions.
 
+* SpecFlow v4.0 (from SpecSync v3.4.0)
 * SpecFlow v3.9 (from SpecSync v3.2.6)
 * SpecFlow v3.8 (from SpecSync v3.2.6)
 * SpecFlow v3.7 (from SpecSync v3.2.1)
@@ -69,7 +71,7 @@ To be able to use the legacy [test-suite based execution](../features/test-resul
 * SpecFlow v3.4 (from SpecSync v3.0.2)
 * SpecFlow v3.3 (from SpecSync v2.1.14)
 * SpecFlow v3.1 (from SpecSync v2.1.10)
-* SpecFlow v3.0 (from SpecSync v2.1)
+* SpecFlow v3.0 (up to SpecSync v3.3)
 * SpecFlow v2.4 (up to SpecSync v3.2)
 * SpecFlow v2.3 (up to SpecSync v3.2)
 * SpecFlow v2.2.1 (with SpecSync v1.4.1)

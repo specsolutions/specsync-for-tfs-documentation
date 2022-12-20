@@ -45,4 +45,4 @@ The following example sets the local scope to the scenarios that only files from
 }
 ```
 
-Besides standard glob expressions, the settings can also contain logical expressions as well, e.g. `Folder1/*.feature and not **/B.feature`. File paths containing white spaces have to be wrapped with quotes (`"`) or apostrophes (`'`), e.g. `'My Folder/A.feature'`.
+Besides standard glob expressions, the settings can also contain logical expressions as well, e.g. `Folder1/*.feature and not **/B.feature`. File paths containing white spaces have to be wrapped with quotes (`"`) or apostrophes (`'`), e.g. `'My Folder/A.feature'`. To see all options to express the conditions, please check [Local test case conditions](../general-features/local-test-case-conditions.md).

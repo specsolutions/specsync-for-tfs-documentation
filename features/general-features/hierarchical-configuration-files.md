@@ -22,9 +22,11 @@ These settings can be specified in the user-specific SpecSync configuration file
 {% endtab %}
 {% endtabs %}
 
-The user-specific configuration file can be created manually or using the SpecSync [init command](../../reference/command-line-reference/init-command.md). 
+User-specific configuration files are created automatically when you ask to save the credentials during the [init command](../../reference/command-line-reference/init-command.md) or during interactive authentication. Alternatively the files can also be created manually using the examples below.
 
-To store the authentication credentials for the different Azure DevOps projects, the [knownRemotes setting](../../reference/configuration/knownremotes.md) can be specified.
+User-specific configuration files can be used to specify configurations of [`toolSettings`](../../reference/configuration/configuration-toolsettings.md) and [`knownRemotes`](../../reference/configuration/configuration-knownremotes.md) configuration sections.
+
+To store the authentication credentials for the different Azure DevOps projects, the [knownRemotes setting](../../reference/configuration/configuration-knownremotes.md) can be specified.
 
 You can also copy the SpecSync license file to the same folder and specify the default license file location in the user-specific configuration file using the [toolSettings/licensePath](../../reference/configuration/configuration-toolsettings.md) setting.
 
@@ -35,7 +37,7 @@ The following example shows a user-specific configuration file that specifies an
 {% code title="specsync.json" %}
 ```javascript
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+  "$schema": "https://schemas.specsolutions.eu/specsync-user-config-latest.json",
 
   "toolSettings": {
     "licensePath": "specsync.lic" // in the same folder as the user-specific setting

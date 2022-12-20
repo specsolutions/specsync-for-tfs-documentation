@@ -1,14 +1,14 @@
 # Install as .NET tool
 
 {% hint style="info" %}
-This install method is available for machines with .NET Core SDK 3.0 or higher (including .NET 6) installed regardless of whether the BDD project uses .NET or whether it uses .NET Core. Other [installation options](./) available.
+This install method is available for machines with .NET Core SDK 3.0 or higher (including .NET 6, .NET 7) installed regardless of whether the BDD project uses .NET or whether it uses .NET Core. Other [installation options](./) available.
 {% endhint %}
+
+The most convenient way to use SpecSync is to install it as a .NET tool. While .NET tools require .NET Core SDK, .NET 6 SDK or .NET 7 SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET 6 SDK can be installed from the [.NET Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET SDK.
 
 {% hint style="warning" %}
-The Azure DevOps API that SpecSync uses currently does not support[ "Microsoft account sign-in prompt" authentication](../features/general-features/server-authentication-options.md#tfs-windows-sign-in-prompt) on .NET Core. The other authentication options, including the recommended [Personal Access Token (PAT)](../features/general-features/server-authentication-options.md#vsts-personal-access-tokens) or password authentication is still supported.
+The .NET 5 framework is out of support and will not receive security updates in the future (see https://aka.ms/dotnet-core-support). SpecSync versions released after 31/3/2023 will not run with .NET 5. Please use SpecSync with .NET 6 or any of the other supported platforms.
 {% endhint %}
-
-The most convenient way to use SpecSync is to install it as a .NET tool. While .NET tools require .NET Core SDK. NET 5 SDK or .NET 6 SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET 6 SDK can be installed from the [.NET Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET SDK.
 
 SpecSync can be installed as .NET tool, even if the project does not use .NET (e.g. uses Cucumber Java) or if it uses a different version of .NET (e.g. .NET Framework v4.7).
 

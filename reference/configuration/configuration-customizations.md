@@ -71,6 +71,10 @@ The following example shows the available options within this section.
           "targetId": "{env:CURRENT_STORY}",
         }
       ]
+    },
+    "synchronizeLinkedArtifactTitles": {
+      "enabled": true,
+      "linkTagPrefixes": [ "story" ]
     }
   }
   ...
@@ -156,7 +160,7 @@ Allows resetting Test Case state after change as a separate work item update bas
 | ------- | ----------- | ------- |
 | `resetTestCaseState/enabled`   | Enables the customization.                                                                                                                      | `false`                                 |
 | `resetTestCaseState/state`     | A state value (e.g. `Ready`) to set test case state to after updating a test case as a separate update.                                         | mandatory                               |
-| `resetTestCaseState/condition` | A [tag expression](http://speclink.me/tagexpressions) of scenarios that should be included for state change (e.g. `@ready`, `not @inprogress`). | all scenarios included for state change |
+| `resetTestCaseState/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios that should be included for state change (e.g. `@ready`, `not @inprogress`). | all scenarios included for state change |
 
 ### branchTag
 
@@ -175,8 +179,17 @@ Allows linking changed Test Cases to a work item or pull request, related to the
 | ------- | ----------- | ------- |
 | `linkOnChange/enabled` | Enables the customization. | `false`   |
 | `linkOnChange/links[]/targetId` | The ID of the work item or pull request to link the Test Case to. Placeholders, like `{env:ENVIRONMENT_VARIABLE}` can be used. | mandatory |
+| `linkOnChange/links[]/targetType` | The type of the Azure DevOps work item the link refers to. It is verified at the time the link is established. | can link to any work item type |
 | `linkOnChange/links[]/relationship` | <p>Specify the relationship for the created link. E.g. specifying <code>Parent</code> means that the linked work item will be the parent of the test case work item.</p><p>For linking Pull Requests it has to be set to <code>Pull Request</code>.</p> | `Tests` |
 | `linkOnChange/links[]/linkTemplate` | <p>Specifies the HTTP link template of the related artifact (for <code>GitHub Pull Request</code> relationship). The link template can use the specified value using the <code>{id}</code> placeholder.</p> | no template used |
+
+### synchronizeLinkedArtifactTitles
+
+Allows synchronizing linked artifact (work item) titles back to the local test case tags in `@story:123;This_is_the_story_title` format. See [Customization: Synchronize linked artifact titles](../../features/push-features/customization-sync-linked-artifact-titles.md) for details.
+
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `linkTagPrefixes` | Specifies the work item links to be considered. | mandatory |
 
 {% content-ref url="./" %}
 [.](./)

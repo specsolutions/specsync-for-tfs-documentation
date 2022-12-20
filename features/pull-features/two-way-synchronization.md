@@ -62,6 +62,18 @@ In certain cases SpecSync is not able to restore feature-level Gherkin construct
 SpecSync operations, including the pull command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
 {% endhint %}
 
+## Pulling links
+
+If the Test Cases you pull from contain work item links, SpecSync will try to create [work items link tags](../common-synchronization-features/linking-work-items-with-tags.md) from them. 
+
+SpecSync attempts to use the best tag prefix if there are multiple available by selecting the first with matching `targetType` or the first of the ones without `targetType` otherwise. For the best experience for pull, it is recommended to avoid prefixes with the same `targetType` or having multiple link prefix without `targetType`.
+
+If a work item link is removed from the Test Case, the pull operation will remove the corresponding link tag from the local tets case.
+
+{% hint style="info" %}
+Pulling links is supported from v3.4.
+{% endhint %}
+
 ## Creating new scenarios from Test Cases
 
 By default, the pull command only loads the changes of the Test Cases that have been linked to a scenario already \(i.e. have been synchronized with SpecSync push once\).

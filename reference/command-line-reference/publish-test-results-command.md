@@ -10,6 +10,8 @@ In addition the the options listed here, all [common command line options](./#co
 
 | Option | Description | Default |
 | :--- | :--- | :--- |
+| `--tagFilter` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios that should be considered for test result publishing \(e.g. `@current_sprint and @done`\). See [Filters and scopes](../../important-concepts/filters-and-scopes.md) for details. | not filtered by tags |
+| `--sourceFileFilter` | An expression of source file [glob patterns](https://en.wikipedia.org/wiki/Glob_%28programming%29) that should be considered for test result publishing (e.g. `Folder1/**/*.feature`). See [Filters and scopes](../../important-concepts/filters-and-scopes.md) for details. | not filtered by feature files |
 | `-r`\|`--testResultFile` &lt;FILE&#x2011;PATH&gt; | The file path of the test result (.trx, .xml or .json) file to publish or a folder that contains multiple test result files. Multiple paths can be listed, separated by semicolon (`;`). | use from config file |
 | `-f`\|`--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
 | `--runName` &lt;NAME&gt; | The name of the Test Run to be created. | get from test result file |
@@ -53,5 +55,5 @@ dotnet specsync publish-test-result --testPlanId 345 --testSuite "Ordering Tests
 
 {% page-ref page="./" %}
 
-{% page-ref page="../configuration/publishtestresults.md" %}
+{% page-ref page="../configuration/configuration-publishtestresults.md" %}
 
