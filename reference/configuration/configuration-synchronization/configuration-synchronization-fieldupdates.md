@@ -86,7 +86,8 @@ For the placeholders, different "value loaders" can be specified. Value loaders 
 
 The following value loaders are supported:
 
-  * `HTML` - transforms whitespaces to HTML newlines and non-breaking spaces.
+  * `HTML` - encodes HTML tags and transforms whitespaces to HTML newlines and non-breaking spaces.
+  * `HtmlEncode` - encodes HTML tags.
   * `Unix` - replaces Windows-style path separators (`\`) with Unix-style ones (`/`)
   * `Windows` - replaces Unix-style path separators (`/`) with Windows-style ones (`\`)
 

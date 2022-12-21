@@ -99,7 +99,7 @@ Enables updating test case fields that are normally not changed by SpecSync. See
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
 | `customFieldUpdates/enabled` | Enables the customization.                                                                                                                                                                                                                                                                                                                                                                                                           | `false`   |
-| `customFieldUpdates/updates` | A list of key-value pair, where the key is the canonical name of the field to be updated (e.g. `System.Description`) and the value is the template to be used to update the field. The template can contain placeholders listed in [Customization: Update custom Test Case fields on push - Template placeholders](../../features/push-features/customization-update-custom-test-case-fields-on-push.md#template-placeholders) page. | mandatory |
+| `customFieldUpdates/updates` | A list of key-value pair, where the key is the canonical name of the field to be updated (e.g. `System.Description`) and the value is the template to be used to update the field. The template can contain placeholders listed in the [reference](../../reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md#update-placeholders). | mandatory |
 
 ### ignoreTestCaseSteps
 

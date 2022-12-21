@@ -21,7 +21,8 @@ All fixes of SpecSync v3.3.11 are included in this release.
 * The tag prefix separator (`:`) and the link label separator (`;`) can be customized now with `synchronization/tagPrefixSeparators` and `synchronization/linkLabelSeparator`. With that you can allow tags like `@TestCase=1234`. You can specify multiple tag prefix separators as well. SpecSync will use the first one to create new tags. (#773)
 * Allow skip publishing test results for local test cases using the `--tagFilter` and `--sourceFileFilter` options. (#853)
 * For custom placeholder in field updates, different "value loaders" can be specified. Value loaders can transform the value. E.g. if the `HTML` loader is used in a field update as `{scenario-description:HTML}`, it will replace the white space and new line characters of the scenario description with the necessary HTML elements. The following value loaders are supported: (#781)
-  * `HTML` - transforms whitespaces to HTML newlines and non-breaking spaces.
+  * `HTML` - encodes HTML tags, transforms whitespaces to HTML newlines and non-breaking spaces.
+  * `HtmlEncode` - encodes HTML tags.
   * `Unix` - replaces Windows-style path separators (`\`) with Unix-style ones (`/`)
   * `Windows` - replaces Unix-style path separators (`/`) with Windows-style ones (`\`)
 * Support Cucumber Java Surefire XML report (#795)
