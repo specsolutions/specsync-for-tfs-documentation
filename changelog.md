@@ -8,7 +8,7 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
-## v3.4.0 - coming soon
+## v3.4.0 - 2022/12/21
 
 All fixes of SpecSync v3.3.11 are included in this release.
 
