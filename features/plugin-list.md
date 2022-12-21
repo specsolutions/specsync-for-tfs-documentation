@@ -10,6 +10,8 @@ The GitHub repository [https://github.com/specsolutions/specsync-sample-plugins]
 
 | Plugin | Description | Maintainer |
 |------- | ----------- | ---------- |
-| [SpecSync.Plugin.ScenarioOutlinePerExamplesTestCase](https://github.com/specsolutions/specsync-sample-plugins#scenario-outline-per-exampes-test-case-plugin) | Plugin that synchronizes scenario outline examples blocks as individual test cases. | Spec Solutions |
-| [SpecSync.Plugin.ExcelTestSource](https://github.com/specsolutions/specsync-sample-plugins#excel-test-source-plugin) | This plugin can be used to synchronize a local test cases from Excel file using the format that Azure DevOps uses when you export Test Cases to CSV. | Spec Solutions |
-| [SpecSync.Plugin.MsTestTestSource](https://github.com/specsolutions/specsync-sample-plugins#mstest-test-source-plugin) | Allows synchronizing "C# MsTest Tests" and publish results from TRX result files. | Spec Solutions |
+| [SpecSync.Plugin.ScenarioOutlinePerExamplesTestCase](https://github.com/specsolutions/specsync-sample-plugins/tree/main/scenario-outline-per-exampes-test-case-plugin) | Plugin that synchronizes scenario outline examples blocks as individual test cases. | Spec Solutions |
+| [SpecSync.Plugin.ExcelTestSource](https://github.com/specsolutions/specsync-sample-plugins/tree/main/excel-test-source-plugin) | This plugin can be used to synchronize a local test cases from Excel file using the format that Azure DevOps uses when you export Test Cases to CSV. | Spec Solutions |
+| [SpecSync.Plugin.ExcelTestResults](https://github.com/specsolutions/specsync-sample-plugins/tree/main/excel-test-results-plugin) | This plugin can be used to synchronize a local test cases from Excel file using the format that Azure DevOps uses when you export Test Cases to CSV. | Spec Solutions |
+| [SpecSync.Plugin.MsTestTestSource](https://github.com/specsolutions/specsync-sample-plugins/tree/main/mstest-test-source-plugin) | Allows synchronizing "C# MsTest Tests" and publish results from TRX result files. | Spec Solutions |
+| [SpecSync.Plugin.ScenarioOutlineAsNormalTestCase](https://github.com/specsolutions/specsync-sample-plugins/tree/main/scenario-outline-as-normal-test-case-format-plugin) | A SpecSync plugin that synchronizes scenario outlines as normal (non-data-driven) Test Cases. | Spec Solutions |
