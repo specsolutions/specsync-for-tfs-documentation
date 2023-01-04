@@ -36,6 +36,7 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * **SpecSync.Plugin.ScenarioOutlinePerExamplesTestCase**: Plugin that synchronizes scenario outline examples blocks as individual test cases. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/scenario-outline-per-exampes-test-case-plugin) (#718)
 * **SpecSync.Plugin.ExcelTestSource**: This plugin can be used to synchronize a local test cases from Excel file using the format that Azure DevOps uses when you export Test Cases to CSV. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/excel-test-source-plugin)
 * **SpecSync.Plugin.MsTestTestSource**: Allows synchronizing "C# MsTest Tests" and publish results from TRX result files. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/mstest-test-source-plugin)
+* **SpecSync.Plugin.GenericTestResultMatcher**: A SpecSync plugin that can be used to override test result matching rules. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/generic-test-result-matcher-plugin)
 
 ### Improvements
 
