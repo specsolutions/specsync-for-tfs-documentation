@@ -17,14 +17,14 @@ The following example shows a basic configuration that initializes the _Descript
   ...
  "synchronization": {
     "fieldUpdates": {
-      "System.Description": "Synchronized from feature {feature-name}"
+      "Description": "Synchronized from feature {feature-name}"
     }
   }
   ...
 }
 ```
 
-The fields can be specified with either their name or their field identifier. The fields that are read-only (e.g. `Id`) or managed by SpecSync (e.g. `Tags`) cannot be updated with this setting.
+The fields can be specified with either their name or their field identifier (e.g. `System.Description`). The fields that are read-only (e.g. `Id`) or managed by SpecSync (e.g. `Tags`) cannot be updated with this setting.
 
 {% hint style="info" %}
 The field names and identifiers used in this documentation page are informational only and not reference names. They might not exist in your Azure DevOps configuration or they might have different names. For setting fields always refer to your Azure DevOps configuration for the exact field names to be used. The reference names of the built-in fields can be found in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/boards/work-items/guidance/work-item-field?view=azure-devops). The reference name of the custom fields can be obtained from the Azure DevOps project administrator, but usually they follow the format `Custom.<your-field-name>` (e.g. `Custom.BusinessRule`).
