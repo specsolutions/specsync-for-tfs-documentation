@@ -1,6 +1,6 @@
 # Licensing
 
-SpecSync provides different licensing options including a free usage for smaller projects. For details and pricing, please check the [available plans](http://speclink.me/specsyncplans{%Jira%}https://speclink.me/specsync-jira-plans{%Jira%}).
+SpecSync provides different licensing options including a free usage for smaller projects. For details and pricing, please check the [available plans](http://speclink.me/specsyncplans).
 
 Please send your questions or license inquiries to [specsync@specsolutions.eu](mailto:specsync@specsolutions.eu).
 
