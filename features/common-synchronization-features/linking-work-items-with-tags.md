@@ -136,7 +136,7 @@ Test Cases can also be linked to Pull Requests using tags. For that the `relatio
 
 ## Linking GitHub Pull Requests
 
-Test Cases can also be linked to GitHub Pull Requests using tags. For details on that please check the [*How to link GitHub pull requests* guide](../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-with-tags).
+Test Cases can also be linked to GitHub Pull Requests using tags. For further details on that please check the [*How to link GitHub pull requests* guide](../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-with-tags).
 
 ## Limitations
 
