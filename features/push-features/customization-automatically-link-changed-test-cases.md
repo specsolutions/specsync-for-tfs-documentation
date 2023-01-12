@@ -59,5 +59,5 @@ In order to link the changed scenarios to the pull request that just has been me
 
 ## Linking GitHub Pull Requests
 
-Test Cases can also be linked to GitHub Pull Requests. For details on that please check the [*How to link GitHub pull requests* guide](../../important-concepts/how-to-link-github-pull-requests.md).
+Test Cases can also be linked to GitHub Pull Requests. For details on that please check the [*How to link GitHub pull requests* guide](../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-when-the-test-case-changes).
 

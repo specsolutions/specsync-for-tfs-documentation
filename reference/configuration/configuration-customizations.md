@@ -180,7 +180,7 @@ Allows linking changed Test Cases to a work item or pull request, related to the
 | `linkOnChange/enabled` | Enables the customization. | `false`   |
 | `linkOnChange/links[]/targetId` | The ID of the work item or pull request to link the Test Case to. Placeholders, like `{env:ENVIRONMENT_VARIABLE}` can be used. | mandatory |
 | `linkOnChange/links[]/targetType` | The type of the Azure DevOps work item the link refers to. It is verified at the time the link is established. | can link to any work item type |
-| `linkOnChange/links[]/relationship` | Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. For linking Pull Requests it has to be set to `Pull Request` and `GitHub Pull Request` for GitHub Pull Requests (see details in our [guide](../../../important-concepts/how-to-link-github-pull-requests.md)). | `Tests` |
+| `linkOnChange/links[]/relationship` | Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. For linking Pull Requests it has to be set to `Pull Request` and `GitHub Pull Request` for GitHub Pull Requests (see details in our [guide](../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-when-the-test-case-changes)). | `Tests` |
 | `linkOnChange/links[]/linkTemplate` | Specifies the HTTP link template of the related artifact (for `GitHub Pull Request` relationship). The link template can use the specified value using the `{id}` placeholder. | no template used |
 
 ### synchronizeLinkedArtifactTitles
