@@ -15,6 +15,8 @@ Please check the following guides.
 
 {% page-ref page="how-to-use-the-pipeline-tasks.md" %}
 
+{% page-ref page="how-to-link-github-pull-requests.md" %}
+
 {% page-ref page="how-to-upgrade-specsync.md" %}
 
 {% page-ref page="how-to-attach-files-to-test-results.md" %}

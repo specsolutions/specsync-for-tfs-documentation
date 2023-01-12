@@ -56,3 +56,8 @@ The environment variable `SYSTEM_PULLREQUEST_PULLREQUESTID` is only available in
 
 In order to link the changed scenarios to the pull request that just has been merged (from the build of the main branch), you need to get the pull request ID from the commit message with a script (the commit message usually starts with _"Merged PR 12345: ..."_). The script in this case can set an environment variable with the extracted value and the customization can use this environment variable.
 {% endhint %}
+
+## Linking GitHub Pull Requests
+
+Test Cases can also be linked to GitHub Pull Requests. For details on that please check the [*How to link GitHub pull requests* guide](../../important-concepts/how-to-link-github-pull-requests.md).
+

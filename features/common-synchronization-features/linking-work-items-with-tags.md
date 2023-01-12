@@ -132,7 +132,11 @@ The following example allows using the `@bug:` prefix only for "Bug" work items.
 
 ## Linking Pull Requests
 
-From SpecSync v3.2 the Test Cases can also be linked to Pull Requests using tags. For that the `relationship` setting of the link specification must be set to `Pull Request`.
+Test Cases can also be linked to Pull Requests using tags. For that the `relationship` setting of the link specification must be set to `Pull Request`.
+
+## Linking GitHub Pull Requests
+
+Test Cases can also be linked to GitHub Pull Requests using tags. For details on that please check the [*How to link GitHub pull requests* guide](../../important-concepts/how-to-link-github-pull-requests.md).
 
 ## Limitations
 
