@@ -8,6 +8,21 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.1 - 2022/01/16
+
+### Improvements
+
+* Include suite name in the "unable to create suite" error message. (#933)
+* Allow '-' in tag prefixes (#930)
+* Support for Azure DevOps 2022 Server (#940)
+* Various stability and maintainability improvements (#942)
+
+### Bug fixes
+
+* Fix: Incorrect Gherkin might be produced when Test Case step action or expected result field contains multiple lines (#923)
+* Fix: Custom field with value `null` is overridden unnecessarily to '' (#934)
+* Fix: Test Case might be updated always although it is up-to-date (#935)
+
 ## v3.4.0 - 2022/12/21
 
 All fixes of SpecSync v3.3.11 are included in this release.
