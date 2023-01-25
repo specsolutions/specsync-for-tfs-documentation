@@ -64,7 +64,7 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * Filter, scope and other conditions are satisfied if there is at least one scenario outline examples that satisfies the condition. (#717)
 * Improve performance of filtered / scoped command executions (#856)
 * Detecting non-interactive user session for operations require user input and automatically cancel to avoid blocking process (#891)
-* Improved publish-test-result reporting (#915)
+* Improved publish-test-results reporting (#915)
 * Improve progress indication for publish test results (#889)
 * The test results with not executed outcome (`NotExecuted`, `NotApplicable`, `NotRunnable`, `NotImpacted`) are not published by default as they might hide earlier results of the Test Case. In order to force including them, the `publishTestResults/includeNotExecutedTests` setting can be used. (#894)
 * The product name (SpecSync for Azure DevOps or SpecSync for Jira) is visible in the license file when opened in a text editor. (#876)
@@ -223,7 +223,7 @@ _Note: The release v3.3.9 has been revoked due to a release issue._
 
 ### Bug fixes
 
-* Fix: Allow disabling release pipeline association for publish-test-result command with the new `--disablePipelineAssociation` command line option. (#707)
+* Fix: Allow disabling release pipeline association for publish-test-results command with the new `--disablePipelineAssociation` command line option. (#707)
 
 ### Improvements
 

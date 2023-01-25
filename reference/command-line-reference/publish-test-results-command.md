@@ -32,25 +32,25 @@ In addition the the options listed here, all [common command line options](./#co
 Publishes a test result file `result.trx` to Azure DevOps:
 
 ```text
-dotnet specsync publish-test-result --testResultFile result.trx
+dotnet specsync publish-test-results --testResultFile result.trx
 ```
 
 Publishes a test result file produced by Cucumber Java JUnit execution:
 
 ```text
-dotnet specsync publish-test-result --testResultFile cucumber-result.xml --testResultFileFormat CucumberJavaJUnitXml
+dotnet specsync publish-test-results --testResultFile cucumber-result.xml --testResultFileFormat CucumberJavaJUnitXml
 ```
 
 Publishes a test result file `result.trx` to Azure DevOps to the configured Test Suite for the Test Configuration `Windows 10`:
 
 ```text
-dotnet specsync publish-test-result --testResultFile result.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-results --testResultFile result.trx --testConfiguration "Windows 10"
 ```
 
 Publishes test results to a specific Test Suite, where the Test Cases related to the executed scenarios are included. Test Plan ID is also specified for better performance.
 
 ```text
-dotnet specsync publish-test-result --testPlanId 345 --testSuite "Ordering Tests" --testResultFile result.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-results --testPlanId 345 --testSuite "Ordering Tests" --testResultFile result.trx --testConfiguration "Windows 10"
 ```
 
 {% page-ref page="./" %}

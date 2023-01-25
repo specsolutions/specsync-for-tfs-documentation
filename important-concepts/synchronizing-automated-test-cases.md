@@ -16,11 +16,11 @@ After changing the `condition` setting of the automation configuration, you need
 
 ### Publish test results to the synchronized Test Cases
 
-The SpecSync publish-test-result command can be used to publish test result files of scenario executions to Azure DevOps. SpecSync will analyze the test result file, match the results to the scenarios and publishes the results to the Test Cases connected to the matched scenarios.
+The SpecSync publish-test-results command can be used to publish test result files of scenario executions to Azure DevOps. SpecSync will analyze the test result file, match the results to the scenarios and publishes the results to the Test Cases connected to the matched scenarios.
 
 In the most simple case, you only need a test result file and a selected Azure DevOps Test Configuration to publish the results, but there are plenty of ways how the command can be customized. 
 
 The [Publishing test result files](../features/test-result-publishing-features/publishing-test-result-files.md) page describes the test result publishing concept in detail and shows the customization options.
 
-With the publish-test-result command, you can publish local test results as well, but in the majority of the cases this command is invoked from a build or release pipeline. The [Use SpecSync from build or release pipeline](synchronizing-test-cases-from-build.md) page shows how to configure the pipeline for this.
+With the publish-test-results command, you can publish local test results as well, but in the majority of the cases this command is invoked from a build or release pipeline. The [Use SpecSync from build or release pipeline](synchronizing-test-cases-from-build.md) page shows how to configure the pipeline for this.
 

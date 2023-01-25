@@ -55,9 +55,9 @@ Cause: It can happen that some scenarios are excluded from the "automated" statu
 
 **Solution 3:** Override the run type setting of the created Test Run using the `publishTestResults/runType` configuration setting. This setting is available from SpecSync v3.1. For earlier SpecSync versions, create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. (You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.)
 
-### Invalid build ID detected when publish-test-result command is invoked from a CI/CD pipeline
+### Invalid build ID detected when publish-test-results command is invoked from a CI/CD pipeline
 
-SpecSync can associate the Test Run created by the publish-test-result command with an Azure DevOps build. This can be done manually, using the `--buildId` option, but SpecSync can also automatically detect the ID of the currently executing build from the `BUILD_BUILDID` environment variable.&#x20;
+SpecSync can associate the Test Run created by the publish-test-results command with an Azure DevOps build. This can be done manually, using the `--buildId` option, but SpecSync can also automatically detect the ID of the currently executing build from the `BUILD_BUILDID` environment variable.&#x20;
 
 In some cases the environment variable does not contain a valid build ID or the build is not accessible for the user who performs the synchronization (e.g. is in another Azure DevOps project). In some cases the build ID is detected incorrectly from release pipelines.
 

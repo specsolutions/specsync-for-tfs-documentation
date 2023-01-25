@@ -39,6 +39,6 @@ public class MyStepDefinitions
 
 ## Test execution frameworks that do not support test attachments <a href="frameworks-no-attachments" id="frameworks-no-attachments"></a>
 
-For the frameworks that do not support recording test result attachments, you can use the following workaround: Save all files to be attached in a new folder and then attach all files to the published Test Run using the `--attachedFiles` option of the [publish-test-result command](../reference/command-line-reference/publish-test-results-command.md). Unfortunately in this case the files will not be attached to a particular test result but to the entire Test Run, so it is advised to use file names that contain identifiable information about the scenario.
+For the frameworks that do not support recording test result attachments, you can use the following workaround: Save all files to be attached in a new folder and then attach all files to the published Test Run using the `--attachedFiles` option of the [publish-test-results command](../reference/command-line-reference/publish-test-results-command.md). Unfortunately in this case the files will not be attached to a particular test result but to the entire Test Run, so it is advised to use file names that contain identifiable information about the scenario.
 
 * SpecFlow & xUnit (xUnit does not support test attachments)

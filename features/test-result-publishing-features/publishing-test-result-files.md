@@ -13,10 +13,10 @@ This documentation page describes in detail the concept for publishing test resu
 The [Examples](publishing-test-result-files.md#examples) section below shows a few concrete examples. A simple usage of the command could be as simple as this:
 
 ```
-dotnet specsync publish-test-result --testResultFile result.trx
+dotnet specsync publish-test-results --testResultFile result.trx
 ```
 
-The [Use SpecSync from build or release pipeline](../../important-concepts/synchronizing-test-cases-from-build.md) guide contains details about how to integrate the publish-test-result command to a build or release pipeline.
+The [Use SpecSync from build or release pipeline](../../important-concepts/synchronizing-test-cases-from-build.md) guide contains details about how to integrate the publish-test-results command to a build or release pipeline.
 
 {% hint style="info" %}
 SpecSync operations, including the publish-test-results command supports "dry-run" mode using the `--dryRun` command line option. In dry-run mode, no change is made neither to Azure DevOps nor to the feature files, so you can test the impact of an operation without making an actual change.
@@ -36,7 +36,7 @@ The [Compatibility](../../reference/compatibility.md#supported-test-result-forma
 
 The exact way how you can get test result files depends on the test runner tool and the BDD framework you use. For example for .NET Core SpecFlow test projects the test results can be saved into a TRX file by providing the `--logger trx;logfilename=<your-trx-file-name>.trx` option for the `dotnet test` command.
 
-For the SpecSync publish-test-result command, the path of the test result file can be specified using the `--testResultFile` command line option. If the test result file is not a TRX file, you also have to specify the file format using the `--testResultFileFormat` option (see [Compatibility](../../reference/compatibility.md#supported-test-result-formats) for possible values).
+For the SpecSync publish-test-results command, the path of the test result file can be specified using the `--testResultFile` command line option. If the test result file is not a TRX file, you also have to specify the file format using the `--testResultFileFormat` option (see [Compatibility](../../reference/compatibility.md#supported-test-result-formats) for possible values).
 
 The [Examples](publishing-test-result-files.md#examples) section below shows how some of the most commonly used BDD frameworks and platforms can be used.
 
@@ -73,7 +73,7 @@ Test results in Azure DevOps always belong to a Test Suite and you cannot record
 For SpecSync this means you have to select a Test Suite to publish the results for. By default SpecSync uses the Test Suite configured for synchronizing the test cases (see [Include synchronized Test Cases to a Test Suite](../common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md)), but you can also choose different Test Suite as well using the [`publishTestResults/testSuite/name` or `publishTestResults/testSuite/id`](../../reference/configuration/configuration-publishtestresults.md) setting or the [`--testSuite` command line option](../../reference/command-line-reference/publish-test-results-command.md). There is no restriction for the Test Suite type, you can specify static, query-based and requirement-based Test Suites as well.
 
 {% hint style="info" %}
-Since you can specify the Test Suite for publishing, the publish-test-result command works even if you have not configured SpecSync to [include Test Cases to a Test Suite](../common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md). But using that feature has other benefits as well so it is recommended to use it even if you publish the results to a different suite.
+Since you can specify the Test Suite for publishing, the publish-test-results command works even if you have not configured SpecSync to [include Test Cases to a Test Suite](../common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md). But using that feature has other benefits as well so it is recommended to use it even if you publish the results to a different suite.
 {% endhint %}
 
 ### Results published to a Test Suite are not visible in other Suites
@@ -88,7 +88,7 @@ Alternatively you can use the [Customization: Publishing test results to multipl
 
 Azure DevOps groups the test results together into a Test Run. The list of Test Runs can be found in the _Test Plans / Runs_ section of the Azure DevOps project web portal.&#x20;
 
-The SpecSync publish-test-result command always creates a single Test Run. You can customize many details of the created Test Run using the [command line](../../reference/command-line-reference/publish-test-results-command.md) and the [configuration](../../reference/configuration/configuration-publishtestresults.md) options. For example you can set the name of the Test Run using the `--runName` option.
+The SpecSync publish-test-results command always creates a single Test Run. You can customize many details of the created Test Run using the [command line](../../reference/command-line-reference/publish-test-results-command.md) and the [configuration](../../reference/configuration/configuration-publishtestresults.md) options. For example you can set the name of the Test Run using the `--runName` option.
 
 The Azure DevOps Test Runs have a _Run Type_ setting that can either be _Automated_ or _Manual_. SpecSync sets this flag by default based on whether it is configured to [synchronize scenarios as automated test cases](../push-features/mark-test-cases-as-automated.md) (`synchronization/automation/enabled` is set to `true`). The value can be overwritten by setting `publishTestResults/runType`.&#x20;
 
@@ -155,7 +155,7 @@ The following example shows how to run .NET Core SpecFlow tests using the `dotne
 
 ```
 dotnet test --logger trx;logfilename=bddtestresults.trx
-dotnet specsync publish-test-result --testResultFile bddtestresults.trx
+dotnet specsync publish-test-results --testResultFile bddtestresults.trx
 ```
 
 ### Cucumber (Java, Maven)
@@ -183,7 +183,7 @@ The Test Suite in this case is the Test Suite that the scenarios are synchronize
 
 ```
 mvn test
-<SPECSYNC-FOLDER>/SpecSync4AzureDevOps publish-test-result --testResultFile bddtestresults.xml --testResultFileFormat cucumberJavaJUnitXml
+<SPECSYNC-FOLDER>/SpecSync4AzureDevOps publish-test-results --testResultFile bddtestresults.xml --testResultFileFormat cucumberJavaJUnitXml
 ```
 
 ### Publish using a specific Test Configuration
@@ -193,7 +193,7 @@ The following example shows how to publish the results to a specific Test Config
 We executed the tests for Chrome and saved the results to a file `bddresults-chrome.trx`. After that publishing the results to the Chrome configuration can be done with
 
 ```
-dotnet specsync publish-test-result -r bddresults-chrome.trx --testConfiguration "Chrome"
+dotnet specsync publish-test-results -r bddresults-chrome.trx --testConfiguration "Chrome"
 ```
 
 
@@ -220,7 +220,7 @@ The Test Suite in this case is the Test Suite that the scenarios are synchronize
 
 ```
 vstest.console.exe /logger:trx;LogFileName=bddtestresults.trx
-dotnet specsync publish-test-result --testResultFile TestResults\bddtestresults.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-results --testResultFile TestResults\bddtestresults.trx --testConfiguration "Windows 10"
 ```
 
 ### Custom publish settings
@@ -256,5 +256,5 @@ The following example shows how to customize the settings for the publish-test-r
 {% endcode %}
 
 ```
-dotnet specsync publish-test-result --testResultFile bddtestresults.trx --runName "BDD Results"
+dotnet specsync publish-test-results --testResultFile bddtestresults.trx --runName "BDD Results"
 ```
