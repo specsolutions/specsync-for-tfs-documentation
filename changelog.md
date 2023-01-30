@@ -135,6 +135,24 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * Fix: Plugins might be reported twice (#864)
 * Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
 
+## v3.3.12 - 2023/01/30
+
+### Improvements
+
+* Include suite name in the "unable to create suite" error message. (#933)
+* Support for Azure DevOps 2022 Server (#940)
+* Use provided file name for Cucumber JSON attachments (#960)
+* Various stability and maintainability improvements (#942)
+
+### Bug fixes
+
+* Fix: Incorrect Gherkin might be produced when Test Case step action or expected result field contains multiple lines (#923)
+* Fix: Custom field with value `null` is overridden unnecessarily to '' (#934)
+* Fix: Test Case might be updated always although it is up-to-date (#935)
+* Fix: Text file attachments ("text/plain" mime type) are included in STDOUT instead of publishing as attachment with Cucumber JSON format (Cypress) (#959)
+* Fix: Attachments from before/after hooks are not published with Cypress (#958)
+* Fix: Test Cases might be removed from the configured suite after an unhandled or general error (#963)
+
 ## v3.3.11 - 2022/12/19
 
 ### Bug fixes
