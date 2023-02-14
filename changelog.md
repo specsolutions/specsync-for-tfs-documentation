@@ -8,6 +8,32 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.2 - 2023/02/14
+
+### Improvements
+
+* Do not remove Test Cases from suite if the push command is executed with filter (#954) 
+* Render {testrun-url} as link in run/result comments (#970)
+* Allow newline (`{br}`) and environment variable (`{env:MY_ENV}`) placeholders in run/result parameters (#957) 
+* Handle TAB characters for C# test sources (#950)
+* No harmful change should be performed when the license file is not specified, but the number of scenarios exceed the free license limit (#944) 
+* Use provided file name for Cucumber JSON attachments (#960)
+* Various stability and maintainability improvements (#691, #973, #955)
+
+### New Plugins
+
+See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
+
+* **SpecSync.Plugin.NUnitTestSource**: Allows synchronizing "C# NUNit Tests" and publish results from TRX result files. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/nunit-test-source-plugin) (#962)
+
+### Bug fixes
+
+* Fix: Environment variables are not allowed anymore for local/featureFileSource/filePath and local/featureFileSource/folder (#947)
+* Fix: Text file attachments ("text/plain" mime type) are included in STDOUT instead of publishing as attachment with Cucumber JSON format (Cypress) (#959)
+* Fix: Test Cases might be removed from the configured suite after an unhandled or general error (#963)
+* Fix: Attachments from before/after hooks are not published with Cypress (#958)
+
+
 ## v3.4.1 - 2022/01/16
 
 ### Improvements
