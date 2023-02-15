@@ -12,11 +12,11 @@ For planned features in future releases please check the [Release Model and Road
 
 ### Improvements
 
-* Do not remove Test Cases from suite if the push command is executed with filter (#954) 
+* Do not remove Test Cases from suite if the push command is executed with filter (#954)
 * Render {testrun-url} as link in run/result comments (#970)
-* Allow newline (`{br}`) and environment variable (`{env:MY_ENV}`) placeholders in run/result parameters (#957) 
+* Allow newline (`{br}`) and environment variable (`{env:MY_ENV}`) placeholders in run/result parameters (#957)
 * Handle TAB characters for C# test sources (#950)
-* No harmful change should be performed when the license file is not specified, but the number of scenarios exceed the free license limit (#944) 
+* No harmful change should be performed when the license file is not specified, but the number of scenarios exceed the free license limit (#944)
 * Use provided file name for Cucumber JSON attachments (#960)
 * Various stability and maintainability improvements (#691, #973, #955)
 

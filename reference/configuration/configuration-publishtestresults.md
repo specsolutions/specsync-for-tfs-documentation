@@ -38,9 +38,18 @@ The following example shows the most common options within this section.
 | `includeNotExecutedTests` | Includes test results that are not executed (outcomes `NotExecuted`, `NotApplicable`, `NotRunnable`, `NotImpacted`). | `false` |
 | `testConfiguration` | <p>Specifies a test configuration within the Azure DevOps project as a target configuration for publishing test results.</p><ul><li><code>testConfiguration/name</code> &#x2014; The name of the test configuration.</li><li><code>testConfiguration/id</code> &#x2014; The ID of the test configuration.</li></ul><p>Can be overridden using with a <a href="../command-line-reference/publish-test-results-command.md">command line option</a>.</p> | uses the single Test Configuration assigned to the Test Suite |
 | `testSuite` | <p>Specifies a test suite within the Azure DevOps project to publish the test results for.</p><ul><li><code>testSuite/name</code> &#x2014; The name of the test suite. For suites with non-unique names, please use the <code>testSuite/id</code> setting.</li><li><code>testSuite/id</code> &#x2014; The ID of the test suite as a number (e.g. <code>id: 12345</code>).</li><li><code>testSuite/testPlanId</code> &#x2014;The ID of the test plan to search or create the test suite in. (Optional, improves performance)</li></ul> | test cases are not included to a test suite |
-| `testRunSettings` | <p>Specifies additional settings for the created test run.</p><ul><li><code>testRunSettings/name</code> &#x2014; The name of the created Test Run. (Default: [load from test result file])</li><li><code>testRunSettings/comment</code> &#x2014; The comment of the created Test Run. (Default: empty)</li><li><code>testRunSettings/runType</code> &#x2014;Sets the run type of the created Test Run. Possible values: `manual`, `automated`. (Default: set to `automated` when [`synchronization/automation/enabled`](configuration-synchronization/configuration-synchronization-automation.md) is `true`)</li></ul> | use default settings |
-| `testResultSettings` | <p>Specifies additional settings for the created test results.</p><ul><li><code>testResultSettings/comment</code> &#x2014; The comment added to the individual test results within the created Test Run. (Default: empty)</li></ul> | use default settings |
+| `testRunSettings` | <p>Specifies additional settings for the created test run. The value can contain <a href="#setting-placeholders">placeholders</a>. </p><ul><li><code>testRunSettings/name</code> &#x2014; The name of the created Test Run. (Default: [load from test result file])</li><li><code>testRunSettings/comment</code> &#x2014; The comment of the created Test Run. (Default: empty)</li><li><code>testRunSettings/runType</code> &#x2014;Sets the run type of the created Test Run. Possible values: `manual`, `automated`. (Default: set to `automated` when [`synchronization/automation/enabled`](configuration-synchronization/configuration-synchronization-automation.md) is `true`)</li></ul> | use default settings |
+| `testResultSettings` | <p>Specifies additional settings for the created test results. The value can contain <a href="#setting-placeholders">placeholders</a>.</p><ul><li><code>testResultSettings/comment</code> &#x2014; The comment added to the individual test results within the created Test Run. (Default: empty)</li></ul> | use default settings |
 
+
+## Setting Placeholders <a href="setting-placeholders" id="setting-placeholders"></a>
+
+| Placeholder                       | Description                                                                                     |
+| --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `{br}`                            | a new line                                                                                      |
+| `{env:ENVIRONMENT_VARIABLE_NAME}` | The content of the environment variable specified (`ENVIRONMENT_VARIABLE_NAME` in this example) |
+| `{testrun-id}`                    | The ID of the created Test Run |
+| `{testrun-url}`                   | The URL of the created Test Run |
 
 {% page-ref page="./" %}
 

@@ -132,6 +132,12 @@ The `--testResultFile` command line option allows specifying multiple files, sep
 
 Multiple test results files can also be specified by specifying a folder name. In this case SpecSync will scan through the folder and uses all files that are supported by the specified format setting (e.g. all TRX files).
 
+### Custom Test Run and Test Result settings
+
+The Test Runs and the individual Test Results within that can have additional settings (e.g. comment) that can be specified. These settings can be specified from the [command line](../../reference/command-line-reference/publish-test-results-command.md) (e.g. `--runComment`) or using the `publishTestResults/testRunSettings` and `publishTestResults/testResultSettings` [configuration settings](../../reference/configuration/configuration-publishtestresults.md).
+
+In the specified values, you can also use different placeholders, e.g. the `{br}` placeholder to include a new line. For the complete list of placeholders that can be used, please check the [reference](../../reference/configuration/configuration-publishtestresults.md#setting-placeholders).
+
 ## Examples
 
 ### SpecFlow (.NET Core)

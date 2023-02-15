@@ -37,6 +37,10 @@ The following example sets the local scope to the scenarios that are marked as `
 
 Specifying the remote scope (i.e. the Test Cases that are considered to be synchronized from scenarios) is useful, because if it is specified, SpecSync can recognize that a scenario has been removed from the feature file. In that case the Test Case related to the missing scenario is not deleted but tagged with `specsync:removed`. You can review the Test Cases of this tag and delete them manually. (The tag is removed from the Test Case if the scenario is restored.)
 
+{% hint style="info" %}
+Scenario removals are detected, but the Test Cases will not be removed from the Test Suite when the synchronization is performed with a filter (e.g. by using the `--tagFilter` command line option). The actual removal will be performed at the next full (unfiltered) synchronization.
+{% endhint %}
+
 Currently the remote scope can be specified by configuring a static Test Suite where the synchronized Test Cases will be included automatically by SpecSync. See [Include synchronized Test Cases to a Test Suite](../features/common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md) for details.
 
 For the pull command the remote scope is mandatory. Read more about this in [Two-way synchronization](../features/pull-features/two-way-synchronization.md).

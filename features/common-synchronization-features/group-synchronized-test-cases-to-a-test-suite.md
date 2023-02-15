@@ -35,10 +35,17 @@ As a result, SpecSync adds the synchronized test cases to the test suite.
 If you specify a test suite name that does not exist, SpecSync creates a test suite first \(under the first test plan\).
 
 {% hint style="info" %}
-_The test suite names are not unique in Azure DevOps. If the same name is used for multiple suites, you should specify the test suite ID in the_ `remote/testSuite/id` _setting instead._
+The test suite names are not unique in Azure DevOps. If the same name is used for multiple suites, you should specify the test suite ID in the `remote/testSuite/id` setting instead.
 {% endhint %}
 
 {% hint style="info" %}
 Retrieving Test Suites might take longer time when the ID of the Test Plan that the Test Suite is defined in is unknown. If you have many Test Plans or experience longer processing time, please specify the ID of the Test Plan as well in the `remote/testSuite/testPlanId` setting.
 {% endhint %}
 
+## Removing Test Cases from the Test Suite
+
+When a scenario is removed from the feature file, SpecSync will also remove the linked Test Case from the Test Suite. In that case the Test Case related to the missing scenario is not deleted but tagged with `specsync:removed`. You can review the Test Cases of this tag and delete them manually. (The tag is removed from the Test Case if the scenario is restored.)
+
+{% hint style="info" %}
+Scenario removals are detected, but the Test Cases will not be removed from the Test Suite when the synchronization is performed with a filter (e.g. by using the `--tagFilter` command line option). The actual removal will be performed at the next full (unfiltered) synchronization.
+{% endhint %}
