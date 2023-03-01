@@ -161,6 +161,19 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * Fix: Plugins might be reported twice (#864)
 * Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
 
+## v3.3.13 - 2023/03/01
+
+### Improvements
+
+* Ensure the personal access token (PAT) is used as password for ADO authentication to have better compatibility with some proxies (#987)
+* Detect Base64 text embeddings in CucumberJson results (#991)
+* Various stability and maintainability improvements (#914, #961, #995, #1000)
+
+### Bug fixes
+
+* Fix: Test result attachments missing for scenario outlines with a single iteration (#990)
+* Fix: TRX test attachments are not found when test execution has been performed on a different OS than the publishing (#984)
+
 ## v3.3.12 - 2023/01/30
 
 ### Improvements
