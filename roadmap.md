@@ -24,12 +24,12 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 
 ## Roadmap
 
-We have just released v3.3 and the detailed planning of v3.4 has not started yet. Smaller compatible feature requests are now provided for v3.3. 
+We have just released v3.4 and the detailed planning of v3.5 has not started yet. Smaller compatible feature requests are now provided for v3.4. 
 
 ### Planned features
 
+* Synchronize to multiple Test Suites or to a Test Suite hierarchy. We currently collect requirements for this feature. Please help use by filling out the [Feature Planning Survey: Synchronizing Test Suite Hierarchies](https://forms.office.com/e/ZTda15AngN).
 * Tag-based remote scope
 * Automatically synchronize Tets Case tags from feature title
 * Cucumber messages test result support
-* Provide more options to build complex Test Suite hierarchies automatically with SpecSync.
 * Interactive synchronization: ask before applying changes
