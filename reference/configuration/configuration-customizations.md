@@ -191,6 +191,18 @@ Allows synchronizing linked artifact (work item) titles back to the local test c
 | ------- | ----------- | ------- |
 | `linkTagPrefixes` | Specifies the work item links to be considered. | mandatory |
 
+### addTestCasesToSuites
+
+Allows including the synchronized Test Cases into various static Test Suites based on conditions. See [Customization: Add Test Cases to Suites](../../features/push-features/customization-add-test-cases-to-suites.md) for details.
+
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `addTestCasesToSuites/enabled` | Enables the customization. | `false`   |
+| `addTestCasesToSuites/testSuites[]/name` | The name of the Test Suite | either this or `id` is mandatory |
+| `addTestCasesToSuites/testSuites[]/id` | The ID of the Test Suite | either this or `name` is mandatory |
+| `addTestCasesToSuites/testSuites[]/testPlanId` | The ID of the Test Plan containing the Suite | not specified |
+| `addTestCasesToSuites/testSuites[]/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios for which the linked Test Case should be included in the Suite (e.g. `@ready`, `not @inprogress`). | all scenarios are considered |
+
 {% content-ref url="./" %}
 [.](./)
 {% endcontent-ref %}
