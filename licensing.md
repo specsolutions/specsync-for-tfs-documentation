@@ -42,7 +42,7 @@ The Service Level Agreement \(SLA\) for the support services for SpecSync for Az
 
 ## EULA
 
-The End User License Agreement can be downloaded [here](https://www.specsolutions.eu/media/specsync/EULA-SpecSync.pdf).
+The End User License Agreement (EULA) can be downloaded [here](https://www.specsolutions.eu/media/specsync/EULA-SpecSync.pdf). From 1/5/2023 an [updated EULA](https://www.specsolutions.eu/media/specsync/EULA-SpecSync-20230501.pdf) will take place.
 
 SpecSync for Azure DevOps uses 3rd party software libraries, please find their licenses at [http://speclink.me/specsync3rdpartylic](http://speclink.me/specsync3rdpartylic).
 
