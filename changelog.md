@@ -8,6 +8,31 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.3 - 2023/03/06
+
+### New features
+
+* Customization: Add Test Cases to Suites. See [feature description](features/push-features/customization-add-test-cases-to-suites.md) for details. (#1004)
+
+### Improvements
+
+* Show Test Plan ID in the log (#1005)
+* C# Plugins: make keyword parser customizable, allow accessing NUnit/MsTest namespaces (#997)
+* Improve error message for unknown file source (#977)
+* Ensure the personal access token (PAT) is used as password for ADO authentication to have better compatibility with some proxies (#987)
+* Detect Base64 text embeddings in CucumberJson results (#991)
+* Detect local test case to be up-to-date if it has only non-relevant remote changes (#982)
+* Various stability and maintainability improvements (#981, #995, #1000)
+
+### Bug fixes
+
+* Fix: NUnit v2 XML test result "Failure" is not recognized (#1001)
+* Fix: Test Suite scope update might fail in dry-run mode (#998)
+* Fix: Using tags with different casing might cause unnecessary updates (#936)
+* Fix: Test result attachments missing for scenario outlines with a single iteration (#990)
+* Fix: TRX test attachments are not found when test execution has been performed on a different OS than the publishing (#984)
+* Fix: Gherkin comments are not allowed in description (#978)
+
 ## v3.4.2 - 2023/02/14
 
 ### Improvements

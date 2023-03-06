@@ -34,3 +34,4 @@ This chapter contains features related to updating Test Cases based on the local
 
 {% page-ref page="customization-sync-linked-artifact-titles.md" %}
 
+{% page-ref page="customization-add-test-cases-to-suites.md" %}
