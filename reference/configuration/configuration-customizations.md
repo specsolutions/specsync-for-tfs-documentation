@@ -60,6 +60,15 @@ The following example shows the available options within this section.
       "state": "Ready",
       "condition": "@ready"
     },
+    "addTestCasesToSuites": {
+      "enabled": true,
+      "testSuites": [
+        {
+          "name": "Important Logic",
+          "condition": "@important and not @external"
+        }
+      ]
+    },
     "branchTag": {
       "enabled": true,
       "prefix": "tc.mybranch"
@@ -162,6 +171,18 @@ Allows resetting Test Case state after change as a separate work item update bas
 | `resetTestCaseState/state`     | A state value (e.g. `Ready`) to set test case state to after updating a test case as a separate update.                                         | mandatory                               |
 | `resetTestCaseState/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios that should be included for state change (e.g. `@ready`, `not @inprogress`). | all scenarios included for state change |
 
+### addTestCasesToSuites
+
+Allows including the synchronized Test Cases into various static Test Suites based on conditions. See [Customization: Add Test Cases to Suites](../../features/push-features/customization-add-test-cases-to-suites.md) for details.
+
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `addTestCasesToSuites/enabled` | Enables the customization. | `false`   |
+| `addTestCasesToSuites/testSuites[]/name` | The name of the Test Suite | either this or `id` is mandatory |
+| `addTestCasesToSuites/testSuites[]/id` | The ID of the Test Suite | either this or `name` is mandatory |
+| `addTestCasesToSuites/testSuites[]/testPlanId` | The ID of the Test Plan containing the Suite | not specified |
+| `addTestCasesToSuites/testSuites[]/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios for which the linked Test Case should be included in the Suite (e.g. `@ready`, `not @inprogress`). | all scenarios are considered |
+
 ### branchTag
 
 Supports synchronization of scenarios on feature branches. See [Customization: Synchronizing scenarios from feature branches](../../features/push-features/customization-support-synchronizing-scenarios-from-a-branch.md) for details.
@@ -190,18 +211,6 @@ Allows synchronizing linked artifact (work item) titles back to the local test c
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
 | `linkTagPrefixes` | Specifies the work item links to be considered. | mandatory |
-
-### addTestCasesToSuites
-
-Allows including the synchronized Test Cases into various static Test Suites based on conditions. See [Customization: Add Test Cases to Suites](../../features/push-features/customization-add-test-cases-to-suites.md) for details.
-
-| Setting | Description | Default |
-| ------- | ----------- | ------- |
-| `addTestCasesToSuites/enabled` | Enables the customization. | `false`   |
-| `addTestCasesToSuites/testSuites[]/name` | The name of the Test Suite | either this or `id` is mandatory |
-| `addTestCasesToSuites/testSuites[]/id` | The ID of the Test Suite | either this or `name` is mandatory |
-| `addTestCasesToSuites/testSuites[]/testPlanId` | The ID of the Test Plan containing the Suite | not specified |
-| `addTestCasesToSuites/testSuites[]/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios for which the linked Test Case should be included in the Suite (e.g. `@ready`, `not @inprogress`). | all scenarios are considered |
 
 {% content-ref url="./" %}
 [.](./)

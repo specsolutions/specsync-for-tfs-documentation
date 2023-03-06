@@ -10,7 +10,7 @@ The _Add Test Cases to Suites_ customization described here is an [Enterprise fe
 The _Add Test Cases to Suites_ customization is a preview feature for the planned support for synchronizing hierarchical test suites. Please help planning this feature by filling out our survey at https://forms.office.com/e/ZTda15AngN.
 {% endhint %}
 
-In order to enable this customization, the `customizations/addTestCasesToSuites` section of the configuration has to be enabled. The complete reference of the configuration settings can be found in the [customizations configuration reference](../../reference/configuration/configuration-customizations.md#addTestCasesToSuites).
+In order to enable this customization, the `customizations/addTestCasesToSuites` section of the configuration has to be enabled. The complete reference of the configuration settings can be found in the [customizations configuration reference](../../reference/configuration/configuration-customizations.md#addtestcasestosuites).
 
 The following example shows a basic configuration that adds all Test Cases to a Suite `All Test Cases` and all Test Cases that are synchronized from scenarios with `@important` tag but without `@external` tag to a Suite `Important Logic` in Test Plan #1234. In addition to these it adds all the Test Cases of scenarios within the `pricing` folder to a Suite named `Pricing`.
 
