@@ -27,6 +27,11 @@ You can find the Collection ID in Postman by selecting the *Info* sidebar on the
 
 You might need to set other settings a well, as described below. You can find a complete configuration sample in the [*Sample SpecSync configuration file for synchronizing Postman tests* section](#sample-config) below.
 
+{% hint style="info" %}
+The _Postman Test Source_ plugin described here is an [Enterprise feature](../licensing.md).
+{% endhint %}
+
+
 ## Planning the Postman integration
 
 Postman collections contain folders, sub-folders and requests. Requests can have additional `pm.test` checks as well. Postman does not define an exact "test" concept. Some teams think about the `pm.test` checks as tests, some use a request as a test and for some a test is a folder that contain multiple requests in a sequence. 
