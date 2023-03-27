@@ -27,6 +27,8 @@ Please check the following guides.
 
 {% page-ref page="using-specsync-with-cypress.md" %}
 
+{% page-ref page="using-specsync-with-postman.md" %}
+
 {% page-ref page="using-specsync-on-osxlinux-page.md" %}
 
 {% page-ref page="using-specsync-inside-a-docker-container.md" %}
