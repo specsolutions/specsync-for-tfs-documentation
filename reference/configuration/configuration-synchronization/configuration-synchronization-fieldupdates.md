@@ -78,6 +78,9 @@ An *update value specifier* can contain the following settings.
 | `{feature-file-name}`             | The file name of the feature file (without folder). Synonym of `{local-test-case-container-source-file-name}`. |
 | `{feature-file-folder}`           | The folder of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-folder}`. |
 | `{feature-file-path}`             | The path (folder and file name) of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-path}`. |
+| `{remote-project-url}`            | The full URL of the remote project without tailing `/`. (From v3.4.4) |
+| `{remote-server-url}`             | The full URL of the remote server without tailing `/`. (From v3.4.4) |
+| `{remote-project-name}`           | The remote project name (not URL encoded). (From v3.4.4) |
 | `{br}`                            | A new line.                                                                                     |
 | `{env:ENVIRONMENT_VARIABLE_NAME}` | The content of the environment variable specified (`ENVIRONMENT_VARIABLE_NAME` in this example) |
 | `{1}`                             | Refers to the wildcard (`*`) match of the condition. In case there are multiple wildcards, the `{1}`, `{2}`, etc. placeholders can be used to refer to the matches |
