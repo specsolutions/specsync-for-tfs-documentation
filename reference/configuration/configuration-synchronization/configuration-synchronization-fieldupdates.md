@@ -68,19 +68,34 @@ An *update value specifier* can contain the following settings.
 
 | Placeholder                       | Description                                                                                     |
 | --------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `{feature-name}`                  | the name of the feature (specified in the feature file header)                                  |
-| `{feature-description}`           | the description of the feature (the free-text block specified after the feature file header)    |
-| `{feature-source}`                | The full feature file source text.                                                              |
-| `{rule-name}`                     | The name of the rule that the scenario belongs to.                                              |
-| `{scenario-name}`                 | the name of the scenario or scenario outline                                                    |
-| `{scenario-description}`          | the description of the scenario or scenario outline                                             |
-| `{scenario-source}`               | The full scenario source text.                                                                  |
-| `{feature-file-name}`             | the file name of the feature file (without folder)                                              |
-| `{feature-file-folder}`           | the folder of the feature file, relative to the project root                                    |
-| `{feature-file-path}`             | the path (folder and file name) of the feature file, relative to the project root               |
-| `{br}`                            | a new line                                                                                      |
+| `{feature-name}`                  | The name of the feature (specified in the feature file header). Synonym of `{local-test-case-container-name}`. |
+| `{feature-description}`           | The description of the feature (the free-text block specified after the feature file header). Synonym of `{local-test-case-container-description}`. |
+| `{feature-source}`                | The full feature file source text. Synonym of `{local-test-case-container-source}`. |
+| `{rule-name}`                     | The name of the rule that the scenario belongs to. Synonym of `{local-test-case-rule-name}`. |
+| `{scenario-name}`                 | The name of the scenario or scenario outline. Synonym of `{local-test-case-name}`. |
+| `{scenario-description}`          | The description of the scenario or scenario outline. Synonym of `{local-test-case-description}`. |
+| `{scenario-source}`               | The full scenario source text.. Synonym of `{local-test-case-source}`. |
+| `{feature-file-name}`             | The file name of the feature file (without folder). Synonym of `{local-test-case-container-source-file-name}`. |
+| `{feature-file-folder}`           | The folder of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-folder}`. |
+| `{feature-file-path}`             | The path (folder and file name) of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-path}`. |
+| `{br}`                            | A new line.                                                                                     |
 | `{env:ENVIRONMENT_VARIABLE_NAME}` | The content of the environment variable specified (`ENVIRONMENT_VARIABLE_NAME` in this example) |
 | `{1}`                             | Refers to the wildcard (`*`) match of the condition. In case there are multiple wildcards, the `{1}`, `{2}`, etc. placeholders can be used to refer to the matches |
+
+For synchronization of non-Gherkin file sources, you can also use the following placeholders. This placeholders are synonyms of the Gherkin-specific placeholders above. Not all synchronization source supports all fields.
+
+| Placeholder                       | Description                                                                                     |
+| --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `{local-test-case-container-name}` | The name of the local test case container (e.g. a class or a test file) |
+| `{local-test-case-container-description}` | The description of the local test case container. |
+| `{local-test-case-container-source}` | The full local test case container source text. |
+| `{local-test-case-rule-name}` | The name of the business rule the local test case is associated with. |
+| `{local-test-case-name}` | The name of the local test case. |
+| `{local-test-case-description}` | The description of the local test case. |
+| `{local-test-case-source}` | The full local tets case source text. |
+| `{local-test-case-container-source-file-name}` | The file name of the local test case container file (without folder). |
+| `{local-test-case-container-source-file-folder}` | The folder of the local test case container file, relative to the project root. |
+| `{local-test-case-container-source-file-path}` | The path (folder and file name) of the local test case container, relative to the project root. |
 
 For the placeholders, different "value loaders" can be specified. Value loaders can transform the value. E.g. if the `HTML` loader is used in a field update as `{scenario-description:HTML}`, it will replace the white space and new line characters of the scenario description with the necessary HTML elements. 
 
