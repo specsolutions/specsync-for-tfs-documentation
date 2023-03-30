@@ -8,6 +8,36 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.4 - 2023/03/30
+
+### New features
+
+* Additional template placeholders for accessing remote server related settings (`{remote-project-url}`, `{remote-server-url}`, `{remote-project-name}`). See full list of available placeholders in the [field updates reference](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md#update-placeholders). (#1024)
+* Local test case conditions can be filtered for test name using `$name = 'My scenario'` syntax. The name filter can be combined with tag or source file filter as well, e.g. `$sourceFile ~ **/Addition.feature and $name = 'Basic addition'` This applies to all `condition` configuration settings and can also be used with the `-tagFilter` command line option. See all possibilities for local test case conditions in the [feature description](features/general-features/local-test-case-conditions.md). (#1025)
+* Introducing the generic `--filter` command line option that can be used to filter for both tags, names and source files. E.g. `--filter '@basic and $sourceFile ~ **/Addition.feature and $name = "Basic addition"'`.
+
+### New Plugins
+
+See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
+
+* **SpecSync.Plugin.PostmanTestSource**: This plugin can be used to synchronize a tests from a [Postman](https://www.postman.com/) collection and publish results executed with Newman. See [related guide](important-concepts/using-specsync-with-postman.md) and the [plugin GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/postman-test-source-plugin) (#1032)
+
+### Improvements
+
+* Improvements for plugin development:
+  * Base classes for REST API connections (#1017, #1023)
+  * More flexibility for JUnitXml parsers (#1018, #1031)
+  * More flexibility for JsonFileWriter (#1019)
+  * Allow registering value loaders (#1020)
+  * Allow deserializing parameters (#1021)
+* Various stability and maintainability improvements (#1013, #1033)
+
+### Bug fixes
+
+* Fix: Config source types might be calculated incorrectly (#1015)
+* Fix: PyTest: Incorrect outcome published for dynamically skipped tests (#1027)
+* Fix: Unhandled error is shown when a Test Suite is not found (#1029)
+
 ## v3.4.3 - 2023/03/06
 
 ### New features
@@ -192,7 +222,7 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 
 * Ensure the personal access token (PAT) is used as password for ADO authentication to have better compatibility with some proxies (#987)
 * Detect Base64 text embeddings in CucumberJson results (#991)
-* Various stability and maintainability improvements (#914, #961, #995, #1000)
+* Various stability and maintainability improvements (#914, #691, #995, #1000)
 
 ### Bug fixes
 

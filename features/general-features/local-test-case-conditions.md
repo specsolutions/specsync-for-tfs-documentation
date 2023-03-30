@@ -2,7 +2,7 @@
 
 In several configuration setting or command line option you can specify local test case conditions. For example you can specify a filter condition to only synchronize a subset of feature files.
 
-The local test case conditions can express statements (predicates) about the tags and the source file of the local test case (e.g. a scenario) and they can also contain complex logical expressions with "and", "or", "not" and grouping with parenthesis. The local test case condition syntax is based on and compatible with [Cucumber Tag expressions](https://cucumber.io/docs/cucumber/api/?lang=java#tag-expressions).
+The local test case conditions can express statements (predicates) about the tags, the source file and the name of the local test case (e.g. a scenario) and they can also contain complex logical expressions with "and", "or", "not" and grouping with parenthesis. The local test case condition syntax is based on and compatible with [Cucumber Tag expressions](https://cucumber.io/docs/cucumber/api/?lang=java#tag-expressions).
 
 The following expression selects the scenarios that are tagged with `@important` but not tagged with `@slow`.
 
@@ -16,11 +16,11 @@ The use of parenthesis is shown in the example below.
 (@important or @critical) and (not @slow)
 ```
 
-The expression may contain different predicates (e.g. tag predicates, like `@important`) and the keywords `and`, `or`, `not`, `;` and parenthesis (`(`, `)`). Whitespaces normally separate the elements, so if the predicate contains spaces, you have to wrap them to double quotes (`"@tag with space"`) or apostrophe (`'@tag with space'`). You can also mask reserved characters with `\` (`@tag_with_parenthesis\(here\)`).
+The expression may contain different predicates (e.g. `@important` or `$name = 'Check password strength'`), keywords `and`, `or`, `not`, `;` and parenthesis (`(`, `)`). Whitespaces normally separate the elements, so if the predicate contains spaces, you have to wrap them to double quotes (`"@tag with space"`) or apostrophe (`'@tag with space'`). You can also mask reserved characters with `\` (`@tag_with_parenthesis\(here\)`).
 
 The `;` is an alias for `or`, so `@bug;@feature` is equivalent to `@bug or @feature`.
 
-The predicates in the expression can be in simple predicate form (e.g. `@important`) or as a relation (e.g. `$tags ~ @important`). Relation predicate are built up from a field name that start with `$` (e.g. `$tags`), and operator (e.g. `~`) and a value (`@important`).
+The predicates in the expression can be in simple predicate form (e.g. `@important`) or as a relation (e.g. `$tags ~ @important`). Relation predicate are built up from a field name that start with `$` (e.g. `$name`), and operator (e.g. `=` or `~`) and a value (`'Check password strength'`).
 
 The following example combines a simple tag predicate and a source file relation predicate to select all scenarios that are tagged with `@important` and are in the `pricing` folder.
 
@@ -29,7 +29,7 @@ The following example combines a simple tag predicate and a source file relation
 ```
 
 {% hint style="info" %}
-When specifying conditions from the command line using the relation from, please make sure that the `$` sign is not resolved by the shell. For example in PowerShell, you have to wrap the argument with `'` to pass the expression to SpecSync literally (e.g. `--tagFilter '$tags ~ @important'`).
+When specifying conditions from the command line using the relation from, please make sure that the `$` sign is not resolved by the shell. For example in PowerShell, you have to wrap the argument with `'` to pass the expression to SpecSync literally (e.g. `--filter '$tags ~ @important'`) or mask it with backtick (e.g. `--filter "``$tags ~ @important"`).
 {% endhint %}
 
 
@@ -56,6 +56,26 @@ The following table shows the different tag predicate options.
 {% hint style="info" %}
 In `local/sourceFiles` and `--sourceFileFilter` the simple tag predicates cannot be used. The relation form works though.
 {% endhint %}
+
+## Local test case name predicates
+
+The local test case name predicate (or "name predicate" in short) can select the local test cases by name equality. For scenarios the local test case name is the scenario name, so with this predicates you can easily filter for specific scenarios. To filter for a condition that includes a name predicate, you can use the `--filter` command line option.
+
+{% hint style="info" %}
+The local test case name predicates have been introduced in v3.4.2.
+{% endhint %}
+
+The name predicate has to be used with the relation form using `$name` as field name and the `=` ("equals") operator. The following expression selects the scenario named `Check password strength`.
+
+```
+$name = 'Check password strength'
+```
+
+For most of the test frameworks the local test case name is not unique within the project, so filtering for name equality might process more than one tests. For more precise selection of a single test you can combine it with the source file predicates as the following example shows.
+
+```
+$sourceFile ~ **/Registration.feature and $name = 'Check password strength'
+```
 
 ## Source file predicates
 

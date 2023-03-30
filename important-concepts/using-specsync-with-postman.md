@@ -1,6 +1,6 @@
 # Using SpecSync with Postman
 
-Postman is a popular REST API testing tool with a cloud-based storage for Postman Collections.
+[Postman](https://www.postman.com/) is a popular REST API testing tool with a cloud-based storage for Postman Collections.
 
 SpecSync can be used to synchronize the tests defined in Postman with Azure DevOps Test Cases and publish test results of Postman tests executed with [Newman](https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/).
 
