@@ -216,6 +216,17 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * Fix: Plugins might be reported twice (#864)
 * Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
 
+## v3.3.14 - 2023/03/30
+
+### Improvements
+
+* Various stability and maintainability improvements (#1013, #1033)
+
+### Bug fixes
+
+* Fix: Config source types might be calculated incorrectly (#1015)
+* Fix: PyTest: Incorrect outcome published for dynamically skipped tests (#1027)
+
 ## v3.3.13 - 2023/03/01
 
 ### Improvements
