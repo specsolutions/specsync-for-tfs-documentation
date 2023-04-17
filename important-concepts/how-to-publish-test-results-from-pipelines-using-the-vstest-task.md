@@ -14,7 +14,7 @@ The VSTest task also publishes the test results and associates them to the build
 
 Unfortunately the VSTest task does not provide an option to disable test result publishing (the *.NET Core Task* does have such option). So if the duplicated test result reporting causes a problem for you, you can choose from the following options:
 
-1. Use the *.NET Core Task* instead to run the tests.
+1. Use the *.NET Core Task* instead to run the tests. See [How to use SpecSync from build or release pipeline](synchronizing-test-cases-from-build.md) guide for details.
 2. Recommended: Instead of the VSTest task, use the identical [Visual Studio Test for SpecSync Task (`VsTestForSpecSync`)](how-to-use-the-pipeline-tasks.md). This task is based on the VSTest task and has been extended with an option to disable test result publishing. In order to use this task, you need to install the [*SpecSync Tools* Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=SpecSolutions.specsync-tools&targetId=3063ff79-1c38-4e95-ba9c-795b1d1eb32e). You can find more information about the extension in the [How to use the SpecSync Azure DevOps pipeline tasks](how-to-use-the-pipeline-tasks.md) guide.
 3. Disable build pipeline association for the test results published by SpecSync by specifying an additional `--disablePipelineAssociation` option. Please note that if you choose this option, the pipeline execution cannot be tracked from the published test results. You can add the build number as a comment for the test results though using the `--testResultComment` option.
 
@@ -32,9 +32,9 @@ In order to configure the test result publishing with the VSTest / VsTestForSpec
 
 ### Step 1: Do not specify output file name
 
-When "rerun failed tests" option is enabled for the VSTest task, it may generate multiple TRX test result file. With this feature enabled, you **cannot** specify the exact test result file name (with the `/logger:trx;LogFileName=my-results.trx` option or with the "Test result file" option of the VsTestForSpecSync task), because then the test result files generated during the rerun would override the main test result file.
+When "rerun failed tests" option is enabled for the VSTest task, it may generate multiple TRX test result file. With this feature enabled, you *cannot* specify the exact test result file name (with the `/logger:trx;LogFileName=my-results.trx` option or with the "Test result file" option of the VsTestForSpecSync task), because then the test result files generated during the rerun would override the main test result file.
 
-So to be able track all results, the test result file name **must not be specified**. The task fill generate unique file names with the timestamp of the execution of each rerun.
+So to be able track all results, **the test result file name must not be specified**. The task fill generate unique file names with the timestamp of the execution of each rerun.
 
 ### Step 2: Specify a custom output folder
 
