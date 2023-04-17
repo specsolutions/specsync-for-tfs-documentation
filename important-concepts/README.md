@@ -13,6 +13,8 @@ Please check the following guides.
 
 {% page-ref page="synchronizing-test-cases-from-build.md" %}
 
+{% page-ref page="how-to-publish-test-results-from-pipelines-using-the-vstest-task.md" %}
+
 {% page-ref page="how-to-use-the-pipeline-tasks.md" %}
 
 {% page-ref page="how-to-link-github-pull-requests.md" %}

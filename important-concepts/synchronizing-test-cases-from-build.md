@@ -239,11 +239,13 @@ As the "Tests" tab only displays published test results if they are marked as "A
 
 #### Using the VSTest task to execute the tests <a href="using-vstest" id="using-vstest"></a>
 
-The **VSTest task** (used for older .NET Framework projects and for special cases) can be configured similarly. For that task, the test result file can be configured by setting the _Other console options_ property to `/logger:trx;LogFileName=bddtestresults.trx`. You might also need to review the _Test results folder_ property. 
+The **VSTest task** (used for older .NET Framework projects and for special cases) can be configured similarly. For the necessary configuration options for this task please check the [How to publish test results from pipelines using the VSTest task](how-to-publish-test-results-from-pipelines-using-the-vstest-task.md) guide.
 
-The VSTest task always publishes the test results, but these test results will not be associated to the Test Cases. When you use VSTest and SpecSync test result publishing together, you might see the test results twice at the pipeline result page. If this is causes a problem, you can use the `VsTestForSpecSync` task instead of the VSTest task (see details [here](how-to-use-the-pipeline-tasks.md)) or [disable the pipeline association](../features/test-result-publishing-features/publishing-test-result-files.md#test-results-can-be-associated-to-an-azure-devops-build) feature of SpecSync.
+{% hint style="info" %}
+The VSTest task always publishes the test results, but these test results will not be associated to the Test Cases. When you use VSTest and SpecSync test result publishing together, you might see the test results twice at the pipeline result page. Please check the [How to publish test results from pipelines using the VSTest task](how-to-publish-test-results-from-pipelines-using-the-vstest-task.md) guide for options how to avoid duplicated test result reporting.
+{% endhint %}
 
-### Step 2: Configure SpecSync task to publish test result file
+### Step 2: Configure SpecSync task to publish test result file <a href="publish-test-results-step2" id="publish-test-results-step2"></a>
 
 In order to publish the test results, a SpecSync task has to be added right after the test execution task. See [Adding SpecSync steps to your build or release pipeline](synchronizing-test-cases-from-build.md#adding-specsync-steps-to-your-build-or-release-pipeline) for details about how to do this.
 

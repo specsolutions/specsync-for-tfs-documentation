@@ -57,6 +57,7 @@
   * [Filters and scopes](important-concepts/filters-and-scopes.md)
   * [How to synchronize automated test cases](important-concepts/synchronizing-automated-test-cases.md)
   * [How to use SpecSync from build or release pipeline](important-concepts/synchronizing-test-cases-from-build.md)
+  * [How to publish test results from pipelines using the VSTest task](important-concepts/how-to-publish-test-results-from-pipelines-using-the-vstest-task.md)
   * [How to use the SpecSync Azure DevOps pipeline tasks](important-concepts/how-to-use-the-pipeline-tasks.md)
   * [How to link GitHub pull requests](important-concepts/how-to-link-github-pull-requests.md)
   * [How to upgrade to a newer version of SpecSync](important-concepts/how-to-upgrade-specsync.md)
