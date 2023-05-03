@@ -113,10 +113,15 @@ The following value loaders are supported:
 
 The following Test Case fields can be updated with Free or Standard license. For updating other fields an [Enterprise license](../../licensing.md) is required.
 
-| TCM solution | Default Test Case fields |
-| ------------ | ------------------------------- |
-| Jira TCM Customization | `priority`, `status`, `resolution`, `assignee`, `reporter`, `description`, `components`, `issuekey`, `Issue`, `comment`, `Epic Link`, `Sprint` |
-| Zephyr Scale | `Precondition`, `Objective`, `Folder`, `Status`, `Priority`, `Component`, `Owner`, `EstimatedTime` |
+* Assigned To (`System.AssignedTo`)
+* State (`System.State`)
+* Reason (`System.Reason`)
+* Area Path (`System.AreaPath`)
+* Iteration Path (`System.IterationPath`)
+* Priority (`Microsoft.VSTS.Common.Priority`)
+* Discussion (`System.History`)
+* Description (`System.Description`)
+
 
 ## Examples
 
