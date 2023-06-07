@@ -84,6 +84,9 @@ The following example shows the available options within this section.
     "synchronizeLinkedArtifactTitles": {
       "enabled": true,
       "linkTagPrefixes": [ "story" ]
+    },
+    "doNotSynchronizeTitle": {
+      "enabled": true
     }
   }
   ...
@@ -210,7 +213,16 @@ Allows synchronizing linked artifact (work item) titles back to the local test c
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `linkTagPrefixes` | Specifies the work item links to be considered. | mandatory |
+| `synchronizeLinkedArtifactTitles/enabled` | Enables the customization. | `false`   |
+| `synchronizeLinkedArtifactTitles/linkTagPrefixes` | Specifies the work item links to be considered. | mandatory |
+
+### doNotSynchronizeTitle
+
+Skips synchronizing the Test Case title field (`System.Title`). See [Customization: Do not synchronize title](../../features/push-features/customization-do-not-synchronize-title.md) for details.
+
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `doNotSynchronizeTitle/enabled` | Enables the customization. | `false`   |
 
 {% content-ref url="./" %}
 [.](./)

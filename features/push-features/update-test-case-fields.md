@@ -198,3 +198,60 @@ The `conditionalValue` setting can also be combined with the tag wildcard match.
   ...
 }
 ```
+
+## Update automation fields
+
+The fields related to the automation settings of the Test Case are special. Normally, these fields are updated by SpecSync using the [Mark Test Cases as Automated](mark-test-cases-as-automated.md) feature, but they can be also set to a custom value using the field updates setting as well.
+
+In order to set the automation fields, you first have to switch of the automatic synchronization of these fields by setting the `toolSettings/doNotSynchronizeAutomationUnlessEnabled` configuration setting is set to `true` and the `synchronization/automation/enabled` configuration setting is set to `false` or leave it unset.
+
+The field `Microsoft.VSTS.TCM.AutomatedTestId` cannot be set directly, but it is automatically updated by SpecSync if you set the *Automated test name* (`Microsoft.VSTS.TCM.AutomatedTestName`) field.
+
+The automation fields have to be updated together, so you cannot individually set the fields. See the examples below for how to update an automated and a not-automated Test Case. For not automated Test Cases, all other field has to be set to empty.
+
+Conditions and conditional values can also be used.
+
+The following example synchronizes the Test Case automated with custom automation setting values.
+
+```
+{
+  ...
+  "toolSettings": {
+    "doNotSynchronizeAutomationUnlessEnabled": true
+  },
+  "synchronization": {
+    "automation": { 
+      "enabled": false, // or leave out the entire automation block
+    },
+    "fieldUpdates": {
+      "Automated test storage": "Custom storage",
+      "Automated test name": "Custom Test Name",
+      "Automated test type": "Custom Test Type",
+      "Automation status": "Automated"
+    }
+  }
+} 
+```
+
+The following example synchronizes the Test Case not-automated.
+
+```
+{
+  ...
+  "toolSettings": {
+    "doNotSynchronizeAutomationUnlessEnabled": true
+  },
+  "synchronization": {
+    "automation": { 
+      "enabled": false, // or leave out the entire automation block
+    },
+    "fieldUpdates": {
+      "Automated test storage": "",
+      "Automated test name": "",
+      "Automated test type": "",
+      "Automation status": "Not Automated"
+    }
+  }
+} 
+```
+

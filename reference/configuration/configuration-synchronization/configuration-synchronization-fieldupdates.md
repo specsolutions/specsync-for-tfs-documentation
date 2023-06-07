@@ -121,6 +121,12 @@ The following Test Case fields can be updated with Free or Standard license. For
 * Priority (`Microsoft.VSTS.Common.Priority`)
 * Discussion (`System.History`)
 * Description (`System.Description`)
+* Automated test storage (`Microsoft.VSTS.TCM.AutomatedTestStorage`)<sup>1</sup>
+* Automated test name (`Microsoft.VSTS.TCM.AutomatedTestName`)<sup>1</sup>
+* Automated test type (`Microsoft.VSTS.TCM.AutomatedTestType`)<sup>1</sup>
+* Automation status (`Microsoft.VSTS.TCM.AutomationStatus`)<sup>1</sup>
+
+<sup>1</sup>: These fields can only be updated when the `toolSettings/doNotSynchronizeAutomationUnlessEnabled` configuration setting is set to `true` and the `synchronization/automation/enabled` configuration setting is set to `false` or leave it unset. These fields have to be updated together, so all of them has to be set. The field `Microsoft.VSTS.TCM.AutomatedTestId` is automatically set when the `Microsoft.VSTS.TCM.AutomatedTestName` field is updated. See more information at the section [Update automation fields](../../../features/push-features/update-test-case-fields.md#update-automation-fields).
 
 
 ## Examples

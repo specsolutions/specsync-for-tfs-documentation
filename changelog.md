@@ -8,6 +8,31 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.5 - 2023/06/07
+
+### New features
+
+* Allow not synchronizing Test Case automation settings. For that the `toolSettings/doNotSynchronizeAutomationUnlessEnabled` configuration setting has to be set to `true` and the `synchronization/automation/enabled` configuration setting to `false` or leave it unset. (#1099)
+* Allow not synchronizing Test Case title. See [Customization: Do not synchronize title](features/push-features/customization-do-not-synchronize-title.md) for details. (#1081)
+* Allow updating Test Case automation settings with custom values using fieldUpdates. See [Update automation fields](features/push-features/update-test-case-fields.md#update-automation-fields) for details. (#1101)
+* Errors are reported with an error ID that can be shared with support and used to search solutions in the documentation (#1082)
+* SpecSync Feed: SpecSync can load and display important service outages, hints and tips (#1037)
+
+### Improvements
+
+* Output warnings and errors in a way that is recognized by Azure DevOps pipeline as error/warning (#1039)
+* Support "Ignore non-supported local tags customization" for pull. The not supported tags are not removed. (#1107)
+* List test case synchronization errors at the end, like warnings (#1086)
+* Various stability and maintainability improvements (#1035, #1089, #1078, #1067, #1040)
+
+### Bug fixes
+
+* Fix: Linking GitHub Pull Request to a newly created Test Case does not work (#1113)
+* Fix: Attachments are not shown on the Azure DevOps pipeline "Tests" tab for scenario outlines and reruns (#1074)
+* Fix: The error message does not contain the file name if test results are specified with a folder name, the format is not specified and there is a non-TRX file in the folder (#1070)
+* Fix: Postman Test Source plugin (v1.0.3) now supports more usage patterns of the `pm.test` calls (#1079)
+* Fix: Improve error handling of various unhandled errors (#1085)
+
 ## v3.4.4 - 2023/03/30
 
 ### New features

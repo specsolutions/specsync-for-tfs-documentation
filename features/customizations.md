@@ -48,6 +48,10 @@ The customizations described here are [Enterprise features](../licensing.md).
 [customization-sync-linked-artifact-titles.md](push-features/customization-sync-linked-artifact-titles.md)
 {% endcontent-ref %}
 
+{% content-ref url="push-features/customization-do-not-synchronize-title.md" %}
+[customization-do-not-synchronize-title.md](push-features/customization-do-not-synchronize-title.md)
+{% endcontent-ref %}
+
 {% content-ref url="test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md" %}
 [customization-publishing-test-results-to-multiple-test-suite.md](test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md)
 {% endcontent-ref %}

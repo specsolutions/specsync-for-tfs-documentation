@@ -94,6 +94,9 @@ The customizations below are also mentioned at the feature areas they are relate
 {% page-ref page="push-features/customization-sync-linked-artifact-titles.md" %}
 
 {% page-ref page="push-features/customization-add-test-cases-to-suites.md" %}
+
+{% page-ref page="push-features/customization-do-not-synchronize-title.md" %}
+
 {% page-ref page="test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md" %}
 
 ### Plugins
