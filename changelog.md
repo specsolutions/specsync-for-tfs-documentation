@@ -8,6 +8,14 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.6 - 2023/06/09
+
+### Bug fixes
+
+* Fix: Not supported local tags are removed during pull if they are used in fieldUpdates (#1119)
+* Fix: Pull removes tags that have been handled by field updates (#1111)
+* Fix: IndexOutOfRangeException when Scenario Outline is pulled without data iterations (#1120)
+
 ## v3.4.5 - 2023/06/07
 
 ### New features
