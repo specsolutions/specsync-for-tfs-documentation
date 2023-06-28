@@ -9,7 +9,7 @@ SpecSync supports any tool that uses the Gherkin language for describing the BDD
 SpecSync helps people to stay in sync with Azure DevOps and Jira since 2016 and by now it is used by many organizations around the globe.
 
 {% hint style="success" %}
-**Your data are in your hands**
+**Your Data in Your Hands**
 
 SpecSync makes direct connection between the machine that runs SpecSync and the remote Azure DevOps or Jira server. The scenario or Test Case data is **not** transferred to or processed by premises of Spec Solutions.
 {% endhint %}
