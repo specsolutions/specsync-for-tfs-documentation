@@ -8,6 +8,29 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.7 - 2023/08/16
+
+### New Plugins
+
+See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
+
+* **SpecSync.Plugin.TestNGTestSource**: This plugin can be used to synchronize Java TestNG test methods and publish test result files. See [related guide](important-concepts/using-specsync-with-testng.md) and the [plugin GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/testng-test-source-plugin) (#1143)
+
+### Improvements
+
+* Show hint about the 'Add Test Cases to Suites' customization if there are too many Test Cases removed from Suite (#1109)
+* Use BuildId if both BuildId and BuildNumber is provided & show error for non-unique build numbers (#1142)
+* Better error messages for errors reported as "unhandled" (#1149, #1155, #1152, #1157, #1151, #1154, #1153, #1156)
+* Various stability and maintainability improvements (#1159, #1148, #1147, #1140)
+
+### Bug fixes
+
+* Fix: JUnitXml: Test Cases (represented as `<testsuite>`) with failing steps (represented as `<testcase>`) should be treated as failed, even if the last one passed (#1083)
+* Fix: Unhandled error when Gherkin file contains comments in description (#1157)
+* Fix: Existing Test Case links might be removed then there are at least 3 existing untracked links that becomes tracked (#1141)
+* Fix: Excel Test Source plugin does not work with SpecSync v3.4.6 (#1139)
+* Fix: Added whitespaces around parametrized Test Case quoted parameters are not restored during pull (#1138)
+
 ## v3.4.6 - 2023/06/09
 
 ### Bug fixes
