@@ -272,6 +272,17 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * Fix: Plugins might be reported twice (#864)
 * Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
 
+## v3.3.15 - 2023/09/01
+
+### Improvements
+
+* Various stability and maintainability improvements (#1035)
+
+### Bug fixes
+
+* Fix: License ID is displayed instead of support code for renewed licenses (#1164)
+* Fix: Attachments are not shown on the Azure DevOps pipeline "Tests" tab for scenario outlines and reruns (#1074)
+
 ## v3.3.14 - 2023/03/30
 
 ### Improvements
