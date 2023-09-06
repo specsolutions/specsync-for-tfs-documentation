@@ -23,7 +23,7 @@ SpecSync operations, including the publish-test-results command supports "dry-ru
 {% endhint %}
 
 {% hint style="info" %}
-You can find an overview of the Azure DevOps Test Case results in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/test/navigate-test-plans?view=azure-devops).
+You can find an overview of the Azure DevOps plans in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/test/navigate-test-plans?view=azure-devops). The [Track test status page in the Azure DevOps documentation](https://learn.microsoft.com/en-us/azure/devops/test/track-test-status?view=azure-devops) shows the different reports and charts you can create for the results.
 {% endhint %}
 
 ## Getting scenario execution result from your BDD tool
