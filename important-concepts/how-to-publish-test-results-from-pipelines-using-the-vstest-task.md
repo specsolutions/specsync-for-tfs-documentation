@@ -212,6 +212,8 @@ dependsOn: Main_Job
 pool:
   name: Azure Pipelines
   demands: vstest
+strategy:
+  parallel: 2
 
 steps:
 - task: DownloadBuildArtifacts@1
@@ -232,7 +234,7 @@ steps:
 
 In order to publish the test results with SpecSync, you need to add two additional tasks after the VSTest / VsTestForSpecSync task.
 
-A *PowerShell* task that executes a script that re-downloads the TRX file that the VSTest task has deleted. You can either download the script from the Spec Solutions website, include it to your repository and invoke it with the task or inline the script below. 
+A *PowerShell* task that executes a script that re-downloads the TRX file that the VSTest task has deleted. You can either [download the script](https://www.specsolutions.eu/media/specsync/download-trx-from-testrun.ps1) from the Spec Solutions website, include it to your repository and invoke it with the task or inline the script below. 
 
 ```PowerShell
 $outputFolder = "TestResults"
@@ -319,6 +321,8 @@ dependsOn: Main_Job
 pool:
   name: Azure Pipelines
   demands: vstest
+strategy:
+  parallel: 2
 
 steps:
 - task: DownloadBuildArtifacts@1
