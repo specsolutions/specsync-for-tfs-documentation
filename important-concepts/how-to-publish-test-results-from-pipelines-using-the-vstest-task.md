@@ -397,7 +397,7 @@ steps:
   inputs:
     command: custom
     custom: specsync
-    arguments: 'push --user "$(System.AccessToken)"'
+    arguments: 'push --disableLocalChanges --user "$(System.AccessToken)"'
     workingDirectory: MyCalculator.Specs
 
 - task: DotNetCoreCLI@2
