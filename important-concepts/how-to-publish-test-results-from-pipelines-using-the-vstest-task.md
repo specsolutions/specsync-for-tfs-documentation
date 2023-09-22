@@ -271,7 +271,7 @@ Write-Debug "attachments = $($attachmentsResult | ConvertTo-Json -Depth 100)"
 $attachmentsResult.value | ForEach-Object {
     $attachmentUrl = $_.url
     $attachmentFileName = $_.fileName
-    $outputFile = [System.IO.Path]::Combine($fullOutputFolder, $attachmentFileName)
+    $outputFile = [System.IO.Path]::Combine($fullOutputFolder, $_.id.ToString() + "-" + $attachmentFileName)
     Write-Host "Downloading attachment $attachmentFileName"
     Write-Host "  from $attachmentUrl"
     Write-Host "  to $outputFile"
