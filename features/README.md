@@ -49,6 +49,8 @@ The following list contains the detailed description of the most important featu
 
 {% page-ref page="common-synchronization-features/excluding-scenarios-from-synchronization.md" %}
 
+{% page-ref page="synchronization-conflict-resolution.md" %}
+
 {% page-ref page="re-link-scenarios.md" %}
 
 ### Test result publishing features

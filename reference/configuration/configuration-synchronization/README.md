@@ -71,6 +71,7 @@ For sub-section settings, click on the name of the setting for details.
 | `testCaseTagPrefix` | <p></p><p>The tag prefix for specifying the test cases. E.g. specify <code>testcase</code> for referring to test cases using a tag, like <code>@testcase:1234</code>.</p> | `tc` |
 | `tagPrefixSeparators` | Specifies one or more tag prefix separators to recognize in order to be able to support links like `@story=42`. For creating tags, the first separator is used. | `[":"]` (only `:` can be used as separator) |
 | `linkLabelSeparator` | Specifies the link label separator in order to be able to support links like `@story:42,this_is_the_title`. | `;` |
+| [`push`](configuration-synchronization-push.md) | Settings to configure the push behavior. See [Pushing scenario changes to Test Cases](../../../features/push-features/pushing-scenario-changes-to-test-cases.md) |  |
 | [`pull`](configuration-synchronization-pull.md) | Settings to configure the pull behavior. See [Two-way synchronization](../../../features/pull-features/two-way-synchronization.md) for details |  |
 | [`automation`](configuration-synchronization-automation.md) | Settings to configure synchronizing automated test cases. See [Synchronizing automated test cases](../../../important-concepts/synchronizing-automated-test-cases.md) for details. |  |
 | [`state`](configuration-synchronization-state.md) | Settings to configure how the test case _state_ field should be updated. |  |

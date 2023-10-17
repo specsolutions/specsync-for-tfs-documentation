@@ -8,4 +8,6 @@ This chapter contains common synchronization features that are used both during 
 
 {% page-ref page="excluding-scenarios-from-synchronization.md" %}
 
+{% page-ref page="synchronization-conflict-resolution.md" %}
+
 {% page-ref page="re-link-scenarios.md" %}

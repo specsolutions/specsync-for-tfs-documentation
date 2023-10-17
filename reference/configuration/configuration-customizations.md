@@ -156,13 +156,18 @@ Allows publishing test results to multiple Test Suites. See [Customization: Publ
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `multiSuitePublishTestResults/enabled`                              | Enables the customization.                                                                                                                                                                                            | `false`                  |
-| `multiSuitePublishTestResults/ testPlanId`                          | The ID of the test plan to search the test suites in.                                                                                                                                                                 | mandatory                |
-| `multiSuitePublishTestResults/ publishToAllSuites`                  | When set to `true` SpecSync will publish the results to all test suites within the specified test plan.                                                                                                               | `false`                  |
-| `multiSuitePublishTestResults/suites`                               | The list of test suites to additionally publish the test results to. Test suite names or IDs (like `"#1234"`) can be specified.                                                                                       | empty list               |
-| `multiSuitePublishTestResults/ includeSubSuites`                    | When set to `true`, the results will be published not only to the specified suites, but also their direct or indirect sub-suites.                                                                                     | `false`                  |
-| `multiSuitePublishTestResults/ publishToRequirementBasedTestSuites` | When set to `true`, the results will also be published to the requirement-based suites of the work items linked to the test case. The considered link prefixes can be restricted using the `linkTagPrefixes` setting. | `false`                  |
-| `multiSuitePublishTestResults/ linkTagPrefixes`                     | Restricts the work item links to be considered for `publishToRequirementBasedTestSuites`.                                                                                                                             | all links are considered |
+| `multiSuitePublishTestResults/enabled` | Enables the customization. | `false` |
+| `multiSuitePublishTestResults/testPlanId` | The ID of the test plan to search the test suites in. | mandatory |
+| `multiSuitePublishTestResults/publishToAllSuites` | When set to `true` SpecSync will publish the results to all test suites within the specified test plan. | `false` |
+| `multiSuitePublishTestResults/suites` | The list of test suites to additionally publish the test results to. | empty list |
+| `multiSuitePublishTestResults/suites[]/name` | The name of the Test Suite | either `name`, `id` or `path` is mandatory |
+| `multiSuitePublishTestResults/suites[]/id` | The ID of the Test Suite | either `name`, `id` or `path` is mandatory |
+| `multiSuitePublishTestResults/suites[]/path` | The path of the Test Suite from the root of the Test Plan, separated by `/` (e.g. `Ordering/Card Payment`). | either `name`, `id` or `path` is mandatory |
+| `multiSuitePublishTestResults/suites[]/testPlanId` | Deprecated, use 'testPlan' instead. | not specified |
+| `multiSuitePublishTestResults/suites[]/testPlan` | The name or ID of the Test Plan to search or create the test suite in, e.g. `My Plan` or `#1234`. (Optional, improves performance) | not specified |
+| `multiSuitePublishTestResults/includeSubSuites` | When set to `true`, the results will be published not only to the specified suites, but also their direct or indirect sub-suites. | `false` |
+| `multiSuitePublishTestResults/publishToRequirementBasedTestSuites` | When set to `true`, the results will also be published to the requirement-based suites of the work items linked to the test case. The considered link prefixes can be restricted using the `linkTagPrefixes` setting. | `false` |
+| `multiSuitePublishTestResults/linkTagPrefixes` | Restricts the work item links to be considered for `publishToRequirementBasedTestSuites`. | all links are considered |
 
 ### resetTestCaseState
 
@@ -180,10 +185,13 @@ Allows including the synchronized Test Cases into various static Test Suites bas
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `addTestCasesToSuites/enabled` | Enables the customization. | `false`   |
-| `addTestCasesToSuites/testSuites[]/name` | The name of the Test Suite | either this or `id` is mandatory |
-| `addTestCasesToSuites/testSuites[]/id` | The ID of the Test Suite | either this or `name` is mandatory |
-| `addTestCasesToSuites/testSuites[]/testPlanId` | The ID of the Test Plan containing the Suite | not specified |
+| `addTestCasesToSuites/enabled` | Enables the customization. | `false` |
+| `addTestCasesToSuites/testPlan` | The name or ID of the default Test Plan to search or create the test suites in. Can be overridden for specific suites. E.g. `My Plan` or `#1234`. | all test plans are scanned through |
+| `addTestCasesToSuites/testSuites[]/name` | The name of the Test Suite | either `name`, `id` or `path` is mandatory |
+| `addTestCasesToSuites/testSuites[]/id` | The ID of the Test Suite | either `name`, `id` or `path` is mandatory |
+| `addTestCasesToSuites/testSuites[]/path` | The path of the Test Suite from the root of the Test Plan, separated by `/` (e.g. `Ordering/Card Payment`). | either `name`, `id` or `path` is mandatory |
+| `addTestCasesToSuites/testSuites[]/testPlanId` | Deprecated, use 'testPlan' instead. | not specified |
+| `addTestCasesToSuites/testSuites[]/testPlan` | The name or ID of the Test Plan to search or create the test suite in, e.g. `My Plan` or `#1234`. (Optional, improves performance) | not specified |
 | `addTestCasesToSuites/testSuites[]/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios for which the linked Test Case should be included in the Suite (e.g. `@ready`, `not @inprogress`). | all scenarios are considered |
 
 ### branchTag

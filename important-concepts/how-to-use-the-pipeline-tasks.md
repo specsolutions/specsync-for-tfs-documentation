@@ -10,4 +10,4 @@ You can find the SpecSync Tools extension in the [Visual Studio Marketplace](htt
 
 Currently the following task is available in the extension:
 
-* *Visual Studio Test for SpecSync* (`VsTestForSpecSync`) - a modified version of the built-in `VsTest` task that skips showing the results in the pipeline *Tests* tab to avoid duplicated display of tests.
+* *Visual Studio Test for SpecSync* (`VsTestForSpecSync`) - a modified version of the built-in `VsTest` task that skips showing the results in the pipeline *Tests* tab to avoid duplicated display of tests. See [How to publish test results from pipelines using the VSTest task](how-to-publish-test-results-from-pipelines-using-the-vstest-task.md) for details on using this task.

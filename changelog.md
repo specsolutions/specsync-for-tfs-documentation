@@ -8,6 +8,32 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.8 - 2023/10/17
+
+### New features
+
+* Interactive conflict resolution when both the local and the remote test case has changed. The change provides an improved resolution for pull and the interactive resolution can also be used (optionally) for push. You can configure the conflict resolution method separately for push and pull and you can choose from methods: `forceOverride`, `interactive`, `skip`, `error`, `ignore`. Choosing for the `error` method can be also used to get notified about conflicting changes on the server. With the `--force` command line option, the changes can be overridden independently of the configured method. See [Synchronization conflict resolution](features/common-synchronization-features/synchronization-conflict-resolution.md) for details. (#613)
+* Allow specifying Test Suites with *path* (e.g. `Ordering/Card Payment`), so you can refer to the hierarchy of the suites and allows creating hierarchy of suites. The path might contain suite names separated by `/`. When the suite does not exist, SpecSync builds up the hierarchy in the selected Test Plan. The `path` setting can be used in [`remote/testSuite`](reference/configuration/configuration-remote.md), [`publishTestResults/testSuite`](reference/configuration/configuration-publishtestresults.md), [`customizations/addTestCasesToSuites/testSuites`](reference/configuration/configuration-customizations.md#addtestcasestosuites) and [`customizations/multiSuitePublishTestResults/suites`](reference/configuration/configuration-customizations.md#multisuitepublishtestresults) settings. (#1173, #1184)
+* Allow specifying Test Plan with name. In all places where `testPlanId` could be specified, there is a new `testPlan` setting that can be used to specify the Test Plan name (e.g. `"testPlan": "Regression Plan"`) or a Test Plan ID (e.g. `"testPlan": "#5678"`). The `testPlanId` can still be used but deprecated and going to be removed in a future version. (#1183)
+* Re-publishing existing Azure DevOps *Test Run* for the synchronized Test Cases (`testRunTrx` test result format). This is useful when the tests are run with the VSTest task, that deletes the local test result files in some cases. The test result loader loads the details from the Test Run with ID in the `VSTEST_TESTRUNID` environment variable or from the ID specified as result on the command line, e.g. `-r 2345`. See [How to publish test results from pipelines using the VSTest task](important-concepts/how-to-publish-test-results-from-pipelines-using-the-vstest-task.md) for details. (#1166)
+
+### Improvements
+
+* Display unique ID for warnings. Now all warnings can be better identified with a code, like `W5133`. The next major release (v3.5) will provide further features for fine-grain handling of warnings. (#1210)
+* Allow specifying default Test Plan for *Add Test Cases to Suites* customization to avoid setting the same plan for every suite. See [`customizations/addTestCasesToSuites`](reference/configuration/configuration-customizations.md#addtestcasestosuites) for details. (#1185)
+* The VsTestForSpecSync Azure DevOps pipeline task has been upgraded to match VsTest v3.225. The new task version is v1.1.0. See [How to use the SpecSync Azure DevOps pipeline tasks](important-concepts/how-to-use-the-pipeline-tasks.md) for details.
+* Reminder of using preview release that is released more than 90 days ago. Do not allow using preview releases released more than 180 days ago. (#1202)
+* Improvements for plugin development:
+  * Allow plugin Test Result Loaders to set DataRow on the test result (#1209)
+* Various stability and maintainability improvements (#1204, #1211, #1170, #1172, #1206, #1215)
+
+### Bug fixes
+
+* Fix: Data driven test results are detected as "rerun attempts" when test framework does not provide information about the executed data row (#1208)
+* Fix: Hyperlinks included in the output (project URL, Test Run URL) cannot be opened from YAML pipeline output (#1180)
+* Fix: No warning is shown when the VsTestForSpecSync task cannot remove the pipeline association from the published Test Run. In these cases it is recommended to use the `testRunTrx` test result loader. See [How to publish test results from pipelines using the VSTest task](important-concepts/how-to-publish-test-results-from-pipelines-using-the-vstest-task.md) for details. (#1169)
+* Fix: "Request Entity Too Large" error during publish-test-results. (#1203)
+
 ## v3.4.7 - 2023/08/16
 
 ### New Plugins

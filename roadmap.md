@@ -24,12 +24,12 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 
 ## Roadmap
 
-We have just released v3.4 and the detailed planning of v3.5 has not started yet. Smaller compatible feature requests are now provided for v3.4. 
+We started to work on the next major release, v3.5 that is expected to be finalized Q1 2024. The v3.4 product line will still receive bug fixes in the meantime.
 
 ### Planned features
 
-* Synchronize to multiple Test Suites or to a Test Suite hierarchy. We currently collect requirements for this feature. Please help use by filling out the [Feature Planning Survey: Synchronizing Test Suite Hierarchies](https://forms.office.com/e/ZTda15AngN).
-* Tag-based remote scope
-* Automatically synchronize Tets Case tags from feature title
-* Cucumber messages test result support
-* Interactive synchronization: ask before applying changes
+* Synchronize to multiple Test Suites or to a Test Suite hierarchy. Although the design has been created, we still collect requirements for this feature. Please help use by filling out the [Feature Planning Survey: Synchronizing Test Suite Hierarchies](https://forms.office.com/e/ZTda15AngN).
+* Improved treatment of "remote scope" (i.e. telling SpecSync what Test Cases from Azure DevOps have been synchronized with the particular configuration). As part of this we plan to implement further remote scope setting possibilities (in addition to the existing suite-based remote scope), like "Tag-based" remote scope.
+* Improved handling of errors and warnings during pipeline executions. (e.g. individually suppress warnings, automatically fail pipeline, etc.)
+* New possibilities for the published test results (details soon!)
+* Continuous improvements of synchronization and test result publishing

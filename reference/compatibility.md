@@ -53,6 +53,8 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 | PyTest.BDD                                                      |                          | XML       | `pyTestBddXml`         |
 | Cucumber Studio (Hiptest)                                       |                          | JSON      | `hiptestJson`          |
 
+The test results can also be re-published from a Test Run, published by any supported TRX-based tool using the `testRunTrx` format specifier. See [How to publish test results from pipelines using the VSTest task](../important-concepts/how-to-publish-test-results-from-pipelines-using-the-vstest-task.md) for details.
+
 Other test result formats are added on request. Please [contact support](../contact/specsync-support.md).
 
 ## Supported SpecFlow versions <a href="supported-specflow-versions" id="supported-specflow-versions"></a>
