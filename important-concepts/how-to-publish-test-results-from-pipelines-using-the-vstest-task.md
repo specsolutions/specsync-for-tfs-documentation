@@ -2,7 +2,7 @@
 
 The Azure DevOps pipelines provide two ways for executing tests in the pipeline: using the [.NET Core Task (`DotNetCoreCLI@2`)](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/dotnet-core-cli-v2?view=azure-pipelines) and the [Visual Studio Test Task (`VSTest@2`)](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/vstest-v2?view=azure-pipelines). SpecSync can publish the test results from both, but the settings are slightly different. The [How to use SpecSync from build or release pipeline](synchronizing-test-cases-from-build.md) guide shows the configuration options for the *.NET Core Task*, and in this guide you can find the configuration options required for the *Visual Studio Test Task* (referred as *VSTest* task in this guide).
 
-Although the VSTest task is considered as a legacy execution options, there are still some features with this task that are not available with the *.NET Core Task*, most importantly the ability to [rerun failed tests](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/vstest-v2?view=azure-pipelines).
+Although the VSTest task is considered as a legacy execution options, there are still some features with this task that are not available with the *.NET Core Task*, most importantly the ability to [rerun failed tests](https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/vstest-v2?view=azure-pipelines) and the execution of tests [distributed to multiple agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/test/parallel-testing-vstest?view=azure-devops).
 
 ## Avoid duplicated test result reporting
 
@@ -15,8 +15,9 @@ The VSTest task also publishes the test results and associates them to the build
 Unfortunately the VSTest task does not provide an option to disable test result publishing (the *.NET Core Task* does have such option). So if the duplicated test result reporting causes a problem for you, you can choose from the following options:
 
 1. Use the *.NET Core Task* instead to run the tests. See [How to use SpecSync from build or release pipeline](synchronizing-test-cases-from-build.md) guide for details.
-2. Recommended: Instead of the VSTest task, use the identical [Visual Studio Test for SpecSync Task (`VsTestForSpecSync`)](how-to-use-the-pipeline-tasks.md). This task is based on the VSTest task and has been extended with an option to disable test result publishing. In order to use this task, you need to install the [*SpecSync Tools* Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=SpecSolutions.specsync-tools&targetId=3063ff79-1c38-4e95-ba9c-795b1d1eb32e). You can find more information about the extension in the [How to use the SpecSync Azure DevOps pipeline tasks](how-to-use-the-pipeline-tasks.md) guide.
-3. Disable build pipeline association for the test results published by SpecSync by specifying an additional `--disablePipelineAssociation` option. Please note that if you choose this option, the pipeline execution cannot be tracked from the published test results. You can add the build number as a comment for the test results though using the `--testResultComment` option.
+2. Recommended: Instead of the VSTest task, use the identical [Visual Studio Test for SpecSync Task (`VsTestForSpecSync`)](how-to-use-the-pipeline-tasks.md). This task is based on the VSTest task and has been extended with an option to disable test result publishing. In order to use this task, you need to install the [*SpecSync Tools* Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=SpecSolutions.specsync-tools&targetId=3063ff79-1c38-4e95-ba9c-795b1d1eb32e). You can find more information about the extension in the [How to use the SpecSync Azure DevOps pipeline tasks](how-to-use-the-pipeline-tasks.md) guide. This method cannot be used to avoid duplicated test result reporting when the tests are running on multiple agents.
+3. Use the 'testRunTrx' test result loader with SpecSync that collects the test result details from the Test Run published by the VSTest task and re-publishes them with the connection to the Test Cases. The loader will set the status of the original Test Run to `Not Started`, so their results are not shown in the "Tests" tab of the pipeline result. See the [section below](#vstest-multiagent) for details about this option.
+4. Disable build pipeline association for the test results published by SpecSync by specifying an additional `--disablePipelineAssociation` option. Please note that if you choose this option, the pipeline execution cannot be tracked from the published test results. You can add the build number as a comment for the test results though using the `--testResultComment` option.
 
 {% hint style="info" %}
 For the rest of this guide we will use the VsTestForSpecSync task in the examples, but the examples would be the same with the VSTest task as well, except the duplicated test result reporting.
@@ -26,7 +27,7 @@ The remaining sections of this guide describe the required configuration for the
 
 * [Test result publishing with the VSTest / VsTestForSpecSync "rerun failed tests" option](#vstest-rerun)
 * [Test result publishing with the VSTest / VsTestForSpecSync without "rerun failed tests" option](#vstest-single-result)
-* [Test result publishing with the VSTest / VsTestForSpecSync "run tests in parallel by using multiple agents" option](#vstest-multiagent)
+* [Test result publishing with the VSTest "run tests in parallel by using multiple agents" option](#vstest-multiagent)
 
 ## Configuring test result publishing with the VSTest / VsTestForSpecSync "rerun failed tests" option <a href="vstest-rerun" id="vstest-rerun"></a>
 
@@ -141,27 +142,29 @@ Run the pipeline. If you have used the VsTestForSpecSync task, the results will 
 
 ![](<../img/vstest-results.png>)
 
-## Configuring test result publishing with the VSTest / VsTestForSpecSync "run tests in parallel by using multiple agents" option <a href="vstest-multiagent" id="vstest-multiagent"></a>
+## Configuring test result publishing with the VSTest "run tests in parallel by using multiple agents" option <a href="vstest-multiagent" id="vstest-multiagent"></a>
+
+{% hint style="info" %}
+The VsTestForSpecSync task cannot hide the test results from the "Tests" tab of the pipeline result when the tests are running on multiple agents. Therefore for this option the normal VSTest task should be used, although the VsTestForSpecSync works as well.
+{% endhint %}
 
 The VSTest task can be configured to run tests on multiple test agents parallel, as described in the ["Run tests in parallel using the Visual Studio Test task" Azure DevOps documentation page](https://learn.microsoft.com/en-us/azure/devops/pipelines/test/parallel-testing-vstest?view=azure-devops). Please note that this option is different from the in-process parallel execution options that many test frameworks (MsTest, NUnit, etc) provide and can be used with VSTest.
 
 In order to follow the configuration steps required for SpecSync, please first get familiar with the concept of *running tests in parallel by using multiple agents* by following the Azure DevOps documentation page linked above. 
 
 {% hint style="info" %}
-When tests run in parallel by using multiple agents, each agent would run a set of tests and produce a TRX file for the results accordingly. In order to publish the aggregated test results, you will need to collect these individual TRX files and publish them once with SpecSync.
+When tests run in parallel by using multiple agents, each agent runs a set of tests and produce a TRX file for the results accordingly and publishes them to a shared Test Run. 
 
-Unfortunately when VSTest runs on an agent, it deletes the TRX file after publishing it to its own Test Run, so you have to apply a workaround to get back the TRX file and make it available for SpecSync.
+Unfortunately when VSTest runs on an agent, it deletes the TRX file after publishing it to its own Test Run, so you cannot collect the TRX files from the agents and publish them with SpecSync as usual.
+
+This guide shows how you can still achieve the expected result with the `testRunTrx` test result loader of SpecSync introduced in v3.4.8.
 {% endhint %}
 
-In order to run the tests with VSTest / VsTestForSpecSync task you need to configure three jobs for your pipeline. You will find the detailed setup instructions for them in the sections below.
+In order to run the tests with VSTest task you need to configure three jobs for your pipeline. You will find the detailed setup instructions for them in the sections below.
 
 1. The *main job* that typically builds your code and publishes the compiled test and production code as a Pipeline Artifact. In this description we refer to this as `drop` artifact.
-2. The *agent job* that is configured to run "Multi-agent" with the specified number of agents. This job depends on the main job, so the agents run only after the main job has finished. This job contains the VSTest / VsTestForSpecSync task, that runs a set of the tests. We need to apply a workaround to get the TRX file generated and publish this TRX file as another Pipeline Artifact (called `testResults` in this description).
-3. The *SpecSync job* that will download the `testResults` artifact with the TRX files and publishes them using SpecSync. This job might also contain a SpecSync synchronization as well ("push" command).
-
-{% hint style="warning" %}
-The current version of the VsTestForSpecSync task cannot hide the executed tests from the build result "Tests" tab, therefore they will be displayed duplicated. This limitation will be resolved in future versions of the task.
-{% endhint %}
+2. The *agent job* that is configured to run "Multi-agent" with the specified number of agents. This job depends on the main job, so the agents run only after the main job has finished. This job contains the VSTest task, that runs a set of the tests. We need to collect the ID of Test Run created by the agents (all agent uses the same Test Run) to be able to share it with the *SpecSync job*.
+3. The *SpecSync job* that will get the ID of the Test Run published by the agents and re-publishes the test results from it using SpecSync. This job might also contain a SpecSync synchronization as well ("push" command). This job depends on the agent job, so it runs when all agent jobs have finished.
 
 
 ### Setting up the main job
@@ -203,7 +206,7 @@ The configuration of the agent job should also mainly follow the guides in the A
 * should be set as "Multi-agent"
 * should be dependent on the main job
 * should download the artifacts from the main job
-* should contain a VSTest / VsTestForSpecSync task, that runs a set of the tests
+* should contain a VSTest task, that runs a set of the tests
 
 The following example shows the core configuration of the job with the first two tasks that downloads the artifacts from the main job and runs the tests from the downloaded artifacts folder.
 
@@ -221,96 +224,35 @@ steps:
   inputs:
     artifactName: drop
 
-- task: SpecSolutions.specsync-tools.VSTestForSpecSync.VSTestForSpecSync@1
-  displayName: 'VsTestForSpecSync - testAssemblies'
+- task: VSTest@3
+  displayName: 'VsTest - testAssemblies'
   inputs:
     testAssemblyVer2: |
      **\*test*.dll
      !**\*TestAdapter.dll
      !**\obj\**
     searchFolder: '$(System.ArtifactsDirectory)'
-    testRunTitle: 'VsTestForSpecSync-Agents'
+    testRunTitle: 'VsTest-Agents'
 ```
 
-In order to publish the test results with SpecSync, you need to add two additional tasks after the VSTest / VsTestForSpecSync task.
+The ID of the created Test Run is saved to the `VSTEST_TESTRUNID` environment variable by the VSTest task. This is what we need to share with the *SpecSync job*. With YAML pipelines the ID can be simply shared using output variables as described in the [Azure DevOps documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks). Unfortunately in Classic pipelines this option is not available so a workaround needs to be used. 
 
-A *PowerShell* task that executes a script that re-downloads the TRX file that the VSTest task has deleted. You can either [download the script](https://www.specsolutions.eu/media/specsync/download-trx-from-testrun.ps1) from the Spec Solutions website, include it to your repository and invoke it with the task or inline the script below. 
+In this document we show a simple workaround by sharing the variable via shared artifact file. This we can achieve using a *PowerShell* task like this:
 
 ```PowerShell
-$outputFolder = "TestResults"
-$testRunId = $env:VSTEST_TESTRUNID
-$pat = $env:SYSTEM_ACCESSTOKEN
-$projectUrl = $env:SYSTEM_COLLECTIONURI + $env:SYSTEM_TEAMPROJECT
-
-if ($testRunId -eq $null -or $testRunId -eq '') {
-    Write-Error 'Test Run ID is not specified!' -ErrorAction Stop
-}
-if ($pat -eq $null -or $pat -eq '') {
-    Write-Error 'PAT is not specified!' -ErrorAction Stop
-}
-if ($projectUrl -eq $null -or $projectUrl -eq '') {
-    Write-Error 'Project URL is not specified!' -ErrorAction Stop
-}
-if ($outputFolder -eq $null -or $outputFolder -eq '') {
-    Write-Error 'Output folder is not specified!' -ErrorAction Stop
-}
-
-Write-Host "Downloading attachments for Test Run #$testRunId in project $projectUrl"
-
-$currentFolder = Get-Location
-$fullOutputFolder = [System.IO.Path]::GetFullPath([System.IO.Path]::Combine($currentFolder, $outputFolder))
-$_ = [System.IO.Directory]::CreateDirectory($fullOutputFolder)
-
-$token = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":$($pat)"))
-$header = @{Authorization = "Basic $token"}
-
-$attachmentsResult = Invoke-RestMethod -Uri ("$projectUrl/_apis/test/runs/" + $testRunId + "/attachments?api-version=5.1") -Headers $header -Method Get
-
-Write-Debug "attachments = $($attachmentsResult | ConvertTo-Json -Depth 100)"
-
-$attachmentsResult.value | ForEach-Object {
-    $attachmentUrl = $_.url
-    $attachmentFileName = $_.fileName
-    $outputFile = [System.IO.Path]::Combine($fullOutputFolder, $_.id.ToString() + "-" + $attachmentFileName)
-    Write-Host "Downloading attachment $attachmentFileName"
-    Write-Host "  from $attachmentUrl"
-    Write-Host "  to $outputFile"
-    Invoke-RestMethod -Uri ($attachmentUrl + "?api-version=5.1") -Headers $header -Method Get -OutFile $outputFile
-}
+$env:VSTEST_TESTRUNID | Out-File -FilePath $(Agent.TempDirectory)\VSTestTestRunId.txt
+Write-Host "##vso[artifact.upload containerfolder=VSTestTestRunId;artifactname=VSTestTestRunId]$(Agent.TempDirectory)\VSTestTestRunId.txt"
 ```
 
-This scrips gets the ID of the published Test Run from the `VSTEST_TESTRUNID` environment variable and downloads all Test Run attachments of it to the `TestResults` folder of the current folder. We recommend to set the working directory of the task to `$(Agent.TempDirectory)` so that the downloaded files will be in `$(Agent.TempDirectory)\TestResults`.
+This script saves the content of the `VSTEST_TESTRUNID` environment variable to a file `VSTestTestRunId.txt` and then uploads it as a build artifact named `VSTestTestRunId`.
 
-It is important to set the execution condition of this task in a way that it runs even if the previous tasks have failed, because we would like to preserve the TRX file even if the tests failed.
-
-{% hint style="info" %}
-The provided script downloads all TRX files from the Test Run, but since all agents will use the same Test Run, the same TRX files might be downloaded by multiple agents. This will not cause any functional problem, but might affect the performance in case of many agents and large TRX files. If this causes a problem, you can share the Test Run ID of the agent jobs (in environment variable `VSTEST_TESTRUNID`) with the SpecSync job and perform the TRX download there.
-{% endhint %}
-
-In order to access the Test Run the script uses the "job access token" that is described in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml). To be able to use the Job access token in classic pipelines, you need to enable it for the job, by selecting the agent job and in the *Additional options* section, enable the setting *Allow scripts to access the OAuth token*. For YAML pipelines, the `SYSTEM_ACCESSTOKEN` environment variable needs to be declared, like in the example below. If you cannot use job access tokens, you should modify the script and set the `$pat` variable to a personal access token.
-
-The following example shows how the task can be configured if the PowerShell script is executed from a file.
+The following example shows the complete task invoking the script. It is configured to run even if the previous task failed, because we want to capture the results even if the tests fail.
 
 ```
-- task: PowerShell@2
-  displayName: 'PowerShell Script'
-  inputs:
-    targetType: filePath
-    filePath: './download-trx-from-testrun.ps1'
-    workingDirectory: '$(Agent.TempDirectory)'
-  env:
-    SYSTEM_ACCESSTOKEN: $(System.AccessToken)    
-  condition: succeededOrFailed()
-```
-
-Once the TRX files are downloaded, they have to be published, so that the SpecSync job will can access them. This can be done with a publish build artifacts task, like below. Again, make sure that the task is running even if the previous tasks have failed.
-
-```
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: testResults'
-  inputs:
-    PathtoPublish: '$(Agent.TempDirectory)\TestResults'
-    ArtifactName: testResults
+- powershell: |
+   $env:VSTEST_TESTRUNID | Out-File -FilePath $(Agent.TempDirectory)VSTestTestRunId.txt
+   Write-Host "##vso[artifact.upload containerfolder=VSTestTestRunId;artifactname=VSTestTestRunId]$(Agent.TempDirectory)\VSTestTestRunId.txt"
+  displayName: 'PowerShell Script - Save Test Run ID'
   condition: succeededOrFailed()
 ```
 
@@ -330,48 +272,49 @@ steps:
   inputs:
     artifactName: drop
 
-- task: SpecSolutions.specsync-tools.VSTestForSpecSync.VSTestForSpecSync@1
-  displayName: 'VsTestForSpecSync - testAssemblies'
+- task: VSTest@3
+  displayName: 'VsTest - testAssemblies'
   inputs:
     testAssemblyVer2: |
      **\*test*.dll
      !**\*TestAdapter.dll
      !**\obj\**
     searchFolder: '$(System.ArtifactsDirectory)'
-    testRunTitle: 'VsTestForSpecSync-Agents'
+    testRunTitle: 'VsTest-Agents'
 
-- task: PowerShell@2
-  displayName: 'PowerShell Script'
-  inputs:
-    targetType: filePath
-    filePath: './download-trx-from-testrun.ps1'
-    workingDirectory: '$(Agent.TempDirectory)'
-  env:
-    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-  condition: succeededOrFailed()
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: testResults'
-  inputs:
-    PathtoPublish: '$(Agent.TempDirectory)\TestResults'
-    ArtifactName: testResults
+- powershell: |
+   $env:VSTEST_TESTRUNID | Out-File -FilePath $(Agent.TempDirectory)VSTestTestRunId.txt
+   Write-Host "##vso[artifact.upload containerfolder=VSTestTestRunId;artifactname=VSTestTestRunId]$(Agent.TempDirectory)\VSTestTestRunId.txt"
+  displayName: 'PowerShell Script - Save Test Run ID'
   condition: succeededOrFailed()
 ```
 
 ### Setting up the SpecSync job
 
-The configuration of the SpecSync job is similar to the genetic build pipeline configuration that is described in the [How to use SpecSync from build or release pipeline guide](synchronizing-test-cases-from-build.md), except that the test result TRX files are downloaded from the build artifact instead of created by a test execution task.
+The configuration of the SpecSync job is similar to the genetic build pipeline configuration that is described in the [How to use SpecSync from build or release pipeline guide](synchronizing-test-cases-from-build.md), except that as an input not the TRX files should be provided but the ID of the Test Run received from the agent jobs.
 
 So in general the SpecSync job
 
 * should be dependent on the Agent job (so that it only starts when all agents have finished),
 * should run even if the previous jobs failed,
-* should download the `testResult` artifact that was published by the agents,
+* get the Test Run ID via output variables for YAML pipelines of through the `VSTestTestRunId` artifact that was published by the agents,
 * optionally should do a SpecSync "push" command to synchronize the scenarios (this can also be done in the main job),
-* should publish the TRX files, by specifying the folder of these files instead of specifying a single TRX file path,
-* might need to perform a "dotnet tool restore" command to download SpecSync to the job, if SpecSync is installed as a .NET Tool.
+* should publish the results by specifying the Test Run ID with the `-r` option to SpecSync,
+* might need to perform a "dotnet tool restore" command to download SpecSync to the job, if SpecSync is installed as a [.NET Tool](../installation/dotnet-core-tool.md).
 
-The following example shows how the job can be configured. 
+For Classic pipelines, the Test Run ID can be received from the build artifact named `VSTestTestRunId` with the following PowerShell script. 
+
+```PowerShell
+$testRunIdFromAgent = get-content $(System.ArtifactsDirectory)\VSTestTestRunId\VSTestTestRunId.txt
+Write-Host "##vso[task.setvariable variable=VSTestTestRunId;isOutput=true]$testRunIdFromAgent"
+Write-Host "Received TestRun ID from Agent: $testRunIdFromAgent"
+```
+
+The script sets the ID to a variable `VSTestTestRunId`. To be able to use this variable in the subsequent tasks, the "Reference name" setting of the task within the "Output Variables" group must be set. In this example it was set to `GetVSTestTestRunId`, so the variable can be used later as `$(GetVSTestTestRunId.VSTestTestRunId)`.
+
+When invoking the SpecSync publish-test-results command, we need to provide `-r $(GetVSTestTestRunId.VSTestTestRunId) -f TestRunTrx` in order to get the results from the Test Run.
+
+The following example shows how the entire job can be configured. 
 
 ```
 dependsOn: Agent_Job
@@ -381,9 +324,16 @@ pool:
 
 steps:
 - task: DownloadBuildArtifacts@1
-  displayName: 'Download Build Artifacts'
+  displayName: 'Download Test Run ID file'
   inputs:
-    artifactName: testResults
+    artifactName: VSTestTestRunId
+
+- powershell: |
+   $testRunIdFromAgent = get-content $(System.ArtifactsDirectory)\testResults\VSTestTestRunId.txt
+   Write-Host "##vso[task.setvariable variable=VSTestTestRunId;isOutput=true]$testRunIdFromAgent"
+   Write-Host "Received TestRun ID from Agent: $testRunIdFromAgent"
+  name: GetVSTestTestRunId
+  displayName: 'PowerShell Script - Get VSTest TestRun ID from Agent'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet tool restore'
@@ -405,6 +355,6 @@ steps:
   inputs:
     command: custom
     custom: specsync
-    arguments: 'publish-test-results --user "$(System.AccessToken)" -r $(System.ArtifactsDirectory)\testResults --runName "BDD Tests by SpecSync"'
+    arguments: 'publish-test-results --user "$(System.AccessToken)" -r $(GetVSTestTestRunId.VSTestTestRunId) -f TestRunTrx --runName "BDD Tests by SpecSync"'
     workingDirectory: MyCalculator.Specs
 ```
