@@ -21,7 +21,7 @@ For planned features in future releases please check the [Release Model and Road
 
 * Display unique ID for warnings. Now all warnings can be better identified with a code, like `W5133`. The next major release (v3.5) will provide further features for fine-grain handling of warnings. (#1210)
 * Allow specifying default Test Plan for *Add Test Cases to Suites* customization to avoid setting the same plan for every suite. See [`customizations/addTestCasesToSuites`](reference/configuration/configuration-customizations.md#addtestcasestosuites) for details. (#1185)
-* The VsTestForSpecSync Azure DevOps pipeline task has been upgraded to match VsTest v3.225. The new task version is v1.1.0. See [How to use the SpecSync Azure DevOps pipeline tasks](important-concepts/how-to-use-the-pipeline-tasks.md) for details.
+* The VSTestForSpecSync Azure DevOps pipeline task has been upgraded to match VsTest v3.225. The new task version is v3.225.1. See [How to use the SpecSync Azure DevOps pipeline tasks](important-concepts/how-to-use-the-pipeline-tasks.md) for details. Please note that the VSTest rerun function for SpecFlow xUnit and NUnit has been reduced in VSTest v3, so consider to keep using the VSTestForSpecSync v1 if you use these systems, or switch to the `testRunTrx` loader described in the linked guide. (#1220)
 * Reminder of using preview release that is released more than 90 days ago. Do not allow using preview releases released more than 180 days ago. (#1202)
 * Improvements for plugin development:
   * Allow plugin Test Result Loaders to set DataRow on the test result (#1209)
