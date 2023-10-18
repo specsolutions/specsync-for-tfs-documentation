@@ -15,8 +15,8 @@ The VSTest task also publishes the test results and associates them to the build
 Unfortunately the VSTest task does not provide an option to disable test result publishing (the *.NET Core Task* does have such option). So if the duplicated test result reporting causes a problem for you, you can choose from the following options:
 
 1. Use the *.NET Core Task* instead to run the tests. See [How to use SpecSync from build or release pipeline](synchronizing-test-cases-from-build.md) guide for details.
-2. Recommended: Instead of the VSTest task, use the identical [Visual Studio Test for SpecSync Task (`VsTestForSpecSync`)](how-to-use-the-pipeline-tasks.md). This task is based on the VSTest task and has been extended with an option to disable test result publishing. In order to use this task, you need to install the [*SpecSync Tools* Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=SpecSolutions.specsync-tools&targetId=3063ff79-1c38-4e95-ba9c-795b1d1eb32e). You can find more information about the extension in the [How to use the SpecSync Azure DevOps pipeline tasks](how-to-use-the-pipeline-tasks.md) guide. This method cannot be used to avoid duplicated test result reporting when the tests are running on multiple agents.
-3. Use the 'testRunTrx' test result loader with SpecSync that collects the test result details from the Test Run published by the VSTest task and re-publishes them with the connection to the Test Cases. The loader will set the status of the original Test Run to `Not Started`, so their results are not shown in the "Tests" tab of the pipeline result. See the [section below](#vstest-multiagent) for details about this option.
+2. Instead of the VSTest task, use the identical [Visual Studio Test for SpecSync Task (`VsTestForSpecSync`)](how-to-use-the-pipeline-tasks.md). This task is based on the VSTest task and has been extended with an option to disable test result publishing. In order to use this task, you need to install the [*SpecSync Tools* Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=SpecSolutions.specsync-tools&targetId=3063ff79-1c38-4e95-ba9c-795b1d1eb32e). You can find more information about the extension in the [How to use the SpecSync Azure DevOps pipeline tasks](how-to-use-the-pipeline-tasks.md) guide. *This method cannot be used to avoid duplicated test result reporting when the tests are running on multiple agents or when you use the "specify a batch size" option of VSTest.*
+3. Use the 'testRunTrx' test result loader with SpecSync that collects the test result details from the Test Run published by the VSTest task and re-publishes them with the connection to the Test Cases. The loader will set the status of the original Test Run to `Not Started`, so their results are not shown in the "Tests" tab of the pipeline result. See the [Test result publishing with the VSTest "run tests in parallel by using multiple agents" option](#vstest-multiagent) and [Test result publishing with the VSTest "specify a batch size" option](#vstest-batchsize) sections below for details about this option.
 4. Disable build pipeline association for the test results published by SpecSync by specifying an additional `--disablePipelineAssociation` option. Please note that if you choose this option, the pipeline execution cannot be tracked from the published test results. You can add the build number as a comment for the test results though using the `--testResultComment` option.
 
 {% hint style="info" %}
@@ -28,8 +28,13 @@ The remaining sections of this guide describe the required configuration for the
 * [Test result publishing with the VSTest / VsTestForSpecSync "rerun failed tests" option](#vstest-rerun)
 * [Test result publishing with the VSTest / VsTestForSpecSync without "rerun failed tests" option](#vstest-single-result)
 * [Test result publishing with the VSTest "run tests in parallel by using multiple agents" option](#vstest-multiagent)
+* [Test result publishing with the VSTest "specify a batch size" option](#vstest-batchsize)
 
 ## Configuring test result publishing with the VSTest / VsTestForSpecSync "rerun failed tests" option <a href="vstest-rerun" id="vstest-rerun"></a>
+
+{% hint style="info" %}
+The rerun option of the recent versions of the VSTest / VsTestForSpecSync task is not compatible with xUnit and NUnit data-driven tests that are used by SpecFlow for scenario outlines. To overcome this issue, there is a workaround available by setting the "batch size" to a large enough number. This workaround is not compatible with the solution described in this section, but you should use the solution described at [Test result publishing with the VSTest "specify a batch size" option](#vstest-batchsize).
+{% endhint %}
 
 {% hint style="info" %}
 When the "rerun failed tests" option is enabled for the VSTest task, it may run the tests multiple times and generate multiple test result (TRX) files. Because SpecSync uses the test result files to process and publish the results the configuration of the tasks are different for this case. If you don't use and don't plan to use the "rerun failed tests" option, you can also configure SpecSync with a single test result file as [described below](#vstest-single-result). It is recommended to use the configuration described in this section, to reduce the configuration efforts in case you would like to enable the "rerun failed tests" option later.
@@ -314,6 +319,8 @@ The script sets the ID to a variable `VSTestTestRunId`. To be able to use this v
 
 When invoking the SpecSync publish-test-results command, we need to provide `-r $(GetVSTestTestRunId.VSTestTestRunId) -f TestRunTrx` in order to get the results from the Test Run.
 
+The loader will set the status of the original Test Run to `Not Started`, so their results are not shown in the "Tests" tab of the pipeline result.
+
 The following example shows how the entire job can be configured. 
 
 ```
@@ -358,3 +365,58 @@ steps:
     arguments: 'publish-test-results --user "$(System.AccessToken)" -r $(GetVSTestTestRunId.VSTestTestRunId) -f TestRunTrx --runName "BDD Tests by SpecSync"'
     workingDirectory: MyCalculator.Specs
 ```
+
+## Test result publishing with the VSTest "specify a batch size" option <a href="vstest-batchsize" id="vstest-batchsize"></a>
+
+{% hint style="info" %}
+The VsTestForSpecSync task cannot hide the test results from the "Tests" tab of the pipeline result when the tests are running on multiple agents. Therefore for this option the normal VSTest task should be used, although the VsTestForSpecSync works as well.
+{% endhint %}
+
+The rerun option of the recent versions of the VSTest task is not compatible with xUnit and NUnit data-driven tests that are used by SpecFlow for scenario outlines. If you try to use rerun in such configuration, the failed tests will not be re-executed and an error is reported like "Error occurred while publishing test results : System.Exception: No tests were discovered while attempting to rerun failed tests. This is likely to happen if these tests are xunit or nunit datadriven/parameterized tests or tests with custom display names with spaces or special characters which are not supported with rerun."
+
+A generally known workaround for this problem is to set the "Batch options" setting of the VSTest task to "Specify a batch size" and specify a large enough number as "Number of tests per batch", e.g. "100000". With this setting the VSTest task handles the rerun using a different method that works also for xUnit and NUnit as well.
+
+The only downside of this setting is that VSTest deletes the generated TRX files and other attachments after the run so SpecSync cannot publish them using the usual way.
+
+Fortunately the solution described in [Test result publishing with the VSTest "run tests in parallel by using multiple agents" option](#vstest-multiagent) above also works in this case: by using the new `testRunTrx` loader of SpecSync, you can configure SpecSync to publish the test results from the Test Run created by the VSTest task. 
+
+In this section we describe the configuration settings required for this setup.
+
+First of all, configure the VSTest task for rerun as usual, but select "Specify a batch size" as "Batch options" within the "Advanced execution options" section and set a large enough number as "Number of tests per batch", e.g. "100000".
+
+![](<../img/vstest-specify-batch-size.png>)
+
+An example task configuration might look like this in YAML.
+
+```
+- task: VSTest@3
+  displayName: 'VsTestV3 - SpecFlow xUnit Tests'
+  inputs:
+    testAssemblyVer2: 'MyCalculator.Specs\bin\$(BuildConfiguration)\net6.0\MyCalculator.Specs.dll'
+    batchingBasedOnAgentsOption: customBatchSize
+    customBatchSizeValue: 100000
+    testRunTitle: 'VsTestV3 - SpecFlow xUnit Tests'
+    rerunFailedTests: true
+    rerunFailedThreshold: 99
+```
+
+When the task will execute it will save the ID of the created Test Run to an environment variable `VSTEST_TESTRUNID` that can be processed by SpecSync if you use the `testRunTrx` test result folder by specifying `-f testRunTrx`.
+
+An example of the SpecSync task might look like this.
+
+```
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'specsync publish-test-results'
+  inputs:
+    command: custom
+    custom: specsync
+    arguments: 'publish-test-results --user "$(System.AccessToken)" -f testRunTrx --runName "SpecFlow Tests"'
+    workingDirectory: MyCalculator.Specs
+  condition: succeededOrFailed()
+```
+
+With this settings SpecSync will load the results including the rerun results and publish them to the linked Test Cases.
+
+The loader will set the status of the original Test Run to `Not Started`, so their results are not shown in the "Tests" tab of the pipeline result.
+
