@@ -8,6 +8,13 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.9 - 2023/11/06
+
+### Improvements
+
+* Support for step-level results with Python Behave XML result files (#1226)
+* Various stability and maintainability improvements (#1224)
+
 ## v3.4.8 - 2023/10/17
 
 ### New features
