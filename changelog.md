@@ -8,6 +8,17 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.10 - 2023/11/11
+
+### Improvements
+
+* NUnit Plugin v1.0.2: Allow loading NUnit XML (v2, v3) test result files (#1232)
+* Various stability and maintainability improvements (#1230)
+
+### Bug fixes
+
+* Fix: NUnit Plugin: NullReferenceException when loading NUnit XML v3 result files (#1231)
+
 ## v3.4.9 - 2023/11/06
 
 ### Improvements
