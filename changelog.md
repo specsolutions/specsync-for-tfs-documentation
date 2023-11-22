@@ -8,6 +8,13 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.11 - 2023/11/22
+
+### Bug fixes
+
+* Fix: xUnit test result loading error for wider scenario outline examples tables when using xunit.runner.visualstudio v2.5 (#1236)
+* Fix: Configuration load error: "Unable to find a constructor to use for type SpecSync.Configuration.ConfigurationWarning" when `--configOverride` is used (#1238)
+
 ## v3.4.10 - 2023/11/11
 
 ### Improvements
