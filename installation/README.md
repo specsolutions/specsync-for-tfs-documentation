@@ -8,7 +8,7 @@ SpecSync for Azure DevOps can be installed in different ways depending on the pr
 
 | Option | Supported Platforms | Prerequisites | Notes |
 | ------ | ------------------- | ------------- | ----- |
-| [.NET tool](dotnet-core-tool.md) (NuGet, Download) | Windows, Linux, macOS, Docker | .NET Core 3.0 SDK or later (including .NET 6, 7) | Recommended |
+| [.NET tool](dotnet-core-tool.md) (NuGet, Download) | Windows, Linux, macOS, Docker | .NET Core 3.1 SDK or later (including .NET 6, 7, 8) | Recommended |
 | [.NET Console App](dotnet-console.md) (NuGet, Download) | Windows | .NET Framework 4.6.2 or later | Compatible with SpecSync v2.1 usage |
 | [Native binaries for Linux or macOS](native-binaries.md) (Download) | Linux, macOS | - | Larger package (\~35MB) |
 | [Official SpecSync Docker image](docker-image.md) (Docker Hub) | Windows, Linux, macOS | Docker (Linux containers) | Ready-to-run images that require no installation |

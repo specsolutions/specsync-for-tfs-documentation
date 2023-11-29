@@ -8,6 +8,14 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.12 - 2023/11/29
+
+### Improvements
+
+* Support for .NET 8: The [.NET tool installation](installation/dotnet-core-tool.md) now works on systems that only have .NET 8.0 SDK. (#1239)
+* Warning when SpecSync is used with .NET Core 3.1 (#1243)
+* Various stability and maintainability improvements (#1240, #1242)
+
 ## v3.4.11 - 2023/11/22
 
 ### Bug fixes
