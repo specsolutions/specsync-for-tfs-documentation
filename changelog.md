@@ -8,6 +8,14 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.13 - 2023/12/07
+
+### Bug fixes
+
+* Fix: Test result files are processed multiple times with --configOverride, --testRunSetting or --testResultSetting command line options used (#1247)
+* Fix: Build information is displayed after the version number (#1244)
+* Fix: Unable to find attachment warning when publishing test results with TestRunTrx loader (#1251)
+
 ## v3.4.12 - 2023/11/29
 
 ### Improvements
