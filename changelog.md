@@ -14,7 +14,7 @@ _Note: The release v3.3.13 has been revoked due to a release issue._
 
 ### Bug fixes
 
-* Fix: Test result files are processed multiple times with --configOverride, --testRunSetting or --testResultSetting command line options used (#1247)
+* Fix: Test result files are processed multiple times with `--configOverride`, `--testRunSetting` or `--testResultSetting` command line options used (#1247)
 * Fix: Build information is displayed after the version number (#1244)
 * Fix: Unable to find attachment warning when publishing test results with TestRunTrx loader (#1251)
 
@@ -30,7 +30,7 @@ _Note: The release v3.3.13 has been revoked due to a release issue._
 
 ### Bug fixes
 
-* Fix: xUnit test result loading error for wider scenario outline examples tables when using xunit.runner.visualstudio v2.5 (#1236)
+* Fix: xUnit test result loading error for wider scenario outline examples tables when using `xunit.runner.visualstudio` v2.5 (#1236)
 * Fix: Configuration load error: "Unable to find a constructor to use for type SpecSync.Configuration.ConfigurationWarning" when `--configOverride` is used (#1238)
 
 ## v3.4.10 - 2023/11/11
