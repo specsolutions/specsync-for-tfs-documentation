@@ -58,3 +58,9 @@ In order to mark only the Test Cases for selected scenarios as automated, you ca
 }
 ```
 {% endcode %}
+
+## Update the Test Case automation fields to custom values
+
+The methods described above would update the Test Case automation fields to generally usable values. If your project configuration requires specific custom values to be set for these fields, you can update the fields individually using the `synchronization/fieldUpdates` configuration section that allows you to set values conditionally or decide if you want to set the values only when the Test Case is created (set "default" values) or on each update.
+
+A detailed description of the steps required to configure these for the automation fields can be found in the [Update automation fields section](update-test-case-fields.md#update-automation-fields) of the "Update Test Case fields" feature description.
