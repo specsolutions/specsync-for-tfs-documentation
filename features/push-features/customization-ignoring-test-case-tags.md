@@ -1,6 +1,6 @@
 # Customization: Ignoring Test Case Tags
 
-The _Ignore Test Case tags_ customization can be used to can be used to ignore test case tags, i.e. these tags are not going to be removed on push even if the scenario does not have a corresponding tag. This might be useful when the Test Cases need to be tagged in Azure DevOps with tags that are not replicated to the scenario in the feature file.
+The _Ignore Test Case tags_ customization can be used to ignore test case tags, i.e. these tags are not going to be removed on push even if the scenario does not have a corresponding tag. This might be useful when the Test Cases need to be tagged in Azure DevOps with tags that are not replicated to the scenario in the feature file.
 
 {% hint style="info" %}
 The _Ignore Test Case tags_ customization described here is an [Enterprise feature](../../licensing.md).
