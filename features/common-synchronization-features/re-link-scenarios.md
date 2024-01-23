@@ -4,7 +4,7 @@
 This feature is supported in SpecSync v3.3 or later.
 {% endhint %}
 
-In order to maintain multiple parallel versions of all Test Cases (e.g. one for each main release), the "Copy test plan" feature of Azure DevOps can be used in combination with the re-link command. Tou can read more about handling multiple parallel releases in the article [How to handle Test Cases of multiple parallel application releases](../../important-concepts/how-to-handle-test-cases-of-multiple-parallel-application-releases.md).
+In order to maintain multiple parallel versions of all Test Cases (e.g. one for each main release), the "Copy test plan" feature of Azure DevOps can be used in combination with the re-link command. You can read more about handling multiple parallel releases in the article [How to handle Test Cases of multiple parallel application releases](../../important-concepts/how-to-handle-test-cases-of-multiple-parallel-application-releases.md).
 
 When the "Copy test plan" feature of Azure DevOps is used with the "Duplicate existing test cases" setting, it will create a clone of all Test Cases in the particular Test Plan. The re-link command can be used to change the Test Case link tags of the scenarios (called "re-link"), so that they refer to the cloned Test Cases.
 
