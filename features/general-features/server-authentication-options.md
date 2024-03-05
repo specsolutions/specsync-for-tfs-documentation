@@ -165,8 +165,8 @@ You can find more information about configuring a build or release pipeline for 
 In order to use service principal for authentication, you have to configure that first in Azure and in Azure DevOps. Please follow the steps described in the [Service Principal documentation](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops). 
 
 In order to use the configured service principal you will need the following details:
-* *Microsoft Entra Tenant ID* -- you need to specify this in the `remote/tenantId` configuration setting.
-* *Application ID* (Client ID) -- you need to specify this in the `remote/user` configuration setting or with the `--user` command line option.
+* *Microsoft Entra Tenant ID* - you need to specify this in the `remote/tenantId` configuration setting.
+* *Application ID* (Client ID) - you need to specify this in the `remote/user` configuration setting or with the `--user` command line option.
 * A *client secret* or the thumbprint of the *authentication certificate*. 
   * In case you use a client secret, the value has to be specified in the `remote/password` configuration setting or with the `--password` command line option. If you don't specify the client secret, SpecSync will read it thought an interactive prompt.
   * In case you use authentication certificate, the certificate has to be saved to the Personal certificate store and the thumbprint of the certificate has to be specified in the `remote/authenticationCertificateThumbprint` configuration setting.
@@ -242,7 +242,9 @@ The alternate authentication credentials can be configured in the [configuration
 
 Or on the command line prompt:
 
-`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user myalternateusername --password myalternatepassword`
+```
+path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user myalternateusername --password myalternatepassword
+```
 
 (If you don't specify the `--password` option, the tool will prompt you for entering the password.)
 
@@ -266,7 +268,9 @@ The domain user name and password can be configured in the [configuration file](
 
 Or on the command line prompt:
 
-`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "MYDOMAIN\myuser" --password mydomainpassword`
+```
+path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "MYDOMAIN\myuser" --password mydomainpassword
+```
 
 (If you don't specify the `--password` option, the tool will prompt you for entering the password.)
 

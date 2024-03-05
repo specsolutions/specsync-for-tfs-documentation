@@ -16,7 +16,7 @@ For planned features in future releases please check the [Release Model and Road
 * Support for Azure Service Principal authentication (#1268)
 * Allow specifying authentication method explicitly in configuration (#1265)
 * Display a note in the verbose log if an environment variable was resolved to empty because it did not exist (#1270)
-* Allow using {env:ENV_VAR} placeholders in authentication related configuration settings (#1269)
+* Allow using `{env:ENV_VAR}` placeholders in authentication related configuration settings (#1269)
 * Various stability and maintainability improvements (#1252, #1254, #1256, #1255)
 
 ## v3.4.14 - 2023/12/07
