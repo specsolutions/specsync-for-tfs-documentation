@@ -31,18 +31,20 @@ SpecSync does not use Log4J and therefore it is not affected by the vulnerabilit
 
 ## Supported BDD tools
 
-SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave and also SpecFlow. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.
+SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave, SpecFlow and also Reqnroll. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.
 
 ## Supported test result formats
 
 | BDD Tool                                                        | Runner                   | Extension | Format specifier       |
 | --------------------------------------------------------------- | ------------------------ | --------- | ---------------------- |
-| SpecFlow                                                        | MsTest                   | TRX       | `trx`                  |
-| SpecFlow                                                        | NUnit                    | TRX       | `trx`                  |
-| SpecFlow                                                        | xUnit                    | TRX       | `trx`                  |
+| SpecFlow/Reqnroll                                               | MsTest                   | TRX       | `trx`                  |
+| SpecFlow/Reqnroll                                               | NUnit                    | TRX       | `trx`                  |
+| SpecFlow/Reqnroll                                               | xUnit                    | TRX       | `trx`                  |
 | SpecFlow                                                        | SpecFlow+ Runner         | TRX       | `trx`                  |
 | SpecFlow                                                        | NUnit                    | XML       | `specFlowNUnitXml`     |
 | SpecFlow                                                        | NUnit v2                 | XML       | `specFlowNUnit2Xml`    |
+| Reqnroll                                                        | NUnit                    | XML       | `reqnrollNUnitXml`     |
+| Reqnroll                                                        | NUnit v2                 | XML       | `reqnrollNUnit2Xml`    |
 | Cucumber (Java, JavaScript, Ruby)                               | `json` formatter         | JSON      | `cucumberJson`         |
 | Cucumber Java                                                   | JUnit                    | XML       | `cucumberJavaJUnitXml` |
 | Cucumber Java                                                   | Surefire                 | XML       | `cucumberJavaSurefireXml` |
@@ -60,6 +62,10 @@ Other test result formats are added on request. Please [contact support](../cont
 ## Supported SpecFlow versions <a href="supported-specflow-versions" id="supported-specflow-versions"></a>
 
 Synchronizing scenarios from SpecFlow projects and publishing test results is supported for **any SpecFlow versions**. 
+
+## Supported Reqnroll versions <a href="supported-reqnroll-versions" id="supported-reqnroll-versions"></a>
+
+Synchronizing scenarios from [Reqnroll](https://reqnroll.net) projects and publishing test results is supported for **any Reqnroll versions**. 
 
 ## Supported SpecFlow versions for test-suite based execution
 

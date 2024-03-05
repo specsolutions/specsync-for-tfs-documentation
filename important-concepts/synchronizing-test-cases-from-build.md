@@ -143,7 +143,7 @@ Once the variable is defined, you can pass its value to SpecSync using the `--us
 ```
 
 {% hint style="info" %}
-_Note: Secret variables can only be used using the `$(variable)` form, they will not be substituted using the %variable% form. _
+_Note: Secret variables can only be used using the `$(variable)` form, they will not be substituted using the `%variable%` form. _
 {% endhint %}
 
 ## Performing synchronization (push) from build or release pipeline

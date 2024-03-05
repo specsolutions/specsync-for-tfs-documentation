@@ -8,6 +8,17 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.15 - 2024/03/05
+
+### Improvements
+
+* Support for [Reqnroll](https://reqnroll.net), a fork & reboot of the SpecFlow project (#1272)
+* Support for Azure Service Principal authentication (#1268)
+* Allow specifying authentication method explicitly in configuration (#1265)
+* Display a note in the verbose log if an environment variable was resolved to empty because it did not exist (#1270)
+* Allow using {env:ENV_VAR} placeholders in authentication related configuration settings (#1269)
+* Various stability and maintainability improvements (#1252, #1254, #1256, #1255)
+
 ## v3.4.14 - 2023/12/07
 
 _Note: The release v3.3.13 has been revoked due to a release issue._

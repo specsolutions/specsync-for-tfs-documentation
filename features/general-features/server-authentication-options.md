@@ -4,14 +4,16 @@ SpecSync supports several authentication options for the [supported Azure DevOps
 
 For Azure DevOps (Visual Studio Team Services, VSTS):
 
-* [Personal access tokens](server-authentication-options.md#vsts-personal-access-tokens)
-* [Job access token](server-authentication-options.md#vsts-alternate-authentication-credentials) (from build and release pipelines)
+* [Personal access token (PAT)](server-authentication-options.md#vsts-personal-access-tokens)
+* [Job access token](server-authentication-options.md#ado-job-access-token) (from build and release pipelines)
+* [Service Principal](server-authentication-options.md#ado-service-principal)
 * [Alternate authentication credentials](server-authentication-options.md#vsts-alternate-authentication-credentials)
 
 For on premises Azure DevOps Server (or Team Foundation Server):
 
 * [Personal access tokens](server-authentication-options.md#vsts-personal-access-tokens)
-* [Job access token](server-authentication-options.md#vsts-alternate-authentication-credentials) (from build and release pipelines)
+* [Job access token](server-authentication-options.md#ado-job-access-token) (from build and release pipelines)
+* [Service Principal](server-authentication-options.md#ado-service-principal)
 * [Domain user name and password](server-authentication-options.md#tfs-domain-user-name-and-password)
 * [Windows sign-in prompt](server-authentication-options.md#tfs-windows-sign-in-prompt)
 
@@ -21,13 +23,14 @@ The authentication credentials can be specified in multiple ways:
 2. Using the `--user` and `--password` [command line options](../../reference/command-line-reference/#common-command-line-options).
 3. In the [`remote` section](../../reference/configuration/configuration-remote.md) of the [SpecSync configuration file](configuration-file.md) (`specsync.json`).
 4. In the [user-specific configuration file](hierarchical-configuration-files.md#user-specific-configuration-files).
-5. In system environment variables that can be referred to either in the configuration file or from the command prompt (see examples below). The environment variable name has to be specified using the `%variable%` format.
+5. In system environment variables that can be referred to either in the configuration file or from the command prompt (see examples below). The environment variable name has to be specified using the `{env:ENV_VAR}` format (`%ENV_VAR%` format is also accepted for backwards compatibility).
 
 ### Examples
 
 Specifying the user name in the `specsync.json` configuration file:
 
-```
+{% code title="specsync.json" %}
+```javascript
 {
   ...
  "remote": {
@@ -37,6 +40,8 @@ Specifying the user name in the `specsync.json` configuration file:
   ...
 }
 ```
+{% endcode %}
+
 
 Specifying the user name in the command line:
 
@@ -68,25 +73,28 @@ A [user-specific configuration file](hierarchical-configuration-files.md#user-sp
 
 Specifying the user credentials that refer to an environment variable in the `specsync.json` configuration file. The example requires the user name to be stored in the environment variable `SPECSYNC_REMOTE_USER`:
 
-```
+{% code title="specsync.json" %}
+```javascript
 {
   ...
  "remote": {
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
-    "user": "%SPECSYNC_REMOTE_USER%"
+    "user": "{env:SPECSYNC_REMOTE_USER}"
   },
   ...
 }
 ```
+{% endcode %}
 
-You can also use the environment variables without the shell resolving their values. For that, specify the value in the `%variable%` format. From shell scripts on Windows you have to use `%%` to avoid resolving the variable by the script itself.
+
+You can also use the environment variables without the shell resolving their values. For that, specify the value in the `{env:ENV_VAR}` format.
 
 ```text
-dotnet specsync push --user "%%SPECSYNC_REMOTE_USER%%"
+dotnet specsync push --user "{env:SPECSYNC_REMOTE_USER}"
 ```
 
 
-## Personal access tokens  <a href="vsts-personal-access-tokens" id="vsts-personal-access-tokens"></a>
+## Personal access token  <a href="vsts-personal-access-tokens" id="vsts-personal-access-tokens"></a>
 
 The recommended way to access your Azure DevOps project for synchronization is to use [personal access tokens](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) (PAT). PAT is like a combination of a user name and a password that are valid for a certain time only and can have restricted access to your Azure DevOps resources.
 
@@ -105,7 +113,8 @@ Once you have created your token, you can use it as _user_ for the synchronizati
 
 The personal access token can be configured in the [configuration file](../../reference/configuration/configuration-remote.md):
 
-```
+{% code title="specsync.json" %}
+```javascript
 {
   ...
  "remote": {
@@ -115,6 +124,8 @@ The personal access token can be configured in the [configuration file](../../re
   ...
 }
 ```
+{% endcode %}
+
 
 Or on the command line prompt:
 
@@ -131,7 +142,7 @@ In order to work correctly SpecSync requires at least the following authorizatio
 | Build           | Read                |
 | Release         | Read                |
 
-## Job access token <a href="vsts-alternate-authentication-credentials" id="vsts-alternate-authentication-credentials"></a>
+## Job access token <a href="ado-job-access-token" id="ado-job-access-token"></a>
 
 When performing synchronization from build and release pipelines the easiest is to use the Job access token (sometimes also referred as System access token). A job access token is a security token that is dynamically generated by Azure Pipelines for each job at run time. The agent on which the job is running can use the job access token in order to access resources in Azure DevOps. Learn more about job access tokens in the [Azure DevOps documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/access-tokens?view=azure-devops\&tabs=yaml).
 
@@ -146,6 +157,56 @@ push --user "$(System.AccessToken)"
 ```
 
 You can find more information about configuring a build or release pipeline for running synchronization in [synchronizing-test-cases-from-build.md](../../important-concepts/synchronizing-test-cases-from-build.md "mention").
+
+## Service Principal  <a href="ado-service-principal" id="ado-service-principal"></a>
+
+[Microsoft Entra service principals](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops) in Azure DevOps organizations can be used to grant access to your organization resources. For many teams, this feature can be a viable and preferred alternative to personal access tokens (PATs) when you authenticate applications that power automation workflows in your company.
+
+In order to use service principal for authentication, you have to configure that first in Azure and in Azure DevOps. Please follow the steps described in the [Service Principal documentation](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops). 
+
+In order to use the configured service principal you will need the following details:
+* *Microsoft Entra Tenant ID* -- you need to specify this in the `remote/tenantId` configuration setting.
+* *Application ID* (Client ID) -- you need to specify this in the `remote/user` configuration setting or with the `--user` command line option.
+* A *client secret* or the thumbprint of the *authentication certificate*. 
+  * In case you use a client secret, the value has to be specified in the `remote/password` configuration setting or with the `--password` command line option. If you don't specify the client secret, SpecSync will read it thought an interactive prompt.
+  * In case you use authentication certificate, the certificate has to be saved to the Personal certificate store and the thumbprint of the certificate has to be specified in the `remote/authenticationCertificateThumbprint` configuration setting.
+
+The following example shows a setup where the service principal details are configured in the SpecSync configuration file and the client secret is loaded from an environment variable `SPECSYNC_CLIENT_SECRET`.
+
+{% code title="specsync.json" %}
+```javascript
+{
+  ...
+ "remote": {
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "tenantId": "af078dd3-1bbe-49d2-89bf-5c4950410549",
+    "user": "1ee0afa8-06df-4b94-ae37-365277c3735f", // Application ID (Client ID)
+    "password": "{env:SPECSYNC_CLIENT_SECRET}"
+  },
+  ...
+}
+```
+{% endcode %}
+
+In the second example, the client secret is specified using the `--password` command line option.
+
+{% code title="specsync.json" %}
+```javascript
+{
+  ...
+ "remote": {
+    "projectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "tenantId": "af078dd3-1bbe-49d2-89bf-5c4950410549",
+    "user": "1ee0afa8-06df-4b94-ae37-365277c3735f" // Application ID (Client ID)
+  },
+  ...
+}
+```
+{% endcode %}
+
+```
+push --password "-w^^TT~9nj5cQ5UuJ2TNF35KptJK9qsb1u6qfeahh"
+```
 
 ## Alternate authentication credentials  <a href="vsts-alternate-authentication-credentials" id="vsts-alternate-authentication-credentials"></a>
 
@@ -205,7 +266,7 @@ The domain user name and password can be configured in the [configuration file](
 
 Or on the command line prompt:
 
-`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user mydomainpassword --password mydomainpassword`
+`path-to-specsync-package/tools/SpecSync4AzureDevOps.exe push --user "MYDOMAIN\myuser" --password mydomainpassword`
 
 (If you don't specify the `--password` option, the tool will prompt you for entering the password.)
 
