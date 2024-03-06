@@ -179,6 +179,7 @@ The following example shows a setup where the service principal details are conf
   ...
  "remote": {
     "projectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "authenticationMethod": "ServicePrincipal",
     "tenantId": "af078dd3-1bbe-49d2-89bf-5c4950410549",
     "user": "1ee0afa8-06df-4b94-ae37-365277c3735f", // Application ID (Client ID)
     "password": "{env:SPECSYNC_CLIENT_SECRET}"
@@ -196,6 +197,7 @@ In the second example, the client secret is specified using the `--password` com
   ...
  "remote": {
     "projectUrl": "https://dev.azure.com/myorganization/MyProject",
+    "authenticationMethod": "ServicePrincipal",
     "tenantId": "af078dd3-1bbe-49d2-89bf-5c4950410549",
     "user": "1ee0afa8-06df-4b94-ae37-365277c3735f" // Application ID (Client ID)
   },
