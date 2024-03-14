@@ -13,7 +13,7 @@ For planned features in future releases please check the [Release Model and Road
 ### Improvements
 
 * Support for [Reqnroll](https://reqnroll.net), a fork & reboot of the SpecFlow project (#1272)
-* Support for Azure Service Principal authentication (#1268)
+* Support for [Azure Service Principal authentication](features/general-features/server-authentication-options.md#ado-service-principal) (#1268)
 * Allow specifying authentication method explicitly in configuration (#1265)
 * Display a note in the verbose log if an environment variable was resolved to empty because it did not exist (#1270)
 * Allow using `{env:ENV_VAR}` placeholders in authentication related configuration settings (#1269)
