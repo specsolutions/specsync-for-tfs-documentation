@@ -55,9 +55,9 @@ In order to use any .NET Core tool, the tools have to be restored. If SpecSync i
 {% endtab %}
 {% endtabs %}
 
-In order to invoke SpecSync using a the .NET Core CLI command, you have to set the _Command_ proeprty to `custom` , the _Custom command_ property to `specsync` and you need to specify the SpecSync command line arguments (e.g. `push`) in the _Arguments_ property.
+In order to invoke SpecSync using a the .NET Core CLI command, you have to set the _Command_ property to `custom` , the _Custom command_ property to `specsync` and you need to specify the SpecSync command line arguments (e.g. `push`) in the _Arguments_ property.
 
-The following example shows how to invoke SpecSync `push` command from a Command line tool task from a restored NuGet package. See the following sections for details about the recommended authentication options and for the usual settings for `push `and `publish-test-results` commands.
+The following example shows how to invoke SpecSync `push` command from a Command line tool task from a restored NuGet package. See the following sections for details about the recommended authentication options and for the usual settings for `push` and `publish-test-results` commands.
 
 {% tabs %}
 {% tab title="Classic pipeline" %}
