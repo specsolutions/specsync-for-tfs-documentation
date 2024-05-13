@@ -41,6 +41,15 @@ The following example shows the available options within this sub-section. This 
       {
         "tagPrefix": "pr",
         "relationship": "Pull Request"
+      },
+      {
+        "tagPrefix": "url",
+        "relationship": "Hyperlink"
+      },
+      {
+        "tagPrefix": "doc",
+        "relationship": "Hyperlink",
+        "linkTemplate": "https://docs.specsolutions.eu/specsync/{id}"
       }
     ],
     ...
@@ -60,8 +69,8 @@ For each link type configuration the following settings can be used.
 | ----------------------- | ----------------------- | ----------------------- |
 | `tagPrefix` | A tag prefix for specifying the relation for the scenario. E.g. specify `story` for linking product backlog items using a tag, like `@story:123`. The prefix can only contain word characters (letters, numbers, underscore). | mandatory |
 | `targetType` | The type of the Azure DevOps work item the link refers to. It is verified at the time the link is established. | can link to any work item type |
-| `relationship` | Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. Set to `Pull Request` for Azure DevOps Pull Requests and `GitHub Pull Request` for GitHub Pull Requests (see details in our [guide](../../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-with-tags)). | `Tests` |
-| `linkTemplate` | Specifies the HTTP link template of the related artifact (for <code>GitHub Pull Request</code> relationship). The link template can use the specified value using the `{id}` placeholder. | no template used |
+| `relationship` | Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. Set to `Hyperlink` for linking arbitrary URLs (see details in [linking feature page](../../../features/common-synchronization-features/linking-work-items-with-tags.md#linking-hyperlinks)). Set to `Pull Request` for Azure DevOps Pull Requests and `GitHub Pull Request` for GitHub Pull Requests (see details in our [guide](../../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-with-tags)). | `Tests` |
+| `linkTemplate` | Specifies the HTTP link template of the related artifact (for `GitHub Pull Request` and `Hyperlink` relationship). The link template can use the specified value using the `{id}` placeholder. | no template used |
 
 {% page-ref page="./" %}
 

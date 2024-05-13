@@ -8,6 +8,16 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.16 - 2024/05/13
+
+### Improvements
+
+* The files and folders are processed in a usual file processing order (folders first, underscore has priority) (#1275)
+* `MarkdownToHtml` value loader that can be used to [update custom fields](features/push-features/update-test-case-fields.md) from Markdown source (e.g. feature description). Usage: `{feature-description:MarkdownToHtml}` or `{{!MarkdownToHtml}}A *Markdown* feature description: {feature-description}`. The relevant [Markdown extras from Markdig](https://github.com/xoofx/markdig/tree/master/src/Markdig.Tests/Specs) can be also used. (#1277)
+* Update `Azure.Identity` dependency to address know vulnerability (#1295)
+* Support for Scenario Outline parameter values in Behave test results (#1293)
+* Support for linking Hyperlinks. To use it, you need to specify a link tag prefix with `relationship` as `Hyperlink`. You can include the full URL in the tag (e.g. `@url:https://www.specsolutions.eu/specsync/`) or you can specify a link template in the configuration (e.g. `"linkTemplate": "https://docs.specsolutions.eu/specsync/{id}"`) and use the tag only for the relevant part of the link (e.g. `@doc:features/plugin-list`). (See details in [linking feature page](../../../features/common-synchronization-features/linking-work-items-with-tags.md#linking-hyperlinks).) (#810)
+
 ## v3.4.15 - 2024/03/05
 
 ### Improvements

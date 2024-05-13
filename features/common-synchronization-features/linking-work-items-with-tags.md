@@ -144,6 +144,11 @@ Test Cases can also be linked to Pull Requests using tags. For that the `relatio
 
 Test Cases can also be linked to GitHub Pull Requests using tags. For further details on that please check the [*How to link GitHub pull requests* guide](../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-with-tags).
 
+## Linking Hyperlinks
+
+Test Cases can also be linked to arbitrary URLs (hyperlinks). For that you need to specify the `relationship` as `Hyperlink`. You can include the full URL in the tag (e.g. `@url:https://www.specsolutions.eu/specsync/`) or you can specify a link template in the configuration (e.g. `"linkTemplate": "https://docs.specsolutions.eu/specsync/{id}"`) and use the tag only for the relevant part of the link (e.g. `@doc:features/plugin-list`)
+
+
 ## Limitations
 
 * In SpecSync v3.3 or earlier: Link tags are not created when the Test Case changes retrieved with the pull command.

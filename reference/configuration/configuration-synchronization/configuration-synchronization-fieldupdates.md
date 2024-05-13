@@ -102,12 +102,15 @@ For synchronization of non-Gherkin file sources, you can also use the following 
 
 For the placeholders, different "value loaders" can be specified. Value loaders can transform the value. E.g. if the `HTML` loader is used in a field update as `{scenario-description:HTML}`, it will replace the white space and new line characters of the scenario description with the necessary HTML elements. 
 
+You can apply the value loaders for the entire value, not only for placeholders using the `{{!HTML}}...` prefix. This can be useful is the static text might also contain formatting to be handled. E.g. `{{!MarkdownToHtml}}A *Markdown* feature description: {feature-description}`.
+
 The following value loaders are supported:
 
   * `HTML` - encodes HTML tags and transforms whitespaces to HTML newlines and non-breaking spaces.
   * `HtmlEncode` - encodes HTML tags.
   * `Unix` - replaces Windows-style path separators (`\`) with Unix-style ones (`/`)
   * `Windows` - replaces Unix-style path separators (`/`) with Windows-style ones (`\`)
+  * `MarkdownToHtml` - converts Markdown text to HTML. The relevant [Markdown extras from Markdig](https://github.com/xoofx/markdig/tree/master/src/Markdig.Tests/Specs) can be also used.
 
 ## Default Test Case fields <a href="default-test-case-fields" id="default-test-case-fields"></a>
 
