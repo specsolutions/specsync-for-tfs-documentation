@@ -17,6 +17,7 @@ For planned features in future releases please check the [Release Model and Road
 * Update `Azure.Identity` dependency to address know vulnerability (#1295)
 * Support for Scenario Outline parameter values in Behave test results (#1293)
 * Support for linking Hyperlinks. To use it, you need to specify a link tag prefix with `relationship` as `Hyperlink`. You can include the full URL in the tag (e.g. `@url:https://www.specsolutions.eu/specsync/`) or you can specify a link template in the configuration (e.g. `"linkTemplate": "https://docs.specsolutions.eu/specsync/{id}"`) and use the tag only for the relevant part of the link (e.g. `@doc:features/plugin-list`). (See details in [linking feature page](../../../features/common-synchronization-features/linking-work-items-with-tags.md#linking-hyperlinks).) (#810)
+* Beta: Support for synchronizing requirements from feature files. More details in later releases (#1267)
 
 ## v3.4.15 - 2024/03/05
 
