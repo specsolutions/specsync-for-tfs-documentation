@@ -8,6 +8,17 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v3.4.17 - 2024/05/23
+
+### Improvements
+
+* GenericTestResultMatcher Plugin v1.1.0: Allow matching standard console output (StdOut) by general matcher plugin (#1286)
+
+### Bug fixes
+
+* Fix: Synchronization might fail with E1107 when a Test Case has not been updated since v3.3 (uses v1 hash) (#1317)
+
+
 ## v3.4.16 - 2024/05/13
 
 ### Improvements
@@ -160,7 +171,7 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 ### New features
 
 * Additional template placeholders for accessing remote server related settings (`{remote-project-url}`, `{remote-server-url}`, `{remote-project-name}`). See full list of available placeholders in the [field updates reference](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md#update-placeholders). (#1024)
-* Local test case conditions can be filtered for test name using `$name = 'My scenario'` syntax. The name filter can be combined with tag or source file filter as well, e.g. `$sourceFile ~ **/Addition.feature and $name = 'Basic addition'` This applies to all `condition` configuration settings and can also be used with the `-tagFilter` command line option. See all possibilities for local test case conditions in the [feature description](features/general-features/local-test-case-conditions.md). (#1025)
+* Local test case conditions can be filtered for test name using `$name = 'My scenario'` syntax. The name filter can be combined with tag or source file filter as well, e.g. `$sourceFile ~ **/Addition.feature and $name = 'Basic addition'` This applies to all `condition` configuration settings and can also be used with the `--tagFilter` command line option. See all possibilities for local test case conditions in the [feature description](features/general-features/local-test-case-conditions.md). (#1025)
 * Introducing the generic `--filter` command line option that can be used to filter for both tags, names and source files. E.g. `--filter '@basic and $sourceFile ~ **/Addition.feature and $name = "Basic addition"'`.
 
 ### New Plugins
