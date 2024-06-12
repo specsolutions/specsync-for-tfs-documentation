@@ -162,7 +162,13 @@ You can find more information about configuring a build or release pipeline for 
 
 [Microsoft Entra service principals](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops) in Azure DevOps organizations can be used to grant access to your organization resources. For many teams, this feature can be a viable and preferred alternative to personal access tokens (PATs) when you authenticate applications that power automation workflows in your company.
 
-In order to use service principal for authentication, you have to configure that first in Azure and in Azure DevOps. Please follow the steps described in the [Service Principal documentation](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops). 
+In order to use service principal for authentication, you have to configure that first in Azure and in Azure DevOps. Please follow the steps described in the [Service Principal documentation](https://learn.microsoft.com/en-us/azure/devops/integrate/get-started/authentication/service-principal-managed-identity?view=azure-devops).
+
+The service principal is treated like an separate user in Azure DevOps, so in order to use that account for testing-related activities (like use it with SpecSync), you need to set its [access level](https://learn.microsoft.com/en-us/azure/devops/organizations/security/access-levels?view=azure-devops) to one that allows these activities, e.g. `Basic + Test Plans`. This might incur additional Azure license costs.
+
+{% hint style="info" %}
+Authentication with service principals are not enabled in Azure DevOps by default. You need to enable their usage on the organization level and you also need to configure for the project as well. You might also need to modify the project permissions and the account access levels. Please follow the Azure DevOps documentation mentioned above and verify if the authentication mode works before configuring SpecSync.
+{% endhint %}
 
 In order to use the configured service principal you will need the following details:
 * *Microsoft Entra Tenant ID* - you need to specify this in the `remote/tenantId` configuration setting.
