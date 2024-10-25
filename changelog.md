@@ -10,7 +10,9 @@ For planned features in future releases please check the [Release Model and Road
 
 ## v3.4.18 - 2024/10/25
 
-*Note: Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). (#1357)*
+{% hint style="warning" %}
+Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). (#1357)
+{% endhint %}
 
 ### Improvements
 
