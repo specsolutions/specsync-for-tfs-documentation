@@ -169,3 +169,13 @@ This is caused by the SSL library incompatibility between .NET Core 3.1 and Ubun
 RUN wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb \
     && dpkg -i libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb
 ```
+
+### Unhandled JsonSerializationException error when publishing test results using multi-suite publish <a href="issue1357" id="issue1357"></a>
+
+On 17th October 2024 we have detected and analyzed a problem that causes SpecSync to fail with an unhandled JsonSerializationException during the "publish-test-results" command when the "multiSuitePublishTestResults" customization is used. The investigation found that the issue is caused by a change in Azure DevOps that is not compatible with the Azure DevOps API client library. We have [reported the issue to Microsoft](https://developercommunity.visualstudio.com/t/JsonSerializationException-when-calling/10771178) which is currently under investigation by the Azure DevOps team. As most probably the fix will take longer, we implemented an alternative solution in SpecSync, that is not affected by the issue. 
+
+For SpecSync the issue has been registered with the ID `#1357`.
+
+**Solution 1:** Upgrade to SpecSync v3.4.18 or later.
+
+**Solution 2:** Do not use the "multiSuitePublishTestResults" customization until the issue is fixed in Azure DevOps. (Please track the issue at the link provided above.)
