@@ -10,7 +10,49 @@ For planned features in future releases please check the [Release Model and Road
 
 ## v3.4.18 - 2024/10/25
 
-Details will be provided soon...
+*Note: Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). (#1357)*
+
+### Improvements
+
+* Allow "LinkOnChange" for "requirementSynchronization" customization (#1364)
+* Synchronize requirements from Rules and allow parsing acceptance criteria from description for "requirementSynchronization" customization (#1363)
+* Support for processing JUnit XML TestCase Properties (#1355)
+* Include app version in log file (#1314)
+* Improve error messages for filter condition errors (E1051) when used for file path filtering (#1290)
+* Improve handling invalid credentials from user config (#1285)
+* Various stability and maintainability improvements (#1359, #1318, #1319)
+
+### New Plugins
+
+See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
+
+* **SpecSync.Plugin.OnlyPublishTestResults**: This plugin can be used in cases when you would like to publish test results with SpecSync for Test Cases that were not synchronized by SpecSync, but created manually or with other tools. See [plugin GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/only-publish-test-results-plugin) (#1360)
+
+
+### Plugin Improvements
+
+* SpecSync.Plugin.GenericTestResultMatcher v1.2.0: 
+  * Match for test result properties and allow using {test-case-id} placeholder (#1356)
+* SpecSync.Plugin.ExcelTestSource v1.1.0: 
+  * allow defining first step in test case row, improve flexibility, allow id prefix (#1342)
+  * make column names parametrizable (#1341)
+* SpecSync.Plugin.ExcelTestResults v1.3.0 (since v1.0.0): 
+  * If ID matches, should not try matching other fields (#1362)
+  * Support for custom outcome values (#1348)
+  * Support for non-Gherkin test source (#1347)
+  * Treat empty outcome as "NotExecuted" (#1346)
+  * Support ID prefix (#1338)
+  * Fix: ID values formatted as number are not supported (#1337)
+  * Skip rows without identifier (#1336)
+  * Test result format error & parameter errors are reported incorrectly (#1335)
+  * Fix: Error loading ExcelTestResults plugin (#1332)
+
+
+### Bug fixes
+
+* Fix: Unhandled JsonSerializationException error when publishing test results using multi-suite publish (#1357)
+* Fix: Unhandled exception (NullReferenceException) during synchronization of scenarios (#1366)
+* Fix: The "Processing [file]" heading is displayed twice in log (#1361)
 
 
 ## v3.4.17 - 2024/05/23
@@ -121,7 +163,7 @@ _Note: The release v3.3.13 has been revoked due to a release issue._
 
 See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
 
-* **SpecSync.Plugin.TestNGTestSource**: This plugin can be used to synchronize Java TestNG test methods and publish test result files. See [related guide](important-concepts/using-specsync-with-testng.md) and the [plugin GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/testng-test-source-plugin) (#1143)
+* **SpecSync.Plugin.TestNGTestSource**: This plugin can be used to synchronize Java TestNG test methods and publish test result files. See [related guide](important-concepts/using-specsync-with-testng.md) and the [plugin GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/testng-test-source-plugin) (#1143)
 
 ### Improvements
 
@@ -183,7 +225,7 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 
 See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
 
-* **SpecSync.Plugin.PostmanTestSource**: This plugin can be used to synchronize a tests from a [Postman](https://www.postman.com/) collection and publish results executed with Newman. See [related guide](important-concepts/using-specsync-with-postman.md) and the [plugin GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/postman-test-source-plugin) (#1032)
+* **SpecSync.Plugin.PostmanTestSource**: This plugin can be used to synchronize a tests from a [Postman](https://www.postman.com/) collection and publish results executed with Newman. See [related guide](important-concepts/using-specsync-with-postman.md) and the [plugin GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/postman-test-source-plugin) (#1032)
 
 ### Improvements
 
@@ -242,7 +284,7 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 
 See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
 
-* **SpecSync.Plugin.NUnitTestSource**: Allows synchronizing "C# NUNit Tests" and publish results from TRX result files. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/nunit-test-source-plugin) (#962)
+* **SpecSync.Plugin.NUnitTestSource**: Allows synchronizing "C# NUNit Tests" and publish results from TRX result files. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/nunit-test-source-plugin) (#962)
 
 ### Bug fixes
 
@@ -292,10 +334,10 @@ All fixes of SpecSync v3.3.11 are included in this release.
 
 See all plugins available on nuget.org in the [plugin list](features/plugin-list.md)
 
-* **SpecSync.Plugin.ScenarioOutlinePerExamplesTestCase**: Plugin that synchronizes scenario outline examples blocks as individual test cases. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/scenario-outline-per-exampes-test-case-plugin) (#718)
-* **SpecSync.Plugin.ExcelTestSource**: This plugin can be used to synchronize a local test cases from Excel file using the format that Azure DevOps uses when you export Test Cases to CSV. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/excel-test-source-plugin)
-* **SpecSync.Plugin.MsTestTestSource**: Allows synchronizing "C# MsTest Tests" and publish results from TRX result files. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/mstest-test-source-plugin)
-* **SpecSync.Plugin.GenericTestResultMatcher**: A SpecSync plugin that can be used to override test result matching rules. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-sample-plugins/tree/main/generic-test-result-matcher-plugin)
+* **SpecSync.Plugin.ScenarioOutlinePerExamplesTestCase**: Plugin that synchronizes scenario outline examples blocks as individual test cases. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/scenario-outline-per-exampes-test-case-plugin) (#718)
+* **SpecSync.Plugin.ExcelTestSource**: This plugin can be used to synchronize a local test cases from Excel file using the format that Azure DevOps uses when you export Test Cases to CSV. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/excel-test-source-plugin)
+* **SpecSync.Plugin.MsTestTestSource**: Allows synchronizing "C# MsTest Tests" and publish results from TRX result files. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/mstest-test-source-plugin)
+* **SpecSync.Plugin.GenericTestResultMatcher**: A SpecSync plugin that can be used to override test result matching rules. See plugin details and usage [in the SpecSync plugins GitHub repository](https://github.com/specsolutions/specsync-plugins/tree/main/generic-test-result-matcher-plugin)
 
 ### Improvements
 
