@@ -176,6 +176,6 @@ On 17th October 2024 we have detected and analyzed a problem that causes SpecSyn
 
 For SpecSync the issue has been registered with the ID `#1357`.
 
-**Solution 1:** Upgrade to SpecSync v3.4.18 or later.
+**Solution 1:** Upgrade to SpecSync v3.4.18 or later. (For users on v3.3 product line, please upgrade to v3.3.17.)
 
 **Solution 2:** Do not use the "multiSuitePublishTestResults" customization until the issue is fixed in Azure DevOps. (Please track the issue at the link provided above.)
