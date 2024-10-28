@@ -9,7 +9,7 @@ For planned features in future releases please check the [Release Model and Road
 {% endhint %}
 
 {% hint style="warning" %}
-Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). (#1357)
+Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
 ## v3.4.18 - 2024/10/25
@@ -422,6 +422,12 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * Fix: Different hash is calculated when running on Windows or macOS/Linux causing unnecessary updates (#881)
 * Fix: Plugins might be reported twice (#864)
 * Fix: Pull command generates invalid scenario outlines for non-English feature files (#811)
+
+## v3.3.17 - 2024/10/28
+
+### Bug fixes
+
+* Fix: Unhandled JsonSerializationException error when publishing test results using multi-suite publish (#1357)
 
 ## v3.3.16 - 2023/10/13
 
