@@ -12,6 +12,19 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v3.4.19 - 2024/11/21
+
+### Improvements
+
+* Support for .NET 9: The [.NET tool installation](installation/dotnet-core-tool.md) now works on systems that only have .NET 9.0 SDK. (#1239)
+* Support for establishing non-tracked links via `synchronization/links[]/disableTracking` setting. With that you can disable automatic removal of links when the corresponding tag has been deleted.  (#1370)
+* Force processing removals of local test cases on filter with `toolSettings/forceProcessingRemovalsOnFilter`. (#1373)
+* Update dependencies to address know vulnerabilities (#1375)
+* Various stability and maintainability improvements (#1369)
+
+### Bug fixes
+
+
 ## v3.4.18 - 2024/10/25
 
 ### Improvements

@@ -23,7 +23,7 @@ To use SpecSync with localized Azure DevOps processes (where the names of the wo
 
 ## Supported operating systems and platforms
 
-SpecSync is supported on Windows, Linux and MacOS operating systems. It can be installed as a standalone tool or as a .NET tool. Please check Installation & Setup for details on which installation option is available on the different target systems.
+SpecSync is supported on Windows, Linux and MacOS operating systems. It can be installed as a standalone tool or as a .NET tool. Please check [Installation & Setup](../installation/) for details on which installation option is available on the different target systems.
 
 {% hint style="info" %}
 SpecSync does not use Log4J and therefore it is not affected by the vulnerability [CVE-2021-44228](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q).

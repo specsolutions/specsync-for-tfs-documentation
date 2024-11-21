@@ -71,6 +71,7 @@ For each link type configuration the following settings can be used.
 | `targetType` | The type of the Azure DevOps work item the link refers to. It is verified at the time the link is established. | can link to any work item type |
 | `relationship` | Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. Set to `Hyperlink` for linking arbitrary URLs (see details in [linking feature page](../../../features/common-synchronization-features/linking-work-items-with-tags.md#linking-hyperlinks)). Set to `Pull Request` for Azure DevOps Pull Requests and `GitHub Pull Request` for GitHub Pull Requests (see details in our [guide](../../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-with-tags)). | `Tests` |
 | `linkTemplate` | Specifies the HTTP link template of the related artifact (for `GitHub Pull Request` and `Hyperlink` relationship). The link template can use the specified value using the `{id}` placeholder. | no template used |
+| `disableTracking` | Disables tracking of the created links. If tracking is disabled, SpecSync will never automatically remove the link even if the corresponding tag has been deleted. | false |
 
 {% page-ref page="./" %}
 

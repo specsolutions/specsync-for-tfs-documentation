@@ -24,7 +24,7 @@ For that you need to mark the scenarios with tags, like `@story:123`, and specif
 
 This will synchronize the scenario with the Azure DevOps test case and establish a link between the test case and the user story \#123 work item.
 
-The links created by SpecSync are removed when the tag is removed from the scenario. The links created manually are never removed.
+The links created by SpecSync are by default are "tracked". This means that the links are removed when the tag is removed from the scenario. You can disable creation of tracked links by setting `disableTracking` to `true` in the link configuration. Non-tracked links and links created manually are never removed.
 
 {% hint style="info" %}
 Links created by SpecSync v3.2 or earlier are not removed automatically.
