@@ -12,6 +12,12 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v3.4.20 - 2025/01/07
+
+### Bug fixes
+
+* Fix: Scenario outline test results are not published with Reqnroll 2.1 and MsTest (#1466)
+
 ## v3.4.19 - 2024/11/21
 
 ### Improvements
@@ -21,8 +27,6 @@ Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationExcepti
 * Force processing removals of local test cases on filter with `toolSettings/forceProcessingRemovalsOnFilter`. (#1373)
 * Update dependencies to address know vulnerabilities (#1375)
 * Various stability and maintainability improvements (#1369)
-
-### Bug fixes
 
 
 ## v3.4.18 - 2024/10/25
