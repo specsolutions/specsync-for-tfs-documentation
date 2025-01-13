@@ -12,7 +12,20 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v3.4.22 - 2025/01/13
+
+### Bug fixes
+
+* Fix: Error E0020 `The 'GetTestCasesInScope' method on remote scope can only be used when it is not dirty.` when `--dryRun` is used (#1472)
+* Fix: The "removed" Test Cases are not included in the sync summary line (#1330)
+* Fix: Plugin versions are displayed with commit info (#1333)
+* Fix: Source file filtering does not work on Windows when `*` or `.` is used after backslash (e.g. `$sourceFile ~ Features\*.feature`) (#1371)
+* Fix: Misleading error message when publish test results command is invoked with a non-existing Test Suite (#1329)
+* Fix: Synchronizing to a non existing Test Suite using "path" setting fails with internal error (#1327)
+
 ## v3.4.21 - 2025/01/09
+
+_Note: The release v3.4.21 contains a fix with a negative side-effect when `--dryRun` is used. Please upgrade to v3.4.22 or later._
 
 ### Bug fixes
 
