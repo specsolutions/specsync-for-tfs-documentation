@@ -102,11 +102,17 @@ The synchronization should run successfully and SpecSync should create Test Case
 
 In case of errors, you can retry the synchronization with an additional --verbose option that displays additional diagnostic information. If this does not help, please check the [Troubleshooting](../contact/troubleshooting.md) page or contact [SpecSync Support](../contact/specsync-support.md).
 
-## Setup SpecFlow plugin to support "Test Suite based execution with Scenario Outline wrappers" automation strategy for .NET SpecFlow projects <a id="setup-specflow-plugin"></a>
+## Setup SpecFlow plugin to support "Test Suite based execution with Scenario Outline wrappers" automation strategy for .NET SpecFlow or Reqnroll projects <a id="setup-specflow-plugin"></a>
 
 SpecSync can synchronize scenarios to Azure DevOps Test Cases and publish test execution results without any additional NuGet package.
 
 There is a special way to publish test results that require you to install a SpecFlow plugin as a NuGet package. This special way, the  "Test Suite based execution with Scenario Outline wrappers" automation strategy is described in detail in the [documentation ](../important-concepts/synchronizing-automated-test-cases.md#test-suite-based-execution-with-scenario-outline-wrappers-strategy)that describes the conditions when this strategy has to be used.
+
+{% hint style="info" %}
+If your project is not configured to use the  "Test Suite based execution with Scenario Outline wrappers" automation strategy, the plugin will not have any impact \(can be safely removed\).
+{% endhint %}
+
+### Package to be used for SpecFlow
 
 The exact NuGet package to be installed depends on the SpecFlow version of your project. For example for SpecFlow `v2.4.*`, install [`SpecSync.AzureDevOps.SpecFlow.2-4`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.2-4). The following table contains the supported SpecFlow versions and the related plugin packages.
 
@@ -118,6 +124,11 @@ The exact NuGet package to be installed depends on the SpecFlow version of your 
 | v3.1 | [`SpecSync.AzureDevOps.SpecFlow.3-1`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-1) |
 | v3.3 | [`SpecSync.AzureDevOps.SpecFlow.3-3`](https://www.nuget.org/packages/SpecSync.AzureDevOps.SpecFlow.3-3) |
 
-{% hint style="info" %}
-If your project is not configured to use the  "Test Suite based execution with Scenario Outline wrappers" automation strategy, the plugin will not have any impact \(can be safely removed\).
-{% endhint %}
+### Package to be used for Reqnroll
+
+For Reqnroll we provide a single package: [SpecSync.AzureDevOps.TestSuiteBasedExecution.Reqnroll](https://www.nuget.org/packages/SpecSync.AzureDevOps.TestSuiteBasedExecution.Reqnroll) that can be used with Reqnroll 2.1 or later. You might need to use a different version of the plugin depending on the SpecSync and Reqnroll version you use.
+
+| Plugin version | Reqnroll Compatibility | SpecSync Compatibility |
+| :---   | :--- | :---  |
+| v3.4.* | 2.*  | 3.4.* |
+

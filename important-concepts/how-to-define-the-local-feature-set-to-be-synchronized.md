@@ -51,7 +51,7 @@ In the following example, the `specsync.json` configuration file is in the local
 The path you specify in the `local/featureFileSource/folder` setting is relative to the location of the configuration file but can also contain relative paths above the current folder, e.g. `../features`.
 {% endhint %}
 
-## Synchronize all scenarios from a SpecFlow project
+## Synchronize all scenarios from a SpecFlow or Reqnroll project
 
 Although modern .NET projects include automatically all files within the project folder you can explicitly exclude some files with a .NET project. If you want to synchronize those feature files that are included in the .NET project, you simply have to put the `specsync.json` configuration file to the project root folder and do not specify anything as `local/featureFileSource`. 
 

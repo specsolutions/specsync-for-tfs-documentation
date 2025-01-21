@@ -4,7 +4,7 @@ The publish-test-results command loads and publishes test results from the test 
 
 The different test execution tools provide different methods for attaching files to the current test execution, and unfortunately there are some [test execution tools that do not support](#frameworks-no-attachments) such an option. The aim to this guide is to provide help about how this can be achieved with the different tools. The list might not be complete. If you have found a way to attach files with a tool that is not listed here, please [contact us](../contact/specsync-support.md) so that we can extend the list. 
 
-## Attaching files to test results with SpecFlow & NUnit
+## Attaching files to test results with .NET tests & NUnit
 
 With NUnit you need to save the attachment file to the file system and then report the file path to NUnit using the `TestContext.AddTestAttachment` method:
 
@@ -12,7 +12,7 @@ With NUnit you need to save the attachment file to the file system and then repo
 NUnit.Framework.TestContext.AddTestAttachment(attachmentPath, "My attachment");
 ```
 
-## Attaching files to test results with SpecFlow & MsTest
+## Attaching files to test results with .NET tests & MsTest
 
 With MsTest you need to save the attachment file to the file system and then report the file path to MsTest using the current `TestContext` instance. To obtain the current `TestContext` instance, you need to specify it among the constructor parameters of your step definition class and save it to an instance field. (In case of hooks, you can list the `TestContext` in the hook method parameters.)
 

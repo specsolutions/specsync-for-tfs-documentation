@@ -4,7 +4,7 @@ In order to turn the Test Cases in Azure DevOps into a real living documentation
 
 ![Execution results linked to a Test Case synchronized from a scenario](<../../.gitbook/assets/image (23).png>)
 
-You can publish scenario execution results (test results) to Azure DevOps with SpecSync using the `publish-test-result` command that works with many BDD tool and platform including SpecFlow, Cucumber and PyTest (Check [Compatibility](../../reference/compatibility.md#supported-test-result-formats) page for the full list).
+You can publish scenario execution results (test results) to Azure DevOps with SpecSync using the `publish-test-result` command that works with many BDD tool and platform including SpecFlow, Reqnroll, Cucumber and PyTest (Check [Compatibility](../../reference/compatibility.md#supported-test-result-formats) page for the full list).
 
 ![Test execution result with iteration and step execution details](<../../.gitbook/assets/image (24).png>)
 
@@ -28,13 +28,13 @@ You can find an overview of the Azure DevOps plans in the [Azure DevOps document
 
 ## Getting scenario execution result from your BDD tool
 
-The automation source of the Test Cases are provided by the BDD scenarios and the automation solution implemented for them. The automation solution might use different tools (SpecFlow, Cucumber, PyTest, etc.) and might run on different platforms (e.g. .NET, Java or Python).
+The automation source of the Test Cases are provided by the BDD scenarios and the automation solution implemented for them. The automation solution might use different tools (SpecFlow, Reqnroll, Cucumber, PyTest, etc.) and might run on different platforms (e.g. .NET, Java or Python).
 
 SpecSync uses a concept that works with different tools and platforms: execute the scenarios as usual with their standard tooling and save the test results into a test result file of their native test result format. SpecSync understands many test result file formats and how they represent the scenario results and able to match them to the Test Cases, synchronized earlier with a push command.
 
 The [Compatibility](../../reference/compatibility.md#supported-test-result-formats) page contains the currently supported BDD tools and test result file formats. Please [contact us](../../contact/specsync-support.md) if your tool is not in the list and we are happy to provide support for that. You can also support custom test result file formats with a [SpecSync plugin](../general-features/specsync-plugins.md).
 
-The exact way how you can get test result files depends on the test runner tool and the BDD framework you use. For example for .NET Core SpecFlow test projects the test results can be saved into a TRX file by providing the `--logger trx;logfilename=<your-trx-file-name>.trx` option for the `dotnet test` command.
+The exact way how you can get test result files depends on the test runner tool and the BDD framework you use. For example for .NET Reqnroll test projects the test results can be saved into a TRX file by providing the `--logger trx;logfilename=<your-trx-file-name>.trx` option for the `dotnet test` command.
 
 For the SpecSync publish-test-results command, the path of the test result file can be specified using the `--testResultFile` command line option. If the test result file is not a TRX file, you also have to specify the file format using the `--testResultFileFormat` option (see [Compatibility](../../reference/compatibility.md#supported-test-result-formats) for possible values).
 

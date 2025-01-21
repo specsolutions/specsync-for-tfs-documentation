@@ -105,6 +105,7 @@
     * [fieldUpdates](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md)
   * [publishTestResults](reference/configuration/configuration-publishtestresults.md)
   * [specFlow](reference/configuration/configuration-specflow.md)
+  * [reqnroll](reference/configuration/configuration-reqnroll.md)
   * [customizations](reference/configuration/configuration-customizations.md)
 * [Compatibility](reference/compatibility.md)
 * [Older versions](reference/older-versions.md)

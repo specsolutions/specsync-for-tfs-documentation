@@ -59,5 +59,8 @@ The following configuration sections can be used. Click to the name of the secti
 * [`synchronization`](configuration-synchronization/) — synchronization settings
 * [`publishTestResults`](configuration-publishtestresults.md) - test result publish settings
 * [`specFlow`](configuration-specflow.md) — settings related to synchronizing SpecFlow projects
+{%AzureDevOps%}
+* [`reqnroll`](configuration-reqnroll.md) — settings related to synchronizing Reqnroll projects
+{/%AzureDevOps%}
 * [`customizations`](configuration-customizations.md) — configure customizations
 

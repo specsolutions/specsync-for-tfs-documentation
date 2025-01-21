@@ -4,7 +4,7 @@ Many teams being currently in a transformation process towards using agile and B
 
 _SpecSync for Azure DevOps_ integrates the BDD process with Azure DevOps by connecting and synchronizing the BDD scenarios with Test Cases and by publishing test execution results to Azure DevOps in a way that the test result remains connected to the related Test Case. With this the development and testing activities remain transparent and traceable for all stakeholders in Azure DevOps.
 
-SpecSync supports any tool that uses the Gherkin language for describing the BDD scenarios, for example SpecFlow or Cucumber (see more details in the [Compatibility](reference\compatibility.md) page). 
+SpecSync supports any tool that uses the Gherkin language for describing the BDD scenarios, for example SpecFlow, Reqnroll or Cucumber (see more details in the [Compatibility](reference\compatibility.md) page). 
 
 SpecSync helps people to stay in sync with Azure DevOps and Jira since 2016 and by now it is used by many organizations around the globe.
 

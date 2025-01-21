@@ -46,7 +46,7 @@ The following example shows the available options within this section.
       <td style="text-align:left">SpecSync automatically decides whether generation is necessary</td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>scenarioOutlineAutomationWr appers</code>
+      <td style="text-align:left"><code>scenarioOutlineAutomationWrappers</code>
       </td>
       <td style="text-align:left">
         <p>Specifies how automation wrapper methods should be generated for synchronizing
@@ -66,7 +66,7 @@ The following example shows the available options within this section.
             the details of the entry contain all executed data set.</li>
         </ul>
       </td>
-      <td style="text-align:left"><code>iterateThroughExam ples</code>
+      <td style="text-align:left"><code>iterateThroughExamples</code>
       </td>
     </tr>
     <tr>
