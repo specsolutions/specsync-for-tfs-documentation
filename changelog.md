@@ -12,6 +12,17 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v3.4.24 - 2025/02/12
+
+### Bug fixes
+
+* Fix: Requirement synchronization customization: `{requirement-acceptance-criteria}` placeholder includes separator text (#1488)
+* Fix: Compatibility errors of `SpecSync.AzureDevOps.TestSuiteBasedExecution.Reqnroll` plugin (#1496, #1500, #1501)
+
+### Improvements
+
+* Requirement synchronization customization: Apply automatic description de-indentation for recognizing acceptance criteria (#1497)
+
 ## v3.4.23 - 2025/01/21
 
 ### Bug fixes
