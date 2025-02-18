@@ -22,7 +22,7 @@ The following example shows the available options within this section.
     "customFieldUpdates": {
       "enabled": true,
       "updates": {
-        "System.Description": "Syncronized from feature {feature-name}{br}{feature-description}"
+        "System.Description": "Synchronized from feature {feature-name}{br}{feature-description}"
       }
     },
     "ignoreTestCaseSteps": {
@@ -101,8 +101,27 @@ Enables setting default values to test case fields. Useful for custom Azure DevO
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `fieldDefaults/enabled`       | Enables the customization.                                                                                                                                                                         | `false`   |
-| `fieldDefaults/defaultValues` | A list of key-value pair, where the key is the canonical name of the field to be updated (e.g. `System.Description`) and the value is the default value to be used when the test case is created.  | mandatory |
+| `fieldDefaults/enabled` | Enables the customization. | `false`   |
+| `fieldDefaults/defaultValues` | A list of key-value pair, where the key is the canonical name of the field to be updated (e.g. `System.Description`) and the value is the default value to be used when the test case is created. | mandatory |
+
+The `fieldDefaults` customization setting is a shortcut for configuring the [`synchronization/fieldUpdates` section](configuration-synchronization-fieldupdates.md). The example above is equivalent to the following `fieldUpdates` setting:
+
+```javascript
+{
+  "synchronization": {
+    "fieldUpdates": {
+      "MyCompany.MyCustomField": {
+        "value": "Default 1",
+        "update": "onCreate"
+      },
+      "MyCompany.OtherCustomField": {
+        "value": "Default 2",
+        "update": "onCreate"
+      }
+    }
+  },
+}
+```
 
 ### customFieldUpdates
 
@@ -110,8 +129,23 @@ Enables updating test case fields that are normally not changed by SpecSync. See
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `customFieldUpdates/enabled` | Enables the customization.                                                                                                                                                                                                                                                                                                                                                                                                           | `false`   |
+| `customFieldUpdates/enabled` | Enables the customization. | `false`   |
 | `customFieldUpdates/updates` | A list of key-value pair, where the key is the canonical name of the field to be updated (e.g. `System.Description`) and the value is the template to be used to update the field. The template can contain placeholders listed in the [reference](../../reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md#update-placeholders). | mandatory |
+
+The `customFieldUpdates` customization setting is a shortcut for configuring the [`synchronization/fieldUpdates` section](configuration-synchronization-fieldupdates.md). The example above is equivalent to the following `fieldUpdates` setting:
+
+```javascript
+{
+  "synchronization": {
+    "fieldUpdates": {
+      "System.Description": {
+        "value": "Synchronized from feature {feature-name}{br}{feature-description}"
+      }
+    }
+  },
+}
+```
+
 
 ### ignoreTestCaseSteps
 

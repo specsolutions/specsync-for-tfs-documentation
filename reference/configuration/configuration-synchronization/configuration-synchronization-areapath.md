@@ -33,7 +33,6 @@ The `areaPath` setting is a shortcut for configuring the [`synchronization/field
       }
     }
   },
-  ...
 }
 ```
 

@@ -33,7 +33,6 @@ The `iterationPath` setting is a shortcut for configuring the [`synchronization/
       }
     }
   },
-  ...
 }
 ```
 

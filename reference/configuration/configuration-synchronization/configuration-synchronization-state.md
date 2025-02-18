@@ -19,6 +19,24 @@ The following example shows the available options within this sub-section.
 }
 ```
 
+
+The `state` setting is a shortcut for configuring the [`synchronization/fieldUpdates` section](configuration-synchronization-fieldupdates.md). The example above is equivalent to the following `fieldUpdates` setting:
+
+```javascript
+{
+  "synchronization": {
+    "fieldUpdates": {
+      "System.State": {
+        "condition": "@ready"
+        "value": "Design",
+        "update": "onCreateOrChange"
+      }
+    }
+  },
+}
+```
+
+
 ## Settings
 
 | Setting | Description | Default |
