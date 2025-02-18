@@ -21,6 +21,22 @@ The following example shows the available options within this sub-section.
 }
 ```
 
+The `iterationPath` setting is a shortcut for configuring the [`synchronization/fieldUpdates` section](configuration-synchronization-fieldupdates.md). The example above is equivalent to the following `fieldUpdates` setting:
+
+```javascript
+{
+  "synchronization": {
+    "fieldUpdates": {
+      "System.IterationPath": {
+        "value": "project-name\\Iteration1",
+        "update": "onCreate"
+      }
+    }
+  },
+  ...
+}
+```
+
 ## Settings
 
 <table>

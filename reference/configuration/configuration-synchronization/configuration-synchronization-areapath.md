@@ -21,6 +21,23 @@ The following example shows the available options within this sub-section.
 }
 ```
 
+The `areaPath` setting is a shortcut for configuring the [`synchronization/fieldUpdates` section](configuration-synchronization-fieldupdates.md). The example above is equivalent to the following `fieldUpdates` setting:
+
+```javascript
+{
+  "synchronization": {
+    "fieldUpdates": {
+      "System.AreaPath": {
+        "value": "project-name\\MyArea",
+        "update": "onCreate"
+      }
+    }
+  },
+  ...
+}
+```
+
+
 ## Settings
 
 <table>
