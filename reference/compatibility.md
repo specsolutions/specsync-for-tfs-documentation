@@ -45,7 +45,9 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 | SpecFlow                                                        | NUnit v2                 | XML       | `specFlowNUnit2Xml`    |
 | Reqnroll                                                        | NUnit                    | XML       | `reqnrollNUnitXml`     |
 | Reqnroll                                                        | NUnit v2                 | XML       | `reqnrollNUnit2Xml`    |
+| Reqnroll                                                        | Cucumber Messages output | NDJSON    | `cucumberMessagesNdjson` |
 | Cucumber (Java, JavaScript, Ruby)                               | `json` formatter         | JSON      | `cucumberJson`         |
+| Cucumber (Java, JavaScript, Ruby)                               | `message` formatter      | NDJSON    | `cucumberMessagesNdjson` |
 | Cucumber Java                                                   | JUnit                    | XML       | `cucumberJavaJUnitXml` |
 | Cucumber Java                                                   | Surefire                 | XML       | `cucumberJavaSurefireXml` |
 | Cucumber.js                                                     | cucumber-junit-formatter | XML       | `cucumberJsJUnitXml`   |

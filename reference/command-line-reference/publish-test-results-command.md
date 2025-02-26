@@ -2,6 +2,8 @@
 
 Publishes local test results to Azure DevOps server as a Test Run, where the results are connected to the synchronized test cases and optionally to a build.
 
+To read more about publishing test results see the [Publishing test result files](../../features/test-result-publishing-features/publishing-test-result-files.md) page. Please also check the related [configuration file reference](../configuration/configuration-publishtestresults.md) for the `publish-test-results` command.
+
 See more details about the command in the "Assembly based execution strategy" section of the [Synchronizing automated test cases](../../important-concepts/synchronizing-automated-test-cases.md) article.
 
 ## Options
