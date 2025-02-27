@@ -28,7 +28,7 @@ The following example sets the local scope to the scenarios that are marked as `
 This feature is supported in SpecSync v3.3 or later.
 {% endhint %}
 
-If the configured folder or .NET project also contains feature files that you don't want to include in synchronization, you can also restrict the local scope by specifying the set of feature files. For this you need to specify one ore more path expressions \([glob patterns](https://en.wikipedia.org/wiki/Glob_%28programming%29)\) in the `local/sourceFiles` configuration setting. \(See also the reference documentation of the [`local` configuration section](../../reference/configuration/configuration-local.md)\). 
+If the configured folder or .NET project also contains feature files that you don't want to include in synchronization, you can also restrict the local scope by specifying the set of feature files. For this you need to specify one ore more path expressions \([glob patterns](https://speclink.me/specsync-glob)\) in the `local/sourceFiles` configuration setting. \(See also the reference documentation of the [`local` configuration section](../../reference/configuration/configuration-local.md)\). 
 
 The following example sets the local scope to the scenarios that only files from `Folder1` and files with name start with `alpha` from `Folder3` are included in the synchronization.
 

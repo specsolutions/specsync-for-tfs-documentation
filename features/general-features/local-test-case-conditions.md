@@ -79,7 +79,7 @@ $sourceFile ~ **/Registration.feature and $name = 'Check password strength'
 
 ## Source file predicates
 
-The source file predicates can select the local test cases using [glob patterns](https://en.wikipedia.org/wiki/Glob_%28programming%29) that are evaluated against the source file relative path (for scenarios, this is the feature file path). E.g. `Folder1/` selects any local test cases with source file within the folder `Folder1` or its sub-folders; `Folder3/**/alpha*.feature` selects any feature files within `Folder3` that starts with `alpha`.
+The source file predicates can select the local test cases using [glob patterns](https://speclink.me/specsync-glob) that are evaluated against the source file relative path (for scenarios, this is the feature file path). E.g. `Folder1/` selects any local test cases with source file within the folder `Folder1` or its sub-folders; `Folder3/**/alpha*.feature` selects any feature files within `Folder3` that starts with `alpha`.
 
 For most expressions the source file predicate has to be used with the relation form using `$sourceFile` as field name and the `~` ("matches") operator. The following expression selects the feature files from the `pricing` folder.
 
