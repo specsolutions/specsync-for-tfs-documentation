@@ -2,6 +2,12 @@
 
 The _Custom field updates_ customization can be used to update arbitrary Test Case fields that are otherwise would not be changed by SpecSync.
 
+{% hint style="warning" %}
+The configuration setting `customizations/customFieldUpdates` has been replaced by `synchronization/fieldUpdates`. See [Update Test Case fields](update-test-case-fields.md) feature description for details.
+
+This feature has been deprecated in v5 and will be removed in the next release. Please use the `specsync upgrade` command to upgrade the configuration to the replacement feature.
+{% endhint %}
+
 {% hint style="info" %}
 The _Custom field updates_ customization described here is an [Enterprise feature](../../licensing.md).
 {% endhint %}
