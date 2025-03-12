@@ -4,7 +4,7 @@ SpecSync is available as a portable .NET tool, so we recommend using that on all
 
 The following links contain direct download options as an alternative to that.
 
-## v5
+## v5 preview
 
 The preview of the new v5 release is available! Please note that according to our [versioning policy](roadmap.md#release-model), we do not recommend using preview releases for production.
 
