@@ -24,8 +24,6 @@ The usage of SpecSync plugins in the latest v5 preview release is temporarily di
 All fixes of SpecSync v3.4.25 are included in this release.
 {% endhint %}
 
-For detailed instructions on how to upgrade please check the [Migrating from SpecSync v3 to v5](important-concepts/migrating-from-specsync-v3-to-v5.md) guide.
-
 ### New features
 
 * SpecSync switches to [semantic versioning](https://semver.org/). (#1233)
