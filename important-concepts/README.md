@@ -39,6 +39,8 @@ Please check the following guides.
 
 {% page-ref page="how-to-handle-test-cases-of-multiple-parallel-application-releases.md" %}
 
+{% page-ref page="migrating-from-specsync-v3-to-v5.md" %}
+
 {% page-ref page="migrating-from-specsync-v2-to-v3.md" %}
 
 {% page-ref page="migrating-from-specsync-v1.md" %}

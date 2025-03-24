@@ -72,6 +72,7 @@
   * [Using SpecSync on macOS or Linux](important-concepts/using-specsync-on-osxlinux-page.md)
   * [Using SpecSync inside a Docker container](important-concepts/using-specsync-inside-a-docker-container.md)
   * [How to handle Test Cases of multiple parallel application releases](important-concepts/how-to-handle-test-cases-of-multiple-parallel-application-releases.md)
+  * [Migrating from SpecSync v3 to v5](important-concepts/migrating-from-specsync-v3-to-v5.md)
   * [Migrating from SpecSync v2 to v3](important-concepts/migrating-from-specsync-v2-to-v3.md)
   * [Migrating from SpecSync v1 to v2](important-concepts/migrating-from-specsync-v1.md)
 * [Changelog](changelog.md)
