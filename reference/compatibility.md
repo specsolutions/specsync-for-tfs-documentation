@@ -7,9 +7,9 @@ SpecSync for Azure DevOps might work with other Azure DevOps installations as we
 * Azure DevOps Services (Visual Studio Team Services, VSTS, VSO)
 * Azure DevOps Server 2022 (Version 19.\*)
 * Azure DevOps Server 2020 (Version 18.\*)
-* Azure DevOps Server 2019 (Version 17.\*, Dev17.\*)
-* Team Foundation Server 2018 (Version 16.\*)
-* Team Foundation Server 2017 (Version 15.\*)
+* Azure DevOps Server 2019 (Version 17.\*, Dev17.\*) — *up to SpecSync v3.4*
+* Team Foundation Server 2018 (Version 16.\*) — *up to SpecSync v3.4*
+* Team Foundation Server 2017 (Version 15.\*) — *up to SpecSync v3.4*
 * Team Foundation Server 2015 Update 3 (Version 14.\*) — _up to SpecSync v2.1_
 * Team Foundation Server 2013 Update 1 (Version 12.\*) — _up to SpecSync v1.3_
 
@@ -18,7 +18,7 @@ The Azure DevOps team [deprecated TLS 1.0/1.1 access for Azure DevOps Services](
 {% endhint %}
 
 {% hint style="info" %}
-To use SpecSync with localized Azure DevOps processes (where the names of the work item types are translated), the name of the Test Case and the Test Suite work item has to be specified in the `toolSettings/testCaseWorkItemName` and `toolSettings/testSuiteWorkItemName` configuration settings.
+To use SpecSync with localized Azure DevOps processes (where the names of the work item types are translated), the name of the Test Case and the Test Suite work item has to be specified in the `remote/azureDevOps/testsRelationName` and `remote/azureDevOps/relatedRelationName` configuration settings.
 {% endhint %}
 
 ## Supported operating systems and platforms
@@ -73,20 +73,20 @@ Synchronizing scenarios from [Reqnroll](https://reqnroll.net) projects and publi
 
 To be able to use the legacy [test-suite based execution](../features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) method, a special SpecFlow plugin has to be used that is specific to a particular SpecFlow version. This plugin is provided for the following SpecFlow versions.
 
-* SpecFlow v4.0 (from SpecSync v3.4.0)
+* SpecFlow v4.0 (up to SpecSync v3.4)
 * SpecFlow v3.9 (from SpecSync v3.2.6)
-* SpecFlow v3.8 (from SpecSync v3.2.6)
-* SpecFlow v3.7 (from SpecSync v3.2.1)
-* SpecFlow v3.6 (from SpecSync v3.2)
-* SpecFlow v3.5 (from SpecSync v3.2)
-* SpecFlow v3.4 (from SpecSync v3.0.2)
-* SpecFlow v3.3 (from SpecSync v2.1.14)
-* SpecFlow v3.1 (from SpecSync v2.1.10)
+* SpecFlow v3.8 (up to SpecSync v3.4)
+* SpecFlow v3.7 (up to SpecSync v3.4)
+* SpecFlow v3.6 (up to SpecSync v3.4)
+* SpecFlow v3.5 (up to SpecSync v3.4)
+* SpecFlow v3.4 (up to SpecSync v3.4)
+* SpecFlow v3.3 (up to SpecSync v3.4)
+* SpecFlow v3.1 (up to SpecSync v3.4)
 * SpecFlow v3.0 (up to SpecSync v3.3)
 * SpecFlow v2.4 (up to SpecSync v3.2)
 * SpecFlow v2.3 (up to SpecSync v3.2)
-* SpecFlow v2.2.1 (with SpecSync v1.4.1)
+* SpecFlow v2.2.1 (up to SpecSync v1.4)
 
-For test-suite based execution, Azure DevOps supports only MsTest officially, but the plugins work also with MsTest V1 & V2, NUnit and xUnit on Azure DevOps and MsTest V1 on TFS2018 or earlier.
+For test-suite based execution, Azure DevOps supports only MsTest officially, but the plugins work also with MsTest, NUnit and xUnit.
 
 See more details on the [Support for Azure DevOps Test Plan / Test Suite based test execution](../features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) page.
