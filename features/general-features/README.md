@@ -10,7 +10,6 @@ This chapter contains general SpecSync features.
 
 {% page-ref page="local-test-case-conditions.md" %}
 
+{% page-ref page="configuration-wizards.md" %}
+
 {% page-ref page="specsync-plugins.md" %}
-
-
-

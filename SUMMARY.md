@@ -49,6 +49,7 @@
     * [Configuration file](features/general-features/configuration-file.md)
     * [Hierarchical configuration files](features/general-features/hierarchical-configuration-files.md)
     * [Local test case conditions](features/general-features/local-test-case-conditions.md)
+    * [Configuration wizards](features/general-features/configuration-wizards.md)
     * [SpecSync plugins](features/general-features/specsync-plugins.md)
   * [Customizations](features/customizations.md)
   * [Plugin list](features/plugin-list.md)
@@ -83,6 +84,7 @@
 
 * [Command line reference](reference/command-line-reference/README.md)
   * [init](reference/command-line-reference/init-command.md)
+  * [upgrade](reference/command-line-reference/upgrade-command.md)
   * [push](reference/command-line-reference/push-command.md)
   * [pull](reference/command-line-reference/pull-command.md)
   * [publish-test-results](reference/command-line-reference/publish-test-results-command.md)

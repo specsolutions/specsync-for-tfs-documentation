@@ -6,6 +6,8 @@ During the execution of the command, the basic configuration settings \(project 
 
 In case of [Personal Access Token \(PAT\) authentication](../../features/general-features/server-authentication-options.md), the command also offers you to save the authentication details to the user-specific configuration file, so that the credentials are not included in the project configuration.
 
+See [Configuration wizards](../../features/general-features/configuration-wizards.md) for more information about the command.
+
 ## Options
 
 | Option | Description | Default |
