@@ -131,11 +131,11 @@ If you would like to use the contain only to run SpecSync, it is better to [use 
 
 ### Example
 
-The following Dockerfile creates an image based on the .NET 6 SDK to be able to develop the project interactively. 
+The following Dockerfile creates an image based on the .NET 8 SDK to be able to develop the project interactively. 
 
 {% code title="Dockerfile" %}
 ```text
-FROM mcr.microsoft.com/dotnet/sdk:6.0
+FROM mcr.microsoft.com/dotnet/sdk:8.0
 
 ARG SPECSYNC_VERSION=3.3.8
 ARG LOCAL_DIR=/local

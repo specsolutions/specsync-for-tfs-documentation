@@ -14,7 +14,7 @@ For a synchronization target we use an Azure DevOps project: `https://specsyncde
 
 ## Installation
 
-There are multiple installation options you can choose from depending on your operating system and the development platform \(see details at [Installation & Setup](../installation/) page\). In this guide we configure SpecSync for a .NET Core 3.1 project and will install SpecSync as a [local .NET Core Tool](../installation/dotnet-core-tool.md).
+There are multiple installation options you can choose from depending on your operating system and the development platform \(see details at [Installation & Setup](../installation/) page\). In this guide we configure SpecSync for a .NET 9 project and will install SpecSync as a [local .NET Core Tool](../installation/dotnet-core-tool.md).
 
 If SpecSync is the first local .NET Core tool in your project, you have to initialize the .NET Core tool configuration first. For that open a command line prompt and go to your solution folder.
 

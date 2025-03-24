@@ -1,13 +1,13 @@
 # Install as .NET tool
 
 {% hint style="info" %}
-This install method is available for machines with .NET Core SDK 3.1 or higher (including .NET 6, .NET 7, .NET 8, .NET 9) installed regardless of whether the BDD project uses .NET or whether it uses .NET Core. Other [installation options](./) available.
+This install method is available for machines with .NET SDK 6 or higher (including .NET 7, .NET 8, .NET 9) installed regardless of whether the BDD project uses .NET or whether it uses .NET Core. Other [installation options](./) available.
 {% endhint %}
 
-The most convenient way to use SpecSync is to install it as a .NET tool. While .NET tools require .NET 6, 7, 8 SDK or .NET 9 SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET 6 SDK can be installed from the [.NET Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET SDK.
+The most convenient way to use SpecSync is to install it as a .NET tool. While .NET tools require .NET 6, 7, 8 SDK or .NET 9 SDK to be installed, that can be installed to any platforms, including Linux and macOS. It also supports execution in Docker containers. .NET 9 SDK can be installed from the [.NET Download](https://dotnet.microsoft.com/download) page. We recommend installing the latest .NET SDK.
 
 {% hint style="warning" %}
-The .NET 3.1 and .NET 5 frameworks are out of support and will [not receive security updates in the future](https://aka.ms/dotnet-core-support). SpecSync versions v3.5 will not run with .NET 3.1 and .NET 5. Please use SpecSync with .NET 6 or any of the other supported platforms.
+The .NET 6 and .NET 7 frameworks are out of support and will [not receive security updates in the future](https://aka.ms/dotnet-core-support). SpecSync versions v6 will not run with .NET 6 and .NET 7. Please use SpecSync with .NET 8 or any of the other supported platforms.
 {% endhint %}
 
 SpecSync can be installed as .NET tool, even if the project does not use .NET (e.g. uses Cucumber Java) or if it uses a different version of .NET (e.g. .NET Framework v4.7).
