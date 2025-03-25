@@ -36,6 +36,8 @@ The `upgrade` command upgrades the SpecSync configuration file after a SpecSync 
 dotnet specsync upgrade
 ```
 
+Please find the available command line options at the [`upgrade` command](../../reference/command-line-reference/upgrade-command.md) reference page.
+
 The command performs upgrades the configuration simple changes (e.g. renamed settings) automatically and provides options to configure optional features as well that have been introduced with the new version.
 
 The `upgrade` command only modifies the configuration file but it does not change anything in the Azure DevOps. So you can perform the `upgrade` command safely and review the changes in the configuration file manually before performing a synchronization.
