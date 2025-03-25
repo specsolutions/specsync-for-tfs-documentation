@@ -36,6 +36,7 @@
     * [Pulling Test Case changes to local scenarios](features/pull-features/two-way-synchronization.md)
   * [Common synchronization features](features/common-synchronization-features/README.md)
     * [Linking Work Items using tags](features/common-synchronization-features/linking-work-items-with-tags.md)
+    * [Synchronizing Test Case hierarchies using Test Suites](features/common-synchronization-features/synchronizing-test-case-hierarchies.md)
     * [Include synchronized Test Cases to a Test Suite](features/common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md)
     * [Excluding scenarios from synchronization](features/common-synchronization-features/excluding-scenarios-from-synchronization.md)
     * [Synchronization conflict resolution](features/common-synchronization-features/synchronization-conflict-resolution.md)
