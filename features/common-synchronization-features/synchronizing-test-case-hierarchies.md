@@ -22,25 +22,8 @@ Synchronizing to multiple hierarchies or hierarchies with more than 20 nodes req
 
 You can configure the hierarchies based on different commonly used rule-sets by choosing a *hierarchy type*. For example the following configuration defines a hierarchy that is based on the folder structure of the local test case documents. I.e. every folder and sub-folder becomes a hierarchy node. In the example above, the root hierarchy node is mapped to the `Scenarios by Folder` Test Suite of the `My plan` Test Plan.
 
-```javascript
-{
-  ...
-  "hierarchies": [
-    {
-      "name": "folder-hierarchy",
-      "type": "folders",
-      "root": {
-        "testPlan": "My plan",
-        "name": "Scenarios by Folder"
-      }
-    }
-  ],
-  ...
-}
-```
-
 {% code title="specsync.json" %}
-```javascript
+```json
 {
   ...
   "hierarchies": [
@@ -56,6 +39,7 @@ You can configure the hierarchies based on different commonly used rule-sets by 
   ...
 }
 ```
+{% endcode %}
 
 ## Supported hierarchy types
 
