@@ -22,6 +22,23 @@ Synchronizing to multiple hierarchies or hierarchies with more than 20 nodes req
 
 You can configure the hierarchies based on different commonly used rule-sets by choosing a *hierarchy type*. For example the following configuration defines a hierarchy that is based on the folder structure of the local test case documents. I.e. every folder and sub-folder becomes a hierarchy node. In the example above, the root hierarchy node is mapped to the `Scenarios by Folder` Test Suite of the `My plan` Test Plan.
 
+```javascript
+{
+  ...
+  "hierarchies": [
+    {
+      "name": "folder-hierarchy",
+      "type": "folders",
+      "root": {
+        "testPlan": "My plan",
+        "name": "Scenarios by Folder"
+      }
+    }
+  ],
+  ...
+}
+```
+
 {% code title="specsync.json" %}
 ```javascript
 {
@@ -69,4 +86,8 @@ Regardless of the chosen hierarchy type there are some common settings that can 
 The `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types define a hierarchy based on the source documents of the local test cases. 
 
 The source documents are usually arranged into a logical folder and file structure that is also useful to maintain in Azure DevOps.
+
+All three types uses the folders and sub-folders of the source documents (e.g. feature files) as a core structure. 
+
+The default settings provide an 
 
