@@ -71,7 +71,33 @@ The `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types d
 
 The source documents are usually arranged into a logical folder and file structure that is also useful to maintain in Azure DevOps.
 
-All three types uses the folders and sub-folders of the source documents (e.g. feature files) as a core structure. 
+All three types uses the folders and sub-folders of the source documents (e.g. feature files) as a core structure, but `foldersAndFiles` and `foldersAndDocumentNames` also defines nodes based on the source documents (e.g. feature files) as well.
 
-The default settings provide an 
+Let's assume the following local test case structure.
+
+```text
+└ Authentication.feature
+   └ Scenario: User authenticates successfully with token
+└ Payments/
+   └ CardPayments.feature
+      └ Scenario: Card payment is successful
+      └ Scenario: Card payment was cancelled
+   └ BankTransferPayments.feature
+      └ Scenario: Bank payment instructions are sent
+└ Inventory/
+   └ MaintainInventory.feature
+      └ Scenario: A new product is added to the Inventory
+      └ Scenario: A product is removed from the Inventory
+   └ DisplayInventory.feature
+      └ Scenario: The details of a product is displayed
+   └ Reporting/
+      └ InventoryReports.feature
+         └ Scenario: Inventory day close report is generated
+
+└ Inventory/
+   ├ MaintainInventory.feature
+   │  ├ Scenario: A new product is added to the Inventory
+   │  └ Scenario: A product is removed from the Inventory
+   └ DisplayInventory.feature
+```
 
