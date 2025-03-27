@@ -50,10 +50,10 @@ The following table contains an overview of the supported hierarchy types. The s
 | `folders` | Defines the hierarchy based on the folders and sub-folders of the local test case documents (e.g. feature files). Each node will contain the local test cases (scenarios) of every document that is located directly in the related folder. See details [below](#the-folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
 | `foldersAndFiles` | Defines the hierarchy based on the folders, sub-folders and file names of the local test case documents (e.g. feature files). The file name extension is omitted. Each node will contain the test cases of the related local test case document. See details [below](#the-folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
 | `foldersAndDocumentNames` | Similar to `foldersAndFiles`, but for the leaf nodes, it uses the *name* of the local test case document instead of the file name when available. For example for feature files it uses the *feature name* (the name you specify after the `Feature:` prefix in the feature file). See details [below](#the-folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
-| `single` | Defines a hierarchy with a single node and all Test Cases that match to the optionally defined condition are included to that node. This hierarchy type can be seen as an direct alternative to the [Test Suite synchronization](group-synchronized-test-cases-to-a-test-suite.md) feature SpecSync provided earlier. |
 | `levels` | Defines a hierarchy where the different levels correspond to a particular property of the test cases. E.g. the top level is defined by the area of the test: "Payment", "Inventory", etc; and the second level is defined by the test type: "UI", "API", etc. The Test Cases will be included in nodes, like "Payment / API". See details [below](#the-levels-hierarchy-type). |
 | `tag` | The hierarchy nodes are defined by tags with a prefix, e.g. `@suite:Payment/API`. See details [below](#the-tag-hierarchy-type).|
-| `custom` | Specifies a hierarchy by specifying each node with a condition that defines which test case should be included to that node. The test case will be included to the first node with a matching condition. |
+| `single` | Defines a hierarchy with a single node and all Test Cases that match to the optionally defined condition are included to that node. This hierarchy type can be seen as an direct alternative to the [Test Suite synchronization](group-synchronized-test-cases-to-a-test-suite.md) feature SpecSync provided earlier. See details [below](#the-single-hierarchy-type). |
+| `custom` | Specifies a hierarchy by specifying each node with a condition that defines which test case should be included to that node. The test case will be included to the first node with a matching condition. See details [below](#the-custom-hierarchy-type). |
 
 ## Common hierarchy settings
 
@@ -470,3 +470,43 @@ The `/` character in the tag name is used to define the hierarchy structure. If 
 {% hint style="info" %}
 The `_` character in the tag name is automatically transformed to space by default. So for example the tag `@suite:Payments/FrontEnd_Category` would define a node with the second level as `FrontEnd Category`. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `false`.
 {% endhint %}
+
+## The `single` hierarchy type
+
+The `single` hierarchy type defines a hierarchy with a single node and all Test Cases that match to the optionally defined condition are included to that node.
+
+{% hint style="info" %}
+This hierarchy type can be seen as an direct alternative to the [Test Suite synchronization](group-synchronized-test-cases-to-a-test-suite.md) feature SpecSync provided earlier.
+{% endhint %}
+
+The following configuration defines a hierarchy with a single "BDD Scenarios" node(in Test Plan "My Plan") and includes all synchronized test cases that does not have an `@ignore` tag.
+
+{% code title="specsync.json" %}
+```json
+{
+  ...
+  "hierarchies": [
+    {
+      "type": "single",
+      "condition": "not @ignore",
+      "node": {
+        "name": "BDD Scenarios",
+        "testPlan": "My plan"
+      }
+    }
+  ],
+  ...
+}
+```
+{% endcode %}
+
+{% hint style="info" %}
+Specifying the root of the hierarchy using the `root` setting is not required, but if specified the settings in `node` overwrite the settings in `root`.
+{% endhint %}
+
+{% hint style="info" %}
+If condition is not specified, all Test Cases are included into the hierarchy node.
+{% endhint %}
+
+## The `custom` hierarchy type
+
