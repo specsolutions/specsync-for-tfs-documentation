@@ -43,7 +43,11 @@ The following list contains the detailed description of the most important featu
 
 ### Common synchronization features
 
+{% page-ref page="common-synchronization-features/remote-scope.md" %}
+
 {% page-ref page="common-synchronization-features/linking-work-items-with-tags.md" %}
+
+{% page-ref page="common-synchronization-features/synchronizing-test-case-hierarchies.md" %}
 
 {% page-ref page="common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md" %}
 
