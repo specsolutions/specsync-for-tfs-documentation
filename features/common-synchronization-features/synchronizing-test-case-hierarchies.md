@@ -75,7 +75,9 @@ All three types uses the folders and sub-folders of the source documents (e.g. f
 
 Let's assume the following local test case structure. The SpecSync configuration root folder is the folder that contains the `specsync.json` configuration file. 
 
-If the files are not directly in the SpecSync configuration root folder, but in a sub-folder, you can consider using the `skipFolderPrefix` setting, see details below.
+{% hint style="info" %}
+If the files are not directly in the SpecSync configuration root folder, but in a sub-folder, you can consider using the `skipFolderPrefix` setting, see details [below](#skipping-folder-prefix).
+{% endhint %}
 
 ```text
 <SpecSync configuration root folder>
@@ -141,6 +143,8 @@ Assuming the feature names of the example files are the same of the file names e
       └ Inventory Reports: Contains #8
 ```
 
+### Skipping folder prefix
+
 In some cases the source documents are in a sub-folder of the SpecSync configuration root folder and you don't want to represent those folders in the hierarchy. Let's consider the following structure.
 
 ```text
@@ -192,3 +196,197 @@ As a result, the following hierarchy is generated.
 ```
 
 The `skipFolderPrefix` setting can be used for `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types.
+
+## `levels` hierarchy type
+
+The `levels` hierarchy type defines a hierarchy where the different levels correspond to a particular property or categorization of the test cases. This is useful when the levels of the desired structure is defined according to some aspects. 
+
+Let's assume we would like to build a hierarchy with three levels:
+
+* level 1: area (e.g. "Payments")
+* level 2: component (e.g. "FrontEnd")
+* level 3: test category (e.g. "Regression")
+
+With this specification the Test Cases would be included to hierarchy nodes, like "Payments / FrontEnd / Regression". 
+
+Consider the following feature file.
+
+{% code title="Features/Payments/CardPayments.feature" %}
+```gherkin
+Feature: Card Payments
+
+@component:FrontEnd
+Rule: Card payment can be initiated from the UI
+
+  @smoke
+  Scenario: Card payment is started (#1)
+  [...]
+  
+  @regression
+  Scenario: Card payment is successful (#2)
+  [...]
+
+Rule: Card payment is logged
+
+  @component:BackEnd
+  @regression
+  Scenario: Card payment is added to transaction log (#3)
+  [...]
+```
+{% endcode %}
+
+The folder of the feature file (`Payments`), the tags of the scenarios and the tags "inherited" from the `Feature` and `Rule` headers define the aspects of the test cases that we would like to use:
+
+* Scenario #1: Card payment is started
+  * Area: Payments
+  * Component: FrontEnd
+  * Category: Smoke
+* Scenario #2: Card payment is successful
+  * Area: Payments
+  * Component: FrontEnd
+  * Category: Regression
+* Scenario #3: Card payment is added to transaction log
+  * Area: Payments
+  * Component: BackEnd
+  * Category: Regression
+
+{% hint style="info" %}
+In some cases a particular aspect cannot be detected (e.g. the scenario has neither `@regression` nor `@smoke` tag). You can configure how SpecSync should handle this case with the `onNotMatching` and the `nameForNotMatching` level settings. See details [below](TODO).
+{% endhint %}
+
+The levels can be specified with conditions similar to the ones that are used for [updating Test Case fields](../push-features/update-test-case-fields.md).
+
+The following hierarchy configuration can be used to define the hierarchy with the "area", "component" and "test category" levels.
+
+{% code title="specsync.json" %}
+```json
+{
+  ...
+  "hierarchies": [
+    {
+      "type": "levels",
+      "levels": [
+        { // level 1: area
+          "condition": "$sourceFile ~ Features/*/" // takes the folder below Features/
+        },
+        { // level 2: component
+          "condition": "@component:*" // takes the component from tag
+        },
+        { // level 3: test category
+          "conditionalName": {
+            "@smoke": "Smoke",
+            "@regression": "Regression"
+          }
+        }
+      ]
+    }
+  ],
+  ...
+}
+```
+{% endcode %}
+
+Synchronizing the feature file above would generate the following hierarchy.
+
+```text
+<root>: Empty
+└ Payments: Empty
+   ├ FrontEnd: Empty
+   │  ├ Smoke: Contains #1
+   │  └ Regression: Contains #2
+   └ BackEnd: Empty
+      └ Regression: Contains #3
+```
+
+### Customize node name
+
+When a level is defined with a wildcard match the hierarchy node name will use the value that has matched to the wildcard. The default behavior can be changed by specifying the `name` level setting.
+
+Let's say we would like to define the second level as `FrontEnd Category` and `BackEnd Category` instead of `FrontEnd` and `BackEnd`. This can be achieved by the following configuration.
+
+{% code title="specsync.json" %}
+```json
+{
+  ...
+  "hierarchies": [
+    {
+      "type": "levels",
+      "levels": [
+        { // level 1: area
+          [...]
+        },
+        { // level 2: component
+          "condition": "@component:*", // takes the component from tag
+          "name": "{1} Category"
+        },
+        { // level 3: test category
+          [...]
+        }
+      ]
+    }
+  ],
+  ...
+}
+```
+{% endcode %}
+
+In the `name` level setting, the placeholder `{1}` refers to the first wildcard, `{2}` to the second wildcard (if present), and so on. 
+
+With this configuration, the generated hierarchy would become:
+
+```text
+<root>
+└ Payments
+   ├ FrontEnd Category
+   │  ├ Smoke
+   │  └ Regression
+   └ BackEnd Category
+      └ Regression
+```
+
+{% hint style="info" %}
+The matched level name may contain multiple hierarchy path nodes separated by `/`. This can be used for special cases, for example a tag `@frontEndSmoke` could be mapped to the hierarchy node path `FrontEnd/Smoke`.
+{% endhint %}
+
+### Handling non-matching levels
+
+Ideally the value for each level can be detected based on the source path and the tags. In some cases some cases the scenarios are classified to a "default" category. For example the team may decide that if the scenario has no `@component:xxx` tag, it should belong to the "General" component. They might also decide to just include these Test Cases to the parent hierarchy node.
+
+SpecSync provides multiple options to handle this situation by specifying the `onNotMatching` level setting. For example the following configuration uses a "General" component if the `@component:xxx` tag is missing.
+
+
+{% code title="specsync.json" %}
+```json
+{
+  ...
+  "hierarchies": [
+    {
+      "type": "levels",
+      "levels": [
+        { // level 1: area
+          [...]
+        },
+        { // level 2: component
+          "condition": "@component:*", // takes the component from tag
+          "onNotMatching": "customName",
+          "nameForNotMatching": "General"
+        },
+        { // level 3: test category
+          [...]
+        }
+      ]
+    }
+  ],
+  ...
+}
+```
+{% endcode %}
+
+The following table contains the possible values for the `onNotMatching` level setting. The default is `ignore` for top level and `skipLevel` for the other levels.
+
+| Value | Description |
+| ----- | ----------- |
+| `ignore` | The Test Case is ignored and will not be included to this hierarchy. In the example above, if `@component:xxx` tag is missing the Test Case would not be included in the hierarchy. |
+| `skipLevel` | The non-matching level is skipped, so all levels below would be promoted by one. In the example above, if `@component:xxx` tag is missing the Test Case would be included in a node like "Payments / Smoke". |
+| `includeToParent` | The Test Case is included to the hierarchy node of the previous (parent) level node but the remaining levels are not processed. In the example above, if `@component:xxx` tag is missing the Test Case would be included in the "Payments" node, regardless of whether it has `@smoke` tag. |
+| `customName` | A custom name is used instead that has to be specified using the `nameForNotMatching` level setting. In the example above, if `@component:xxx` tag is missing a "General" component level can be used instead. |
