@@ -44,6 +44,8 @@ The following configuration defines a hierarchy named `folder-hierarchy` based o
 ```
 {% endcode %}
 
+This feature description describes the usage of this feature. You can also check the reference guide of the [`hierarchies` configuration setting](../../reference/configuration/configuration-hierarchies.md).
+
 ## Supported hierarchy types
 
 The following table contains an overview of the supported hierarchy types. The sections below contain further details for the different types. The [common hierarchy settings](#common-hierarchy-settings) can be used for each hierarchy type.

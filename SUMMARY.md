@@ -107,6 +107,7 @@
     * [attachments](reference/configuration/configuration-synchronization/configuration-synchronization-attachments.md)
     * [format](reference/configuration/configuration-synchronization/configuration-synchronization-format.md)
     * [fieldUpdates](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md)
+  * [hierarchies](reference/configuration/configuration-hierarchies.md)
   * [publishTestResults](reference/configuration/configuration-publishtestresults.md)
   * [specFlow](reference/configuration/configuration-specflow.md)
   * [reqnroll](reference/configuration/configuration-reqnroll.md)

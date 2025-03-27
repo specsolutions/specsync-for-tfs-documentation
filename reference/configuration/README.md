@@ -57,6 +57,7 @@ The following configuration sections can be used. Click to the name of the secti
 * [`remote`](configuration-remote.md) — Settings for accessing the test cases on the remote Azure DevOps server
 * [`knownRemotes`](configuration-knownRemotes.md) — Specify connection and authentication details of Azure DevOps projects that are used by multiple synchronization projects. This setting can be used in [user-specific configuration files](../../features/general-features/hierarchical-configuration-files.md).
 * [`synchronization`](configuration-synchronization/) — synchronization settings
+* [`hierarchies`](configuration-hierarchies.md) — Test Case hierarchy synchronization settings
 * [`publishTestResults`](configuration-publishtestresults.md) - test result publish settings
 * [`specFlow`](configuration-specflow.md) — settings related to synchronizing SpecFlow projects
 {%AzureDevOps%}
