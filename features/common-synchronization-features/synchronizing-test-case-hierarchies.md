@@ -43,7 +43,7 @@ You can configure the hierarchies based on different commonly used rule-sets by 
 
 ## Supported hierarchy types
 
-The following table contains an overview of the supported hierarchy types. The sections below contain further details for the different types. The [](#common-hierarchy-settings) can be used for each hierarchy type.
+The following table contains an overview of the supported hierarchy types. The sections below contain further details for the different types. The [common hierarchy settings](#common-hierarchy-settings) can be used for each hierarchy type.
 
 | Type | Description |
 | ---- | ----------- |
@@ -73,31 +73,122 @@ The source documents are usually arranged into a logical folder and file structu
 
 All three types uses the folders and sub-folders of the source documents (e.g. feature files) as a core structure, but `foldersAndFiles` and `foldersAndDocumentNames` also defines nodes based on the source documents (e.g. feature files) as well.
 
-Let's assume the following local test case structure.
+Let's assume the following local test case structure. The SpecSync configuration root folder is the folder that contains the `specsync.json` configuration file. 
+
+If the files are not directly in the SpecSync configuration root folder, but in a sub-folder, you can consider using the `skipFolderPrefix` setting, see details below.
 
 ```text
-└ Authentication.feature
-   └ Scenario: User authenticates successfully with token
-└ Payments/
-   └ CardPayments.feature
-      └ Scenario: Card payment is successful
-      └ Scenario: Card payment was cancelled
-   └ BankTransferPayments.feature
-      └ Scenario: Bank payment instructions are sent
-└ Inventory/
-   └ MaintainInventory.feature
-      └ Scenario: A new product is added to the Inventory
-      └ Scenario: A product is removed from the Inventory
-   └ DisplayInventory.feature
-      └ Scenario: The details of a product is displayed
-   └ Reporting/
-      └ InventoryReports.feature
-         └ Scenario: Inventory day close report is generated
-
+<SpecSync configuration root folder>
+├ Authentication.feature
+│  └ Scenario: User authenticates successfully with token (#1)
+├ Payments/
+│  ├ CardPayments.feature
+│  │  ├ Scenario: Card payment is successful (#2)
+│  │  └ Scenario: Card payment was cancelled (#3)
+│  └ BankTransferPayments.feature
+│     └ Scenario: Bank payment instructions are sent (#4)
 └ Inventory/
    ├ MaintainInventory.feature
-   │  ├ Scenario: A new product is added to the Inventory
-   │  └ Scenario: A product is removed from the Inventory
-   └ DisplayInventory.feature
+   │  ├ Scenario: A new product is added to the Inventory (#5)
+   │  └ Scenario: A product is removed from the Inventory (#6)
+   ├ DisplayInventory.feature
+   │  └ Scenario: The details of a product is displayed (#7)
+   └ Reporting/
+      └ InventoryReports.feature
+         └ Scenario: Inventory day close report is generated (#8)
 ```
 
+Choosing the `folders` hierarchy type would generate the following hierarchy structure from the local test case structure above.
+
+```text
+<root>: Contains #1
+├ Payments: Contains #2, #3, #4
+└ Inventory: Contains #5, #6, #7
+   └ Reporting: Contains #8
+```
+
+The `<root>` node can be mapped to a root location in Azure DevOps, see [common hierarchy settings](#common-hierarchy-settings) for details. In Azure DevOps the root location can be a Test Suite in a Test Plan (or the root Test Suite of the Test Plan).
+
+Choosing the `foldersAndFiles` hierarchy type would define nodes from the files as well.
+```text
+<root>: Empty
+├ Authentication: Contains #1
+├ Payments: Empty
+│  ├ CardPayments: Contains #2, #3
+│  └ BankTransferPayments: Contains #4
+└ Inventory: Empty
+   ├ MaintainInventory: Contains #5, #6
+   ├ DisplayInventory: Contains #7
+   └ Reporting: Empty
+      └ InventoryReports: Contains #8
+```
+
+
+Choosing the `foldersAndDocumentNames` hierarchy type almost identical to `foldersAndFiles` except that it uses the *name* of the local test case document instead of the file name when available. For example for feature files it uses the *feature name* (the name you specify after the `Feature:` prefix in the feature file).
+
+Assuming the feature names of the example files are the same of the file names except of spaces, the hierarchy would look like the following.
+
+```text
+<root>: Empty
+├ Authentication: Contains #1
+├ Payments: Empty
+│  ├ Card Payments: Contains #2, #3
+│  └ Bank Transfer Payments: Contains #4
+└ Inventory: Empty
+   ├ Maintain Inventory: Contains #5, #6
+   ├ Display Inventory: Contains #7
+   └ Reporting: Empty
+      └ Inventory Reports: Contains #8
+```
+
+In some cases the source documents are in a sub-folder of the SpecSync configuration root folder and you don't want to represent those folders in the hierarchy. Let's consider the following structure.
+
+```text
+<SpecSync configuration root folder>
+└ src/
+   └ features/
+      ├ Authentication.feature
+      └ Inventory/
+        ├ MaintainInventory.feature
+        ├ DisplayInventory.feature
+        └ Reporting/
+            └ InventoryReports.feature
+```
+
+By default the `src/features` folders would become part of the hierarchy. For example with `folders` type, it would generate the following structure.
+
+
+```text
+<root>
+└ src
+   └ features
+      └ Inventory
+        └ Reporting
+```
+
+To avoid generating hierarchy nodes from `src/features`, you can use the `skipFolderPrefix` setting:
+
+{% code title="specsync.json" %}
+```json
+{
+  ...
+  "hierarchies": [
+    {
+      "type": "folders",
+      "skipFolderPrefix": "src/features"
+    }
+  ],
+  ...
+}
+```
+{% endcode %}
+
+As a result, the following hierarchy is generated.
+
+```text
+<root>
+└ Inventory
+  └ Reporting
+```
+
+The `skipFolderPrefix` setting can be used for `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types.
