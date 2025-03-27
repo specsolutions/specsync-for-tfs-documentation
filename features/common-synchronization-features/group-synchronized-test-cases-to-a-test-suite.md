@@ -1,4 +1,10 @@
-# Include synchronized Test Cases to a Test Suite
+# Include synchronized Test Cases to a Test Suite (deprecated)
+
+{% hint style="warning" %}
+With SpecSync v5 the `remote/testSuite` setting described here has been deprecated. 
+For including synchronized Test Cases to a Test Suite, please use the [Synchronizing Test Case hierarchies using Test Suites](synchronizing-test-case-hierarchies.md) feature. 
+For ensuring that SpecSync can detect local test case deletions, please use the [Remote scope](remote-scope.md) feature.
+{% endhint %}
 
 To be able to easily find these synchronized test cases in Azure DevOps, they can be added to test suites. SpecSync can automatically add/remove the synchronized test cases to a test suite. For this you have to specify the name or the ID or the name of the test suite in the configuration.
 
