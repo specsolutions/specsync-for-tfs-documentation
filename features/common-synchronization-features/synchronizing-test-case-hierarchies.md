@@ -69,8 +69,7 @@ Regardless of the chosen hierarchy type there are some common settings that can 
 * **`condition`**: A [local test case condition](../general-features/local-test-case-conditions.md) to specify which test cases should be included to this hierarchy. By default all synchronized Test Cases is included.
 * **`root`**: Specifies the root location in Azure DevOps, where the hierarchy should be mapped to. The root location specified here will be mapped to the root of the hierarchy. In Azure DevOps the root can be specified by specifying a Test Plan (`testPlan` setting) and either a Test Suite `name`, `path` or `id`. If only a Test Plan is specified, the root Test Suite of the plan will be used as the root. For most of the hierarchy types, specifying the `root` is mandatory.
 * **`ignoreAdditionalNodes`**: By default SpecSync generates a warning if the hierarchy in Azure DevOps contains additional nodes (nodes that are not defined by the hierarchy). If such additional nodes are required, it is recommended to set this setting to `true` to avoid unnecessary warnings.
-* **`disableUnderscoreTransformation`**: The `_` character in the matched node names are automatically transformed to space by default. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `false`. This setting can be used for `levels` and `tag` hierarchy types.
-{% endhint %}
+* **`disableUnderscoreTransformation`**: The `_` character in the matched node names are automatically transformed to space by default. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `true`. This setting can be used for `levels` and `tag` hierarchy types.
 
 
 ## The `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types
@@ -358,7 +357,7 @@ The matched level name may contain multiple hierarchy path nodes separated by `/
 
 
 {% hint style="info" %}
-The `_` character in the matched wildcards are automatically transformed to space by default. So for example the tag `@category:FrontEnd_Category` using the condition `@category:*` would define a node name `FrontEnd Category`. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `false`.
+The `_` character in the matched wildcards are automatically transformed to space by default. So for example the tag `@category:FrontEnd_Category` using the condition `@category:*` would define a node name `FrontEnd Category`. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `true`.
 {% endhint %}
 
 
@@ -473,7 +472,7 @@ The `/` character in the tag name is used to define the hierarchy structure. If 
 {% endhint %}
 
 {% hint style="info" %}
-The `_` character in the tag name is automatically transformed to space by default. So for example the tag `@suite:Payments/FrontEnd_Category` would define a node with the second level as `FrontEnd Category`. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `false`.
+The `_` character in the tag name is automatically transformed to space by default. So for example the tag `@suite:Payments/FrontEnd_Category` would define a node with the second level as `FrontEnd Category`. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `true`.
 {% endhint %}
 
 ## The `single` hierarchy type
