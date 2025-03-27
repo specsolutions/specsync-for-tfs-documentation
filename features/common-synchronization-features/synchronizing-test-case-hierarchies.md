@@ -47,11 +47,11 @@ The following table contains an overview of the supported hierarchy types. The s
 
 | Type | Description |
 | ---- | ----------- |
-| `folders` | Defines the hierarchy based on the folders and sub-folders of the local test case documents (e.g. feature files). Each node will contain the local test cases (scenarios) of every document that is located directly in the related folder. See details [below](#folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
-| `foldersAndFiles` | Defines the hierarchy based on the folders, sub-folders and file names of the local test case documents (e.g. feature files). The file name extension is omitted. Each node will contain the test cases of the related local test case document. See details [below](#folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
-| `foldersAndDocumentNames` | Similar to `foldersAndFiles`, but for the leaf nodes, it uses the *name* of the local test case document instead of the file name when available. For example for feature files it uses the *feature name* (the name you specify after the `Feature:` prefix in the feature file). See details [below](#folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
+| `folders` | Defines the hierarchy based on the folders and sub-folders of the local test case documents (e.g. feature files). Each node will contain the local test cases (scenarios) of every document that is located directly in the related folder. See details [below](#the-folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
+| `foldersAndFiles` | Defines the hierarchy based on the folders, sub-folders and file names of the local test case documents (e.g. feature files). The file name extension is omitted. Each node will contain the test cases of the related local test case document. See details [below](#the-folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
+| `foldersAndDocumentNames` | Similar to `foldersAndFiles`, but for the leaf nodes, it uses the *name* of the local test case document instead of the file name when available. For example for feature files it uses the *feature name* (the name you specify after the `Feature:` prefix in the feature file). See details [below](#the-folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
 | `single` | Defines a hierarchy with a single node and all Test Cases that match to the optionally defined condition are included to that node. This hierarchy type can be seen as an direct alternative to the [Test Suite synchronization](group-synchronized-test-cases-to-a-test-suite.md) feature SpecSync provided earlier. |
-| `levels` | Defines a hierarchy where the different levels correspond to a particular property of the test cases. E.g. the top level is defined by the area of the test: "Payment", "Inventory", etc; and the second level is defined by the test type: "UI", "API", etc. The Test Cases will be included in nodes, like "Payment / API". |
+| `levels` | Defines a hierarchy where the different levels correspond to a particular property of the test cases. E.g. the top level is defined by the area of the test: "Payment", "Inventory", etc; and the second level is defined by the test type: "UI", "API", etc. The Test Cases will be included in nodes, like "Payment / API". See details [below](#the-levels-hierarchy-type). |
 | `tag` | The hierarchy nodes are defined by tags with a prefix, e.g. `@suite:Payment/API`.|
 | `custom` | Specifies a hierarchy by specifying each node with a condition that defines which test case should be included to that node. The test case will be included to the first node with a matching condition. |
 
@@ -65,7 +65,7 @@ Regardless of the chosen hierarchy type there are some common settings that can 
 * **`root`**: Specifies the root location in Azure DevOps, where the hierarchy should be mapped to. The root location specified here will be mapped to the root of the hierarchy. In Azure DevOps the root can be specified by specifying a Test Plan (`testPlan` setting) and either a Test Suite `name`, `path` or `id`. If only a Test Plan is specified, the root Test Suite of the plan will be used as the root. For most of the hierarchy types, specifying the `root` is mandatory.
 * **`ignoreAdditionalNodes`**: By default SpecSync generates a warning if the hierarchy in Azure DevOps contains additional nodes (nodes that are not defined by the hierarchy). If such additional nodes are required, it is recommended to set this setting to `true` to avoid unnecessary warnings.
 
-## `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types
+## The `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types
 
 The `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types define a hierarchy based on the source documents of the local test cases. 
 
@@ -197,7 +197,7 @@ As a result, the following hierarchy is generated.
 
 The `skipFolderPrefix` setting can be used for `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types.
 
-## `levels` hierarchy type
+## The `levels` hierarchy type
 
 The `levels` hierarchy type defines a hierarchy where the different levels correspond to a particular property or categorization of the test cases. This is useful when the levels of the desired structure is defined according to some aspects. 
 
@@ -251,7 +251,7 @@ The folder of the feature file (`Payments`), the tags of the scenarios and the t
   * Category: Regression
 
 {% hint style="info" %}
-In some cases a particular aspect cannot be detected (e.g. the scenario has neither `@regression` nor `@smoke` tag). You can configure how SpecSync should handle this case with the `onNotMatching` and the `nameForNotMatching` level settings. See details [below](TODO).
+In some cases a particular aspect cannot be detected (e.g. the scenario has neither `@regression` nor `@smoke` tag). You can configure how SpecSync should handle this case with the `onNotMatching` and the `nameForNotMatching` level settings. See details [below](#handling-non-matching-levels).
 {% endhint %}
 
 The levels can be specified with conditions similar to the ones that are used for [updating Test Case fields](../push-features/update-test-case-fields.md).
@@ -316,7 +316,7 @@ Let's say we would like to define the second level as `FrontEnd Category` and `B
           [...]
         },
         { // level 2: component
-          "condition": "@component:*", // takes the component from tag
+          "condition": "@component:*",
           "name": "{1} Category"
         },
         { // level 3: test category
@@ -367,7 +367,7 @@ SpecSync provides multiple options to handle this situation by specifying the `o
           [...]
         },
         { // level 2: component
-          "condition": "@component:*", // takes the component from tag
+          "condition": "@component:*",
           "onNotMatching": "customName",
           "nameForNotMatching": "General"
         },
