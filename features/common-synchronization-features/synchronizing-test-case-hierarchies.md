@@ -52,7 +52,7 @@ The following table contains an overview of the supported hierarchy types. The s
 | `foldersAndDocumentNames` | Similar to `foldersAndFiles`, but for the leaf nodes, it uses the *name* of the local test case document instead of the file name when available. For example for feature files it uses the *feature name* (the name you specify after the `Feature:` prefix in the feature file). See details [below](#the-folders-foldersandfiles-and-foldersanddocumentnames-hierarchy-types). |
 | `single` | Defines a hierarchy with a single node and all Test Cases that match to the optionally defined condition are included to that node. This hierarchy type can be seen as an direct alternative to the [Test Suite synchronization](group-synchronized-test-cases-to-a-test-suite.md) feature SpecSync provided earlier. |
 | `levels` | Defines a hierarchy where the different levels correspond to a particular property of the test cases. E.g. the top level is defined by the area of the test: "Payment", "Inventory", etc; and the second level is defined by the test type: "UI", "API", etc. The Test Cases will be included in nodes, like "Payment / API". See details [below](#the-levels-hierarchy-type). |
-| `tag` | The hierarchy nodes are defined by tags with a prefix, e.g. `@suite:Payment/API`.|
+| `tag` | The hierarchy nodes are defined by tags with a prefix, e.g. `@suite:Payment/API`. See details [below](#the-tag-hierarchy-type).|
 | `custom` | Specifies a hierarchy by specifying each node with a condition that defines which test case should be included to that node. The test case will be included to the first node with a matching condition. |
 
 ## Common hierarchy settings
@@ -64,6 +64,9 @@ Regardless of the chosen hierarchy type there are some common settings that can 
 * **`condition`**: A [local test case condition](../general-features/local-test-case-conditions.md) to specify which test cases should be included to this hierarchy. By default all synchronized Test Cases is included.
 * **`root`**: Specifies the root location in Azure DevOps, where the hierarchy should be mapped to. The root location specified here will be mapped to the root of the hierarchy. In Azure DevOps the root can be specified by specifying a Test Plan (`testPlan` setting) and either a Test Suite `name`, `path` or `id`. If only a Test Plan is specified, the root Test Suite of the plan will be used as the root. For most of the hierarchy types, specifying the `root` is mandatory.
 * **`ignoreAdditionalNodes`**: By default SpecSync generates a warning if the hierarchy in Azure DevOps contains additional nodes (nodes that are not defined by the hierarchy). If such additional nodes are required, it is recommended to set this setting to `true` to avoid unnecessary warnings.
+* **`disableUnderscoreTransformation`**: The `_` character in the matched node names are automatically transformed to space by default. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `false`. This setting can be used for `levels` and `tag` hierarchy types.
+{% endhint %}
+
 
 ## The `folders`, `foldersAndFiles` and `foldersAndDocumentNames` hierarchy types
 
@@ -348,6 +351,12 @@ With this configuration, the generated hierarchy would become:
 The matched level name may contain multiple hierarchy path nodes separated by `/`. This can be used for special cases, for example a tag `@frontEndSmoke` could be mapped to the hierarchy node path `FrontEnd/Smoke`.
 {% endhint %}
 
+
+{% hint style="info" %}
+The `_` character in the matched wildcards are automatically transformed to space by default. So for example the tag `@category:FrontEnd_Category` using the condition `@category:*` would define a node name `FrontEnd Category`. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `false`.
+{% endhint %}
+
+
 ### Handling non-matching levels
 
 Ideally the value for each level can be detected based on the source path and the tags. In some cases some cases the scenarios are classified to a "default" category. For example the team may decide that if the scenario has no `@component:xxx` tag, it should belong to the "General" component. They might also decide to just include these Test Cases to the parent hierarchy node.
@@ -390,3 +399,74 @@ The following table contains the possible values for the `onNotMatching` level s
 | `skipLevel` | The non-matching level is skipped, so all levels below would be promoted by one. In the example above, if `@component:xxx` tag is missing the Test Case would be included in a node like "Payments / Smoke". |
 | `includeToParent` | The Test Case is included to the hierarchy node of the previous (parent) level node but the remaining levels are not processed. In the example above, if `@component:xxx` tag is missing the Test Case would be included in the "Payments" node, regardless of whether it has `@smoke` tag. |
 | `customName` | A custom name is used instead that has to be specified using the `nameForNotMatching` level setting. In the example above, if `@component:xxx` tag is missing a "General" component level can be used instead. |
+
+## The `tag` hierarchy type
+
+The `tag` hierarchy type defines the hierarchy based on the hierarchy node paths specified using tags of a specified tag prefix.
+
+Consider the following feature file.
+
+{% code title="CardPayments.feature" %}
+```gherkin
+Feature: Card Payments
+
+Rule: Card payment can be initiated from the UI
+
+  @suite:Payments/FrontEnd/Smoke
+  Scenario: Card payment is started (#1)
+  [...]
+  
+  @suite:Payments/FrontEnd/Regression
+  Scenario: Card payment is successful (#2)
+  [...]
+
+Rule: Card payment is logged
+
+  @suite:Payments/BackEnd/Regression
+  Scenario: Card payment is added to transaction log (#3)
+  [...]
+```
+{% endcode %}
+
+The scenarios in the example above are tagged with a `@suite:xxx` tag that specifies the hierarchy node path (Test Suite path in Azure DevOps).
+
+The following hierarchy configuration can be used to define this hierarchy.
+
+{% code title="specsync.json" %}
+```json
+{
+  ...
+  "hierarchies": [
+    {
+      "type": "tag",
+      "tagPrefix": "suite"
+    }
+  ],
+  ...
+}
+```
+{% endcode %}
+
+Synchronizing the feature file above with this configuration would generate the following hierarchy.
+
+```text
+<root>: Empty
+└ Payments: Empty
+   ├ FrontEnd: Empty
+   │  ├ Smoke: Contains #1
+   │  └ Regression: Contains #2
+   └ BackEnd: Empty
+      └ Regression: Contains #3
+```
+
+{% hint style="info" %}
+SpecSync uses colon `:` as a default separator for values specified with tag prefixes. The allowed separators can be configured using the `synchronization/tagPrefixSeparators` configuration setting. For example setting this to `[':', '=']` would allow defining the path with both `@suite:Payments/FrontEnd/Smoke` and `@suite=Payments/FrontEnd/Smoke`.
+{% endhint %}
+
+{% hint style="info" %}
+The `/` character in the tag name is used to define the hierarchy structure. If a node name needs to have the `/` character, it has to be wrapped with quotes (`'` or `"`). For example the tag `@suite:"A/C"/Smoke` defines a two-level hierarchy, with the first level named `A/C` and the second level as `Smoke`.
+{% endhint %}
+
+{% hint style="info" %}
+The `_` character in the tag name is automatically transformed to space by default. So for example the tag `@suite:Payments/FrontEnd_Category` would define a node with the second level as `FrontEnd Category`. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `false`.
+{% endhint %}
