@@ -12,7 +12,7 @@ SpecSync will take care of
 * Creating the hierarchy nodes
 * Adding the Test Cases to the hierarchy nodes according to the configured rules
 * Moving the Test Cases between hierarchy nodes when the rules conditions change (e.g. scenario is moved to another feature file)
-* Removing the Test Case from the hierarchy node if it is detected to be removed (requires a configured [remote scope](TODO)).
+* Removing the Test Case from the hierarchy node if it is detected to be removed (requires a configured [remote scope](remote-scope.md)).
 
 Within one hierarchy each synchronized Test Case is included only once, but you can define multiple hierarchies. The hierarchy nodes might contain Test Cases that are not synchronized by SpecSync. These Test Cases have to be added to the hierarchy node manually, but SpecSync will not remove them during synchronization.
 
