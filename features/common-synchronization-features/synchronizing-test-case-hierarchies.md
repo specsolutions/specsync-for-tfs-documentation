@@ -20,7 +20,9 @@ Within one hierarchy each synchronized Test Case is included only once, but you 
 Synchronizing to multiple hierarchies or hierarchies with more than 20 nodes requires an [Enterprise license](../../licensing.md).
 {% endhint %}
 
-You can configure the hierarchies based on different commonly used rule-sets by choosing a *hierarchy type*. For example the following configuration defines a hierarchy that is based on the folder structure of the local test case documents. I.e. every folder and sub-folder becomes a hierarchy node. In the example above, the root hierarchy node is mapped to the `Scenarios by Folder` Test Suite of the `My plan` Test Plan.
+You can configure the hierarchies based on different commonly used rule-sets by choosing a *hierarchy type*. For example the following configuration defines a hierarchy that is based on the folder structure of the local test case documents. I.e. every folder and sub-folder becomes a hierarchy node.
+
+The following configuration defines a hierarchy named `folder-hierarchy` based on the folders and sub-folders of the files and includes all local test cases to the defined nodes that does not have an `@ignore` tag. In this example, the root hierarchy node is mapped to the `Scenarios by Folder` Test Suite of the `My plan` Test Plan.
 
 {% code title="specsync.json" %}
 ```json
@@ -30,6 +32,7 @@ You can configure the hierarchies based on different commonly used rule-sets by 
     {
       "name": "folder-hierarchy",
       "type": "folders",
+      "condition": "not @ignore",
       "root": {
         "testPlan": "My plan",
         "name": "Scenarios by Folder"
@@ -510,3 +513,77 @@ If condition is not specified, all Test Cases are included into the hierarchy no
 
 ## The `custom` hierarchy type
 
+The `custom` hierarchy type defines a hierarchy by configuring each node separately. For each node you can specify the node name or path and a condition that specifies which Test Cases should be included in that node. The test case will be included to the first node with a matching condition.
+
+{% hint style="info" %}
+This hierarchy type can be seen as an direct alternative to the [Add Test Cases to Suites](../push-features/customization-add-test-cases-to-suites.md) customization SpecSync provided earlier.
+{% endhint %}
+
+Consider the following feature file.
+
+{% code title="Features/Payments/CardPayments.feature" %}
+```gherkin
+Feature: Card Payments
+
+Rule: Card payment can be initiated from the UI
+
+  @smoke
+  Scenario: Card payment is started (#1)
+  [...]
+  
+  @regression
+  Scenario: Card payment is successful (#2)
+  [...]
+
+Rule: Card payment is logged
+
+  @regression
+  Scenario: Card payment is added to transaction log (#3)
+  [...]
+```
+{% endcode %}
+
+The following configuration defines a hierarchy similar to the example we defined using the [`levels` type](#the-levels-hierarchy-type).
+
+
+{% code title="specsync.json" %}
+```json
+{
+  ...
+  "hierarchies": [
+    {
+      "type": "custom",
+      "nodes": [
+        {
+          "path": "Payments/Smoke",
+          "condition": "$sourceFile ~ Features/Payments/ and @smoke"
+        },
+        {
+          "path": "Payments/Regression",
+          "condition": "$sourceFile ~ Features/Payments/ and @regression"
+        },
+        {
+          "name: "General"
+        }
+      ]
+    }
+  ],
+  ...
+}
+```
+{% endcode %}
+
+{% hint style="info" %}
+The node configurations within the `nodes` setting cannot be nested, but you can specify the nodes using `path` instead of `name` to build up a nested node hierarchy.
+{% endhint %}
+
+Synchronizing the feature file above with this configuration would generate the following hierarchy.
+
+```text
+<root>: Empty
+└ Payments: Empty
+   ├ Smoke: Contains #1
+   └ Regression: Contains #2, #3
+```
+
+The third configured node ("Generic") does not have a condition, so it will include all Test Cases that have not been included by the conditions of the prior nodes. This means that if there is an additional scenario that is not within the `Features/Payments/` folder or does not have neither a `@smoke` nor a `@regression` tag, it will be included here.
