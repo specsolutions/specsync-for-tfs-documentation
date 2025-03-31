@@ -35,6 +35,7 @@
   * [Pull features](features/pull-features/README.md)
     * [Pulling Test Case changes to local scenarios](features/pull-features/two-way-synchronization.md)
   * [Common synchronization features](features/common-synchronization-features/README.md)
+    * [Configuration key](features/common-synchronization-features/configuration-key.md)
     * [Remote scope](features/common-synchronization-features/remote-scope.md)
     * [Linking Work Items using tags](features/common-synchronization-features/linking-work-items-with-tags.md)
     * [Synchronizing Test Case hierarchies using Test Suites](features/common-synchronization-features/synchronizing-test-case-hierarchies.md)

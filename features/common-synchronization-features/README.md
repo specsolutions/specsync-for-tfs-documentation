@@ -2,6 +2,8 @@
 
 This chapter contains common synchronization features that are used both during [push](../push-features/) and [pull](../pull-features/) commands.
 
+{% page-ref page="configuration-key.md" %}
+
 {% page-ref page="remote-scope.md" %}
 
 {% page-ref page="linking-work-items-with-tags.md" %}

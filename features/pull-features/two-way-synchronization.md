@@ -76,7 +76,8 @@ Pulling links is supported from v3.4.
 
 ## Creating new scenarios from Test Cases
 
-By default, the pull command only loads the changes of the Test Cases that have been linked to a scenario already \(i.e. have been synchronized with SpecSync push once\).
+
+By default, the pull command only loads the changes of the Test Cases that have been linked to a scenario already (i.e. have been synchronized with SpecSync push once).
 
 You can enable creating new scenarios during pull using the [`synchronization/pull/enableCreatingScenariosForNewTestCases` configuration setting](../../reference/configuration/configuration-synchronization/configuration-synchronization-pull.md):
 
@@ -95,10 +96,47 @@ You can enable creating new scenarios during pull using the [`synchronization/pu
 }
 ```
 
-This setting works together with the test suite synchronization and will only create scenarios from the specified test suite. See more about using test suites in [Group synchronized Test Cases to a test suite](../common-synchronization-features/group-synchronized-test-cases-to-a-test-suite.md).
-
-As a result of the pull operation with this setting, SpecSync will create a new feature file for each new Test Case in the test suite. The feature files will be named based on the Test Case ID, e.g. `12345.feaure`. It is recommended to review and group these scenarios to other feature files. When moving the scenarios, make sure you also move the Test Case link tag \(e.g. `@tc:12345`\) together with the scenario to keep the link to the Test Case.
-
 {% hint style="info" %}
-With SpecSync v3.3 or later you can perform the pull operation with the `--createOnly` flag so that it only creates new scenarios and does not change the existing ones. With the flag it is not necessary to set the `synchronization/pull/enableCreatingScenariosForNewTestCases` configuration setting.
+You can perform the pull operation with the `--createOnly` flag so that it only creates new scenarios and does not change the existing ones. With the flag it is not necessary to set the `synchronization/pull/enableCreatingScenariosForNewTestCases` configuration setting.
 {% endhint %}
+
+This setting works together with *remote scopes* and will only create scenarios from the Test Cases in the configured remote scope. Read more about configuring remote scopes and the supported remote scope types in [Remote scope](../common-synchronization-features/remote-scope.md) feature documentation.
+
+The process workflow for creating new scenarios for new Test Cases is the following:
+
+1. Create a new Test Case in Azure DevOps
+2. Ensure that the new Test Case is included to the remote scope. E.g add the required tag to the Test Case in case of `tag` remote scope type. The exact action depends on the remote scope type, please refer to the [Remote scope](../common-synchronization-features/remote-scope.md) documentation for details.
+3. Perform a SpecSync `pull` command with the `--createOnly` flag or set `synchronization/pull/enableCreatingScenariosForNewTestCases` to true and perform a complete `pull` command.
+
+As a result of the pull operation with this setting, SpecSync will create a new feature file for each new Test Case in the remote scope. The feature files will be named based on the Test Case ID, e.g. `12345.feaure`. It is recommended to review and group these scenarios to other feature files. When moving the scenarios, make sure you also move the Test Case link tag (e.g. `@tc:12345`) together with the scenario to keep the link to the Test Case.
+
+## Alternative workflow for creating new scenarios from Test Cases
+
+In the section [above](#creating-new-scenarios-from-test-cases) described a workflow that requires to add the Test Cases to the remote scope manually in Azure DevOps.
+
+In some cases this might not be possible (e.g. the chosen remote scope type does not support manual additions) or moving the newly created local scenario from the temporary location to the final document as a separate step is inconvenient.
+
+In this cases the following alternative workflow can be considered.
+
+1. Create a new Test Case in Azure DevOps
+2. Add a *scenario stub* with the ID of the newly created Test Case to the position of any of the existing feature files. See an example scenario stub below.
+3. Perform a SpecSync `pull` command.
+
+The *scenario stub* is an empty scenario heading that is tagged with an appropriate Test Case ID tag. Assuming that the ID of the newly created Test Case was `1234`, the scenario stub might look like this (no scenario steps are required):
+
+```gherkin
+@tc:1234
+Scenario: -
+```
+
+During the pull command, SpecSync will detect that the scenario stub is linked to the Test Case and that the scenario details are outdated, so it will replace the scenario title and the scenario steps based on the Test Case:
+
+```gherkin
+@tc:1234
+Scenario: [title of Test Case]
+  [first step of the Test Case, e.g. 'Given some context']
+  [second step of Test Case]
+  ...
+```
+
+In case of mass creation of scenarios using this approach (e.g. from a list of Test Case IDs), you can create a script to generate the scenario stubs. You can review and adapt this [PowerShell script](https://gist.github.com/gasparnagy/b6bec2530497639ea4e3245f0affcdeb), that creates scenario stubs for SpecSync based on a [WIQL](https://learn.microsoft.com/en-us/azure/devops/boards/queries/wiql-syntax?view=azure-devops) query.
