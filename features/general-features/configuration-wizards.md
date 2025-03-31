@@ -26,7 +26,7 @@ During the execution of the command, the basic configuration settings (project U
 
 In case of [Personal Access Token \(PAT\) authentication](../../features/general-features/server-authentication-options.md), the command also offers you to save the authentication details to the user-specific configuration file, so that the credentials are not included in the project configuration.
 
-The `init` command also offers configuring some useful optional features, like remote scope or hierarchy synchronization.
+The `init` command also offers configuring some useful optional features, like [remote scope](../common-synchronization-features/remote-scope.md) or [hierarchy synchronization](../common-synchronization-features/synchronizing-test-case-hierarchies.md).
 
 ## Upgrade wizard
 

@@ -2,12 +2,12 @@
 
 When synchronizing the scenarios from a local repository you can define different set of scenarios to be synchronized. Maybe you want to synchronize all scenarios within the repository in one batch but maybe you need to have separate synchronization rules for the frontend and the backend scenarios. 
 
-The feature-set to be synchronized is called the *local scope* in SpecSync and can be specified using the [`local` configuration file settings](../reference/configuration/configuration-local.md). You can learn about local and remote scopes and the difference between scopes and filers in the guide [Filters and scopes](filters-and-scopes.md).
+The feature-set to be synchronized is called the *local scope* in SpecSync and can be specified using the [`local` configuration file settings](../reference/configuration/configuration-local.md). You can learn about local and [remote scopes](../features/common-synchronization-features/remote-scope.md) and the difference between scopes and filers in the guide [Filters and scopes](filters-and-scopes.md).
 
 In this guide you will find the most common scenarios and the necessary steps to do this.
 
 {% hint style="info" %}
-The local scope is used to define the set of feature files to be synchronized using the [push command](../reference/command-line-reference/push-command.md) or to identify the test results using the [publish-test-results command](../reference/command-line-reference/publish-test-results-command.md). To consider the Test Cases to synchronize back, using the [pull command](../reference/command-line-reference/pull-command.md), the *remote scope* can be specified. See more information about the remote scope in the [Filters and scopes](filters-and-scopes.md#setting-remote-scope) guide.
+The local scope is used to define the set of feature files to be synchronized using the [push command](../reference/command-line-reference/push-command.md) or to identify the test results using the [publish-test-results command](../reference/command-line-reference/publish-test-results-command.md). To consider the Test Cases to synchronize back, using the [pull command](../reference/command-line-reference/pull-command.md), the *remote scope* can be specified. See more information about this in the [Remote scope](../features/common-synchronization-features/remote-scope.md) documentation.
 {% endhint %}
 
 ## Synchronize all scenarios from a folder

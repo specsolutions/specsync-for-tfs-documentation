@@ -2,7 +2,7 @@
 
 A *remote scope* is a configuration setting in SpecSync that defines the set of Azure DevOps Test Cases that are to be considered for synchronization from a particular SpecSync configuration. 
 
-The primary purpose of the remote scope is that it helps SpecSync detect if a local test case has been removed, for example when a scenario has been deleted from a feature file (see details [below](#processing-removed-local-test-cases)). The remote scope is also used for [pull command](../pull-features/two-way-synchronization.md#creating-new-scenarios-from-test-cases) to create new local test cases based on Azure DevOps Test Cases.
+The primary purpose of the remote scope is to detect if a local test case has been removed, for example when a scenario has been deleted from a feature file (see details [below](#processing-removed-local-test-cases)). The remote scope is also used for [pull command](../pull-features/two-way-synchronization.md#creating-new-scenarios-from-test-cases) to create new local test cases based on Azure DevOps Test Cases.
 
 Configuring a remote scope is optional, but recommended. If no remote scope is configured SpecSync will not be able to detect removed local test cases and the related option for the pull command will not be available.
 
@@ -78,7 +78,7 @@ The following configuration file configures a *test suite remote scope*.
 
 Choosing the ideal remote scope type might require some considerations. This section helps to make the right choice. Nevertheless the chosen remote scope type can be changed later, with minimal efforts and impact on the synchronized Test Cases. (If you change the remote scope type, make sure you perform a full (unfiltered) *push* synchronization so that the remote scope is established.)
 
-* As a general default recommendation, we suggest to choose the `managedQuery` remote scope type, because that is the easiest to configure and works optimal in the most situations.
+* As a general **default recommendation**, we suggest to choose the `managedQuery` remote scope type, because that is the easiest to configure and works optimal in the most situations.
 * If your configuration needs to be **backwards compatible** with SpecSync v3.4 or earlier (e.g. other processes depend on a single Test Suite containing all synchronized Test Cases) or you would like to **delay the decision** after migrating to v5, you should choose the `testSuite` remote scope type, because that is a compatibly direct replacement of the remote scopes configured with `remote/testSuite` earlier. The [Upgrade configuration wizard](../general-features/configuration-wizards.md#upgrade-wizard) can be used to upgrade the old setting to a `testSuite` remote scope.
 * If you often need to **construct Azure DevOps queries** that list Test Cases synchronized from a particular SpecSync configuration (e.g. make a query that lists all synchronized Test Cases from the synchronized backend tests that are in "Design" state), you should consider the `tag` remote scope type, because you can use the added tags in Azure DevOps queries.
 * If you often use SpecSync to **create local test cases** (scenarios) **from Test Cases** manually created in Azure DevOps using the [*pull* command](../pull-features/two-way-synchronization.md#creating-new-scenarios-from-test-cases), you should consider `tag` or `testSuite` remote scope types, because with these you can add Test Cases to the remote scope manually in Azure DevOps. (For other remote scope types, you can still use the [alternative workflow](../pull-features/two-way-synchronization.md#alternative-workflow-for-creating-new-scenarios-from-test-cases).)
@@ -89,11 +89,11 @@ Choosing the ideal remote scope type might require some considerations. This sec
 
 ## Processing removed local test cases
 
-As mentioned above the the primary purpose of the remote scope is that it helps SpecSync detect if a local test case has been removed, for example when a scenario has been deleted from a feature file.
+As mentioned above the the primary purpose of the remote scope is to detect if a local test case has been removed, for example when a scenario has been deleted from a feature file.
 
 This detection is performed during *push* synchronization in a way that SpecSync loads the Test Case IDs that are in remote scope and matches them to the processed local test cases (e.g. scenarios) as the following example shows.
 
-![Remote scope detects removed scenario](../../img/remote_scope_detects_removed_scenario.png)
+![Remote scope is used to detect removed scenario](../../img/remote_scope_detects_removed_scenario.png)
 
 In this example, the Test Case #12 is in the remote scope, because SpecSync has included it earlier when the related scenario was synchronized. The scenario has been removed from the feature file, so SpecSync will not find a matching scenario for Test Case #12 therefore it is considered to be removed.
 
@@ -125,5 +125,5 @@ This behavior can be modified by setting the `toolSettings/forceProcessingRemova
 
 Thanks to the fact that SpecSync does not delete, but only tag the removed Test Cases, the removal is reversible.
 
-If the missing local test case (scenario) is restored and a *push* synchronization is performed, SpecSync will detect that there is already a Test Case corresponding to the restored local test case and it simply removes the added `specsync:removed` and `specsync:removed-from:<config-key>` tags. The restored Test Case will be included again to the remote scope and to any [Test Case hierarchies](synchronizing-test-case-hierarchies.md) it has been removed from. With that the original state is restored.
+If the removed local test case (scenario) is restored and a *push* synchronization is performed, SpecSync will detect that there is already a Test Case corresponding to the restored local test case and it simply removes the added `specsync:removed` and `specsync:removed-from:<config-key>` tags. The restored Test Case will be included again to the remote scope and to any [Test Case hierarchies](synchronizing-test-case-hierarchies.md) it has been removed from. With that the original state is restored.
 

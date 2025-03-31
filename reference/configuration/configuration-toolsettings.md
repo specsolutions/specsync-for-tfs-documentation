@@ -33,7 +33,7 @@ The following example shows the available options within this section.
 | `pluginCacheFolder` | Custom plugin cache folder to be used by SpecSync to download plugin packages. | plugins stored in the SpecSync app data folder | 
 | `disablePluginCache` | If set to true, SpecSync will always download or extract the plugin package even if the same plugin package version has been used already. This is useful for testing plugins. | `false` |
 | `plugins` | An array of [plugin configurations](#plugin-configuration). See [SpecSync Plugins](../../features/general-features/specsync-plugins.md) for details. | no plugins |
-| `forceProcessingRemovalsOnFilter` | If set to true, SpecSync will process removed local test cases (ie. add tag and remove from remote scope), even if the synchronization is filtered. | `false` |
+| `forceProcessingRemovalsOnFilter` | If set to true, SpecSync will process removed local test cases (ie. add tag and remove from [remote scope](../../features/common-synchronization-features/remote-scope.md)), even if the synchronization is filtered. | `false` |
 | `doNotSynchronizeAutomationUnlessEnabled` | If set to true, SpecSync will not synchronize the automation-related fields of the Test Case unless the `synchronization/automation/enabled` is set to `true`. With this setting, the automation fields can be updated by other tools or set using the [Update Test Case fields](../../features/push-features/update-test-case-fields.md#update-automation-fields) feature. | `false` |
 
 ### Plugin configuration 
