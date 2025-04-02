@@ -126,6 +126,12 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
 * Fix: Misleading error message when invalid ADO reference type is configured (#1482)
 
 
+## v3.4.26 - 2025/04/02
+
+### Bug fixes
+
+* Fix: Python Behave: Step error messages are repeated in Azure DevOps results when Behave `continue_after_failed_step` option is enabled and multiple steps fail (#1604)
+
 ## v3.4.25 - 2025/02/26
 
 ### Improvements
