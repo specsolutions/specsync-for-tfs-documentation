@@ -1,5 +1,10 @@
 # Synchronizing Test Case hierarchies using Test Suites
 
+{% hint style="warning" %}
+This feature is available with SpecSync v5 or above. 
+For trying it out, please check the [preview version of v5](../../changelog.md#v5).
+{% endhint %}
+
 Besides [synchronizing local test case details](../push-features/pushing-scenario-changes-to-test-cases.md) and [test results](../test-result-publishing-features/publishing-test-result-files.md) to Azure DevOps Test Cases, SpecSync can also help you to organize the remote Test Cases into hierarchical structures. In Azure DevOps that means that it can create and maintain Test Suite hierarchies and include the Test Cases to these Test Suites according to the configured rules. The test results can also be published to such a synchronized hierarchy.
 
 {% hint style="warning" %}

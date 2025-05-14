@@ -8,6 +8,11 @@ Configuring a remote scope is optional, but recommended. If no remote scope is c
 
 The remote scope is configured using the `remote/scope` configuration section. When configuring the remote scope, you can choose from different options on how the remote scope should be maintained by SpecSync. When changing the remote scope configuration, you need to perform a full (unfiltered) *push* synchronization so that the remote scope is established.
 
+{% hint style="warning" %}
+This feature has been significantly improved in SpecSync v5 and the configuration has been changed. In earlier versions only `testSuite` remote scope type was available that was configured using the `remote/testSuite` configuration setting. 
+For trying out the new extended behavior, please check the [preview version of v5](../../changelog.md#v5).
+{% endhint %}
+
 The following configuration file configures a *tag remote scope*.
 
 {% code title="specsync.json" %}
