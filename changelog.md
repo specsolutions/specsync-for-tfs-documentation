@@ -126,6 +126,19 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
 * Fix: Misleading error message when invalid ADO reference type is configured (#1482)
 
 
+## v3.4.27 - 2025/05/14
+
+### Improvements
+
+* Improve Cucumber JSON compatibility for Behave (#1605)
+* Cucumber JSON result: Improve detection of base64 embedding data (#1612)
+* Cucumber JSON result: Do not treat JSON embeddings as stdout (#1611)
+* Show step error message value in Azure DevOps step result for all step error types (#1610)
+
+### Bug fixes
+
+* Fix: Error during publishing test result with more than 1000 inner results (parametrized test execution), because Azure DevOps does not support publishing more than 1000 sub-results for a single test (#1617)
+
 ## v3.4.26 - 2025/04/02
 
 ### Bug fixes
