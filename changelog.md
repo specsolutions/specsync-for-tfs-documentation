@@ -124,6 +124,13 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
 * Fix: Source file filter conditions might not work with mixed path separators (#1528)
 * Fix: Whitespace is added after a parameter in Azure DevOps if the parameter is quoted or followed by a non-parameter character (#1146)
 * Fix: Misleading error message when invalid ADO reference type is configured (#1482)
+* Fixes for earlier previews:
+  * Fix: Unhandled error when filter criteria ands with `\` (#1527)
+  * Transform underscores in hierarchy wildcard matches to spaces (#1601)
+  * Allow capturing wildcards from path specifiers (#1599)
+  * Allow --runComment and  --testResultComment for Jira (#1458)
+  * Offer 'tag' as remote scope for Jira, use it as default for init (#1281)
+  * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
 
 
 ## v3.4.27 - 2025/05/14
