@@ -133,6 +133,13 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
 
 
+## v3.4.28 - 2025/07/01
+
+### Bug fixes
+
+* Fix: Requirement synchronization in dry-run mode leads to "E1125-1105" error (#1632)
+* Fix: Unhandled error: "An item with the same key has already been added." in case of duplicated examples column names (#1635)
+
 ## v3.4.27 - 2025/05/14
 
 ### Improvements
