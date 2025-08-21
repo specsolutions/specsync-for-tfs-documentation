@@ -12,10 +12,10 @@ The preview of the new v5 release is available! Please note that according to ou
 The usage of SpecSync plugins in the latest v5 preview release is temporarily disabled. Please check back at for an updated preview to try v5 with plugins.
 {% endhint %}
 
-* Windows: [SpecSync.AzureDevOps.Console.5.0.0-pre20250514-1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.5.0.0-pre20250514-1.zip)
-* Linux: [SpecSync.AzureDevOps.5.0.0-pre20250514-1-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.5.0.0-pre20250514-1-linux-x64.zip)
-* OSX: [SpecSync.AzureDevOps.5.0.0-pre20250514-1-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.5.0.0-pre20250514-1-osx-x64.zip)
-* Any platform (.NET 6, 7, 8 or .NET 9 SDK required): [SpecSync.AzureDevOps.5.0.0-pre20250514-1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.5.0.0-pre20250514-1.zip)
+* Windows: [SpecSync.AzureDevOps.Console.5.0.0-pre20250821-1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.Console.5.0.0-pre20250821-1.zip)
+* Linux: [SpecSync.AzureDevOps.5.0.0-pre20250821-1-linux-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.5.0.0-pre20250821-1-linux-x64.zip)
+* OSX: [SpecSync.AzureDevOps.5.0.0-pre20250821-1-osx-x64.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.5.0.0-pre20250821-1-osx-x64.zip)
+* Any platform (.NET 6, 7, 8 or .NET 9 SDK required): [SpecSync.AzureDevOps.5.0.0-pre20250821-1.zip](https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.5.0.0-pre20250821-1.zip)
 
 ## v3.4
 
