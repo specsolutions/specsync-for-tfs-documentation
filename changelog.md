@@ -133,6 +133,19 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
 
 
+## v3.4.29 - 2025/08/21
+
+### Bug fixes
+
+* Fix: NUnit test parameters might not be recognized correctly with NUnit v4+ (#1644)
+
+### Improvements
+
+* Reqnroll v3 support (#1643)
+* Support for multiple link-on-change setting for requirement customization (#1637)
+* Various stability and maintainability improvements (#1638)
+
+
 ## v3.4.28 - 2025/07/01
 
 ### Bug fixes
