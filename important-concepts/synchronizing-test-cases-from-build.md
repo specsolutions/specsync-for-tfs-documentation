@@ -203,6 +203,10 @@ In order to publish the test results, the test execution task has to be configur
 
 If the **.NET Core CLI task** is used, the Arguments property has to be extended with an `--logger trx;logfilename=<your-trx-file-name>.trx` option. The following examples show how to configure the .NET Core CLI task to save the test results to a file `bddestresults.trx`. &#x20;
 
+{% hint style="warning" %}
+It is not recommended to specify a folder for the `logfilename` setting of the TRX logger, because in this case the test result attachments will be saved to the wrong folder and SpecSync will not be able to add them to the test result. If you with to save the generated TRX file to a different folder, use the `--results-directory` command line option of the `dotnet test` command, like it is shown in the examples below.
+{% endhint %}
+
 {% tabs %}
 {% tab title="Classic pipeline" %}
 ![](<../.gitbook/assets/image (27).png>)

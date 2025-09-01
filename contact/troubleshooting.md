@@ -179,3 +179,15 @@ For SpecSync the issue has been registered with the ID `#1357`.
 **Solution 1:** Upgrade to SpecSync v3.4.18 or later. (For users on v3.3 product line, please upgrade to v3.3.17.)
 
 **Solution 2:** Do not use the "multiSuitePublishTestResults" customization until the issue is fixed in Azure DevOps. (Please track the issue at the link provided above.)
+
+
+### 'W5113: Unable to find attachment file' warnings when publishing results from TRX file <a href="issue1668" id="issue1668"></a>
+
+When the TRX logger is used with `dotnet test` command for running the tests to be published with SpecSync, you might encounter warnings like
+
+* `W5113: Unable to find attachment file '<some-attachment-path>'. Ignored.`
+
+The issue is probably caused by the TRX logger, that saves the attachment files to the test output folder (usually the `TestResults` folder of the project), but the TRX file is saved elsewhere, for example because a folder is specified for the TRX logger in the `LogFileName` setting, like `--logger "trx;LogFileName=..\results.trx`.
+
+**Solution:** Use the `--results-directory` setting of `dotnet test` to specify the results directory, and use the `LogFileName` only to specify the file name. E.g. `dotnet test --logger trx;logfilename=results.trx --results-directory "C:\MyProject"`.
+
