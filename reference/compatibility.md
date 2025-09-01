@@ -53,7 +53,8 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 | Cucumber.js                                                     | cucumber-junit-formatter | XML       | `cucumberJsJUnitXml`   |
 | [Cypress](../important-concepts/using-specsync-with-cypress.md) |                          | JSON      | `cypressCucumberJson`  |
 | Jest                                                            | jest-cucumber            | XML       | `jestCucumberXml`      |
-| Python Behave                                                   |                          | XML       | `pythonBehaveXml`      |
+| Python Behave                                                   | `--junit`                | XML       | `pythonBehaveXml`      |
+| Python Behave                                                   | `-f json` or `-f json.pretty` | JSON      | `pythonBehaveJson`     |
 | PyTest.BDD                                                      |                          | XML       | `pyTestBddXml`         |
 | Cucumber Studio (Hiptest)                                       |                          | JSON      | `hiptestJson`          |
 
