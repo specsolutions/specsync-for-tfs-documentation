@@ -37,15 +37,13 @@ SpecSync can synchronize any scenarios that are written in Gherkin format. Gherk
 
 | BDD Tool                                                        | Runner                   | Extension | Format specifier       |
 | --------------------------------------------------------------- | ------------------------ | --------- | ---------------------- |
-| SpecFlow/Reqnroll                                               | MsTest                   | TRX       | `trx`                  |
-| SpecFlow/Reqnroll                                               | NUnit                    | TRX       | `trx`                  |
-| SpecFlow/Reqnroll                                               | xUnit                    | TRX       | `trx`                  |
+| Reqnroll                                                        | MsTest/NUnit/xUnit       | TRX       | `trx`                  |
+| Reqnroll                                                        | NUnit                    | XML       | `reqnrollNUnitXml`     |
+| Reqnroll                                                        | Cucumber Messages output | NDJSON    | `cucumberMessagesNdjson` |
+| SpecFlow                                                        | MsTest/NUnit/xUnit       | TRX       | `trx`                  |
 | SpecFlow                                                        | SpecFlow+ Runner         | TRX       | `trx`                  |
 | SpecFlow                                                        | NUnit                    | XML       | `specFlowNUnitXml`     |
 | SpecFlow                                                        | NUnit v2                 | XML       | `specFlowNUnit2Xml`    |
-| Reqnroll                                                        | NUnit                    | XML       | `reqnrollNUnitXml`     |
-| Reqnroll                                                        | NUnit v2                 | XML       | `reqnrollNUnit2Xml`    |
-| Reqnroll                                                        | Cucumber Messages output | NDJSON    | `cucumberMessagesNdjson` |
 | Cucumber (Java, JavaScript, Ruby)                               | `json` formatter         | JSON      | `cucumberJson`         |
 | Cucumber (Java, JavaScript, Ruby)                               | `message` formatter      | NDJSON    | `cucumberMessagesNdjson` |
 | Cucumber Java                                                   | JUnit                    | XML       | `cucumberJavaJUnitXml` |
