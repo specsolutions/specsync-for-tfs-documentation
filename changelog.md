@@ -133,6 +133,18 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
 
 
+## v3.4.30 - 2025/09/19
+
+### Bug fixes
+
+* Fix: Duration of Python steps is calculated incorrectly when `PythonBehaveJson` format is used (#1663)
+* Fix: Personal Access Token (PAT) defined in the user-specific configuration file does not get overwritten with `--password` (#1666)
+
+### Improvements
+
+* Allow specifying the behavior of how the overall outcome of flaky tests (tests that were rerun multiple times and at least one attempt failed) should be calculated. Use `publishTestResults/flakyTestOutcome` to configure the behavior. (See details in [Publishing test result files](features/test-result-publishing-features/publishing-test-result-files.md#detecting-test-reruns-and-flaky-tests) page.) (#1665)
+
+
 ## v3.4.29 - 2025/08/21
 
 ### Bug fixes
@@ -302,7 +314,7 @@ See all plugins available on nuget.org in the [plugin list](features/plugin-list
 * `MarkdownToHtml` value loader that can be used to [update custom fields](features/push-features/update-test-case-fields.md) from Markdown source (e.g. feature description). Usage: `{feature-description:MarkdownToHtml}` or `{{!MarkdownToHtml}}A *Markdown* feature description: {feature-description}`. The relevant [Markdown extras from Markdig](https://github.com/xoofx/markdig/tree/master/src/Markdig.Tests/Specs) can be also used. (#1277)
 * Update `Azure.Identity` dependency to address know vulnerability (#1295)
 * Support for Scenario Outline parameter values in Behave test results (#1293)
-* Support for linking Hyperlinks. To use it, you need to specify a link tag prefix with `relationship` as `Hyperlink`. You can include the full URL in the tag (e.g. `@url:https://www.specsolutions.eu/specsync/`) or you can specify a link template in the configuration (e.g. `"linkTemplate": "https://docs.specsolutions.eu/specsync/{id}"`) and use the tag only for the relevant part of the link (e.g. `@doc:features/plugin-list`). (See details in [linking feature page](../../../features/common-synchronization-features/linking-work-items-with-tags.md#linking-hyperlinks).) (#810)
+* Support for linking Hyperlinks. To use it, you need to specify a link tag prefix with `relationship` as `Hyperlink`. You can include the full URL in the tag (e.g. `@url:https://www.specsolutions.eu/specsync/`) or you can specify a link template in the configuration (e.g. `"linkTemplate": "https://docs.specsolutions.eu/specsync/{id}"`) and use the tag only for the relevant part of the link (e.g. `@doc:features/plugin-list`). (See details in [linking feature page](features/common-synchronization-features/linking-work-items-with-tags.md#linking-hyperlinks).) (#810)
 * Beta: Support for synchronizing requirements from feature files. More details in later releases (#1267)
 
 ## v3.4.15 - 2024/03/05

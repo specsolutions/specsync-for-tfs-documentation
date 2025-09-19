@@ -138,6 +138,14 @@ The Test Runs and the individual Test Results within that can have additional se
 
 In the specified values, you can also use different placeholders, e.g. the `{br}` placeholder to include a new line. For the complete list of placeholders that can be used, please check the [reference](../../reference/configuration/configuration-publishtestresults.md#setting-placeholders).
 
+## Detecting test reruns and flaky tests
+
+SpecSync can automatically detect when tests have been rerun multiple times and determine the overall outcome. This is particularly useful when working with test runners that support automatic test reruns for failed tests, such as VSTest with the "rerun failed tests" option. 
+
+If the test is identified as a "flaky test" (tests that were rerun multiple times and at least one attempt failed), the overall outcome is determined based on configurable behavior. The behavior can be controlled using the [`publishTestResults/flakyTestOutcome`](../../reference/configuration/configuration-publishtestresults.md) configuration setting, by default it uses the last rerun attempt as the overall result.
+
+For more details about the configuration options, see the [flakyTestOutcome setting](../../reference/configuration/configuration-publishtestresults.md) in the configuration reference.
+
 ## Examples
 
 ### SpecFlow (.NET Core)
