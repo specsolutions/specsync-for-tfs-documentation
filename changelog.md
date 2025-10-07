@@ -133,6 +133,21 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
 
 
+## v3.4.31 - 2025/10/07
+
+### Improvements
+
+* Support for attachments in NUnit 3 XML result files (#1727)
+
+### Plugin Improvements
+
+* SpecSync.Plugin.OnlyPublishTestResults v1.1.0: 
+  * SpecSync.Plugin.OnlyPublishTestResults: Allow extracting ID from core fields like "TestMethod" using regex (#1714)
+
+### Bug fixes
+
+* Fix: multiSuitePublishTestResults customization displays a warning unnecessarily when the root suite has no Test Cases (#1743)
+  
 ## v3.4.30 - 2025/09/19
 
 ### Bug fixes
