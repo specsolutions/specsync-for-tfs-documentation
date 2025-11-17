@@ -211,7 +211,7 @@ The automation fields have to be updated together, so you cannot individually se
 
 Conditions and conditional values can also be used.
 
-The following example synchronizes the Test Case automated with custom automation setting values.
+The following example synchronizes the Test Case automated with custom automation setting values (use scenario name as "Automated test name" and feature name as "Automated test storage").
 
 ```
 {
@@ -224,9 +224,9 @@ The following example synchronizes the Test Case automated with custom automatio
       "enabled": false, // or leave out the entire automation block
     },
     "fieldUpdates": {
-      "Automated test storage": "Custom storage",
-      "Automated test name": "Custom Test Name",
-      "Automated test type": "Custom Test Type",
+      "Automated test storage": "{feature-name}",
+      "Automated test name": "{scenario-name}",
+      "Automated test type": "Custom BDD Test",
       "Automation status": "Automated"
     }
   }
