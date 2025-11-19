@@ -10,5 +10,5 @@ We keep collecting common questions in the [FAQ](faq.md) section of the document
 
 ## Enterprise support
 
-For our customers with Enterprise license, we provide priority support covered by a Service Level Agreement \(SLA\).  The SLA for the support services for SpecSync for Azure DevOps Enterprise license holders can be downloaded from [here](https://www.specsolutions.eu/media/specsync/SpecSync-Enterprise-Support-SLA.pdf).
+For our customers with Enterprise license, we provide priority support covered by a Service Level Agreement \(SLA\).  The SLA for the support services for SpecSync for Azure DevOps Enterprise license holders can be downloaded from [here](https://content.specsolutions.eu/specsync/SpecSync-Enterprise-Support-SLA.pdf).
 

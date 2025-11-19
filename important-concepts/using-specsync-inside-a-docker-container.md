@@ -190,7 +190,7 @@ ARG LOCAL_DIR=/local
 
 WORKDIR /specsync
 
-RUN wget -qO specsync.zip https://www.specsolutions.eu/media/specsync/SpecSync.AzureDevOps.${SPECSYNC_VERSION}-linux-x64.zip \
+RUN wget -qO specsync.zip https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.${SPECSYNC_VERSION}-linux-x64.zip \
   && ( unzip -q specsync.zip || [ $? -le 1 ] ) \
   && rm specsync.zip \
   && bash -c "chmod +x ./SpecSync4AzureDevOps"
