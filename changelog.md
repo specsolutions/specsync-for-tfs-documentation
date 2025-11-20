@@ -141,7 +141,7 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
 * SpecSync packages are signed with a new code signing certificate as the previous one expired. The new certificate is issued by DigiCert and stored in a HSM. The certificate thumbprint is `11fbb9b817a08bef74474f35dc2240d6ff23dc7f`. (#1776)
 * Allow loading plugins released after 1/11/2025 (using the new code sign certificate) without trust acknowledgment  (#1777)
 * Improve grammar of text messages (#1748)
-* Allow configuring behavior (raise error or warning) for the case when a Test Case result has found, but the Test Case is not included in the target Test Suite for publishing results. The setting `publishTestResults/onTestPointMissing` can be used to configure this behavior. (#1759)
+* Allow configuring behavior (raise error or warning) for the case when a Test Case result has found, but the Test Case is not included in the target Test Suite for publishing results. The setting [`publishTestResults/onTestPointMissing`](reference/configuration/configuration-publishtestresults.md#settings) can be used to configure this behavior. (#1759)
 * The direct SpecSync package download URLs have changed and served now from `https://content.specsolutions.eu/specsync/release/`. The old download URLs are automatically redirected to the new ones. (#1783)
 
  
