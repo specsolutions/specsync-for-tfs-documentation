@@ -19,10 +19,10 @@ The usage of SpecSync plugins in the latest v5 preview release is temporarily di
 
 ## v3.4
 
-* Windows: [SpecSync.AzureDevOps.Console.3.4.32.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.Console.3.4.32.zip)
-* Linux: [SpecSync.AzureDevOps.3.4.32-linux-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.3.4.32-linux-x64.zip)
-* OSX: [SpecSync.AzureDevOps.3.4.32-osx-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.3.4.32-osx-x64.zip)
-* Any platform (.NET Core 3.1, .NET 6, 7, 8, 9 or .NET 10 SDK required): [SpecSync.AzureDevOps.3.4.32.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.3.4.32.zip)
+* Windows: [SpecSync.AzureDevOps.Console.3.4.33.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.Console.3.4.33.zip)
+* Linux: [SpecSync.AzureDevOps.3.4.33-linux-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.3.4.33-linux-x64.zip)
+* OSX: [SpecSync.AzureDevOps.3.4.33-osx-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.3.4.33-osx-x64.zip)
+* Any platform (.NET Core 3.1, .NET 6, 7, 8, 9 or .NET 10 SDK required): [SpecSync.AzureDevOps.3.4.33.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.3.4.33.zip)
 
 ## v3.3
 

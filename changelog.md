@@ -133,6 +133,14 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
 
 
+## v3.4.33 - 2025/12/11
+
+### Improvements
+
+* Show an error when the configuration requires newer SpecSync version (#1792)
+* Detect if a plugin is not compatible with the current SpecSync version (#1522)
+* Various stability and maintainability improvements (#1787)
+
 ## v3.4.32 - 2025/11/20
 
 ### Improvements
