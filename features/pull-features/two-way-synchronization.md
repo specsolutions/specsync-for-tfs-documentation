@@ -79,7 +79,7 @@ Pulling links is supported from v3.4.
 
 By default, the pull command only loads the changes of the Test Cases that have been linked to a scenario already (i.e. have been synchronized with SpecSync push once).
 
-You can enable creating new scenarios during pull using the [`synchronization/pull/enableCreatingScenariosForNewTestCases` configuration setting](../../reference/configuration/configuration-synchronization/configuration-synchronization-pull.md):
+You can enable creating new scenarios during pull using the [`synchronization/pull/enableCreatingNewLocalTestCases` configuration setting](../../reference/configuration/configuration-synchronization/configuration-synchronization-pull.md):
 
 ```text
 {
@@ -88,7 +88,7 @@ You can enable creating new scenarios during pull using the [`synchronization/pu
     ...
     "pull": {
       "enabled": true,
-      "enableCreatingScenariosForNewTestCases": true
+      "enableCreatingNewLocalTestCases": true
     },
     ...
   },
@@ -97,7 +97,7 @@ You can enable creating new scenarios during pull using the [`synchronization/pu
 ```
 
 {% hint style="info" %}
-You can perform the pull operation with the `--createOnly` flag so that it only creates new scenarios and does not change the existing ones. With the flag it is not necessary to set the `synchronization/pull/enableCreatingScenariosForNewTestCases` configuration setting.
+You can perform the pull operation with the `--createOnly` flag so that it only creates new scenarios and does not change the existing ones. With the flag it is not necessary to set the `synchronization/pull/enableCreatingNewLocalTestCases` configuration setting.
 {% endhint %}
 
 This setting works together with *remote scopes* and will only create scenarios from the Test Cases in the configured remote scope. Read more about configuring remote scopes and the supported remote scope types in [Remote scope](../common-synchronization-features/remote-scope.md) feature documentation.
@@ -106,7 +106,7 @@ The process workflow for creating new scenarios for new Test Cases is the follow
 
 1. Create a new Test Case in Azure DevOps
 2. Ensure that the new Test Case is included to the remote scope. E.g add the required tag to the Test Case in case of `tag` remote scope type. The exact action depends on the remote scope type, please refer to the [Remote scope](../common-synchronization-features/remote-scope.md) documentation for details.
-3. Perform a SpecSync `pull` command with the `--createOnly` flag or set `synchronization/pull/enableCreatingScenariosForNewTestCases` to true and perform a complete `pull` command.
+3. Perform a SpecSync `pull` command with the `--createOnly` flag or set `synchronization/pull/enableCreatingNewLocalTestCases` to true and perform a complete `pull` command.
 
 As a result of the pull operation with this setting, SpecSync will create a new feature file for each new Test Case in the remote scope. The feature files will be named based on the Test Case ID, e.g. `12345.feaure`. It is recommended to review and group these scenarios to other feature files. When moving the scenarios, make sure you also move the Test Case link tag (e.g. `@tc:12345`) together with the scenario to keep the link to the Test Case.
 

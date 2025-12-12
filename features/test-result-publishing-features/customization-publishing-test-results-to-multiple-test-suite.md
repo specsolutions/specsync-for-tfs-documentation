@@ -9,10 +9,16 @@ The *Multi-suite publish* customization described here is an [Enterprise feature
 {% endhint %}
 
 {% hint style="warning" %}
+With SpecSync v5 or later you can use the [hierarchies feature](../features/common-synchronization-features/synchronizing-test-case-hierarchies.md) to synchronize the Test Case hierarchies using Test Suites. When selecting a hierarchy for publishing test results (for example by using the `--hierarchy` option), SpecSync will ensure that the test execution results are published to all Test Suites in the selected hierarchy.
+
+The *Multi-suite publish* customization remains available for backward compatibility.
+{% endhint %}
+
+{% hint style="warning" %}
 The Multi-suite publish customization is not supported in TFS 2017.
 {% endhint %}
 
-In order to enable the customization, the `customizations/multiSuitePublishTestResults` section of the configuration has to be enabled. The list of all possible settings can be found in the [customization configuration reference](../../reference/configuration/configuration-customizations.md). Since the Test Suites have to be in the same Test Plan, specifying the `testPlanId` setting is mandatory.
+In order to enable the customization, the `customizations/multiSuitePublishTestResults` section of the configuration has to be enabled. The list of all possible settings can be found in the [customization configuration reference](../../reference/configuration/configuration-customizations.md). Since the Test Suites have to be in the same Test Plan, specifying the `testPlan` setting is mandatory.
 
 The following example shows a basic configuration.
 
@@ -23,7 +29,7 @@ The following example shows a basic configuration.
  "customizations": {
     "multiSuitePublishTestResults": {
       "enabled": true,
-      "testPlanId": 567,
+      "testPlan": "My Plan",
       "suites": [
         "SuiteA",
         "SuiteB",

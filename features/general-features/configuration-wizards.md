@@ -32,7 +32,6 @@ The `init` command also offers configuring some useful optional features, like [
 
 {% hint style="warning" %}
 This feature is available with SpecSync v5 or above. 
-For trying it out, please check the [preview version of v5](../../changelog.md#v5).
 {% endhint %}
 
 The `upgrade` command upgrades the SpecSync configuration file after a SpecSync version upgrade.

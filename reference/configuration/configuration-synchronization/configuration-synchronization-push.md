@@ -24,7 +24,7 @@ The following example shows the available options within this sub-section.
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `conflictResolution` | Sets the conflict resolution method for push. Possible values: `forceOverride`, `interactive`, `skip`, `error`, `ignore`. See [Synchronization conflict resolution](../../../features/common-synchronization-features/synchronization-conflict-resolution.md) for details. | `forceOverride` |
+| `conflictResolution` | Sets the conflict resolution method for push. Possible values: `overwrite`, `overwriteWithWarning`, `interactive`, `skipWithWarning`, `skip`, `error`. See [Synchronization conflict resolution](../../../features/common-synchronization-features/synchronization-conflict-resolution.md) for details. | `overwrite` |
 
 {% content-ref url="./" %}
 [.](./)

@@ -2,7 +2,6 @@
 
 {% hint style="warning" %}
 This feature is available with SpecSync v5 or above. 
-For trying it out, please check the [preview version of v5](../../changelog.md#v5).
 {% endhint %}
 
 Besides [synchronizing local test case details](../push-features/pushing-scenario-changes-to-test-cases.md) and [test results](../test-result-publishing-features/publishing-test-result-files.md) to Azure DevOps Test Cases, SpecSync can also help you to organize the remote Test Cases into hierarchical structures. In Azure DevOps that means that it can create and maintain Test Suite hierarchies and include the Test Cases to these Test Suites according to the configured rules. The test results can also be published to such a synchronized hierarchy.
@@ -72,8 +71,9 @@ Regardless of the chosen hierarchy type there are some common settings that can 
 * **`name`**: The name of the hierarchy is an identifier that can be used to refer to the hierarchy for other features (e.g. for publishing test results to that hierarchy). If no name is specified the name `default` is used. The name has to be unique among the defined hierarchies and it is mandatory when multiple hierarchies are specified.
 * **`type`**: Specifies the type of the hierarchy. It is mandatory and has to be set to one of the available hierarchy types from the table above.
 * **`condition`**: A [local test case condition](../general-features/local-test-case-conditions.md) to specify which test cases should be included to this hierarchy. By default all synchronized Test Cases is included.
-* **`root`**: Specifies the root location in Azure DevOps, where the hierarchy should be mapped to. The root location specified here will be mapped to the root of the hierarchy. In Azure DevOps the root can be specified by specifying a Test Plan (`testPlan` setting) and either a Test Suite `name`, `path` or `id`. If only a Test Plan is specified, the root Test Suite of the plan will be used as the root. For most of the hierarchy types, specifying the `root` is mandatory.
-* **`ignoreAdditionalNodes`**: By default SpecSync generates a warning if the hierarchy in Azure DevOps contains additional nodes (nodes that are not defined by the hierarchy). If such additional nodes are required, it is recommended to set this setting to `true` to avoid unnecessary warnings.
+* **`root`**: Specifies the root location in Azure DevOps, where the hierarchy should be mapped to. The root location specified here will be mapped to the root of the hierarchy. In Azure DevOps the root can be specified by specifying a Test Plan (`testPlan` setting) and either a Test Suite `name`, `path` or `id`. If only a Test Plan is specified, the root Test Suite of the plan will be used as the root. For most of the hierarchy types, specifying the `root` is mandatory. SpecSync will attempt to create the root Test Suite during synchronization if it does not exist.
+* **`onAdditionalNodes`**: Specifies what to do if the hierarchy in Azure DevOps contains additional nodes (nodes that are not defined by the hierarchy). By default SpecSync generates a warning. You can also set it to `delete` to automatically remove the additional nodes. If such additional nodes are required, use the `keep` setting to avoid unnecessary warnings. You can also specify `ignore`, but that will completely ignore the additional nodes and will not remove the synchronized Test Cases from these nodes, so Test Case duplicates are possible within the hierarchy.
+* **`onAdditionalTestCases`**: Specifies what to do if the hierarchy nodes in Azure DevOps contain additional Test Cases (test cases that were not synchronized by SpecSync). By default SpecSync generates a warning. You can also set it to `remove` to automatically remove the Tets Case from the node (but not to delete the Test Case itself!). If such additional Test Cases are required, use the `keep` setting to avoid unnecessary warnings.
 * **`disableUnderscoreTransformation`**: The `_` character in the matched node names are automatically transformed to space by default. This behavior can be disabled by setting the `disableUnderscoreTransformation` hierarchy setting to `true`. This setting can be used for `levels` and `tag` hierarchy types.
 
 
@@ -569,7 +569,7 @@ The following configuration defines a hierarchy similar to the example we define
           "condition": "$sourceFile ~ Features/Payments/ and @regression"
         },
         {
-          "name: "General"
+          "path": "General"
         }
       ]
     }
@@ -580,7 +580,7 @@ The following configuration defines a hierarchy similar to the example we define
 {% endcode %}
 
 {% hint style="info" %}
-The node configurations within the `nodes` setting cannot be nested, but you can specify the nodes using `path` instead of `name` to build up a nested node hierarchy.
+The node configurations within the `nodes` setting cannot be nested, but you can specify the nodes using `path` to build up a nested node hierarchy.
 {% endhint %}
 
 Synchronizing the feature file above with this configuration would generate the following hierarchy.

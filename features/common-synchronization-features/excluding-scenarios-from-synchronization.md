@@ -8,7 +8,7 @@ The local scope should be used to permanently exclude some scenarios from the sy
 
 ## Excluding scenarios using tags
 
-The most common way to restrict the local scope is by using scenario tags. By specifying a tag expression for the `local/tags` configuration setting, you can restrict the synchronization scope. \(See also the reference documentation of the [`local` configuration section](../../reference/configuration/configuration-local.md)\). 
+The most common way to restrict the local scope is by using scenario tags. By specifying a tag expression for the `local/condition` configuration setting, you can restrict the synchronization scope. \(See also the reference documentation of the [`local` configuration section](../../reference/configuration/configuration-local.md)\). 
 
 The following example sets the local scope to the scenarios that are marked as `@done` but exclude the ones that are tagged with `@ignored` or `@planned`.
 
@@ -16,7 +16,7 @@ The following example sets the local scope to the scenarios that are marked as `
 {
   ...
   "local": {
-    "tags": "@done and not (@ignored or @planned)"
+    "condition": "@done and not (@ignored or @planned)"
   },
   ...
 }

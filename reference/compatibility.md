@@ -29,6 +29,28 @@ SpecSync is supported on Windows, Linux and MacOS operating systems. It can be i
 SpecSync does not use Log4J and therefore it is not affected by the vulnerability [CVE-2021-44228](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q).
 {% endhint %}
 
+## Supported .NET frameworks for running SpecSync as .NET tool
+
+SpecSync can be run using the following .NET versions as a [.NET tool](../installation/dotnet-core-tool.md):
+
+* .NET 10 (latest, recommended)
+* .NET 9
+* .NET 8
+* .NET 7 — *out of support by Microsoft, not recommended*
+* .NET 6 — *out of support by Microsoft, not recommended*
+* .NET Framework 4.7.2 — *up to SpecSync v3.4*
+* .NET Framework 4.6.2 — *up to SpecSync v3.4*
+* .NET 5 — *up to SpecSync v3.4*
+* .NET 3.1 — *up to SpecSync v3.4*
+
+{% hint style="warning" %}
+The .NET 6 and .NET 7 frameworks are out of support and will [not receive security updates in the future](https://aka.ms/dotnet-core-support). SpecSync versions v6 and later will not run with .NET 6 and .NET 7. Please use SpecSync with .NET 8 or any of the other supported platforms.
+{% endhint %}
+
+{% hint style="info" %}
+**Important:** The .NET framework used for running SpecSync does not have to be the same as the .NET framework of the synchronized project. For example, you can use SpecSync with .NET 8 to synchronize scenarios from a .NET Framework 4.7.2 project. This applies to any BDD project regardless of its framework (.NET, Java, Python, JavaScript, etc.).
+{% endhint %}
+
 ## Supported BDD tools
 
 SpecSync can synchronize any scenarios that are written in Gherkin format. Gherkin format is used by many tools in many platforms, like Cucumber, Cucumber JVM, Cucumber.js, Behat, Behave, SpecFlow and also Reqnroll. Please refer to the [Getting started](../getting-started/) for detailed instructions how to setup SpecSync with the different BDD tools.

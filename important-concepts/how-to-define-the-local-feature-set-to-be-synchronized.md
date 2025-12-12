@@ -21,16 +21,14 @@ The default local scope configuration in this case is equivalent to this setting
   ...
   "local": {
     // these are the default settings for configurations in regular folders, so you don't even need to set these
-    "featureFileSource": {
-      "type": "folder",
-      "folder": "."
-    }
+    "projectType": "folder",
+    "folder": "."
   },
   ...
 }
 ```
 
-If for some reason you don't want to put the configuration file into the folder of your feature files, you can set the folder to be used explicitly using the `local/featureFileSource/folder` setting. 
+If for some reason you don't want to put the configuration file into the folder of your feature files, you can set the folder to be used explicitly using the `local/folder` setting. 
 
 In the following example, the `specsync.json` configuration file is in the local repository root folder, but the feature files are in the `src/features` folder. 
 
@@ -38,22 +36,20 @@ In the following example, the `specsync.json` configuration file is in the local
 {
   ...
   "local": {
-    "featureFileSource": {
-      "type": "folder",
-      "folder": "src/features"
-    }
+    "projectType": "folder",
+    "folder": "src/features"
   },
   ...
 }
 ```
 
 {% hint style="info" %}
-The path you specify in the `local/featureFileSource/folder` setting is relative to the location of the configuration file but can also contain relative paths above the current folder, e.g. `../features`.
+The path you specify in the `local/folder` setting is relative to the location of the configuration file but can also contain relative paths above the current folder, e.g. `../features`.
 {% endhint %}
 
 ## Synchronize all scenarios from a SpecFlow or Reqnroll project
 
-Although modern .NET projects include automatically all files within the project folder you can explicitly exclude some files with a .NET project. If you want to synchronize those feature files that are included in the .NET project, you simply have to put the `specsync.json` configuration file to the project root folder and do not specify anything as `local/featureFileSource`. 
+Although modern .NET projects include automatically all files within the project folder you can explicitly exclude some files with a .NET project. If you want to synchronize those feature files that are included in the .NET project, you simply have to put the `specsync.json` configuration file to the project root folder and do not specify anything as `local/projectType`. 
 
 Alternatively you can specify the project file explicitly:
 
@@ -61,10 +57,8 @@ Alternatively you can specify the project file explicitly:
 {
   ...
   "local": {
-    "featureFileSource": {
-      "type": "projectFile",
-      "filePath": "MyProject\\MyProjectFile.csproj"
-    }
+    "projectType": "projectFile",
+    "projectFilePath": "MyProject\\MyProjectFile.csproj"
   },
   ...
 }
@@ -76,7 +70,7 @@ Regardless whether you have used the folder-based or the .NET project based appr
 
 You can limit the synchronized scenarios to the ones match to a tag expression (e.g. everything tagged with `@important`) or you can specify a set of feature file paths globs, that should be included (e.g. `**/Important*.feature`). You can even combine these two options.
 
-These settings can be configured with the `local/tags` and the `local/sourceFiles` settings. You can read more information about these options in the [Excluding scenarios from synchronization](../features/common-synchronization-features/excluding-scenarios-from-synchronization.md) page.
+These settings can be configured with the `local/condition` and the `local/sourceFiles` settings. You can read more information about these options in the [Excluding scenarios from synchronization](../features/common-synchronization-features/excluding-scenarios-from-synchronization.md) page.
 
 
 ## Synchronizing multiple feature-sets from one local repository
@@ -182,10 +176,8 @@ The `specsync-backend.json` and the `specsync-frontend.json` files contain the s
     "parentConfig": "specsync-parent.json"
   },
   "local": {
-    "featureFileSource": {
-      "type": "folder",
-      "folder": "backend/features"
-    }
+    "projectType": "folder",
+    "folder": "backend/features"
   },
   "remote": { 
     "testSuite": {
@@ -225,8 +217,7 @@ The `specsync-parent.json` contains the common settings and looks similar to the
 ```javascript
 {
   "local": {
-    "featureFileSource": {
-      "type": "folder",
+    "projectType": "folder",,
       "folder": "features" // the common target folder
     }
   },
@@ -260,7 +251,7 @@ The `specsync-backend.json` and the `specsync-frontend.json` files contain the s
 ```
 
 {% hint style="info" %}
-Instead of the `local/tags` you could also separate the scenarios by file name patterns using the `local/sourceFiles` setting. You can find more information about this in the [Excluding scenarios from synchronization](../features/common-synchronization-features/excluding-scenarios-from-synchronization.md) page.
+Instead of the `local/condition` you could also separate the scenarios by file name patterns using the `local/sourceFiles` setting. You can find more information about this in the [Excluding scenarios from synchronization](../features/common-synchronization-features/excluding-scenarios-from-synchronization.md) page.
 {% endhint %}
 
 The synchronization for the frontend or the backend can be invoked by specifying the configuration file:

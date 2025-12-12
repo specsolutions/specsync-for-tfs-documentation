@@ -11,6 +11,10 @@ The exact build steps and their order might be dependent on the project context,
 5. Run BDD tests and produce test result file (e.g. run SpecFlow tests)
 6. **SpecSync publish-test-results — publish the test results from the test result file to the synchronized Test Cases**
 
+{% hint style="info" %}
+SpecSync pipeline tasks now fail automatically when a command fails, without relying on non-zero exit codes. Use `--forceExitCode` if you need non-zero exit codes for custom tooling. Warnings are recorded but do not fail the pipeline unless you enable `--treatWarningsAsErrors`. Log files produced via `--log` are attached to the pipeline logs and console output keeps color formatting.
+{% endhint %}
+
 In this documentation we first show how to add a build step to your pipeline that invokes SpecFlow and how to configure the authentication.
 
 In the last sections ([Performing synchronization (push) from build or release pipeline](synchronizing-test-cases-from-build.md#performing-synchronization-push-from-build-or-release-pipeline) and [Publishing test results from build or release pipeline](synchronizing-test-cases-from-build.md#publishing-test-results-from-build-or-release-pipeline)) we show how to configure the SpecSync step for performing `push` and `publish-test-results` commands.
@@ -260,9 +264,9 @@ The following table contains the settings that are important or usually configur
 | Working Directory | For the easiest configuration it is recommended to set the Working Directory property of the task to the folder where your feature-set is (e.g. to the SpecFlow project folder). This is typically the same folder where your [SpecSync configuration file](../features/general-features/configuration-file.md) is located. |
 | `--user` | The `--user` command line option can be used so specify the user credentials (e.g. Personal Access Token, PAT) for the user that needs to be used for the synchronization. See [Synchronizing test cases from build](synchronizing-test-cases-from-build.md#authentication-settings-to-perform-specsync-commands-from-build-or-release-pipeline) for details. |
 | `--testConfiguration` | When publishing test results to Azure DevOps Test Cases (Test Suites), you have to select a Test Configuration that is associated to the Test Suite of your Test Cases. You can specify the Test Configuration in the configuration file or using the `--testConfiguration` command line option. |
-| `--testResultFile` | The test results file produced by the test execution step can be specified using the `--testResultFile` option. Make sure you specify the file from the right folder (usually `$(Agent.TempDirectory)`). |
-| `--testResultFileFormat` | This setting is needed if the test result file is NOT a TRX file. For TRX files this setting can be omitted. The possible format values are listed in the [Compatibility](../reference/compatibility.md#supported-test-result-formats) page. |
-| `--runName` | There are many settings that can be used to customize the Test Run created by SpecSync. You can find these settings in the [publish-test-results](../reference/command-line-reference/publish-test-results-command.md) page. The `--runName` setting for example can be used to specify a name of your Test Run, so that it can be easily distinguished from the normal test execution results.                                                                                                                   |
+| `--testResult` | The test results file produced by the test execution step can be specified using the `--testResult` option. Make sure you specify the file from the right folder (usually `$(Agent.TempDirectory)`). |
+| `--testResultFormat` | This setting is needed if the test result file is NOT a TRX file. For TRX files this setting can be omitted. The possible format values are listed in the [Compatibility](../reference/compatibility.md#supported-test-result-formats) page. |
+| `--testRunSetting` | There are many settings that can be used to customize the Test Run created by SpecSync. You can find these settings in the [publish-test-results](../reference/command-line-reference/publish-test-results-command.md) page. The `--testRunSetting "name=..."` setting (or `--runName` in short) for example can be used to specify a name of your Test Run, so that it can be easily distinguished from the normal test execution results.                                                                                                                   |
 | Task conditions (_Run this task_ property) | <p>It is important that the publish-test-results command is performed even if the test execution failed. By default the tasks are only executed if all previous tasks succeeded. Also make sense to note that test result publishing usually should be performed only for normal build executions and not for Pull Requests. </p><p>This two conditions can be ensured by setting <code>and(succeededOrFailed(), ne(variables['Build.Reason'], 'PullRequest'))</code> as custom condition (see example below).</p> |
 
 The following example shows a fully configured step that performs the SpecSync `publish-test-results` command using the .NET Core CLI task. The example assumes that the test results were saved to a file `bddtestresults.trx` in the folder `$(Agent.TempDirectory)` like it was configured in the example of the previous step.
@@ -279,7 +283,7 @@ The following example shows a fully configured step that performs the SpecSync `
   inputs:
     command: custom
     custom: specsync
-    arguments: 'publish-test-results --user "$(specSyncPAT)" --testConfiguration "Windows 10" --testResultFile $(Agent.TempDirectory)\bddtestresults.trx --runName "BDD Tests"'
+    arguments: 'publish-test-results --user "$(specSyncPAT)" --testConfiguration "Windows 10" --testResult $(Agent.TempDirectory)\bddtestresults.trx --runName "BDD Tests"'
     workingDirectory: src/Tests/MyProject.Specs
   condition: and(succeededOrFailed(), ne(variables['Build.Reason'], 'PullRequest'))
 

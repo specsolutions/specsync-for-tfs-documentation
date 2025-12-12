@@ -34,7 +34,7 @@ The [SpecSync plugins](features/plugin-list.md) are generally compatible with th
 
 ## Roadmap
 
-We currently work on the finalization of the v5 release. Please check the [Changelog](changelog.md#v5) or try out the preview!
+We have just finished the v5 release. Please check the [Changelog](changelog.md#v5) or try out the new version and provide feedback!
 
 We will update the roadmap after v5 has been released. Please stay tuned.
 

@@ -43,7 +43,7 @@ In our sample application the feature files are located at the `test/features` f
 Before the first synchronization we have to review and change a few settings in this file. For this example we will synchronize all feature files within the `test/features` folder. For synchronizing only a specific set of feature files, please check the [`local` Configuration](../reference/configuration/configuration-local.md) documentation.
 
 1. Open the `specsync.json` file in your IDE \(e.g. Visual Studio Code\) from your project folder.
-2. Set the value of the `local/featureFileSource/type` setting to `folder` and the `local/featureFileSource/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
+2. Set the value of the `local/projectType` setting to `folder` and the `local/folder` setting to `test/features`. This will instruct SpecSync to process the feature files from that specific folder.
 
 {% hint style="info" %}
 If feature file source is not specified, SpecSync will synchronize the feature files from the folder of the configuration file \(including subfolders\).
@@ -63,10 +63,8 @@ The `specsync.json` file after basic configuration has been set
     "user": "52yny........................................ycsetda"
   },
   "local": {
-    "featureFileSource": {
-      "type": "folder",
-      "folder": "test/features"
-    }
+    "projectType": "folder",
+    "folder": "test/features"
   }
 }
 ```
@@ -230,8 +228,8 @@ To be able to publish test results to Azure DevOps, the Test Cases have to be ad
 The following example shows how to publish a Cucumber Java test result file.
 
 ```bash
-dotnet specsync publish-test-results --testResultFile mytestresult.xml 
-  --testResultFileFormat cucumberJavaJUnitXml
+dotnet specsync publish-test-results --testResult mytestresult.xml 
+  --testResultFormat cucumberJavaJUnitXml
 ```
 
 The command analyses the test result file and connects the results with the scenarios to be able to associate them to Test Cases. You can find the created Test Run in the _Test Plans / Runs_ section of your Azure DevOps portal.

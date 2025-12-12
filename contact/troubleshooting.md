@@ -53,7 +53,7 @@ Cause: It can happen that some scenarios are excluded from the "automated" statu
 
 **Solution 2:** Try excluding the non-automated scenarios from the test execution
 
-**Solution 3:** Override the run type setting of the created Test Run using the `publishTestResults/runType` configuration setting. This setting is available from SpecSync v3.1. For earlier SpecSync versions, create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. (You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.)
+**Solution 3:** Override the run type setting of the created Test Run using the `publishTestResults/testRunSettings/runType` configuration setting. This setting is available from SpecSync v3.1. For earlier SpecSync versions, create a separate SpecSync config file for test result publishing that sets `synchronization/automation/enabled` to `false`. (You can use the [`toolSettings/parentConfig`](../reference/configuration/configuration-toolsettings.md) setting to make an [inherited configuration file](../features/general-features/hierarchical-configuration-files.md), so that you don't need to duplicate all configuration setting.)
 
 ### Invalid build ID detected when publish-test-results command is invoked from a CI/CD pipeline
 
@@ -135,8 +135,6 @@ For some functions, e.g. updating an *existing* Test Case work also with the *Ba
 **Solution 2:** Temporarily or for the period until the access level change is performed, you can ask other users to create Test Cases manually and you can add the link tags (e.g. `@tc:1234`) of these Test Cases to the scenarios manually. You also need to add the Test Cases to the Test Suite that is configured for SpecSync manually or diable the Test Suite synchronization feature of SpecSync by removing the `remote/testSuite` section.
 
 
-
-
 ### Unable to find or restore package error when installing or restoring SpecSync as a .NET tool <a href="nuget-package-not-found" id="nuget-package-not-found"></a>
 
 When you install SpecSync as a [.NET tool](../installation/dotnet-core-tool.md), you might receive errors during the `dotnet tool install SpecSync.AzureDevOps` or the `dotnet tool restore` commands. The error message might contain `Unable to find package SpecSync.AzureDevOps` or `The tool package could not be restored`.
@@ -179,6 +177,18 @@ For SpecSync the issue has been registered with the ID `#1357`.
 **Solution 1:** Upgrade to SpecSync v3.4.18 or later. (For users on v3.3 product line, please upgrade to v3.3.17.)
 
 **Solution 2:** Do not use the "multiSuitePublishTestResults" customization until the issue is fixed in Azure DevOps. (Please track the issue at the link provided above.)
+
+### Test execution results are not visible in all Test Suites even though "Show same outcome of the tests in multiple suites under the same plan" is enabled
+
+When a Test Case exists in multiple Test Suites within the same Test Plan, you might expect that when the test execution results are published for that Test Case, the results will automatically appear in all Test Suites where the Test Case exists.
+
+Azure DevOps provides a Test Plan setting named "Show same outcome of the tests in multiple suites under the same plan" which sounds like it might enable this behavior. However, this Azure DevOps feature currently only works for manually executed tests and cannot be used with automated test execution results published by SpecSync.
+
+This is a limitation of Azure DevOps and there is no workaround available from Azure DevOps side. You can track the issue and request improvements on the [Azure DevOps Developer Community](https://developercommunity.visualstudio.com/t/show-same-outcome-of-the-tests-in-multiple-suites/1546796).
+
+**Solution 1:** With SpecSync v5 or later you can use the [hierarchies feature](../features/common-synchronization-features/synchronizing-test-case-hierarchies.md) to synchronize the Test Case hierarchies using Test Suites. When selecting a hierarchy for publishing test results (for example by using the `--hierarchy` option), SpecSync will ensure that the test execution results are published to all Test Suites in the selected hierarchy.
+
+**Solution 2:** In older version of SpecSync, you can use the [multiSuitePublishTestResults customization](../features/test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md) to publish the test execution results to multiple Test Suites.
 
 
 ### 'W5113: Unable to find attachment file' warnings when publishing results from TRX file <a href="issue1668" id="issue1668"></a>

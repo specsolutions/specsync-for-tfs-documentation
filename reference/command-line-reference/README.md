@@ -18,7 +18,7 @@ The command line tool terminated with a specific exit code depending on the exec
 | :--- | :--- |
 | 0 | Completed |
 | 5 | Warnings \(use `--zeroExitCodeForWarnings` to use zero exit code\) |
-| 10 | Failed with a synchronization error |
+| 10-19 | Failed with an error. The specific error code within this range indicates the type of error encountered. |
 | 90 | Failed with an unhandled error |
 | 100 | Failed with a configuration error |
 
@@ -57,11 +57,12 @@ The following command line options are available for all commands that require e
 | `--user` &lt;USER‑NAME&gt; | The Azure DevOps user name or [personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) \(PAT\). For `ServicePrincipal` authentication method the application ID is specified here. Overrides `remote/user` setting of the configuration file. See [Azure DevOps authentication options](../../features/general-features/server-authentication-options.md) for details. | use from config file or interactive prompt |
 | `--password` &lt;PASSWORD&gt; | The password for the Azure DevOps user. Overrides `remote/password` setting of the configuration file. For `ServicePrincipal` authentication method the client secret is specified here. See [Azure DevOps authentication options](../../features/general-features/server-authentication-options.md) for details. | use from config file or interactive prompt |
 | `--ignoreCertificateErrorsForThumbprint` | The thumbprint of the server certificate that should be treated as trusted. It is recommended to install trusted certificates on the operating system instead of using this setting. See related [Troubleshooting entry](../../contact/troubleshooting.md#authentication-ssl-error-the-remote-certificate-is-invalid-according-to-the-validation-procedure-when-connecting-to-an-azure-devops-server-on-promises) for details. | SSL is verified by the OS |
-| `--license` &lt;LICENSE‑FILE‑PATH&gt; | The path to the license file; can be relative to the project folder. Overrides `toolSettings/licensePath` setting of the configuration file. See [Licensing](../../licensing.md) for details. \(Default: use from config file or `specsync.lic`\) | use from config file or `specsync.lic` |
+| `--license` &lt;LICENSE‑FILE‑PATH or LICENSE‑KEY&gt; | The path to the license file (can be relative to the project folder) or a license key string. Overrides `toolSettings/licensePath` or `toolSettings/license` setting of the configuration file. See [Licensing](../../licensing.md) for details. | use from config file or `specsync.lic` |
 | `--disableStats` | If specified, SpecSync will not collect anonymous error diagnostics and statistics. Overrides `toolSettings/disableStats` setting of the configuration file. | false |
 | `-v`, `--verbose` | If specified, diagnostic information will be added to the output. Overrides `toolSettings/outputLevel` setting of the configuration file. | false |
 | `--log` &lt;LOG-FILE&gt; | If specified, the output will also be saved to a log file. | no log file is written |
 | `--zeroExitCodeForWarnings` | If specified, the command line tool will terminate with 0 exit code even in case of warnings. | Non-zero exit code is returned for warnings |
+| `--treatWarningsAsErrors` | If specified, SpecSync will treat warnings as errors and fail the command when warnings occur. This provides greater security and ensures that warnings are addressed. Overrides `toolSettings/treatWarningsAsErrors` setting of the configuration file. | false |
 | `--configOverride` | Can be used to override configuration file settings. This option can be used multiple times. See [Override configuration setting from command line](#override-configuration-setting-from-command-line) for details. | No configuration setting overrides |
 | `--dryRun` | If specified, the command will be performed, but no actual change is made either to Azure DevOps or to the local test files (feature files). This option is useful for testing the impact of an operation without making an actual change. | Normal mode |
 
@@ -89,6 +90,24 @@ The value for the `--configOverride` option is a *configuration setter* that has
   * `<array-path>[]` -- adds a new element to the end of the list. E.g. `synchronization/links[]/tagPrefix` can be used to add a new link element and set the `tagPrefix` setting.
   * `<array-path>[-<index>]` -- overrides a setting at a specific index backwards (-1 is the last element, -2 is the one before last, etc.). E.g. `synchronization/links[-1]/tagPrefix` can be used to set or override the `tagPrefix` setting of the last `link` element. This setting can also be used in combination with the `[]` syntax. E.g. the following two setting adds a new link elements and sets two settings of it: `synchronization/links[]/tagPrefix=bug;synchronization/links[-1]/relationship=tests`
 * `<value>` is the new value of the setting. The option recognizes numbers, booleans \(`true`/`false`\) and arbitrary strings.
+
+## Options with multiple values
+
+Several command line options support multiple values. These options can be specified in two ways:
+
+* **Multiple option instances** — Specify the option multiple times with different values. This is the recommended approach. For example:
+
+```text
+dotnet specsync publish-test-results --testResult result1.trx --testResult result2.trx
+```
+
+* **Semicolon-separated values** — Specify multiple values separated by a semicolon (`;`) in a single option instance. For example:
+
+```text
+dotnet specsync publish-test-results --testResult "result1.trx;result2.trx"
+```
+
+Both approaches are equivalent. Options that support multiple values include: `--testResult` (`-r`), `--diag`, `--attachFile`, and `--hierarchy`.
 
 ## Examples
 

@@ -39,11 +39,21 @@ These are partially related to removing features that have been marked deprecate
 
 The remaining breaking changes do not impact the most of usages, but please review the complete list of [breaking changes](../changelog.md#v5-breaking)
 
-### Step 3: Upgrade SpecSync
+### Step 3: Learn about new concepts
+
+SpecSync v5 has introduced some new useful features and concepts. These are not mandatory to use, but they can improve your synchronization experience. For the best migration experience, we recommend learning about these new features before performing the upgrade.
+
+Some of the most important new concepts are:
+- [Remote scope concept](../features/common-synchronization-features/remote-scope.md) that allows better control of which work items are synchronized and allows tracking work items that have been deleted from the source. The concept was used already in the previous versions, but in v5 there are more and better ways to utilize it.
+- [Configuration keys concept](../features/common-synchronization-features/configuration-key.md) that can help to track which work items belong to which synchronization configuration in case you have multiple configurations synchronizing to the same project.
+- [Hierarchies feature](../features/common-synchronization-features/synchronizing-test-case-hierarchies.md) that allows better control of how Test Cases are organized in Azure DevOps Test Suites. This feature replaces the earlier deprecated `addTestCasesToSuites` customization.
+- License keys provide a new way for using your SpecSync license. Instead of providing the license file, you can configure the license key in the configuration file or in an environment variable. Please check the [Licensing documentation](../licensing.md#license-keys) for more details.
+
+### Step 4: Upgrade SpecSync
 
 Upgrade SpecSync to the latest v5 version. Please check the [How to upgrade to a newer version of SpecSync](how-to-upgrade-specsync.md) guide for detailed steps.
 
-### Step 4: Perform SpecSync upgrade command
+### Step 5: Perform SpecSync upgrade command
 
 One of the new features of SpecSync v5 is the `upgrade` command. This command can be used to invoke the upgrade wizard that automatically fixes changes in the configuration file (e.g. for renamed configuration settings) and also prompts for configuring additional new features or configuration options.
 
@@ -57,7 +67,7 @@ The `upgrade` command only modifies the configuration file but it does not chang
 You do not have to configure all optional feature with the `upgrade` command in one step. You can of course configure these features also manually by modifying the configuration file, but you can also re-run the `upgrade` command later to configure these.
 {% endhint %}
 
-### Step 5: Review configuration changes and perform synchronization
+### Step 6: Review configuration changes and perform synchronization
 
 Once the `upgrade` command has been executed, you can review the changes of the configuration file.
 
@@ -73,7 +83,7 @@ If the result is good, you can do the final synchronization with the `push` comm
 dotnet specsync push
 ```
 
-### Step 6: Review Azure DevOps pipeline usage
+### Step 7: Review Azure DevOps pipeline usage
 
 SpecSync v5 has improved integration with Azure DevOps pipelines. The most important change is that the task will not fail automatically on warnings, but will register the warning to the pipeline result instead. Therefore the option `--zeroExitCodeForWarnings` is not needed anymore.
 

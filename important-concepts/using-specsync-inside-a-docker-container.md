@@ -104,7 +104,7 @@ ENTRYPOINT [ "/shared/runspecsync.sh" ]
 To run SpecSync from the created image, you need to mount the local repository folder and pass further arguments for SpecSync, like
 
 ```bash
-docker run -it --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @foo
+docker run -it --rm -v C:\MyProject\src\features:/local myimage push --filter @foo
 ```
 
 ## Integrate SpecSync into a .NET Core SDK-based image
@@ -152,7 +152,7 @@ You can build an image and work with that interactively, e.g.:
 ```bash
 > docker run -it --rm -v C:\MyProject\src\features:/local myimage bash
 # dotnet build
-# specync push --tagFilter @foo
+# specync push --filter @foo
 ```
 
 ## Integrate SpecSync into a pure Linux image
@@ -207,7 +207,7 @@ ENTRYPOINT [ "/specsync/SpecSync4AzureDevOps" ]
 To run SpecSync from the created image, you need to mount the local repository folder and pass further arguments for SpecSync, like
 
 ```bash
-docker run -it --rm -v C:\MyProject\src\features:/local myimage push --tagFilter @foo
+docker run -it --rm -v C:\MyProject\src\features:/local myimage push --filter @foo
 ```
 
 {% hint style="info" %}

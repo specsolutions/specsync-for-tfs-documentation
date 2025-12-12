@@ -13,7 +13,7 @@ This documentation page describes in detail the concept for publishing test resu
 The [Examples](publishing-test-result-files.md#examples) section below shows a few concrete examples. A simple usage of the command could be as simple as this:
 
 ```
-dotnet specsync publish-test-results --testResultFile result.trx
+dotnet specsync publish-test-results --testResult result.trx
 ```
 
 The [Use SpecSync from build or release pipeline](../../important-concepts/synchronizing-test-cases-from-build.md) guide contains details about how to integrate the publish-test-results command to a build or release pipeline.
@@ -36,7 +36,7 @@ The [Compatibility](../../reference/compatibility.md#supported-test-result-forma
 
 The exact way how you can get test result files depends on the test runner tool and the BDD framework you use. For example for .NET Reqnroll test projects the test results can be saved into a TRX file by providing the `--logger trx;logfilename=<your-trx-file-name>.trx` option for the `dotnet test` command.
 
-For the SpecSync publish-test-results command, the path of the test result file can be specified using the `--testResultFile` command line option. If the test result file is not a TRX file, you also have to specify the file format using the `--testResultFileFormat` option (see [Compatibility](../../reference/compatibility.md#supported-test-result-formats) for possible values).
+For the SpecSync publish-test-results command, the path of the test result file can be specified using the `--testResult` command line option. If the test result file is not a TRX file, you also have to specify the file format using the `--testResultFormat` option (see [Compatibility](../../reference/compatibility.md#supported-test-result-formats) for possible values).
 
 The [Examples](publishing-test-result-files.md#examples) section below shows how some of the most commonly used BDD frameworks and platforms can be used.
 
@@ -90,13 +90,13 @@ Azure DevOps groups the test results together into a Test Run. The list of Test 
 
 The SpecSync publish-test-results command always creates a single Test Run. You can customize many details of the created Test Run using the [command line](../../reference/command-line-reference/publish-test-results-command.md) and the [configuration](../../reference/configuration/configuration-publishtestresults.md) options. For example you can set the name of the Test Run using the `--runName` option.
 
-The Azure DevOps Test Runs have a _Run Type_ setting that can either be _Automated_ or _Manual_. SpecSync sets this flag by default based on whether it is configured to [synchronize scenarios as automated test cases](../push-features/mark-test-cases-as-automated.md) (`synchronization/automation/enabled` is set to `true`). The value can be overwritten by setting `publishTestResults/runType`.&#x20;
+The Azure DevOps Test Runs have a _Run Type_ setting that can either be _Automated_ or _Manual_. SpecSync sets this flag by default based on whether it is configured to [synchronize scenarios as automated test cases](../push-features/mark-test-cases-as-automated.md) (`synchronization/automation/enabled` is set to `true`). The value can be overwritten by setting `publishTestResults/testRunSettings/runType`.&#x20;
 
 {% hint style="info" %}
 Inconsistent setting of the Test Case automation flag and the Test Run run type might lead to "Mismatch in automation status of test case and test run" error in older Azure DevOps servers. See related [Troubleshooting entry](../../contact/troubleshooting.md#test-result-publishing-fails-with-mismatch-in-automation-status-of-test-case-and-test-run) for details.
 {% endhint %}
 
-SpecSync always attaches the test result file to the created Test Run, but you can attach additional files using the `--attachedFiles` option.
+SpecSync always attaches the test result file to the created Test Run, but you can attach additional files using the `--attachFile` option.
 
 ### Test results can be associated to an Azure DevOps build
 
@@ -110,6 +110,18 @@ In Azure DevOps only Azure DevOps build pipelines can be associated. Build refer
 
 {% hint style="warning" %}
 In Azure DevOps the pipeline can only be associated to the created Test Run, if that pipeline is in the same Azure DevOps project as the synchronized Test Cases. If you try to publish test result from a different project, you will receive a **pipeline not found error**. See the [Troubleshooting guide](../../contact/troubleshooting.md#pipeline-not-found) for a workaround to this limitation.
+{% endhint %}
+
+### Controlling attachments for passing tests
+
+SpecSync publishes test results with attachments to help track test execution details. By default, for passing tests SpecSync publishes file attachments (e.g. screenshots) but not test output attachments, as publishing test output can impact performance. You can control which attachments should be published for passing tests using the [`publishTestResults/publishAttachmentsForPassingTests`](../../reference/configuration/configuration-publishtestresults.md) configuration setting:
+
+* `none` - no attachments are published for passing tests
+* `files` - only file attachments are published (default)
+* `all` - both file attachments and test output are attached
+
+{% hint style="info" %}
+This setting only affects passing tests. Failing tests always publish all attachments to help with troubleshooting.
 {% endhint %}
 
 ### Results of Scenario Outline executions
@@ -128,7 +140,7 @@ My setting the `publishTestResults/treatInconclusiveAs` setting in the configura
 
 You can also specify multiple test result files. In this case SpecSync will merge the results and publish them as a single Test Run.
 
-The `--testResultFile` command line option allows specifying multiple files, separated by a semicolon (`;`).
+The `--testResult` command line option allows specifying multiple files by using the option multiple times or separated by a semicolon (`;`).
 
 Multiple test results files can also be specified by specifying a folder name. In this case SpecSync will scan through the folder and uses all files that are supported by the specified format setting (e.g. all TRX files).
 
@@ -169,7 +181,7 @@ The following example shows how to run .NET Core SpecFlow tests using the `dotne
 
 ```
 dotnet test --logger trx;logfilename=bddtestresults.trx
-dotnet specsync publish-test-results --testResultFile bddtestresults.trx
+dotnet specsync publish-test-results --testResult bddtestresults.trx
 ```
 
 ### Cucumber (Java, Maven)
@@ -197,7 +209,7 @@ The Test Suite in this case is the Test Suite that the scenarios are synchronize
 
 ```
 mvn test
-<SPECSYNC-FOLDER>/SpecSync4AzureDevOps publish-test-results --testResultFile bddtestresults.xml --testResultFileFormat cucumberJavaJUnitXml
+<SPECSYNC-FOLDER>/SpecSync4AzureDevOps publish-test-results --testResult bddtestresults.xml --testResultFormat cucumberJavaJUnitXml
 ```
 
 ### Publish using a specific Test Configuration
@@ -234,7 +246,7 @@ The Test Suite in this case is the Test Suite that the scenarios are synchronize
 
 ```
 vstest.console.exe /logger:trx;LogFileName=bddtestresults.trx
-dotnet specsync publish-test-results --testResultFile TestResults\bddtestresults.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-results --testResult TestResults\bddtestresults.trx --testConfiguration "Windows 10"
 ```
 
 ### Custom publish settings
@@ -262,7 +274,7 @@ The following example shows how to customize the settings for the publish-test-r
     },
     "testSuite": {
       "name": "BDD Results",
-      "testPlanId": 23  // optional, but makes processing faster
+      "testPlan": "My Plan"  // optional, but makes processing faster
     }
   }
 }
@@ -270,5 +282,5 @@ The following example shows how to customize the settings for the publish-test-r
 {% endcode %}
 
 ```
-dotnet specsync publish-test-results --testResultFile bddtestresults.trx --runName "BDD Results"
+dotnet specsync publish-test-results --testResult bddtestresults.trx --runName "BDD Results"
 ```

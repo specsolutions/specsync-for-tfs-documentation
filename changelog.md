@@ -12,16 +12,10 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
-## v5.0.0 - COMING SOON! PREVIEW AVAILABLE! <a href="v5" id="v5"></a>
-
-The preview of the new v5 release is available! Please note that according to our [versioning policy](roadmap.md#release-model), we do not recommend using preview releases for production.
-
-{% hint style="warning" %}
-The usage of SpecSync plugins in the latest v5 preview release is temporarily disabled. Please check back at for an updated preview to try v5 with plugins.
-{% endhint %}
+## v5.0.0 - 2025/12/12 <a href="v5" id="v5"></a>
 
 {% hint style="info" %}
-All fixes of SpecSync v3.4.29 are included in this release.
+All fixes up to SpecSync v3.4.33 are included in this release.
 {% endhint %}
 
 For detailed instructions on how to upgrade please check the [Migrating from SpecSync v3 to v5](important-concepts/migrating-from-specsync-v3-to-v5.md) guide.
@@ -36,22 +30,22 @@ For detailed instructions on how to upgrade please check the [Migrating from Spe
   * Both SpecSync for Azure DevOps and SpecSync for Jira will use the same versioning scheme and the plugins are cross-compatible between these products.
   * We recommend to always upgrade to the latest minor and patch version within the same major version.
 * Configuration upgrade wizard: The `specsync upgrade` command analyzes your configuration file, applies the necessary changes for deprecated settings and offers configuring new features. The `upgrade` command should be used primarily for major version upgrades, but can be re-invoked any time to configure optional features. See [Configuration wizards](features/general-features/configuration-wizards.md#upgrade-wizard) for details. (#1279)
-* Synchronizing Test Cases to different Test Suite hierarchies with the "hierarchy synchronization" feature. There are built-in hierarchy configuration options (`folders`, `FoldersAndFiles`, `FoldersAndDocumentNames`, `tag`, `levels`, `single`) for the most common hierarchy types but you can also choose `custom` for defining a custom hierarchy structure (similarly to the deprecated `addTestCasesToSuites` customization). With enterprise license, you can configure multiple hierarchies and use more than 20 nodes (Test Suites) within a hierarchy. The hierarchies can be configured using the `hierarchies` top-level configuration setting. See [Synchronizing Test Case hierarchies using Test Suites](features/common-synchronization-features/synchronizing-test-case-hierarchies.md) for details. (#322)
-* Improved integration to Azure DevOps pipelines: 
+* Synchronizing Test Cases to different Test Suite hierarchies with the "hierarchy synchronization" feature. There are built-in hierarchy configuration options (`folders`, `FoldersAndFiles`, `FoldersAndDocumentNames`, `tag`, `levels`, `single`) for the most common hierarchy types but you can also choose `custom` for defining a custom hierarchy structure (similarly to the deprecated `addTestCasesToSuites` customization). With enterprise license, you can configure multiple hierarchies and use more than 20 nodes (Test Suites) within a hierarchy. The hierarchies can be configured using the `hierarchies` top-level configuration setting. See [Synchronizing Test Case hierarchies using Test Suites](features/common-synchronization-features/synchronizing-test-case-hierarchies.md) for details. (#322, #1798, #1526, #1732, #1731, #1660, #1728, #1717, #1721, #1662, #1658, #1661)
+* Improved integration to Azure DevOps pipelines:
   * When a SpecSync command fails, it automatically fails the pipeline task without using non-zero exit codes. This produces cleaner error messages. The non-zero exit codes can be forced with `--forceExitCode` command line option. (#1110)
   * SpecSync v5 does not fail the Azure DevOps pipelines automatically for warnings, but registers the warning to the pipeline result instead. If you want to fail the pipelines for warnings, use the `--treatWarningsAsErrors` option. (#1110)
   * The log file produced by the `--log` command line option is automatically included to the pipeline build logs. (#1216)
   * The pipeline output log uses colors
-* There are new options to maintain "remote scope". Remote scope is a piece of information in Azure DevOps that is used to detect if a local test case has been removed. Configuring a remote scope is optional, but if it is not specified SpecSync will not be able to detect removed local test cases and could not mark the related Test Cases and remove them from the suite hierarchies. The remote scope is now configured using the `remote/scope` configuration setting. So far the only way to configure remote scope was to set a Test Suite in the `remote/testSuite` configuration section. See [Remote scope](features/common-synchronization-features/remote-scope.md) for details. There are more options now to use remote scope: (#1282)
+* There are new options to maintain "remote scope". Remote scope is a piece of information in Azure DevOps that is used to detect if a local test case has been removed. Configuring a remote scope is optional, but if it is not specified SpecSync will not be able to detect removed local test cases and could not mark the related Test Cases and remove them from the suite hierarchies. The remote scope is now configured using the `remote/scope` configuration setting. So far the only way to configure remote scope was to set a Test Suite in the `remote/testSuite` configuration section. See [Remote scope](features/common-synchronization-features/remote-scope.md) for details. There are more options now to use remote scope: (#1282, #1619)
   * Configure a `testSuite` remote scope that stores the information in a single Test Suite that is managed by SpecSync and you cannot include additional Test Cases to it. The Suite cannot be reused for other SpecSync configurations. This is the option that was available earlier.
   * Configure a `managedQuery` remote scope that stores the information in a shared query within the `.SpecSync.Internal` folder. (recommended) (#1278)
   * Configure a `tag` remote scope that uses a tag `specsync:<configuration-key>` to know if a Test Case was managed by SpecSync. (#588)
-* The SpecSync configurations can be identified with a "configuration key". The configuration key can be specified in the `configurationKey` setting of the configuration file. The configuration key is included in the Test Case change comments, so SpecSync is able to detect and provide a warning by default when a Test Case is synchronized from multiple SpecSync configurations. This behavior can be changed by the `synchronization/push/configurationConflictResolution` setting. The configuration key is also used for marking Test Cases of deleted local test cases (scenarios) and also by `tag` remote scope. Specifying a configuration key is optional, but recommended. See [Configuration key](features/common-synchronization-features/configuration-key.md) for details. (#1387) 
-* The command line options supports completion using the "dotnet-suggest" tool. Detailed setup guide will be provided soon. (#1487) 
-* Allow suppressing warnings with either the `toolSettings/suppressWarnings` configuration setting. You an specify warning codes in an array, e.g. `"suppressWarnings": ["W5113", "W5126"]` (#1158) 
-* Support for license keys as an alternative of license files. The license key can be specified in the  `toolSettings/license` configuration setting or with the `--license` command line option. The configuration setting supports loading the value from environment variable with `{env:ENV_VAR}`. You can use the `specsync upgrade` command to convert your license file to license key, but you can also ask [support](contact/specsync-support.md) to get your license key. License files are still supported. (#1266) 
-* Allow treating warnings as errors for greater security by setting the `toolSettings/treatWarningsAsErrors` setting to `true` or using the `--treatWarningsAsErrors` command line option. (#1477) 
-* The `publishTestResults/publishAttachmentsForPassingTests` configuration setting controls which attachments should be published for passing tests. In the prior releases both the files attached to the test results (e.g. screenshots) and the test output were attached to the result. Publishing the test output attachments causes performance issues therefore, you can control now which attachments of the passing tests should be published. The possible options are `none` - no attachments are published for passing tests, `files` - only file attachments are published (default), `all` - both file attachments and test output are attached. In prior releases all attachments were published, so the default behavior is a breaking change. *Note: this setting and the changes of defaults does not affect publishing failing tests.* (#1485) 
+* The SpecSync configurations can be identified with a "configuration key". The configuration key can be specified in the `configurationKey` setting of the configuration file. The configuration key is included in the Test Case change comments, so SpecSync is able to detect and provide a warning by default when a Test Case is synchronized from multiple SpecSync configurations. This behavior can be changed by the `synchronization/push/configurationConflictResolution` setting. The configuration key is also used for marking Test Cases of deleted local test cases (scenarios) and also by `tag` remote scope. Specifying a configuration key is optional, but recommended. See [Configuration key](features/common-synchronization-features/configuration-key.md) for details. (#1387)
+* The command line options supports completion using the "dotnet-suggest" tool. See [How to enable command line completion](important-concepts/how-to-enable-command-line-completion.md) for details. (#1487)
+* Allow suppressing warnings with either the `toolSettings/suppressWarnings` configuration setting. You an specify warning codes in an array, e.g. `"suppressWarnings": ["W5113", "W5126"]` (#1158)
+* Support for license keys as an alternative of license files. The license key can be specified in the  `toolSettings/license` configuration setting or with the `--license` command line option. The configuration setting supports loading the value from environment variable with `{env:ENV_VAR}`, but SpecSync will automatically load the license key from the environment variable `SPECSYNC_LICENSE_KEY`. You can use the `specsync upgrade` command to convert your license file to license key, but you can also ask [support](contact/specsync-support.md) to get your license key. License files are still supported. (#1266, #1758)
+* Allow treating warnings as errors for greater security by setting the `toolSettings/treatWarningsAsErrors` setting to `true` or using the `--treatWarningsAsErrors` command line option. (#1477)
+* The `publishTestResults/publishAttachmentsForPassingTests` configuration setting controls which attachments should be published for passing tests. In the prior releases both the files attached to the test results (e.g. screenshots) and the test output were attached to the result. Publishing the test output attachments causes performance issues therefore, you can control now which attachments of the passing tests should be published. The possible options are `none` - no attachments are published for passing tests, `files` - only file attachments are published (default), `all` - both file attachments and test output are attached. In prior releases all attachments were published, so the default behavior is a breaking change. *Note: this setting and the changes of defaults does not affect publishing failing tests.* (#1485)
 
 ### Improvements
 
@@ -59,42 +53,58 @@ For detailed instructions on how to upgrade please check the [Migrating from Spe
 * Improve logging to better explain why test results are filtered out for `publish-test-results` command (#1588)
 * Improve usability of file pattern conditions by hinting potential causes for not processing any local test cases (#1262)
 * Automatically enable verbose mode if `--diag` is used, except for `timing` diag category (#1524)
-* Console options that supported multiple values and so far allowed semicolon-separated list now allow using the options multiple times. The semicolon-separated value list is still supported. Affected options: `--testResult`, `-r`, `--diag`, `--attachedFile`, `--hierarchy` (#1487) 
+* Console options that supported multiple values and so far allowed semicolon-separated list now allow using the options multiple times. The semicolon-separated value list is still supported. Affected options: `--testResult`, `-r`, `--diag`, `--attachFile`, `--hierarchy` (#1487)
 * Improved error handling if Git URL is used for project URL. (#1484)
 * Add error codes for all errors (#1476)
-* Allow using `{test-case-id}` placeholder in field updates and test result settings. (#1358) 
-* The `--testRunSetting` and `--testResultSetting` command line options are now available for `publish-test-result` command. (#974) 
-* Added `skipWithWarning` and `overwriteWithWarning` conflict resolution methods, `skip` will not report a warning (#1395, #1391) 
+* Allow using `{test-case-id}` placeholder in field updates and test result settings. (#1358)
+* Allow using `{requirement-source}` placeholder in field updates to represent source text of the requirements. (#1526)
+* The repeating step keywords in synchronized Test Case steps can be normalized to the first step keyword by setting the `synchronization/format/normalizeRepeatingStepKeywords` setting to `true`. For example, if a `Given` step is followed by another `Given` step, the second step will be changed to `And`. (#1622)
+* The `--testRunSetting` and `--testResultSetting` command line options are now available for `publish-test-result` command. (#974)
+* Added `skipWithWarning` and `overwriteWithWarning` conflict resolution methods, `skip` will not report a warning (#1395, #1391)
+* The support for wildcard conditions has been extended to multiple wildcards and wildcards at any position in a single predicate (so far only a single tail wildcard was supported). For example `@env-*-db-*` matches `@env-prod-db-mysql`. The literal `*` characters in tags has to be escaped as `\*`. (#1600)
 * Improve display of warning summary (#1393)
 * Detect when local and remote test case have been updated in the same way and reset hash (#1389)
 * Include configuring Test Case hierarchy synchronization and remote scope in the configuration wizards (`init`, `upgrade`). (#1388, #1386)
 * Improved coloring of console output (#1385)
 * Improved performance of Test Suite operations (#1320)
-* Text values can be converted to fields that accept Markdown (e.g. test result comment) using the  `TextToMarkdown` value loader. (#1475) 
-* Various stability and maintainability improvements (#1548, #1587, #1588, #1535, #1534, #1533, #1532, #1525, #1511, #1512, #1480, #1467, #1468, #816, #1205, #1394, #1384, #1280)
+* Text values can be converted to fields that accept Markdown (e.g. test result comment) using the  `TextToMarkdown` value loader. (#1475)
+* When the number of test sub-results for a test exceeds the maximum supported by Azure DevOps to be displayed (1000), SpecSync prioritizes the failed and inconclusive results to be included in the published results. The Azure DevOps limitation is only related to the displayed results in the Pipeline result page, but all results are recorded as iterations without maximum number limit. See fix #1617 below for details. (#1618)
+* The dependency to the deprecated `BoDi` NuGet package has been removed. (#1786)
+* The Azure DevOps SDK dependencies have been updated to the latest versions (20.262.0). (#1785)
+* The Cucumber Messages support has been updated to support Cucumber Messages v31. (#1783)
+* The Gherkin support has been updated to support Gherkin v37. (#1783)
+* The `SpecSync.AzureDevOps.TestSuiteBasedExecution` package has been updated to Reqnroll v3 (#1784)
+* Various stability and maintainability improvements (#1548, #1587, #1588, #1535, #1534, #1533, #1532, #1525, #1511, #1512, #1480, #1467, #1468, #816, #1205, #1394, #1384, #1280, #1513, #1797, #1795, #1526, #1765, #1667, #1739, #1738, #1656)
+* Plugin API improvements (see details below) (#1752, #1769, #1463, #1162, #1751, #1790, #1161, #1321, #1502, #1711)
 
 ### Deprecation notices
 
 The following settings are still usable with the new version but provide a warning. The deprecated settings will be removed in the next major release.
 
 {% hint style="info" %}
-Most of the deprecated settings are automatically fixed by invoking the new `specsync upgrade` command.
+Most of the deprecated settings are automatically fixed by invoking the new `specsync upgrade` command
+(see [Configuration wizards – Upgrade](features/general-features/configuration-wizards.md#upgrade-wizard)).
 {% endhint %}
 
 * The configuration setting `customizations/customFieldUpdates` has been replaced by `synchronization/fieldUpdates`. See [Update Test Case fields](features/push-features/update-test-case-fields.md) feature description for details. (#1589)
-* The configuration setting ``addTestCasesToSuites` customization` has been replaced by `hierarchies`. (#1322) 
-* The configuration setting `local/tags` has been renamed to `local/condition` (#1529) 
-* The configuration settings `publishTestResult/testResult/filePath` and `publishTestResult/testResult/files` have been replaced by `publishTestResults/testResults/sources` (#1462) 
-* The configuration setting `publishTestResult/testResult/fileFormat` has been replaced by `publishTestResults/testResults/resultFormat` (#1462) 
-* The `ignore` and `forceOverride` conflict resolution method has been replaced with with `overwrite` (#1392, #1390) 
+* The configuration setting `addTestCasesToSuites` customization has been replaced by `hierarchies`. See [Synchronizing Test Case hierarchies using Test Suites](features/common-synchronization-features/synchronizing-test-case-hierarchies.md) as the recommended replacement. The `specsync upgrade` command can automatically migrate existing configurations to `hierarchies`. (#1322)
+* The configuration setting `local/tags` has been renamed to `local/condition` (#1529)
+* The configuration settings `publishTestResult/testResult/filePath` and `publishTestResult/testResult/files` have been replaced by `publishTestResults/testResults/sources` (#1462)
+* The configuration setting `publishTestResult/testResult/fileFormat` has been replaced by `publishTestResults/testResults/resultFormat` (#1462)
+* The `TestCaseContainer` value of `customizations/requirementSynchronization/requirements[]/source` has been renamed to `Feature` (#1526)
+* The singular settings of `customizations/requirementSynchronization/requirements[]/linkOnChange` have been replaced by the `links` collection. (#1640)
+* The configuration setting `customizations/synchronizeLinkedArtifactTitles` has been renamed to `customizations/synchronizeLinkedResourceTitles` (#1526)
+* The configuration setting `local/defaultFeatureLanguage` has been renamed to `local/defaultDocumentLanguage` (#1526)
+* The configuration setting `synchronization/pull/enableCreatingScenariosForNewTestCases` has been renamed to `synchronization/pull/enableCreatingNewLocalTestCases` (#1602)
+* The `ignore` and `forceOverride` conflict resolution method has been replaced with with `overwrite` (#1392, #1390)
 * The command line option `--diagCategories` has been replaced by `--diag` (#1523)
-* The command line option `--tagFilter` has been replaced by `--filter` (#1491) 
-* The command line option `--attachedFiles` has been replaced by `--attachedFile` (#1495) 
-* The command line option `--testResultFile` has been replaced by `--testResult` (#1461) 
-* The command line option `--testResultFileFormat` has been replaced by `--testResultFormat` (#1461) 
-* The command line option `--testPlanId` has been replaced by `--testPlan`. With the `--testPlan` option you can specify ID values using the `#1234` format. (#1459) 
-* The command line options `--buildId`, `--buildNumber`, `--buildFlavor`, `--buildPlatform` has been replaced by the `--testRunSetting` option. The settings can be used in `--testRunSetting buildId=123` format. (#1460) 
-* When SpecSync is used with .NET 6 or .NET 7, a warning is displayed. The official support of these frameworks have been ended by Microsoft so it is not recommended to use SpecSync with these. Please note that the .NET framework used for SpecSync does not have to be the same as the .NET framework of the synchronized project. (#1471) 
+* The command line option `--tagFilter` has been replaced by `--filter` (#1491)
+* The command line option `--attachedFiles` has been replaced by `--attachFile` (#1495, #1657)
+* The command line option `--testResultFile` has been replaced by `--testResult` (#1461)
+* The command line option `--testResultFileFormat` has been replaced by `--testResultFormat` (#1461)
+* The command line option `--testPlanId` has been replaced by `--testPlan`. With the `--testPlan` option you can specify ID values using the `#1234` format. (#1459)
+* The command line options `--buildId`, `--buildNumber`, `--buildFlavor`, `--buildPlatform` have been removed. Use `--testRunSetting buildId=123` (and `buildNumber`, `buildFlavor`, `buildPlatform`) instead. (#1460)
+* When SpecSync is used with .NET 6 or .NET 7, a warning is displayed. The official support of these frameworks have been ended by Microsoft so it is not recommended to use SpecSync with these. Please note that the .NET framework used for SpecSync does not have to be the same as the .NET framework of the synchronized project. (#1471)
 
 ### Breaking changes <a href="v5-breaking" id="v5-breaking"></a>
 
@@ -102,22 +112,44 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
   * Team Foundation Server 2017 (support ended: [January, 2022](https://learn.microsoft.com/en-us/lifecycle/products/visual-studio-team-foundation-server-2017)) (#939)
   * Team Foundation Server 2018 (support ended: [January, 2023](https://learn.microsoft.com/en-us/lifecycle/products/visual-studio-team-foundation-server-2018)) (#1283)
   * Azure DevOps Server 2019 (support ended: [April, 2024](https://learn.microsoft.com/en-us/lifecycle/products/azure-devops-server-2019)) (#1456)
-* The SpecSync command line execution support for .NET 3.1 and .NET 5 has been removed. The official support of these frameworks have been ended by Microsoft so it is not recommended to use SpecSync with these. To continue using these frameworks, please use SpecSync 3.4. Please note that the .NET framework used for SpecSync does not have to be the same as the .NET framework of the synchronized project. (#872) 
+* The SpecSync command line execution support for .NET 3.1 and .NET 5 has been removed. The official support of these frameworks have been ended by Microsoft so it is not recommended to use SpecSync with these. To continue using these frameworks, please use SpecSync 3.4{%Jira%}1.3{%Jira%}. Please note that the .NET framework used for SpecSync does not have to be the same as the .NET framework of the synchronized project. (#872)
 * SpecSync v5 does not fail the Azure DevOps pipelines automatically for warnings, but registers the warning to the pipeline result instead. If you want to fail the pipelines for warnings, use the `--treatWarningsAsErrors` option.
 * The default behavior for publishing attachments for the passing tests has been changed (see #1485). In the prior releases both the files attached to the test results (e.g. screenshots) and the test output were attached to the result. According to the new default, only file attachments are published for passing tests. The behavior can be controlled by the `publishTestResults/publishAttachmentsForPassingTests` setting. The setting `all` represents the previous default. *Note: this setting and the changes of defaults does not affect publishing failing tests.* (#1485)
-* The exit code of the command line tool for errors is not always `10` anymore, but in range between `10` and `19`. (#1478) 
+* The exit code of the command line tool for errors is not always `10` anymore, but in range between `10` and `19`. (#1478)
 * In previous releases when a Test Suite name was used without specifying a Test Plan, SpecSync used the Test Suite from the first Test Plan it found. This has been changed to search through all Test Plans and report an error if the Test Suite name is not unique. To avoid name collisions, it is recommended to specify the Test Plan and refer to the Test Suite by `path`. (#1474)
-* The synchronization behavior of "automated test" settings of Test Cases has changed. So far when the `synchronization/automation/enabled` setting was not set to `true`, SpecSync always cleaned these fields, except when `toolSettings/doNotSynchronizeAutomationUnlessEnabled` was set to `true`. Now this is the default behavior. If you need to clean the automation fields, use the `synchronization/automation/condition` setting or `synchronization/fieldUpdates`. (#1464) 
+* The `name` setting of the Test Suite specification has been replaced by `titleSearch` to avoid confusion. If the Test Suite is a top-level suite in the Test Plan, consider using the `path` setting instead. (#1724)
+* The synchronization behavior of "automated test" settings of Test Cases has changed. So far when the `synchronization/automation/enabled` setting was not set to `true`, SpecSync always cleaned these fields, except when `toolSettings/doNotSynchronizeAutomationUnlessEnabled` was set to `true`. Now this is the default behavior. If you need to clean the automation fields, use the `synchronization/automation/condition` setting or `synchronization/fieldUpdates`. (#1464)
+* The default configuration setting of `publishTestResults/onTestPointMissing` has been changed from `skipTestResult` to `warning` to provide improved safety. (#1760)
 * The scenario outlines that contain quoted parameter placeholders (`"<param>"` or `'<param>'`) are synchronized differently because in the prior releases an additional space has been inserted in the Azure DevOps Test Case step before the closing quote (`"@param "`). The additional space is not inserted anymore because of the fix #1146. The change will be applied when the Test Case is changing otherwise or when the synchronization is invoked with the `--force` option.
-* The escaping behavior in conditions have changed: the escape character (`\`) escapes only a specified set of characters (`\`, `(`, `)`, `;`, `'`, `"`, ` `) instead of all characters. This helps for specifying Windows paths in conditions. (#1473) 
+* The escaping behavior in conditions have changed: the escape character (`\`) escapes only a specified set of characters (`\`, `(`, `)`, `;`, `'`, `"`, ` `, `*`) instead of all characters. This helps for specifying Windows paths in conditions. (#1473)
+* The literal `*` characters of tags in conditional has to be escaped as `\*`, because now they are treated as wildcard. (#1600)
 * The v1 hash calculation that has been used by SpecSync v3.3 has been deprecated. When a Test Case has not been updated since v3.3 upgrading to this release will cause a one-time change in the Test Case to reset the hash to the current hash calculation version. (#899)
 * The console options that have been deprecated in earlier releases are removed now: `--baseFolder`, `--buildServerMode`. (#1490, #1492)
-* The configuration settings that have been deprecated earlier are removed now: `publishTestResults/ignoreNotExecutedTests`, `local/featureFileSource/*`, `synchronization/link[]/targetWorkItemType`, `toolSettings/testCaseWorkItemName`, `toolSettings/testSuiteWorkItemName`, `customizations/synchronizeLinkedArtifactTitles/linkLabelSeparator`, `publishTestResults/createSubResults`, `publishTestResults/runName`, `publishTestResults/runComment`, `publishTestResults/runType`, `publishTestResults/testResultComment` (#1457) 
+* The configuration settings that have been deprecated earlier are removed now: `publishTestResults/ignoreNotExecutedTests`, `local/featureFileSource/*`, `synchronization/link[]/targetWorkItemType`, `toolSettings/testCaseWorkItemName`, `toolSettings/testSuiteWorkItemName`, `customizations/synchronizeLinkedArtifactTitles/linkLabelSeparator`, `publishTestResults/createSubResults`, `publishTestResults/runName`, `publishTestResults/runComment`, `publishTestResults/runType`, `publishTestResults/testResultComment` (#1457)
 * The legacy [Test Plan / Test Suite based test execution](features/test-result-publishing-features/support-for-azure-devops-test-plan-test-suite-based-test-execution.md) for old SpecFlow versions (v3.8 or earlier) and for SpecFlow v4 beta is not supported anymore. SpecFlow v3.9 is still supported. *Note: this change does not impact normal feature file synchronization, that still works with all SpecFlow versions*. To use the legacy execution mode for the older SpecFlow versions, please use SpecSync v3.4. (#1455)
+* The support for including the newly created feature files to legacy non-SDK style .NET projects has been removed. The created feature files has to be included to the project manually. This does not impact usual, SDK-style .NET projects. (#1755)
+
+### Plugin Improvements
+
+* All plugins have been updated to be compatible with SpecSync v5. According to the new versioning policy, the plugins that are compatible with SpecSync v5 have their major version set to 5. Please make sure to update to the latest plugin versions. See [plugin list](features/plugin-list.md) for details. (#1547)
 
 ### Plugin API improvements
 
-*The API improvements will be listed soon.*
+The plugin API has been significantly changed to reflect the improvements related to synchronizing requirement work items, non-BDD projects and projects that use source document that are not physical files (e.g. a Postman collection). The official plugins have been upgraded to v5 already. If you need help with upgrading your custom plugins, please [contact us](contact/specsync-support.md).
+
+The main changes are:
+* The "BDD Project" concept has been replaced by "Sync Project" or "Project" in short. The Sync Project represents the project that is synchronized by SpecSync with a SpecSync configuration file. The sync project is typically a folder that contains the source documents to be processed (e.g. Feature Files).
+* The "Source File" concept (e.g. a file path within a project to be processed) has been replaced by "Source Reference", the "Source File" is a specialization of "Source Reference". 
+* The "Local Test Case Container" concept (e.g. a Feature File) has been replaced by "Source Document".
+* The common term for local test cases (e.g. Scenarios) or local requirements (e.g. a `Rule` section of a feature file) is now "Local Artifact" and "Local Test Case" and "Local Requirement" are specializations of it.
+* The generic term "Resource" has been introduced to represent any remote artifact (e.g. work item, pull request, URL) that can be linked from a local artifact.
+* The term "Managed Work Item" has been introduced to represent a remote work item (e.g. Test Case, Requirement) that is synchronized by SpecSync.
+* The data structure that represents the synchronization input is renamed to "Artifact Sync Data" from "Test Case Source Data".
+* The representation of tests results ("Local Test Run") has been consolidated. The local test runs contain "Local Test Results". The abstraction "Test Definition" has been removed and its details have been merged into "Local Test Result". If the local test result represents a parametrized test execution (e.g. scenario outline example), the concrete arguments are available as "Invocation Arguments".
+* The general processing context has been renamed to "Command Context" from "Synchronization Context" and the context specific to synchronization of an artifact is renamed to "Artifact Sync Context" from "Local Test Test Case Context".
+* The plugin API can now represent parametrized local test cases, where the parameter values are not known at synchronization time, but the parameter names are known (e.g. when a parametrized coded test receives the parameter values from an external source). The parameter values are provided later when test results are published.
+* The test results store all date/time values in `DateTimeOffset` class to properly represent date and time with time zone information.
+* The local test runs can store environment details and the local test results can store step level attachments and categories as well. These are not yet processed by SpecSync but the plugin API supports these.
 
 ### Bug Fixes
 
@@ -131,7 +163,6 @@ Most of the deprecated settings are automatically fixed by invoking the new `spe
   * Allow --runComment and  --testResultComment for Jira (#1458)
   * Offer 'tag' as remote scope for Jira, use it as default for init (#1281)
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
-
 
 ## v3.4.33 - 2025/12/11
 

@@ -17,7 +17,7 @@ The following example shows the available options within this sub-section.
     ...
     "pull": {
       "enabled": true,
-      "enableCreatingScenariosForNewTestCases": false,
+      "enableCreatingNewLocalTestCases": false,
       "conflictResolution": "interactive"
     },
     ...
@@ -31,8 +31,8 @@ The following example shows the available options within this sub-section.
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
 | `enabled` | Enables changing the scenarios in the local repository based on the remote test cases. | `false` |
-| `enableCreatingScenariosForNewTestCases` | Enables creating new scenarios from test cases that are not linked to any scenarios yet. | `false` |
-| `conflictResolution` | Sets the conflict resolution method for pull. Possible values: `forceOverride`, `interactive`, `skip`, `error`, `ignore`. See [Synchronization conflict resolution](../../../features/common-synchronization-features/synchronization-conflict-resolution.md) for details. | `interactive` |
+| `enableCreatingNewLocalTestCases` | Enables creating new scenarios from test cases that are not linked to any scenarios yet. | `false` |
+| `conflictResolution` | Sets the conflict resolution method for pull. Possible values: `overwrite`, `overwriteWithWarning`, `interactive`, `skipWithWarning`, `skip`, `error`. See [Synchronization conflict resolution](../../../features/common-synchronization-features/synchronization-conflict-resolution.md) for details. | `interactive` |
 
 
 

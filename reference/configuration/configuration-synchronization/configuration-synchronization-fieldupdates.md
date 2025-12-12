@@ -71,19 +71,20 @@ An *update value specifier* can contain the following settings.
 | `{feature-name}`                  | The name of the feature (specified in the feature file header). Synonym of `{local-test-case-container-name}`. |
 | `{feature-description}`           | The description of the feature (the free-text block specified after the feature file header). Synonym of `{local-test-case-container-description}`. |
 | `{feature-source}`                | The full feature file source text. Synonym of `{local-test-case-container-source}`. |
+| `{feature-file-name}`             | The file name of the feature file (without folder). Synonym of `{local-test-case-container-source-file-name}`. |
+| `{feature-file-folder}`           | The folder of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-folder}`. |
+| `{feature-file-path}`             | The path (folder and file name) of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-path}`. |
 | `{rule-name}`                     | The name of the rule that the scenario belongs to. Synonym of `{local-test-case-rule-name}`. |
 | `{scenario-name}`                 | The name of the scenario or scenario outline. Synonym of `{local-test-case-name}`. |
 | `{scenario-description}`          | The description of the scenario or scenario outline. Synonym of `{local-test-case-description}`. |
 | `{scenario-source}`               | The full scenario source text.. Synonym of `{local-test-case-source}`. |
-| `{feature-file-name}`             | The file name of the feature file (without folder). Synonym of `{local-test-case-container-source-file-name}`. |
-| `{feature-file-folder}`           | The folder of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-folder}`. |
-| `{feature-file-path}`             | The path (folder and file name) of the feature file, relative to the project root. Synonym of `{local-test-case-container-source-file-path}`. |
+| `{test-case-id}`                  | The ID of the synchronized Test Case in the remote system. |
 | `{remote-project-url}`            | The full URL of the remote project without tailing `/`. (From v3.4.4) |
 | `{remote-server-url}`             | The full URL of the remote server (Azure DevOps Collection URL) without tailing `/`. (From v3.4.4) |
 | `{remote-project-name}`           | The remote project name (not URL encoded). (From v3.4.4) |
 | `{br}`                            | A new line.                                                                                     |
 | `{env:ENVIRONMENT_VARIABLE_NAME}` | The content of the environment variable specified (`ENVIRONMENT_VARIABLE_NAME` in this example) |
-| `{1}`                             | Refers to the wildcard (`*`) match of the condition. In case there are multiple wildcards, the `{1}`, `{2}`, etc. placeholders can be used to refer to the matches |
+| `{1}`                             | Refers to the wildcard (`*`) match of the condition. In case there are multiple wildcards (e.g., `@task-*-ready` or `@env-*-db-*`), the `{1}`, `{2}`, etc. placeholders can be used to refer to the individual matches. |
 
 For synchronization of non-Gherkin file sources, you can also use the following placeholders. This placeholders are synonyms of the Gherkin-specific placeholders above. Not all synchronization source supports all fields.
 
@@ -100,6 +101,19 @@ For synchronization of non-Gherkin file sources, you can also use the following 
 | `{local-test-case-container-source-file-folder}` | The folder of the local test case container file, relative to the project root. |
 | `{local-test-case-container-source-file-path}` | The path (folder and file name) of the local test case container, relative to the project root. |
 
+### Requirement synchronization placeholders
+
+The following placeholders can be used in field updates for [requirement synchronization](../../../features/push-features/synchronize-requirements.md):
+
+| Placeholder                       | Description                                                                                     |
+| --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `{requirement-name}`              | The name of the requirement. |
+| `{requirement-description}`       | The description of the requirement. |
+| `{requirement-acceptance-criteria}` | The acceptance criteria of the requirement. |
+| `{requirement-source}`            | The full source text of the requirement. |
+
+### Value loaders
+
 For the placeholders, different "value loaders" can be specified. Value loaders can transform the value. E.g. if the `HTML` loader is used in a field update as `{scenario-description:HTML}`, it will replace the white space and new line characters of the scenario description with the necessary HTML elements. 
 
 You can apply the value loaders for the entire value, not only for placeholders using the `{{!HTML}}...` prefix. This can be useful is the static text might also contain formatting to be handled. E.g. `{{!MarkdownToHtml}}A *Markdown* feature description: {feature-description}`.
@@ -111,6 +125,7 @@ The following value loaders are supported:
   * `Unix` - replaces Windows-style path separators (`\`) with Unix-style ones (`/`)
   * `Windows` - replaces Unix-style path separators (`/`) with Windows-style ones (`\`)
   * `MarkdownToHtml` - converts Markdown text to HTML. The relevant [Markdown extras from Markdig](https://github.com/xoofx/markdig/tree/master/src/Markdig.Tests/Specs) can be also used.
+  * `TextToMarkdown` - converts text values to Markdown format for fields that accept Markdown (e.g. test result comment).
 
 ## Default Test Case fields <a href="default-test-case-fields" id="default-test-case-fields"></a>
 
@@ -129,7 +144,7 @@ The following Test Case fields can be updated with Free or Standard license. For
 * Automated test type (`Microsoft.VSTS.TCM.AutomatedTestType`)<sup>1</sup>
 * Automation status (`Microsoft.VSTS.TCM.AutomationStatus`)<sup>1</sup>
 
-<sup>1</sup>: These fields can only be updated when the `toolSettings/doNotSynchronizeAutomationUnlessEnabled` configuration setting is set to `true` and the `synchronization/automation/enabled` configuration setting is set to `false` or leave it unset. These fields have to be updated together, so all of them has to be set. The field `Microsoft.VSTS.TCM.AutomatedTestId` is automatically set when the `Microsoft.VSTS.TCM.AutomatedTestName` field is updated. See more information at the section [Update automation fields](../../../features/push-features/update-test-case-fields.md#update-automation-fields).
+<sup>1</sup>: These fields can only be updated when the `synchronization/automation/enabled` configuration setting is set to `false` or left unset. These fields have to be updated together, so all of them has to be set. The field `Microsoft.VSTS.TCM.AutomatedTestId` is automatically set when the `Microsoft.VSTS.TCM.AutomatedTestName` field is updated. See more information at the section [Update automation fields](../../../features/push-features/update-test-case-fields.md#update-automation-fields).
 
 
 ## Examples

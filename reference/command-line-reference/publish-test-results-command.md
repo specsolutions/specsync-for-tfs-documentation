@@ -12,21 +12,19 @@ In addition the the options listed here, all [common command line options](./#co
 
 | Option | Description | Default |
 | :--- | :--- | :--- |
-| `--tagFilter` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios that should be considered for test result publishing \(e.g. `@current_sprint and @done`\). See [Filters and scopes](../../important-concepts/filters-and-scopes.md) for details. | not filtered by tags |
+| `--filter` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios that should be considered for test result publishing \(e.g. `@current_sprint and @done`\). See [Filters and scopes](../../important-concepts/filters-and-scopes.md) for details. | not filtered by tags |
 | `--sourceFileFilter` | An expression of source file [glob patterns](https://speclink.me/specsync-glob) that should be considered for test result publishing (e.g. `Folder1/**/*.feature`). See [Filters and scopes](../../important-concepts/filters-and-scopes.md) for details. | not filtered by feature files |
-| `-r`\|`--testResultFile` &lt;FILE&#x2011;PATH&gt; | The file path of the test result (.trx, .xml or .json) file to publish or a folder that contains multiple test result files. Multiple paths can be listed, separated by semicolon (`;`). Wildcards are supported using the [glob pattern](https://speclink.me/specsync-glob) syntax. | use from config file |
-| `-f`\|`--testResultFileFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
+| `-r`\|`--testResult` &lt;FILE&#x2011;PATH&gt; | The file path of the test result (.trx, .xml or .json) file to publish or a folder that contains multiple test result files. Can be specified multiple times. The semicolon-separated value list is still supported. Wildcards are supported using the [glob pattern](https://speclink.me/specsync-glob) syntax. | use from config file |
+| `-f`\|`--testResultFormat` &lt;FORMAT&gt; | The file format of the file to publish. Please check the [Compatibility](../compatibility.md#supported-test-result-formats) page for supported formats. Invoking the command with `?` as format will list all supported format as well. | use from config file or detect automatically |
 | `--runName` &lt;NAME&gt; | The name of the Test Run to be created. The value can contain [placeholders](../configuration/configuration-publishtestresults.md#setting-placeholders). | get from test result file |
 | `--runComment` &lt;RUN&#x2011;COMMENT&gt; | The comment field of the test run to be created. The value can contain [placeholders](../configuration/configuration-publishtestresults.md#setting-placeholders). | not specified |
 | `--testResultComment` &lt;RESULT&#x2011;COMMENT&gt; | The comment added to the individual test results within the created test run. Useful if the individual test results are typically browsed not through the test run. The value can contain [placeholders](../configuration/configuration-publishtestresults.md#setting-placeholders). | not specified |
-| `--attachedFiles` &lt;FILE&#x2011;LIST&gt; | Semicolon separated list of file paths that should be attached to the test run additionally. (e.g. `error1.png;error2.log`) Wildcards are currently not supported. | only test result file attached |
+| `--testRunSetting` &lt;NAME&gt;=&lt;VALUE&gt; | Additional settings for the created test run. The value can contain [placeholders](../configuration/configuration-publishtestresults.md#setting-placeholders). For Azure DevOps you can specify `name`, `comment`, `runType`, `buildId`, `buildNumber`, `buildFlavor`, `buildPlatform`. The build ID is a numeric ID of the build (e.g. `345`) and the build number is the configured build number (e.g. `20200119.1`). This option can be used *multiple times* using the `setting=value` format, e.g. `--testRunSetting "name=My Results"`. | use from config file or defaults |
+| `--testResultSetting` &lt;NAME&gt;=&lt;VALUE&gt; | Additional settings for the individual test results. The value can contain [placeholders](../configuration/configuration-publishtestresults.md#setting-placeholders). For Azure DevOps test results you can specify `comment`. This option can be used *multiple times* using the `setting=value` format, e.g. `--testResultSetting "comment=Details"`. | use from config file or defaults |
+| `--attachFile` &lt;FILE&gt; | File path that should be attached to the test run additionally. (e.g. `error1.png`) Can be specified multiple times. Wildcards are currently not supported. | only test result file attached |
 | `-c`\|`--testConfiguration` &lt;CONFIGURATION&gt; | The Azure DevOps Test Configuration name or ID to publish the results for. For specifying an ID, use `#1234` format. | use from config file or detect automatically |
 | `--testSuite` &lt;SUITE&#x2011;NAME&#x2011;OR&#x2011;ID&gt; | A Test Suite name or ID to publish the test results to. For specifying an ID, use `#1234` format. (e.g. `My Suite` or `#1234`) | use from config file |
-| `--testPlanId` &lt;PLAN&#x2011;ID&gt; | The ID of the Test Plan to search the Test Suite in. (e.g. `123`) | all Test Plans are scanned through |
-| `--buildId` &lt;BUILD&#x2011;ID&gt; | The build ID (e.g. `345`) of the build the test result was created for. To prevent detecting build from build you can specify the `--disablePipelineAssociation` option (or set the `--buildId` option to an empty value before v3.3.3). | detect from current build |
-| `--buildNumber` &lt;BUILD&#x2011;NUMBER&gt; | The build number (e.g. `20200119.1`) of the build the test result was created for. Should be specified when build ID is not known. | build ID is used |
-| `--buildFlavor` &lt;FLAVOR&gt; | The build flavor (e.g. `Debug`) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
-| `--buildPlatform` &lt;PLATFORM&gt; | The build platform (e.g. `x86`) of the build the test result was created for. Can only be specified if either `--buildNumber` or `--buildId` is specified. | detect from current build |
+| `--testPlan` &lt;PLAN&#x2011;NAME&#x2011;OR&#x2011;ID&gt; | The name or ID of the Test Plan to search the Test Suite in. For specifying an ID, use `#1234` format. (e.g. `My Plan` or `#345`) | all Test Plans are scanned through |
 | `--disablePipelineAssociation` | If specified, the published test results will not be associated to the build or release pipeline. This is useful if the Azure DevOps project of the build is different to the project of the Test Cases. See [Troubleshooting entry](../../contact/troubleshooting.md#pipeline-not-found) for details. | pipelines are associated |
 
 ## Examples
@@ -34,25 +32,25 @@ In addition the the options listed here, all [common command line options](./#co
 Publishes a test result file `result.trx` to Azure DevOps:
 
 ```text
-dotnet specsync publish-test-results --testResultFile result.trx
+dotnet specsync publish-test-results --testResult result.trx
 ```
 
 Publishes a test result file produced by Cucumber Java JUnit execution:
 
 ```text
-dotnet specsync publish-test-results --testResultFile cucumber-result.xml --testResultFileFormat CucumberJavaJUnitXml
+dotnet specsync publish-test-results --testResult cucumber-result.xml --testResultFormat CucumberJavaJUnitXml
 ```
 
 Publishes a test result file `result.trx` to Azure DevOps to the configured Test Suite for the Test Configuration `Windows 10`:
 
 ```text
-dotnet specsync publish-test-results --testResultFile result.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-results --testResult result.trx --testConfiguration "Windows 10"
 ```
 
 Publishes test results to a specific Test Suite, where the Test Cases related to the executed scenarios are included. Test Plan ID is also specified for better performance.
 
 ```text
-dotnet specsync publish-test-results --testPlanId 345 --testSuite "Ordering Tests" --testResultFile result.trx --testConfiguration "Windows 10"
+dotnet specsync publish-test-results --testPlan "My Plan" --testSuite "Ordering Tests" --testResult result.trx --testConfiguration "Windows 10"
 ```
 
 {% page-ref page="./" %}

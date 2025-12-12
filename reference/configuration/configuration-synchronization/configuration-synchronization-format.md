@@ -18,7 +18,8 @@ The following example shows the available options within this sub-section.
       "syncDataTableAsText": false,
       "prefixBackgroundSteps": true,
       "prefixTitle": true,
-      "showParameterListStep": "whenUnusedParameters"
+      "showParameterListStep": "whenUnusedParameters",
+      "normalizeRepeatingStepKeywords": false
     }
   },
   ...
@@ -36,6 +37,7 @@ The following example shows the available options within this sub-section.
 | `prefixBackgroundSteps` | If set to `true`, _Background_ steps will be synchronized with the `Background:` prefix. | `true` |
 | `prefixTitle` | If set to `true`, test case title will be synchronized with the `Scenario:` or `Scenario Outline:` prefix. | `true` |
 | `showParameterListStep` | Specifies whether an additional test case step should be synchronized that list the Test Case iteration parameters. Available options: `always`, `never` and `whenUnusedParameters`. | `whenUnusedParameters` |
+| `normalizeRepeatingStepKeywords` | If set to `true`, repeating step keywords will be normalized to the first step keyword. For example, if a `Given` step is followed by another `Given` step, the second step will be changed to `And`. | `false` |
 
 {% page-ref page="./" %}
 

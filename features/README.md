@@ -37,6 +37,8 @@ The following list contains the detailed description of the most important featu
 
 {% page-ref page="push-features/customization-sync-linked-artifact-titles.md" %}
 
+{% page-ref page="push-features/customization-requirement-synchronization.md" %}
+
 ### Pull features
 
 {% page-ref page="pull-features/two-way-synchronization.md" %}

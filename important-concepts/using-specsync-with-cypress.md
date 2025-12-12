@@ -56,7 +56,7 @@ If the scenarios have been synchronized earlier already with SpecSync, you will 
 The following example publishes the test results from the `cypress/cucumber-json/cucumber-report.json` file.
 
 ```
-dotnet specsync publish-test-results --testResultFileFormat cypressCucumberJson --testResultFile cypress/cucumber-json/cucumber-report.json
+dotnet specsync publish-test-results --testResultFormat cypressCucumberJson --testResult cypress/cucumber-json/cucumber-report.json
 ```
 
 The same can be achieved with the short option forms:

@@ -4,18 +4,12 @@ SpecSync is available as a portable .NET tool, so we recommend using that on all
 
 The following links contain direct download options as an alternative to that.
 
-## v5 preview
+## v5
 
-The preview of the new v5 release is available! Please note that according to our [versioning policy](roadmap.md#release-model), we do not recommend using preview releases for production.
-
-{% hint style="warning" %}
-The usage of SpecSync plugins in the latest v5 preview release is temporarily disabled. Please check back at for an updated preview to try v5 with plugins.
-{% endhint %}
-
-* Windows: [SpecSync.AzureDevOps.Console.5.0.0-pre20250821-1.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.Console.5.0.0-pre20250821-1.zip)
-* Linux: [SpecSync.AzureDevOps.5.0.0-pre20250821-1-linux-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.5.0.0-pre20250821-1-linux-x64.zip)
-* OSX: [SpecSync.AzureDevOps.5.0.0-pre20250821-1-osx-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.5.0.0-pre20250821-1-osx-x64.zip)
-* Any platform (.NET 6, 7, 8, 9 or .NET 10 SDK required): [SpecSync.AzureDevOps.5.0.0-pre20250821-1.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.5.0.0-pre20250821-1.zip)
+* Windows: [SpecSync.AzureDevOps.Console.5.0.0.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.Console.5.0.0.zip)
+* Linux: [SpecSync.AzureDevOps.5.0.0-linux-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.5.0.0-linux-x64.zip)
+* OSX: [SpecSync.AzureDevOps.5.0.0-osx-x64.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.5.0.0-osx-x64.zip)
+* Any platform (.NET 6, 7, 8, 9 or .NET 10 SDK required): [SpecSync.AzureDevOps.5.0.0.zip](https://content.specsolutions.eu/specsync/release/SpecSync.AzureDevOps.5.0.0.zip)
 
 ## v3.4
 

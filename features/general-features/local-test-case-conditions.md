@@ -16,7 +16,7 @@ The use of parenthesis is shown in the example below.
 (@important or @critical) and (not @slow)
 ```
 
-The expression may contain different predicates (e.g. `@important` or `$name = 'Check password strength'`), keywords `and`, `or`, `not`, `;` and parenthesis (`(`, `)`). Whitespaces normally separate the elements, so if the predicate contains spaces, you have to wrap them to double quotes (`"@tag with space"`) or apostrophe (`'@tag with space'`). You can also mask reserved characters with `\` (`@tag_with_parenthesis\(here\)`).
+The expression may contain different predicates (e.g. `@important` or `$name = 'Check password strength'`), keywords `and`, `or`, `not`, `;` and parenthesis (`(`, `)`). Whitespaces normally separate the elements, so if the predicate contains spaces, you have to wrap them to double quotes (`"@tag with space"`) or apostrophe (`'@tag with space'`). You can escape reserved characters with `\` to include them literally in the expression. The escape character only escapes a specific set of characters: `\`, `(`, `)`, `;`, `'`, `"`, ` ` (space), and `*`. Examples: `@tag_with_parenthesis\(here\)` matches the literal tag with parenthesis, `@feature\*123` matches the tag `@feature*123`.
 
 The `;` is an alias for `or`, so `@bug;@feature` is equivalent to `@bug or @feature`.
 
@@ -50,8 +50,8 @@ The following table shows the different tag predicate options.
 | Name | Examples | Description |
 | ---- | -------- | ----------- |
 | Tag name | `@important` | Selects local test cases that directly or indirectly contain a tag with the specified name. E.g. a scenario is selected if the scenario, the related rule or the feature has the tag with the exact same name. The tag names are case sensitive! |
-| Tail wildcard tag name match | `@auth*`, `@priority:*` | Selects the local test cases that directly or indirectly contain a tag that starts with the name specified before the `*`. E.g. `@auth*` matches to `@authenticated` or `@authorized`, `@priority:*` matches to `@priority:high` or `@priority:low`. The wildcard can only stand at the end of the predicate. |
-| Relation form | `$tags ~ @important`, `$tags ~ @auth*` | The relation form can be used to match tags either with tag name or with tail wildcard tag name match. |
+| Wildcard tag name match | `@auth*`, `@priority:*`, `@area-*-enabled`, `@env-*-db-*` | Selects the local test cases that directly or indirectly contain a tag that matches the wildcard pattern. The `*` can be used at any position (beginning, middle, or end) and multiple wildcards can be used in a single pattern. E.g. `@auth*` matches to `@authenticated` or `@authorized`, `@priority:*` matches to `@priority:high` or `@priority:low`, `@area-*-enabled` matches to `@area-auth-enabled` or `@area-payment-enabled`, `@env-*-db-*` matches to `@env-prod-db-mysql`. When used in field update value templates, the matched wildcard values can be referred as `{1}`, `{2}`, etc. To match a literal `*` character in a tag name, escape it with a backslash: `@feature\*123` matches the tag `@feature*123`. |
+| Relation form | `$tags ~ @important`, `$tags ~ @auth*` | The relation form can be used to match tags either with tag name or with wildcard tag name match. |
 
 {% hint style="info" %}
 In `local/sourceFiles` and `--sourceFileFilter` the simple tag predicates cannot be used. The relation form works though.

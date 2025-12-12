@@ -13,7 +13,7 @@ The following example shows the most common options within this section.
     "password": "%MYPWD%",
     "testSuite": {
       "name": "BDD Scenarios",
-      "testPlanId": 12345
+      "testPlan": "My Plan"
     }
   },
   ...
@@ -40,7 +40,6 @@ The remote settings of the Azure DevOps project can also be specified in the kno
 | `testSuite/name` | The name of the Test Suite. For suites with non-unique names, please use the `testSuite/id` or `testSuite/path` setting. | either `name`, `id` or `path` is mandatory |
 | `testSuite/id` | The ID of the Test Suite as a number. | either `name`, `id` or `path` is mandatory |
 | `testSuite/path` | The path of the Test Suite from the root of the Test Plan, separated by `/` (e.g. `Ordering/Card Payment`). | either `name`, `id` or `path` is mandatory |
-| `testSuite/testPlanId` | Deprecated, use 'testPlan' instead. | not specified |
 | `testSuite/testPlan` | The name or ID of the Test Plan to search or create the test suite in, e.g. `My Plan` or `#1234`. (Optional, improves performance) | not specified |
 | `azureDevOps` | <p>Azure DevOps server configuration settings.</p><ul><li><code>testCaseWorkItemName</code> &#x2014; The name of the Test Case work item in a localized Azure DevOps process (Default: `Test Case`)</li><li><code>testSuiteWorkItemName</code> &#x2014; The name of the Test Suite work item in a localized Azure DevOps process (Default: `Test Suite`)</li></ul> | uses default AzureDevOps server settings |
 

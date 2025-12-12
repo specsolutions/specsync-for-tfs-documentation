@@ -43,9 +43,20 @@ The following example shows the available options within this section.
         "_": " "
       }
     },
+    "requirementSynchronization": {
+      "enabled": true,
+      "requirements": [
+        {
+          "targetType": "User Story",
+          "condition": "$sourceFile ~ **/*.requirement.feature",
+          "tagPrefix": "req",
+          "linkFolderTests": true
+        }
+      ]
+    },
     "multiSuitePublishTestResults": {
       "enabled": true,
-      "testPlanId": 567,
+      "testPlan": "My Plan",
       "suites": [
         "SuiteA",
         "SuiteB",
@@ -81,7 +92,7 @@ The following example shows the available options within this section.
         }
       ]
     },
-    "synchronizeLinkedArtifactTitles": {
+    "synchronizeLinkedResourceTitles": {
       "enabled": true,
       "linkTagPrefixes": [ "story" ]
     },
@@ -172,8 +183,8 @@ Can be used to specify supported tags. SpecSync will only synchronize the suppor
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
 | `ignoreNotSupportedLocalTags/enabled` | Enables the customization. | `false` |
-| `ignoreNotSupportedLocalTags/supportedTags` | The list of local (scenario) tags that can be synchronized to Azure DevOps. The list can contain full tag names (e.g. `@my-tag1`) or tag name prefixes with tail wildcard (e.g. `@my-tag*`). | empty (no tags are supported)   |
-| `ignoreNotSupportedLocalTags/notSupportedTags` | The list of local (scenario) tags that cannot be synchronized to Azure DevOps. This setting cannot be used together with 'supportedTags'. The list can contain full tag names (e.g. `@my-tag1`) or tag name prefixes with tail wildcard (e.g. `@my-tag*`). | `supportedTags` setting is used |
+| `ignoreNotSupportedLocalTags/supportedTags` | The list of local (scenario) tags that can be synchronized to Azure DevOps. The list can contain full tag names (e.g. `@my-tag1`) or tag name patterns with wildcards (e.g. `@my-tag*`, `@area-*-enabled`). | empty (no tags are supported)   |
+| `ignoreNotSupportedLocalTags/notSupportedTags` | The list of local (scenario) tags that cannot be synchronized to Azure DevOps. This setting cannot be used together with 'supportedTags'. The list can contain full tag names (e.g. `@my-tag1`) or tag name patterns with wildcards (e.g. `@my-tag*`, `@area-*-enabled`). | `supportedTags` setting is used |
 
 ### tagTextMapTransformation
 
@@ -191,13 +202,12 @@ Allows publishing test results to multiple Test Suites. See [Customization: Publ
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
 | `multiSuitePublishTestResults/enabled` | Enables the customization. | `false` |
-| `multiSuitePublishTestResults/testPlanId` | The ID of the test plan to search the test suites in. | mandatory |
+| `multiSuitePublishTestResults/testPlan` | The name or ID of the test plan to search the test suites in, e.g. `My Plan` or `#567`. | mandatory |
 | `multiSuitePublishTestResults/publishToAllSuites` | When set to `true` SpecSync will publish the results to all test suites within the specified test plan. | `false` |
 | `multiSuitePublishTestResults/suites` | The list of test suites to additionally publish the test results to. | empty list |
 | `multiSuitePublishTestResults/suites[]/name` | The name of the Test Suite | either `name`, `id` or `path` is mandatory |
 | `multiSuitePublishTestResults/suites[]/id` | The ID of the Test Suite | either `name`, `id` or `path` is mandatory |
 | `multiSuitePublishTestResults/suites[]/path` | The path of the Test Suite from the root of the Test Plan, separated by `/` (e.g. `Ordering/Card Payment`). | either `name`, `id` or `path` is mandatory |
-| `multiSuitePublishTestResults/suites[]/testPlanId` | Deprecated, use 'testPlan' instead. | not specified |
 | `multiSuitePublishTestResults/suites[]/testPlan` | The name or ID of the Test Plan to search or create the test suite in, e.g. `My Plan` or `#1234`. (Optional, improves performance) | not specified |
 | `multiSuitePublishTestResults/includeSubSuites` | When set to `true`, the results will be published not only to the specified suites, but also their direct or indirect sub-suites. | `false` |
 | `multiSuitePublishTestResults/publishToRequirementBasedTestSuites` | When set to `true`, the results will also be published to the requirement-based suites of the work items linked to the test case. The considered link prefixes can be restricted using the `linkTagPrefixes` setting. | `false` |
@@ -213,7 +223,33 @@ Allows resetting Test Case state after change as a separate work item update bas
 | `resetTestCaseState/state`     | A state value (e.g. `Ready`) to set test case state to after updating a test case as a separate update.                                         | mandatory                               |
 | `resetTestCaseState/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios that should be included for state change (e.g. `@ready`, `not @inprogress`). | all scenarios included for state change |
 
+### requirementSynchronization
+
+Synchronizes requirement source documents (e.g. feature files) to Azure DevOps work items and optionally links nearby scenarios to those requirements. See [Customization: Requirement Synchronization](../../features/push-features/customization-requirement-synchronization.md) for details.
+
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `requirementSynchronization/enabled` | Enables the customization. | `false` |
+| `requirementSynchronization/requirements[]/targetType` | Work item type created for the requirement (e.g. `User Story`). | mandatory |
+| `requirementSynchronization/requirements[]/condition` | Filter that selects requirement sources (for example `$sourceFile ~ **/*.requirement.feature`). | mandatory |
+| `requirementSynchronization/requirements[]/tagPrefix` | Tag prefix used to store the requirement ID in the source (e.g. `@req-id:1234`). | mandatory |
+| `requirementSynchronization/requirements[]/source` | Source node to synchronize as requirement: `Feature` or `Rule`. | `Feature` |
+| `requirementSynchronization/requirements[]/acceptanceCriteriaSeparator` | Separator text in the description that splits acceptance criteria from the main description. | not parsed, but the entire description is used |
+| `requirementSynchronization/requirements[]/linkFolderTests` | Automatically link scenarios in the same folder (and sub-folders) as the requirement to the requirement work item. | `false` |
+| `requirementSynchronization/requirements[]/linkContainerTests` | Automatically link scenarios in the same source document to the requirement work item. | `false` |
+| `requirementSynchronization/requirements[]/branchTagPrefix` | Branch-specific tag prefix used together with `customizations/branchTag` when synchronizing on feature branches. | not specified |
+| `requirementSynchronization/requirements[]/links` | Optional link rules (same structure as `synchronization/links`) to control how tags on the requirement document create links to other work items. | no extra links |
+| `requirementSynchronization/requirements[]/fieldUpdates` | Field update rules applied to the requirement work item (same syntax as `synchronization/fieldUpdates`). | none |
+| `requirementSynchronization/requirements[]/linkOnChange/enabled` | Enables linking changed requirements to another work item or pull request. | `false` |
+| `requirementSynchronization/requirements[]/linkOnChange/links` | Link definitions used when `linkOnChange` is enabled (same structure as `customizations/linkOnChange/links`). | mandatory when `linkOnChange/enabled` is `true` |
+
 ### addTestCasesToSuites
+
+{% hint style="warning" %}
+Deprecated: `addTestCasesToSuites` has been replaced by `hierarchies`. Please use the [hierarchies configuration](../../features/common-synchronization-features/synchronizing-test-case-hierarchies.md) for new setups. You can automatically migrate your existing configuration by running the [`specsync upgrade` command](../../features/general-features/configuration-wizards.md#upgrade-wizard).
+
+The legacy _Add Test Cases to Suites_ customization remains supported for backward compatibility but will be removed in a future major release.
+{% endhint %}
 
 Allows including the synchronized Test Cases into various static Test Suites based on conditions. See [Customization: Add Test Cases to Suites](../../features/push-features/customization-add-test-cases-to-suites.md) for details.
 
@@ -224,7 +260,6 @@ Allows including the synchronized Test Cases into various static Test Suites bas
 | `addTestCasesToSuites/testSuites[]/name` | The name of the Test Suite | either `name`, `id` or `path` is mandatory |
 | `addTestCasesToSuites/testSuites[]/id` | The ID of the Test Suite | either `name`, `id` or `path` is mandatory |
 | `addTestCasesToSuites/testSuites[]/path` | The path of the Test Suite from the root of the Test Plan, separated by `/` (e.g. `Ordering/Card Payment`). | either `name`, `id` or `path` is mandatory |
-| `addTestCasesToSuites/testSuites[]/testPlanId` | Deprecated, use 'testPlan' instead. | not specified |
 | `addTestCasesToSuites/testSuites[]/testPlan` | The name or ID of the Test Plan to search or create the test suite in, e.g. `My Plan` or `#1234`. (Optional, improves performance) | not specified |
 | `addTestCasesToSuites/testSuites[]/condition` | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios for which the linked Test Case should be included in the Suite (e.g. `@ready`, `not @inprogress`). | all scenarios are considered |
 
@@ -249,14 +284,14 @@ Allows linking changed Test Cases to a work item or pull request, related to the
 | `linkOnChange/links[]/relationship` | Specify the relationship for the created link. E.g. specifying `Parent` means that the linked work item will be the parent of the test case work item. For linking Pull Requests it has to be set to `Pull Request` and `GitHub Pull Request` for GitHub Pull Requests (see details in our [guide](../../important-concepts/how-to-link-github-pull-requests.md#linking-github-pull-requests-when-the-test-case-changes)). | `Tests` |
 | `linkOnChange/links[]/linkTemplate` | Specifies the HTTP link template of the related artifact (for `GitHub Pull Request` relationship). The link template can use the specified value using the `{id}` placeholder. | no template used |
 
-### synchronizeLinkedArtifactTitles
+### synchronizeLinkedResourceTitles
 
-Allows synchronizing linked artifact (work item) titles back to the local test case tags in `@story:123;This_is_the_story_title` format. See [Customization: Synchronize linked artifact titles](../../features/push-features/customization-sync-linked-artifact-titles.md) for details.
+Allows synchronizing linked artifact (work item) titles back to the local test case tags in `@story:123;This_is_the_story_title` format. See [Customization: Synchronize linked resource titles](../../features/push-features/customization-sync-linked-artifact-titles.md) for details.
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `synchronizeLinkedArtifactTitles/enabled` | Enables the customization. | `false`   |
-| `synchronizeLinkedArtifactTitles/linkTagPrefixes` | Specifies the work item links to be considered. | mandatory |
+| `synchronizeLinkedResourceTitles/enabled` | Enables the customization. | `false`   |
+| `synchronizeLinkedResourceTitles/linkTagPrefixes` | Specifies the work item links to be considered. | mandatory |
 
 ### doNotSynchronizeTitle
 

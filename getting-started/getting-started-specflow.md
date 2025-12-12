@@ -231,7 +231,7 @@ When the test execution has been finished, the test result file is updated. The 
 Now lets publish these results using the publish-test-results command of SpecSync. 
 
 ```bash
-dotnet specsync publish-test-results --testResultFile TestResults\testresult.trx
+dotnet specsync publish-test-results --testResult TestResults\testresult.trx
 ```
 
 The command analyses the test result file and connects the results with the scenarios to be able to associate them to Test Cases. You can find the created Test Run in the _Test Plans / Runs_ section of your Azure DevOps portal.

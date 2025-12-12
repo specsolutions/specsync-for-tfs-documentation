@@ -11,7 +11,11 @@ The following example shows the most common options within this section.
   ...
   "publishTestResults": {
     "testResult": {
-      "filePath": "test-result.trx"
+      "sources": [
+        {
+          "value": "test-result.trx"
+        }
+      ]
     },
     "treatInconclusiveAs": "Failed",
     "flakyTestOutcome": "lastAttemptOutcome",    
@@ -34,18 +38,18 @@ The following example shows the most common options within this section.
 
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
-| `testResult` | <p>The test result configuration</p><ul><li><code>testResult/filePath</code> &#x2014; The path of the test result file (e.g. TRX) file or a folder containing multiple test result files.</li><li><code>testResult/fileFormat</code> &#x2014; The format of the test result file. Please check the <a href="../compatibility.md#supported-test-result-formats">Compatibility</a> page for supported formats. Invoking the <code>publish-test-result</code> command with <code>?</code> as format as command line option will list all supported format as well.</li></ul> | specified as [command line option](../command-line-reference/publish-test-results-command.md) |
+| `testResult` | <p>The test result configuration</p><ul><li><code>testResult/sources</code> &#x2014; An array of test result sources. Each source should specify a <code>value</code> (the path of the test result file or a folder containing multiple test result files) and optionally a <code>baseFolder</code> (the base folder for the test result file, defaults to the folder of the configuration file).</li><li><code>testResult/resultFormat</code> &#x2014; The format of the test result file. Please check the <a href="../compatibility.md#supported-test-result-formats">Compatibility</a> page for supported formats. Invoking the <code>publish-test-result</code> command with <code>?</code> as format as command line option will list all supported format as well.</li></ul> | specified as [command line option](../command-line-reference/publish-test-results-command.md) |
 | `treatInconclusiveAs` | Maps the Inconclusive test results. Some test execution frameworks report skipped scenarios as Inconclusive, so they should be mapped to another value, e.g. `NotExecuted`. | not mapped |
 | `flakyTestOutcome` | <p>Specifies how the overall outcome of flaky tests (tests that were rerun multiple times and at least one attempt failed) should be calculated.</p><ul><li><code>lastAttemptOutcome</code> &#x2014; Uses the outcome of the last attempt (default behavior)</li><li><code>failed</code> &#x2014; If any attempt failed, the overall outcome will be Failed, otherwise uses the last attempt outcome</li></ul><p>For more details, see the <a href="../../features/test-result-publishing-features/publishing-test-result-files.md#detecting-test-reruns-and-flaky-tests">Detecting test reruns and flaky tests</a> section.</p> | `LastAttemptOutcome` |
-| `onTestPointMissing` | Specifies the behavior for the case when a Test Case result has found, but the Test Case is not included in the target Test Suite for publishing results. Possible values: `skipTestResult`, `warning`, `error` | `skipTestResult` |
+| `onTestPointMissing` | Specifies the behavior for the case when a Test Case result has found, but the Test Case is not included in the target Test Suite for publishing results. Possible values: `skipTestResult`, `warning`, `error` | `warning` |
 | `publishEmptyResults` | Publishes test results even if no matching results found. | `false` |
+| `publishAttachmentsForPassingTests` | Controls which attachments should be published for passing tests. Possible values: `none` - no attachments are published for passing tests, `files` - only file attachments are published, `all` - both file attachments and test output are attached. Note: this setting does not affect publishing failing tests, which always publish all attachments. | `files` |
 | `includeNotExecutedTests` | Includes test results that are not executed (outcomes `NotExecuted`, `NotApplicable`, `NotRunnable`, `NotImpacted`). | `false` |
 | `testConfiguration` | <p>Specifies a test configuration within the Azure DevOps project as a target configuration for publishing test results.</p><ul><li><code>testConfiguration/name</code> &#x2014; The name of the test configuration.</li><li><code>testConfiguration/id</code> &#x2014; The ID of the test configuration.</li></ul><p>Can be overridden using with a <a href="../command-line-reference/publish-test-results-command.md">command line option</a>.</p> | uses the single Test Configuration assigned to the Test Suite |
 | `testSuite` | Specifies a test suite within the Azure DevOps project to publish the test results for. | test cases are not included to a test suite |
 | `testSuite/name` | The name of the Test Suite. For suites with non-unique names, please use the `testSuite/id` or `testSuite/path` setting. | either `name`, `id` or `path` is mandatory |
 | `testSuite/id` | The ID of the Test Suite as a number. | either `name`, `id` or `path` is mandatory |
 | `testSuite/path` | The path of the Test Suite from the root of the Test Plan, separated by `/` (e.g. `Ordering/Card Payment`). | either `name`, `id` or `path` is mandatory |
-| `testSuite/testPlanId` | Deprecated, use 'testPlan' instead. | not specified |
 | `testSuite/testPlan` | The name or ID of the Test Plan to search or create the test suite in, e.g. `My Plan` or `#1234`. (Optional, improves performance) | not specified |
 | `testRunSettings` | <p>Specifies additional settings for the created test run. The value can contain <a href="#setting-placeholders">placeholders</a>. </p><ul><li><code>testRunSettings/name</code> &#x2014; The name of the created Test Run. (Default: [load from test result file])</li><li><code>testRunSettings/comment</code> &#x2014; The comment of the created Test Run. (Default: empty)</li><li><code>testRunSettings/runType</code> &#x2014;Sets the run type of the created Test Run. Possible values: `manual`, `automated`. (Default: set to `automated` when [`synchronization/automation/enabled`](configuration-synchronization/configuration-synchronization-automation.md) is `true`)</li></ul> | use default settings |
 | `testResultSettings` | <p>Specifies additional settings for the created test results. The value can contain <a href="#setting-placeholders">placeholders</a>.</p><ul><li><code>testResultSettings/comment</code> &#x2014; The comment added to the individual test results within the created Test Run. (Default: empty)</li></ul> | use default settings |

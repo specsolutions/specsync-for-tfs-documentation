@@ -151,6 +151,10 @@ The condition can contain multiple tag wildcards as well. In that case you can u
 }
 ```
 
+{% hint style="info" %}
+The wildcards (`*`) can be used at any position in the tag pattern, not only at the end. For example, `@task-*-ready` matches tags like `@task-preparation-ready` or `@task-implementation-ready`, and the matched value can be referred using `{1}` (e.g., "preparation" or "implementation"). You can also use multiple wildcards within a single tag: `@env-*-db-*` matches `@env-prod-db-mysql` where `{1}` would be "prod" and `{2}` would be "mysql".
+{% endhint %}
+
 ## Update fields to different values using a switch
 
 Sometimes a field can hold a value from a fixed list. The easiest if the scenarios are annotated with tags of a specific format so that the value can be obtained using wildcard tag match described above. If this is not possible (e.g. because the codebase has been annotated already with tags that does not fully match to the field values) you can use the `conditionalValue` setting to define the possible values in a switch-style. 
@@ -203,7 +207,7 @@ The `conditionalValue` setting can also be combined with the tag wildcard match.
 
 The fields related to the automation settings of the Test Case are special. Normally, these fields are updated by SpecSync using the [Mark Test Cases as Automated](mark-test-cases-as-automated.md) feature, but they can be also set to a custom value using the field updates setting as well.
 
-In order to set the automation fields, you first have to switch of the automatic synchronization of these fields by setting the `toolSettings/doNotSynchronizeAutomationUnlessEnabled` configuration setting is set to `true` and the `synchronization/automation/enabled` configuration setting is set to `false` or leave it unset.
+In order to set the automation fields, you need to disable the automatic synchronization of these fields by ensuring that the `synchronization/automation/enabled` configuration setting is set to `false` or left unset. When the automation synchronization is disabled, the automation fields will not be synchronized automatically and can be updated using field updates or by other tools.
 
 The field `Microsoft.VSTS.TCM.AutomatedTestId` cannot be set directly, but it is automatically updated by SpecSync if you set the *Automated test name* (`Microsoft.VSTS.TCM.AutomatedTestName`) field.
 
@@ -216,9 +220,6 @@ The following example synchronizes the Test Case automated with custom automatio
 ```
 {
   ...
-  "toolSettings": {
-    "doNotSynchronizeAutomationUnlessEnabled": true
-  },
   "synchronization": {
     "automation": { 
       "enabled": false, // or leave out the entire automation block
@@ -238,9 +239,6 @@ The following example synchronizes the Test Case not-automated.
 ```
 {
   ...
-  "toolSettings": {
-    "doNotSynchronizeAutomationUnlessEnabled": true
-  },
   "synchronization": {
     "automation": { 
       "enabled": false, // or leave out the entire automation block

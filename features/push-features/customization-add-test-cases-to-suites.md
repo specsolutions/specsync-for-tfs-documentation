@@ -1,13 +1,15 @@
 # Customization: Add Test Cases to Suites
 
+{% hint style="warning" %}
+Deprecated: The `addTestCasesToSuites` customization has been replaced by the `hierarchies` feature in SpecSync v5. New configurations should use [Synchronizing Test Case hierarchies using Test Suites](../common-synchronization-features/synchronizing-test-case-hierarchies.md). To migrate existing configurations automatically, run the [`specsync upgrade` command](../general-features/configuration-wizards.md#upgrade-wizard).
+
+This page documents the legacy customization for adding synchronized Test Cases to Azure DevOps Test Suites. The feature remains available for backward compatibility but will be removed in a future major version.
+{% endhint %}
+
 The _Add Test Cases to Suites_ customization can be used to include the synchronized Test Cases into various static Test Suites based on conditions.
 
 {% hint style="info" %}
 The _Add Test Cases to Suites_ customization described here is an [Enterprise feature](../../licensing.md).
-{% endhint %}
-
-{% hint style="info" %}
-The _Add Test Cases to Suites_ customization is a preview feature for the planned support for synchronizing hierarchical test suites. Please help planning this feature by filling out our survey at https://forms.office.com/e/ZTda15AngN.
 {% endhint %}
 
 In order to enable this customization, the `customizations/addTestCasesToSuites` section of the configuration has to be enabled. The complete reference of the configuration settings can be found in the [customizations configuration reference](../../reference/configuration/configuration-customizations.md#addtestcasestosuites).
@@ -26,7 +28,7 @@ The following example shows a basic configuration that adds all Test Cases to a 
         },
         {
           "name": "Important Logic",
-          "testPlanId": 1234,
+          "testPlan": "My Plan",
           "condition": "@important and not @external"
         },
         {

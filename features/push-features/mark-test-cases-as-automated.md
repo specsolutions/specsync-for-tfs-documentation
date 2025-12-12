@@ -7,7 +7,7 @@ Marking the Test Cases as automated can be used to document the kind of the test
 You can enable marking Test Cases as automated by setting the [`synchronization/automation/enabled` configuration setting](../../reference/configuration/configuration-synchronization/configuration-synchronization-automation.md) to `true`.
 
 {% hint style="info" %}
-When the automation synchronization is not enabled, SpecSync resets the automation status to `Not Automated` when the Test Case is updated. In order to control the automation status with another tool or using the [Update Test Case fields](update-test-case-fields.md#update-automation-fields) feature, you have to set the `toolSettings/doNotSynchronizeAutomationUnlessEnabled` configuration setting is set to `true` and the `synchronization/automation/enabled` configuration setting to `false` or leave it unset.
+When the automation synchronization is not enabled (i.e., `synchronization/automation/enabled` is not set or set to `false`), SpecSync will not synchronize the automation-related fields of the Test Case. This allows you to control the automation status with another tool or using the [Update Test Case fields](update-test-case-fields.md#update-automation-fields) feature.
 {% endhint %}
 
 Optionally you can also specify the value to be used for the "Automated test type" field of the Test Case using the `synchronization/automation/automatedTestType` setting. (By default the field is set to `SpecFlow` for SpecFlow projects and `Gherkin` for other projects.)

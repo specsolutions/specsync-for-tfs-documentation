@@ -4,13 +4,36 @@ SpecSync provides different licensing options including a free usage for smaller
 
 Please send your questions or license inquiries to [specsync@specsolutions.eu](mailto:specsync@specsolutions.eu).
 
-The licenses are provided as a license file. SpecSync tries to find the license file in the project folder \(where the `specsync.json` configuration file is located\). Since the license files are project or enterprise specific, these can be safely checked in to the source control.
+## License files and license keys
 
-The location of the license file \(absolute or relative to the project folder\) can also be specified with the `--license` option of the [synchronization tool](reference/command-line-reference/) or in the `toolSettings/licensePath` setting of the [configuration file](reference/configuration/configuration-toolsettings.md) if necessary. You can also consider to configure the license path in the [user-specific configuration file](features/general-features/hierarchical-configuration-files.md#user-specific-configuration-files).
+SpecSync licenses can be provided in two formats: as a license file or as a license key.
+
+### License files
+
+License files are digitally signed text files that contain license information. SpecSync tries to find the license file in the project folder (where the `specsync.json` configuration file is located). Since the license files are project or enterprise specific, these can be safely checked in to the source control.
+
+The location of the license file (absolute or relative to the project folder) can be specified with the `--license` option of the [synchronization tool](reference/command-line-reference/) or in the `toolSettings/licensePath` setting of the [configuration file](reference/configuration/configuration-toolsettings.md) if necessary. You can also consider to configure the license path in the [user-specific configuration file](features/general-features/hierarchical-configuration-files.md#user-specific-configuration-files).
 
 {% hint style="info" %}
-The SpecSync license files are digitally signed text files. You can open them with a text editor \(e.g. Notepad\) to check the expiry date, the edition and other details.
+The SpecSync license files are digitally signed text files. You can open them with a text editor (e.g. Notepad) to check the expiry date, the edition and other details.
 {% endhint %}
+
+### License keys
+
+As an alternative to license files, SpecSync supports license keys. A license key is a text string that can be specified directly in the configuration file or provided via command line option or environment variable. This approach is particularly useful for secure environments such as CI/CD pipelines where you don't want to store license files.
+
+{% hint style="warning" %}
+This feature is available with SpecSync v5 or above. 
+{% endhint %}
+
+The license key can be specified in the following ways:
+
+* In the `toolSettings/license` configuration setting of the [configuration file](reference/configuration/configuration-toolsettings.md) or the [user-specific configuration file](features/general-features/hierarchical-configuration-files.md#user-specific-configuration-files)
+* With the `--license` command line option of the [synchronization tool](reference/command-line-reference/)
+* Via the `SPECSYNC_LICENSE_KEY` environment variable (SpecSync automatically loads the license key from this variable)
+* In the `toolSettings/license` configuration setting by loading from an custom environment variable using the `{env:ENV_VAR}` syntax
+
+You can convert an existing license file to a license key using the `specsync upgrade` command, or you can request your license key by contacting [support](contact/specsync-support.md).
 
 ## Limitations of the Free Edition
 

@@ -81,19 +81,19 @@ To use the command open a command window or bash shell and change the current di
 {% tabs %}
 {% tab title=".NET Core tool" %}
 ```text
-dotnet specsync push --tagFilter @specsync_test
+dotnet specsync push --filter @specsync_test
 ```
 {% endtab %}
 
 {% tab title=".NET Console App" %}
 ```text
-SpecSync4AzureDevOps.cmd push --tagFilter @specsync_test
+SpecSync4AzureDevOps.cmd push --filter @specsync_test
 ```
 {% endtab %}
 
 {% tab title="Native binaries" %}
 ```text
-<EXTRACTED-SPECSYNC-FOLDER>/SpecSync4AzureDevOps push --tagFilter @specsync_test
+<EXTRACTED-SPECSYNC-FOLDER>/SpecSync4AzureDevOps push --filter @specsync_test
 ```
 {% endtab %}
 {% endtabs %}

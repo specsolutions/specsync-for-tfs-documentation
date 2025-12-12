@@ -38,7 +38,7 @@ The work item tags should follow the pattern `@prefix:N`, where `prefix` is a la
 
 The work item tag can be specified at scenario level or feature level. In the latter case, it behaves like you would have applied the tag for all individual scenarios. This can be useful if all scenarios in the feature file are related to a feature or a user story work item.
 
-If the work item with the specified ID does not exist or the user who performs the synchronization does not have permission for it, SpecSync will display an error message for that particular scenario. If at least one scenario has failed to synchronize, the command line tool returns with the exit code 10.
+If the work item with the specified ID does not exist or the user who performs the synchronization does not have permission for it, SpecSync will display an error message for that particular scenario. If at least one scenario has failed to synchronize, the command line tool returns with an exit code in the range of 10-19.
 
 {% hint style="info" %}
 In SpecSync v3.3 or earlier, tags, where `N` is not a valid number, are ignored.

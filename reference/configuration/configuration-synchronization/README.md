@@ -12,7 +12,7 @@ The following example shows the available options within this section.
     "testCaseTagPrefix": "tc",
     "pull": {
       "enabled": true,
-      "enableCreatingScenariosForNewTestCases": false
+      "enableCreatingNewLocalTestCases": false
     },
     "automation": {
       "enabled": true,
@@ -31,7 +31,7 @@ The following example shows the available options within this section.
     },
     "links": [
       {
-        "targetWorkItemType": "ProductBacklogItem",
+        "targetType": "Product Backlog Item",
         "tagPrefix": "pbi",
         "relationship": "Child"
       },

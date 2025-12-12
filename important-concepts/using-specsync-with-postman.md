@@ -43,7 +43,7 @@ By default SpecSync will treat the Requests as tests but you can also instruct S
 1. You can specify a Regular Expression pattern that should match to the folder names you would like to treat as tests. This is useful if you maintain a naming convention for your test-folders. To use this, you need to set the [`testNameRegex` parameter](https://github.com/specsolutions/specsync-sample-plugins/tree/main/postman-test-source-plugin#plugin-parameters). For example, if all of these folders start with the word `TEST-` you need to set the `testNameRegex` parameter to `^TEST-`.
 2. You can specify a Regular Expression pattern that should match to a specific text in the folder documentation. To use this, you need to set the [`testDocumentationRegex` parameter](https://github.com/specsolutions/specsync-sample-plugins/tree/main/postman-test-source-plugin#plugin-parameters). For example, if the documentation of the test-folders contain a "Test Case" H2 heading, you need to set the `testDocumentationRegex` parameter to `(?m)^## Test Case` (the `(?m)` regex setting will enable multi-line mode so that `^` will match begin of each line).
 
-You might want to exclude some folders and requests from synchronization or only enable synchronization for particular folders. For that, you can use the `local/tags` or the `local/sourceFiles` settings. (See related [reference](../reference/configuration/configuration-local.md).) For example to exclude the Postman folder `Legacy` from the synchronization, you need to specify:
+You might want to exclude some folders and requests from synchronization or only enable synchronization for particular folders. For that, you can use the `local/condition` or the `local/sourceFiles` settings. (See related [reference](../reference/configuration/configuration-local.md).) For example to exclude the Postman folder `Legacy` from the synchronization, you need to specify:
 
 ```
   "local": {
@@ -145,7 +145,7 @@ SpecSync analyzes the test results and matches them to the steps of the test cas
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
     "testSuite": {
       "name": "PostmanTestSource",
-      "testPlanId": 198
+      "testPlan": "My Plan"
     }
   },
   "synchronization": {

@@ -5,7 +5,7 @@ SpecSync can be configured using a json configuration file, by default called `s
 The [Setup and Configure](../../installation/setup-and-configure.md) page contains information about how to initialize the configuration file.
 
 {% hint style="info" %}
-Most IDE editors \(e.g. Visual Studio, Atom, Visual Studio Code\) provide auto-completion and in-place documentation for SpecSync configuration files. Please make sure you keep the `"$schema"` setting at the top of the file.
+Most IDE editors (e.g. Visual Studio, Atom, Visual Studio Code) provide auto-completion and in-place documentation for SpecSync configuration files. Please make sure you keep the `"$schema"` setting at the top of the file.
 {% endhint %}
 
 ## A minimal configuration file
@@ -15,7 +15,7 @@ The following example shows a minimal configuration file.
 ```javascript
 {
   "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
-  "compatibilityVersion": 3.3,
+  "compatibilityVersion": "5",
 
   "remote": {
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",
@@ -27,6 +27,14 @@ The following example shows a minimal configuration file.
 {% hint style="info" %}
 The `compatibilityVersion` setting at the top of the file specifies the SpecSync version that the configuration file was created for. The new SpecSync features can be used even if the compatibility version is older than the current version, but if the default values of some settings change in the future, SpecSync will not apply these default unless the compatibility version is updated.
 {% endhint %}
+
+## Root-level settings
+
+The following settings can be specified at the root level of the configuration file:
+
+* `$schema` — Specifies the JSON schema URL for the configuration file. This enables auto-completion and validation in most IDE editors.
+* `compatibilityVersion` — Specifies the SpecSync version that the configuration file was created for. See note above for details.
+* `configurationKey` — A unique identifier for this SpecSync configuration within the Azure DevOps project. Optional, but recommended, especially when using [remote scopes](../../features/common-synchronization-features/remote-scope.md). The configuration key helps prevent conflicts when multiple configurations synchronize to the same project. For more details, see the [Configuration key](../../features/common-synchronization-features/configuration-key.md) feature page.
 
 ## Configuration sections
 
@@ -42,7 +50,9 @@ The settings in the configuration file are grouped into different configuration 
 }  // end of the file
 ```
 
-_Note: The leading comma \(_`,`_\) after the curly brace close \(_`}`_\) of_ `section1` _is not needed if this is the last section in the file._
+{% hint style="info" %}
+The leading comma (`,`) after the curly brace close (`}`) of `section1` is not needed if this is the last section in the file.
+{% endhint %}
 
 {% hint style="info" %}
 The SpecSync configuration file supports `//` comments.
