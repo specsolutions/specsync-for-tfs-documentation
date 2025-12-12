@@ -15,7 +15,7 @@ Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationExcepti
 ## v5.0.0 - 2025/12/12 <a href="v5" id="v5"></a>
 
 {% hint style="info" %}
-All fixes up to SpecSync v3.4.33 are included in this release.
+All fixes up to SpecSync for Azure DevOps v3.4.33 are included in this release.
 {% endhint %}
 
 For detailed instructions on how to upgrade please check the [Migrating from SpecSync v3 to v5](important-concepts/migrating-from-specsync-v3-to-v5.md) guide.
