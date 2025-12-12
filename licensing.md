@@ -33,7 +33,7 @@ The license key can be specified in the following ways:
 * Via the `SPECSYNC_LICENSE_KEY` environment variable (SpecSync automatically loads the license key from this variable)
 * In the `toolSettings/license` configuration setting by loading from an custom environment variable using the `{env:ENV_VAR}` syntax
 
-You can convert an existing license file to a license key using the `specsync upgrade` command, or you can request your license key by contacting [support](contact/specsync-support.md).
+You can convert an existing license file to a license key using the `specsync upgrade` command, or you can request your license key by contacting [support](contact/specsync-support.md). The license files issued after 12th December 2025 also contain the license key (open the file in a text editor).
 
 ## Limitations of the Free Edition
 
