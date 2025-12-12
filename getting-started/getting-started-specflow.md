@@ -58,7 +58,7 @@ Open the `specsync.json` file in Visual Studio or another IDE from your project 
 {% code title="specsync.json" %}
 ```javascript
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+  "$schema": "https://schemas.specsolutions.eu/specsync4azuredevops-config-v5-latest.json",
 
   // See configuration options and samples at http://speclink.me/specsyncconfig.
 
@@ -171,7 +171,7 @@ We have seen already how to synchronize scenarios to test cases. To be able to e
 
    ```javascript
    {
-     "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+     "$schema": "https://schemas.specsolutions.eu/specsync4azuredevops-config-v5-latest.json",
 
      // See configuration options and samples at http://speclink.me/specsyncconfig.
 

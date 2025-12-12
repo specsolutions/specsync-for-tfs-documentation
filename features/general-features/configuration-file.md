@@ -20,7 +20,7 @@ The following example shows a minimal configuration file.
 
 ```javascript
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+  "$schema": "https://schemas.specsolutions.eu/specsync4azuredevops-config-v5-latest.json",
 
   "remote": {
     "projectUrl": "https://specsyncdemo.visualstudio.com/MyCalculator",

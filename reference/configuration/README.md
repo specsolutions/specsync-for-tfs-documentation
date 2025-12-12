@@ -14,7 +14,7 @@ The following example shows a minimal configuration file.
 
 ```javascript
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+  "$schema": "https://schemas.specsolutions.eu/specsync4azuredevops-config-v5-latest.json",
   "compatibilityVersion": "5",
 
   "remote": {

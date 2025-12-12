@@ -90,7 +90,7 @@ If the project requires different synchronization settings for the CI pipeline, 
 {% code title="specsync-ci.json" %}
 ```javascript
 {
-  "$schema": "http://schemas.specsolutions.eu/specsync4azuredevops-config-latest.json",
+  "$schema": "https://schemas.specsolutions.eu/specsync4azuredevops-config-v5-latest.json",
 
   "toolSettings": {
     "parentConfig": "specsync.json", // default config file in the same folder
