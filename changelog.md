@@ -12,6 +12,14 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v5.1.0 - 2026/01/08
+
+### Bug fixes
+
+* Fix: User name or personal access token (PAT) cannot be saved to user-specific configuration file (#1806)
+* Fix: .NET Project file is incorrectly detected from a sub-folder of the configuration root (#1807)
+* Fix: TRX test results created by xUnit V3 MTP test adapter cannot be processed (#1808)
+
 ## v5.0.0 - 2025/12/12 <a href="v5" id="v5"></a>
 
 {% hint style="info" %}
