@@ -16,7 +16,7 @@ Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationExcepti
 
 ### Improvements
 
-* Update SpecSync Docker Images to be based on .NET 10.0 from .NET 6.0 (.NET 6.0 is deprecated) (#1813)
+* Update SpecSync native binaries and Docker images to be based on .NET 10.0 from .NET 6.0 (.NET 6.0 is deprecated) (#1813)
 * Various stability and maintainability improvements (#1811)
 
 ## v5.1.0 - 2026/01/08
