@@ -12,6 +12,13 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v5.2.0 - 2026/01/20
+
+### Improvements
+
+* Update SpecSync Docker Images to be based on .NET 10.0 from .NET 6.0 (.NET 6.0 is deprecated) (#1813)
+* Various stability and maintainability improvements (#1811)
+
 ## v5.1.0 - 2026/01/08
 
 ### Bug fixes
