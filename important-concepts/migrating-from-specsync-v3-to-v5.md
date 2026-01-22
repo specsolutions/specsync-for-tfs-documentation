@@ -71,6 +71,10 @@ You do not have to configure all optional feature with the `upgrade` command in 
 
 Once the `upgrade` command has been executed, you can review the changes of the configuration file.
 
+{% hint style="warning" %}
+The config file schema has changed from v3 to v5. This schema is used by the JSON editors, like Visual Studio Code, to provide auto-completion and validation. Some editors (notably Visual Studio) cache the schema information and show errors for the upgraded config file as they validate it with the old schema. Therefore, it is recommended to re-open the configuration file or even the whole editor after performing the `upgrade` command to ensure that the editor uses the latest schema. For Visual Studio, the "Reload Schemas" context menu command followed by a restart can also be used if the schema validation errors are still shown.
+{% endhint %}
+
 If the changes look good, you can perform a synchronization with the `push` command. It is recommended first to review the synchronization steps without actually changing the Azure DevOps server using the `--dryRun` option.
 
 ```text
