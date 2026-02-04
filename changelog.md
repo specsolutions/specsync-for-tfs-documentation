@@ -12,6 +12,24 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v5.3.0 - 2026/02/04
+
+### Improvements
+
+* Handle invalid step XML data loaded from Azure DevOps Test Case: report error by default, allow to overwrite with '--force' (#1825)
+* Enable validation rules for configuration key rules: only allow alphanumeric and ".", "-", and "_"; the length must be between 3 and 80 (#1833)
+* Improve error handling of integration errors (#1831)
+* Verify linked work item to be a Test Case when synchronizing a local test case. (#1836)
+* Verify linked work item to be of the target requirement work item type when synchronizing a local requirement. (#1836)
+* Improve summary display of errors (in case of many scenarios), by also mentioning in the summary, which Test Case could not be saved and include details. (#1823)
+* Various stability and maintainability improvements (#1830, #1835)
+ 
+### Bug fixes
+
+* Fix: Upgrade wizard tries to perform v3-v5 upgrade if compatibility version is greater than 5 or in 5.x format (#1819)
+* Fix: Scenario Outline with empty examples block causes NullReferenceException (#1834)
+* Fix: TRX test results created by xUnit V3 MTP using Microsoft.Testing.Extensions.TrxReport cannot be processed (#1821)
+
 ## v5.2.0 - 2026/01/20
 
 ### Improvements

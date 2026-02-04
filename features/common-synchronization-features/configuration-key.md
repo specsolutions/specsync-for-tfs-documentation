@@ -14,7 +14,7 @@ This feature is available with SpecSync v5 or above.
 
 The configuration key is configured using the `configurationKey` configuration setting in the root of the configuration file.
 
-The key should be a unique identifier (without spaces) within the Azure DevOps project. The maximum length is 80 characters.
+The key should be a unique identifier (without spaces) within the Azure DevOps project. The length must be between 3 and 80 characters and only alphanumeric, `.`, `-`, and `_` characters are allowed.
 
 The following configuration file configures a configuration key `backend-tests`.
 
