@@ -216,7 +216,7 @@ When this remote scope type is used, SpecSync creates a query with a name like `
 
 The error is caused by insufficient permissions of the user performing the synchronization. The user needs to have permissions to edit the query that defines the scope, which is a query with a name like `.SpecSync.Internal.<configuration-key>` located in the "Shared Queries" folder of Azure DevOps.
 
-**Solution 1:** Grant permissions to edit the query that defines the scope to the user performing the synchronization. You can find the query in the "Shared Queries / .SpecSync.Internal" folder of Azure DevOps. Select the entire ".SpecSync.Internal" folder or the individual query and choose the "Security" option from the context menu. Select the group the user belongs to (e.g. "Contributors") or search for the user directly and set the "Contribute" permission to "Allow".
+**Solution 1:** Grant permissions to edit the query that defines the scope to the user performing the synchronization. You can find the query in the "Shared Queries / .SpecSync.Internal" folder of Azure DevOps "Boards / Queries" page. Select the entire ".SpecSync.Internal" folder or the individual query and choose the "Security" option from the context menu. Select the group the user belongs to (e.g. "Contributors") or search for the user directly and set the "Contribute" permission to "Allow".
 
 **Solution 2:** If you don't want to grant permissions to edit the query, you can change the `remote/scope` setting to a different type that does not require editing a query, e.g. `testSuite` or `tag`. See the [remote scope documentation](../features/common-synchronization-features/remote-scope.md#how-to-choose-remote-scope-type) for details.
 
