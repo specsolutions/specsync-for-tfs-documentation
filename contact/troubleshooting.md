@@ -201,3 +201,22 @@ The issue is probably caused by the TRX logger, that saves the attachment files 
 
 **Solution:** Use the `--results-directory` setting of `dotnet test` to specify the results directory, and use the `LogFileName` only to specify the file name. E.g. `dotnet test --logger trx;logfilename=results.trx --results-directory "C:\MyProject"`.
 
+
+### 'E1188: Error updating remote scope: Unable to update Query' error when synchronizing Test Cases with a 'managedQuery' remote scope setting <a href="issue1840" id="issue1840"></a>
+
+When [remote scope](../features/common-synchronization-features/remote-scope.md) is used by configuring the `remote/scope` setting with `managedQuery` and the synchronization process needs to update the query that defines the scope, you might encounter an error like
+
+```
+Error E1188: Unable to update Query
+  Underlying errors:
+    TF401256: Yoo do not have Write permissions for query .SpecSync.Internal.<configuration-key>.
+```
+
+When this remote scope type is used, SpecSync creates a query with a name like `.SpecSync.Internal.<configuration-key>` in the "Shared Queries / .SpecSync.Internal" folder of Azure DevOps and uses that query to determine which Test Cases belong to the synchronization scope. When the synchronization process needs to update the scope (e.g. when new scenarios are added or some scenarios are removed from the synchronization), it needs to edit this query, but if the user performing the synchronization does not have permissions to edit this query, the error above is thrown.
+
+The error is caused by insufficient permissions of the user performing the synchronization. The user needs to have permissions to edit the query that defines the scope, which is a query with a name like `.SpecSync.Internal.<configuration-key>` located in the "Shared Queries" folder of Azure DevOps.
+
+**Solution 1:** Grant permissions to edit the query that defines the scope to the user performing the synchronization. You can find the query in the "Shared Queries / .SpecSync.Internal" folder of Azure DevOps. Select the entire ".SpecSync.Internal" folder or the individual query and choose the "Security" option from the context menu. Select the group the user belongs to (e.g. "Contributors") or search for the user directly and set the "Contribute" permission to "Allow".
+
+**Solution 2:** If you don't want to grant permissions to edit the query, you can change the `remote/scope` setting to a different type that does not require editing a query, e.g. `testSuite` or `tag`. See the [remote scope documentation](../features/common-synchronization-features/remote-scope.md#how-to-choose-remote-scope-type) for details.
+
