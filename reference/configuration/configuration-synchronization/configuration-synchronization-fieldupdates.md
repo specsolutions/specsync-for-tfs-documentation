@@ -120,8 +120,8 @@ You can apply the value loaders for the entire value, not only for placeholders 
 
 The following value loaders are supported:
 
-  * `HTML` - encodes HTML tags and transforms whitespaces to HTML newlines and non-breaking spaces.
-  * `HtmlEncode` - encodes HTML tags.
+  * `HTML` - converts formatted text to HTML (HTML characters are encoded, whitespaces are transformed to HTML newlines and non-breaking spaces).
+  * `HtmlEncode` - converts any text to HTML by encoding HTML characters (but do not process whitespaces).
   * `Unix` - replaces Windows-style path separators (`\`) with Unix-style ones (`/`)
   * `Windows` - replaces Unix-style path separators (`/`) with Windows-style ones (`\`)
   * `MarkdownToHtml` - converts Markdown text to HTML. The relevant [Markdown extras from Markdig](https://github.com/xoofx/markdig/tree/master/src/Markdig.Tests/Specs) can be also used.
