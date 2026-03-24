@@ -49,7 +49,7 @@ The example below creates User Story work items from files ending with `.require
 
 ## Branch tagging and extra links
 
-- Use `links` to control how tags on the requirement document (for example `@bug:123`) create links from the requirement work item to other work items, and override link relationships when needed.
+- Use `links` to control how tags on the requirement document (for example `@bug:123`) create links from the requirement work item to other work items, and override link relationships when needed. When the link type has been explicitly defined, you must override the link type for the requirements to avoid the warning described in the [troubleshooting section](../../contact/troubleshooting.md#w5142).
 - When branch tagging is enabled, `branchTagPrefix` specifies how branched requirements are tagged (pairs with `customizations/branchTag`). See [Branch tag customization](customization-support-synchronizing-scenarios-from-a-branch.md) for details.
 - Use `linkOnChange` to automatically link changed requirements to another work item or pull request, similarly to the [Link on change customization](customization-automatically-link-changed-test-cases.md).
 
