@@ -220,3 +220,85 @@ The error is caused by insufficient permissions of the user performing the synch
 
 **Solution 2:** If you don't want to grant permissions to edit the query, you can change the `remote/scope` setting to a different type that does not require editing a query, e.g. `testSuite` or `tag`. See the [remote scope documentation](../features/common-synchronization-features/remote-scope.md#how-to-choose-remote-scope-type) for details.
 
+
+
+### 'W5142: The tag '<tag>' defines a link of relationship 'Tests', that is defined for Test Case links...' warning when synchronizing requirements using the Requirement Synchronization customization <a href="w5142" id="w5142"></a>
+
+When [Requirement Synchronization customization](../features/push-features/customization-requirement-synchronization.md) is used and a link tag is used in a requirement with a name that is already used for Test Case links (i.e., defined in `synchronization/links`) and you have specified the `Type` setting explicitly, you might encounter a warning like
+
+```
+Warning W5142: The tag '@<prefix>:<id>' defines a link of relationship 'Tests', that is defined for 
+Test Case links. Override the link type for the requirement using the configuration setting 
+'customizations/requirementSynchronization/requirements[]/links[]/relationship'.
+```
+
+Requirements can "reuse" the same link tags as Test Cases, but the appropriate link type is usually different for requirements than for Test Cases. For example, the "Tests" link type is usually used when Test Cases link to an User Story, but a synchronized requirement (i.e. a Feature or an Epic) would usually link to the User Story with a different link type, e.g. "Related". 
+
+When the link type is not specified for the link, SpecSync will automatically choose the link type depending on whether it is used for a Test Case or a requirement (uses "Tests" for Test Cases and "Related" for requirements). However, when the link type is explicitly specified in the configuration at `synchronization/links`, and the link type is not overridden for the requirement, SpecSync will show the warning above, to avoid creating links between requirements and other Work Items with the wrong link type.
+
+The configuration below shows an example where the warning might be shown. Adding a link tag like `@story:1234` to the requirement document will trigger the warning, because the "Tests" link type is specified for the `story` tag in the `synchronization/links` section, but this link type is not appropriate for linking requirements.
+
+```javascript
+{
+  ...
+  "synchronization": {
+    "links": [
+      {
+        "tagPrefix": "story",
+        "relationship": "Tests"
+      }
+    ]
+  },
+  "customizations": {
+    "requirementSynchronization": {
+      "enabled": true,
+      "requirements": [
+        {
+          "targetType": "User Story",
+          "condition": "$sourceFile ~ **/*.requirement.feature",
+          "tagPrefix": "req-id"
+        }
+      ]
+    }
+  }
+  ...
+}
+```
+
+**Solution 1:** Override the link type for the requirement using the configuration setting `customizations/requirementSynchronization/requirements[]/links[]/relationship`. For example, if you want to use the "Related" link type for the requirement, you can add the following configuration to the requirement synchronization configuration:
+
+```javascript
+{
+  ...
+  "synchronization": {
+    "links": [
+      {
+        "tagPrefix": "story",
+        "relationship": "Tests"
+      }
+    ]
+  },
+  "customizations": {
+    "requirementSynchronization": {
+      "enabled": true,
+      "requirements": [
+        {
+          "targetType": "User Story",
+          "condition": "$sourceFile ~ **/*.requirement.feature",
+          "tagPrefix": "req-id",
+          "links": [
+            {
+              "tagPrefix": "story",
+              "relationship": "Related" // type overridden for the requirement
+            }
+          ]
+        }
+      ]
+    }
+  }
+  ...
+}
+```
+
+**Solution 2:** If the link type was set to "Tests" in the `synchronization/links` section, you can also simply remove the link type from the configuration, so that SpecSync will automatically choose the appropriate link type for Test Cases and requirements. The "Tests" link type is anyway the default for Test Cases.
+
