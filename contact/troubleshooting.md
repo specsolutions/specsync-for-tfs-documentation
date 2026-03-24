@@ -222,9 +222,9 @@ The error is caused by insufficient permissions of the user performing the synch
 
 
 
-### 'W5142: The tag '<tag>' defines a link of relationship 'Tests', that is defined for Test Case links...' warning when synchronizing requirements using the Requirement Synchronization customization <a href="w5142" id="w5142"></a>
+### "W5142: The tag '[tag]' defines a link of relationship 'Tests', that is defined for Test Case links..." warning when synchronizing requirements using the Requirement Synchronization customization <a href="w5142" id="w5142"></a>
 
-When [Requirement Synchronization customization](../features/push-features/customization-requirement-synchronization.md) is used and a link tag is used in a requirement with a name that is already used for Test Case links (i.e., defined in `synchronization/links`) and you have specified the `Type` setting explicitly, you might encounter a warning like
+When [Requirement Synchronization customization](../features/push-features/customization-requirement-synchronization.md) is used and a link tag is used in a requirement with a tag prefix that is already used for Test Case links (i.e., defined in `synchronization/links`) and you have specified the `Type` setting explicitly, you might encounter a warning like
 
 ```
 Warning W5142: The tag '@<prefix>:<id>' defines a link of relationship 'Tests', that is defined for 
