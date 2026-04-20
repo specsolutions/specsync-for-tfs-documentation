@@ -12,6 +12,28 @@ For planned features in future releases please check the [Release Model and Road
 Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationException` when publishing test results using multi-suite publish. Please update to v3.4.18 or later. That version uses a different method so it is not affected by the issue. See more at [the Troubleshooting guide](https://docs.specsolutions.eu/specsync/contact/troubleshooting#issue1357). The fix has been also ported back to v3.3 as v3.3.17. (#1357)
 {% endhint %}
 
+## v5.4.0 - 2026/04/20
+
+### Improvements
+
+* Improve synchronization performace with parallel processing resulting in 5-10x performance improvement (#1374)
+* Improve error summary of synchronization failures (#1878)
+* Improve warning message for overriding links for requirements without specifying the relationship (W5142)
+* Improve error message to mention that `managedQuery` remote scope require write permission for shared queries (#1840)
+* Update dependencies that have known security vulnerabilities (#1879)
+* Various stability and maintainability improvements (#1850, #1858, #1882)
+
+### Bug fixes
+
+* Fix: New lines in scenario outline examples table are not restored correctly with pull (#1853)
+* Fix: Docstrings that contain `"""` are not restored correctly with pull (#1854)
+* Fix: Error during hierarchy update: "Error E1242: Unable to delete Test Suite" (#1884)
+* Fix: Publish warning incorrectly mentions 0 test cases for suites (#1872)
+* Fix: Error during synchronization of hierarchies in dry-run mode: "Error E1235: Invalid ID: -1." (#1880)
+* Fix: Docstrings that contain a plain text Gherkin table are not restored correctly with pull (#1855)
+* Fix: Escaped Azure DevOps parameter markers ('@') are not restored correctly with pull (#1856)
+* Fix: Gherkin parameter placeholders that do not belong to actual example parameters are converted to Azure DevOps parameters incorrectly (#1857)
+
 ## v5.3.0 - 2026/02/04
 
 ### Improvements
@@ -345,7 +367,7 @@ _Note: The release v3.4.21 contains a fix with a negative side-effect when `--dr
 * Support for .NET 9: The [.NET tool installation](installation/dotnet-core-tool.md) now works on systems that only have .NET 9.0 SDK. (#1239)
 * Support for establishing non-tracked links via `synchronization/links[]/disableTracking` setting. With that you can disable automatic removal of links when the corresponding tag has been deleted.  (#1370)
 * Force processing removals of local test cases on filter with `toolSettings/forceProcessingRemovalsOnFilter`. (#1373)
-* Update dependencies to address know vulnerabilities (#1375)
+* Update dependencies to address known vulnerabilities (#1375)
 * Various stability and maintainability improvements (#1369)
 
 
