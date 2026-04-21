@@ -34,7 +34,11 @@ The [SpecSync plugins](features/plugin-list.md) are generally compatible with th
 
 ## Roadmap
 
-We have just finished the v5 release. Please check the [Changelog](changelog.md#v5) or try out the new version and provide feedback!
+We have recently finished the v5 release. Please check the [Changelog](changelog.md#v5) or try out the new version and provide feedback!
 
-We will update the roadmap after v5 has been released. Please stay tuned.
+### Planned features
 
+* Improve performance of test result publishing
+* Improve console output for interactive sessions
+* Provide uniform HTML report for published test results for Azure DevOps and Jira
+* Additional SpecSync plugins to synchronize further different coded tests, for example TypeScript and JavaScript tests
