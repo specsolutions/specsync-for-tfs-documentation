@@ -16,9 +16,9 @@ Due to an Azure DevOps issue, SpecSync might fail with `JsonSerializationExcepti
 
 ### Improvements
 
-* Improve synchronization performace with parallel processing resulting in 5-10x performance improvement (#1374)
+* Improve synchronization performance with parallel processing resulting in 5-10x performance improvement (#1374)
 * Improve error summary of synchronization failures (#1878)
-* Improve warning message for overriding links for requirements without specifying the relationship (W5142)
+* Improve warning message for overriding links for requirements without specifying the relationship (W5142) (#1869)
 * Improve error message to mention that `managedQuery` remote scope require write permission for shared queries (#1840)
 * Update dependencies that have known security vulnerabilities (#1879)
 * Various stability and maintainability improvements (#1850, #1858, #1882)
@@ -218,6 +218,22 @@ The main changes are:
   * Allow --runComment and  --testResultComment for Jira (#1458)
   * Offer 'tag' as remote scope for Jira, use it as default for init (#1281)
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
+
+## v3.4.34 - 2026/04/21
+
+### Improvements
+
+* Improve warning message for overriding links for requirements without specifying the relationship (#1869)
+* Update SpecSync native binaries and Docker images to be based on .NET 10.0 from .NET 6.0 (.NET 6.0 is deprecated) (#1813)
+* Update dependencies that have known security vulnerabilities (#1879)
+* Various stability and maintainability improvements (#1830, #1835)
+
+### Bug fixes
+
+* Fix: Publish warning incorrectly mentions 0 test cases for suites (#1872)
+* Fix: TRX test results created by xUnit V3 MTP using Microsoft.Testing.Extensions.TrxReport cannot be processed (#1821)
+* Fix: Error when --dryRun is used and there is an unlinked local test case and Test Suite scope is used (#1607)
+
 
 ## v3.4.33 - 2025/12/11
 
