@@ -61,7 +61,7 @@ Scenario Outlines count as one scenario.
 
 ## Enterprise support
 
-The Service Level Agreement \(SLA\) for the support services for SpecSync for Azure DevOps Enterprise license holders can be downloaded from [here](https://content.specsolutions.eu/specsync/SpecSync-Enterprise-Support-SLA.pdf).
+The Service Level Agreement (SLA) for the support services for SpecSync for Azure DevOps Enterprise license holders can be downloaded from [here](https://content.specsolutions.eu/specsync/SpecSync-Enterprise-Support-SLA.pdf).
 
 ## EULA
 
@@ -69,3 +69,8 @@ The End User License Agreement (EULA) can be downloaded [here](https://content.s
 
 SpecSync for Azure DevOps uses 3rd party software libraries, please find their licenses at [http://speclink.me/specsync3rdpartylic](http://speclink.me/specsync3rdpartylic).
 
+## Terms and conditions
+
+For customers purchasing a SpecSync subscription from Spec Solutions the generic terms and conditions of the subscription can be found [here](https://content.specsolutions.eu/specsync/SpecSync-Terms-and-Conditions.pdf).
+
+Accepted price quotes, orders or invoice details might override the generic terms and conditions for commercial terms.
