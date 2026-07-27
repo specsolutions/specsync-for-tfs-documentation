@@ -253,3 +253,23 @@ The following example synchronizes the Test Case not-automated.
 } 
 ```
 
+In case if SpecSync cannot detect Reqnroll project settings, the following configuration updates the automation fields according to the Reqnroll test naming.
+
+```
+{
+  ...
+  "synchronization": {
+    "automation": { 
+      "enabled": false, // or leave out the entire automation block
+    },
+    "fieldUpdates": {
+      "Automated test storage": "MyProject.dll",
+      "Automated test name": "MyProject.{feature-file-folder:ReqnrollToNamespaceWithDot}{feature-name:ReqnrollToIdentifier}Feature.{scenario-name:ReqnrollToIdentifier}",
+      "Automated test type": "Reqnroll",
+      "Automation status": "Automated"
+    }
+  }
+} 
+```
+
+

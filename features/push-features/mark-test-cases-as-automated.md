@@ -10,7 +10,7 @@ You can enable marking Test Cases as automated by setting the [`synchronization/
 When the automation synchronization is not enabled (i.e., `synchronization/automation/enabled` is not set or set to `false`), SpecSync will not synchronize the automation-related fields of the Test Case. This allows you to control the automation status with another tool or using the [Update Test Case fields](update-test-case-fields.md#update-automation-fields) feature.
 {% endhint %}
 
-Optionally you can also specify the value to be used for the "Automated test type" field of the Test Case using the `synchronization/automation/automatedTestType` setting. (By default the field is set to `SpecFlow` for SpecFlow projects and `Gherkin` for other projects.)
+Optionally you can also specify the value to be used for the "Automated test type" and the "Automated test storage" fields of the Test Case using the `synchronization/automation/automatedTestType` and `synchronization/automation/automatedTestStorage` settings. (By default the "Automated test type" field is set to `Reqnroll` for Reqnroll projects and `Gherkin` for other projects, and the "Automated test storage" field is set to the test assembly file name for Reqnroll projects and to the feature file name for other projects.)
 
 {% hint style="info" %}
 After changing the automation configuration, you need to perform the push command with an additional `--force` setting. Using the `--force` setting is only required once.

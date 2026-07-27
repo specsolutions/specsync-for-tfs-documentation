@@ -116,7 +116,7 @@ The following placeholders can be used in field updates for [requirement synchro
 
 For the placeholders, different "value loaders" can be specified. Value loaders can transform the value. E.g. if the `HTML` loader is used in a field update as `{scenario-description:HTML}`, it will replace the white space and new line characters of the scenario description with the necessary HTML elements. 
 
-You can apply the value loaders for the entire value, not only for placeholders using the `{{!HTML}}...` prefix. This can be useful is the static text might also contain formatting to be handled. E.g. `{{!MarkdownToHtml}}A *Markdown* feature description: {feature-description}`.
+You can apply the value loaders for the entire value, not only for placeholders using the `{!HTML}...` prefix. This can be useful is the static text might also contain formatting to be handled. E.g. `{!MarkdownToHtml}A *Markdown* feature description: {feature-description}`.
 
 The following value loaders are supported:
 
@@ -126,6 +126,8 @@ The following value loaders are supported:
   * `Windows` - replaces Unix-style path separators (`/`) with Windows-style ones (`\`)
   * `MarkdownToHtml` - converts Markdown text to HTML. The relevant [Markdown extras from Markdig](https://github.com/xoofx/markdig/tree/master/src/Markdig.Tests/Specs) can be also used.
   * `TextToMarkdown` - converts text values to Markdown format for fields that accept Markdown (e.g. test result comment).
+  * `ReqnrollToIdentifier` - converts text values .NET identifier string based on the conversion rules that Reqnroll uses.
+  * `ReqnrollToNamespaceWithDot` - converts a folder path to a .NET namespace string based on the conversion rules that Reqnroll uses. The value will end with a dot (`.`) if the folder path is not empty. The value will be empty if the folder path is empty.
 
 ## Default Test Case fields <a href="default-test-case-fields" id="default-test-case-fields"></a>
 

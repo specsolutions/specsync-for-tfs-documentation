@@ -215,6 +215,15 @@ The main changes are:
   * Offer 'tag' as remote scope for Jira, use it as default for init (#1281)
   * Plugins: Make TestRunTestResult.ExecutionId public (#1609)
 
+## v3.4.35 - 2026/07/27
+
+### Improvements
+
+* Allow customizing Reqnroll automation settings. The `synchronization/automation/automatedTestStorage` configuration setting can be used to override the "automated test storage" field. The value loaders `ReqnrollToIdentifier` and `ReqnrollToNamespaceWithDot` can be used to fully customize the automation field settings even if the Reqnroll project details are not recognized. (#1919)
+* Update dependencies that have known security vulnerabilities (#1920)
+* Various stability and maintainability improvements (#1887)
+
+
 ## v3.4.34 - 2026/04/21
 
 ### Improvements
@@ -515,7 +524,7 @@ _Note: The release v3.3.13 has been revoked due to a release issue._
 
 ### Improvements
 
-* Display unique ID for warnings. Now all warnings can be better identified with a code, like `W5133`. The next major release (v3.5) will provide further features for fine-grain handling of warnings. (#1210)
+* Display unique ID for warnings. Now all warnings can be better identified with a code, like `W5133`. The next major release (v5) will provide further features for fine-grain handling of warnings. (#1210)
 * Allow specifying default Test Plan for *Add Test Cases to Suites* customization to avoid setting the same plan for every suite. See [`customizations/addTestCasesToSuites`](reference/configuration/configuration-customizations.md#addtestcasestosuites) for details. (#1185)
 * The VSTestForSpecSync Azure DevOps pipeline task has been upgraded to match VsTest v3.225. The new task version is v3.225.1. See [How to use the SpecSync Azure DevOps pipeline tasks](important-concepts/how-to-use-the-pipeline-tasks.md) for details. Please note that the VSTest rerun function for SpecFlow xUnit and NUnit has been reduced in VSTest v3, so consider to keep using the VSTestForSpecSync v1 if you use these systems, or switch to the `testRunTrx` loader described in the linked guide. (#1220)
 * Reminder of using preview release that is released more than 90 days ago. Do not allow using preview releases released more than 180 days ago. (#1202)
