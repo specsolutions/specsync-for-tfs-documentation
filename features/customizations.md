@@ -56,6 +56,10 @@ The customizations described here are [Enterprise features](../licensing.md).
 [customization-requirement-synchronization.md](push-features/customization-requirement-synchronization.md)
 {% endcontent-ref %}
 
+{% content-ref url="push-features/customization-additional-steps.md" %}
+[customization-additional-steps.md](push-features/customization-additional-steps.md)
+{% endcontent-ref %}
+
 {% content-ref url="test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md" %}
 [customization-publishing-test-results-to-multiple-test-suite.md](test-result-publishing-features/customization-publishing-test-results-to-multiple-test-suite.md)
 {% endcontent-ref %}

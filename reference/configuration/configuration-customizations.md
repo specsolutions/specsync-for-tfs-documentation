@@ -98,6 +98,24 @@ The following example shows the available options within this section.
     },
     "doNotSynchronizeTitle": {
       "enabled": true
+    },
+    "additionalSteps": {
+      "enabled": true,
+      "rules": [
+        {
+          "condition": "@given:*",
+          "step": "Given {1:UnderscoreToSpace}"
+        },
+        {
+          "condition": "@when:*",
+          "step": "When {1:UnderscoreToSpace}"
+        },
+        {
+          "condition": "@then:*",
+          "step": "Then {1:UnderscoreToSpace}",
+          "isOutcomeStep": true
+        }
+      ]
     }
   }
   ...
@@ -300,6 +318,18 @@ Skips synchronizing the Test Case title field (`System.Title`). See [Customizati
 | Setting | Description | Default |
 | ------- | ----------- | ------- |
 | `doNotSynchronizeTitle/enabled` | Enables the customization. | `false`   |
+
+### additionalSteps
+
+Specifies additional steps to be executed during synchronization. See [Customization: Additional steps](../../features/push-features/customization-additional-steps.md) for details.
+
+| Setting | Description | Default |
+| ------- | ----------- | ------- |
+| `additionalSteps/enabled` | Enables the customization. | `false`   |
+| 'additionalSteps/rules[]/condition' | A [local test case condition](../../features/general-features/local-test-case-conditions.md) of scenarios for which the additional step should be added (e.g. `@given:*`, `@when:*`, `@then:*`). | step always added |
+| 'additionalSteps/rules[]/step' | The additional step to be added. Placeholders, like `{1:UnderscoreToSpace}` can be used. | mandatory |
+| 'additionalSteps/rules[]/isOutcomeStep' | When set to `true`, the additional step will be added as an outcome step. | `false` |
+| 'additionalSteps/rules[]/position' | Specifies the position of the additional step, e.g. `1` inserts the step to the first position. If not specified, the step will be added last. | not specified |
 
 {% content-ref url="./" %}
 [.](./)

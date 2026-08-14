@@ -39,3 +39,5 @@ This chapter contains features related to updating Test Cases based on the local
 {% page-ref page="customization-do-not-synchronize-title.md" %}
 
 {% page-ref page="customization-requirement-synchronization.md" %}
+
+{% page-ref page="customization-additional-steps.md" %}

@@ -128,6 +128,9 @@ The following value loaders are supported:
   * `TextToMarkdown` - converts text values to Markdown format for fields that accept Markdown (e.g. test result comment).
   * `ReqnrollToIdentifier` - converts text values .NET identifier string based on the conversion rules that Reqnroll uses.
   * `ReqnrollToNamespaceWithDot` - converts a folder path to a .NET namespace string based on the conversion rules that Reqnroll uses. The value will end with a dot (`.`) if the folder path is not empty. The value will be empty if the folder path is empty.
+  * `EmptyFolderToDot` - converts an empty folder path to a dot (`.`) and leave a non-empty folder as it is. This can be used when the folder path needs to be built using the `{local-test-case-container-source-file-folder}` placeholder and the value should be a dot (`.`) if the folder is empty.
+  * `AddFolderSeparator` - adds a folder separator (`/` or `\`) to the end of a folder path if it is not empty. This can be used when the folder path needs to be built using the `{local-test-case-container-source-file-folder}` placeholder and the value should end with a folder separator if the folder is not empty.
+  * `UnderscoreToSpace` - replaces underscores (`_`) with spaces (` `) in the value. This can be used when a text was encoded into a matching tag.
 
 ## Default Test Case fields <a href="default-test-case-fields" id="default-test-case-fields"></a>
 

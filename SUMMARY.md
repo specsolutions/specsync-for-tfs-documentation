@@ -33,6 +33,7 @@
     * [Customization: Add Test Cases to Suites](features/push-features/customization-add-test-cases-to-suites.md)
     * [Customization: Requirement Synchronization](features/push-features/customization-requirement-synchronization.md)
     * [Customization: Do not synchronize title](features/push-features/customization-do-not-synchronize-title.md)
+    * [Customization: Additional steps](features/push-features/customization-additional-steps.md)
   * [Pull features](features/pull-features/README.md)
     * [Pulling Test Case changes to local scenarios](features/pull-features/two-way-synchronization.md)
   * [Common synchronization features](features/common-synchronization-features/README.md)

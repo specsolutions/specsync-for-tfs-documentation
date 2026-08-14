@@ -8,6 +8,28 @@ The [How to upgrade to a newer version of SpecSync](important-concepts/how-to-up
 For planned features in future releases please check the [Release Model and Roadmap](roadmap.md) page.
 {% endhint %}
 
+## v5.5.0 - 2026/08/14
+
+### Improvements
+
+* Allow customizing Reqnroll automation settings. The `synchronization/automation/automatedTestStorage` configuration setting can be used to override the "automated test storage" field. The value loaders `ReqnrollToIdentifier` and `ReqnrollToNamespaceWithDot` can be used to fully customize the automation field settings even if the Reqnroll project details are not recognized. (#1918)
+* Value loaders to handle empty paths (`EmptyFolderToDot` and `AddFolderSeparator`) have been added to allow customizing the automation field settings even if the Reqnroll project details are not recognized. See [value loaders documentation](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md#value-loaders) for details. (#1919)
+* Support for matching to tags in local artifact conditions that contain new lines (#1913)
+* Value loader to replace underscores with spaces: `UnderscoreToSpace`. See [value loaders documentation](reference/configuration/configuration-synchronization/configuration-synchronization-fieldupdates.md#value-loaders) for details. (#1912)
+* Allow using value loaders for wildcard match placeholders (e.g. {1:HTML}) (#1911)
+* Additional steps customization: Allow including additional steps to the step list based on tags. This is useful for test case sources supported via [SpecSync plugins](features/plugin-list.md) (e.g. C# MsTest tests) where the plugin cannot detect steps itself. See [feature documentation](features/push-features/customization-additional-steps.md) for details. (#1914)
+* Update dependencies that have known security vulnerabilities (#1932)
+* Various stability and maintainability improvements (#1896)
+
+### Plugin Improvements
+
+* SpecSync.Plugin.JestTestSource v5.2.1 (initial stable version): 
+  * SpecSync.Plugin.JestTestSource: Support React/Jest test source for JavaScript, TypeScript, JSX & TSX files (#1886, #1904, #1899, #1898, #1900)
+
+### Bug fixes
+
+* Fix: SpecSync.PluginDependency.CSharpSource: File-scoped namespace declarations are not recognized (#1930)
+
 ## v5.4.0 - 2026/04/20
 
 ### Improvements
@@ -219,7 +241,7 @@ The main changes are:
 
 ### Improvements
 
-* Allow customizing Reqnroll automation settings. The `synchronization/automation/automatedTestStorage` configuration setting can be used to override the "automated test storage" field. The value loaders `ReqnrollToIdentifier` and `ReqnrollToNamespaceWithDot` can be used to fully customize the automation field settings even if the Reqnroll project details are not recognized. (#1919)
+* Allow customizing Reqnroll automation settings. The `synchronization/automation/automatedTestStorage` configuration setting can be used to override the "automated test storage" field. The value loaders `ReqnrollToIdentifier` and `ReqnrollToNamespaceWithDot` can be used to fully customize the automation field settings even if the Reqnroll project details are not recognized. (#1918)
 * Update dependencies that have known security vulnerabilities (#1920)
 * Various stability and maintainability improvements (#1887)
 
