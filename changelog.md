@@ -25,6 +25,8 @@ For planned features in future releases please check the [Release Model and Road
 
 * SpecSync.Plugin.JestTestSource v5.2.1 (initial stable version): 
   * SpecSync.Plugin.JestTestSource: Support React/Jest test source for JavaScript, TypeScript, JSX & TSX files (#1886, #1904, #1899, #1898, #1900)
+* SpecSync.Plugin.MsTestTestSource v5.1.0: 
+  * Fix: SpecSync.Plugin.MsTestTestSource: File-scoped namespace declarations are not recognized (#1933)
 
 ### Bug fixes
 
