@@ -12,11 +12,15 @@ For planned features in future releases please check the [Release Model and Road
 
 ### Bug fixes
 
-* Fix: SpecSync.Plugin.NUnitTestSource: File-scoped namespace declarations are not recognized (#1934)
 * Fix: Unnecessary updates might happen for parametrized tests when using `--force` (#1937)
 * Fix: Test Suites can be deleted when dry-run mode is enabled (#1940)
 * Fix: The "onAdditionalNodes=delete" setting of a hierarchy might delete the root node (#1943)
 * Fix: Parametrized tests with param name "a" cannot be synchronized due to an Azure DevOps bug (#1944)
+
+### Plugin Improvements
+
+* SpecSync.Plugin.NUnitTestSource v5.1.0:
+  * Fix: SpecSync.Plugin.NUnitTestSource: File-scoped namespace declarations are not recognized (#1934)
 
 
 ## v5.5.0 - 2026/08/14
