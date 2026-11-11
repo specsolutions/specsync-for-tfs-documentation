@@ -8,6 +8,8 @@ There is a 5-letter support code displayed in the synchronization output for lic
 
 We keep collecting common questions in the [FAQ](faq.md) section of the documentation and on the [Troubleshooting](troubleshooting.md) page. 
 
+If you would like to report a security vulnerability, please follow the instructions on the [Security](security.md) page, which also lists our security advisories.
+
 ## Enterprise support
 
 For our customers with Enterprise license, we provide priority support covered by a Service Level Agreement \(SLA\).  The SLA for the support services for SpecSync for Azure DevOps Enterprise license holders can be downloaded from [here](https://content.specsolutions.eu/specsync/SpecSync-Enterprise-Support-SLA.pdf).
