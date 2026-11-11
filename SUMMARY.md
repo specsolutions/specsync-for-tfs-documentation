@@ -125,6 +125,7 @@
 * [SpecSync Support](contact/specsync-support.md)
 * [Troubleshooting](contact/troubleshooting.md)
 * [FAQ](contact/faq.md)
+* [Security](contact/security.md)
 
 ***
 
