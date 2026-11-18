@@ -130,3 +130,7 @@
 ***
 
 * [Project Website](http://speclink.me/specsync)
+
+## Temporary
+
+* [Checksum file test](checksum-test.md)

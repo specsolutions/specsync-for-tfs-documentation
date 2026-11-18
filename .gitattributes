@@ -1,0 +1,3 @@
+# Temporary: checksum files for the GitBook test (remove after the test)
+SHA256SUMS -text
+SHA256SUMS*.txt -text
